@@ -8,11 +8,11 @@ Para realizar um deploy siga os passos abaixo.</br>
 * 3 - Abra um PR da feature para a branch **master** (sem aprovador) com a label **deploy no ambiente develop**
 
 ### Ambiente Homolog
-* 3 - Abra um PR da feature para a branch **master** com a label **deploy no ambiente homolog**
+* 3 - Abra um PR da feature para a branch **master** (sem aprovador) com a label **deploy no ambiente homolog**
 
 ### Ambiente Produção
-* 3 - Abra um PR da feature gerada pela esteira (concatenada com `_release`) para a branch **master** com aprovador
-* 4 - Aguarde a geração do card de Publicação em https://rdcviagens.atlassian.net/jira/software/c/projects/PUB/boards/17, complete fazendo o link de sua atividade
+* 3 - Abra um PR da branch gerada pela esteira (concatenada com `_release`) para a branch **master** com a label **deploy no ambiente homolog** E com aprovador
+* 4 - Solicite a Aprovação do PR aguarde a geração do card de Publicação em https://rdcviagens.atlassian.net/jira/software/c/projects/PUB/boards/17, complete fazendo o link de sua atividade
 * 5 - Solicite ao DevOps a subida do pacote
 * 6 - Dúvidas? Procure o DevOps
 
