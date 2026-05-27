@@ -73,7 +73,3 @@ Todas as imagens do site foram baixadas em alta resolução (2752x1536 pixels):
 
 ## Data de Extração
 14 de Janeiro de 2026
-
-## Fluxo
-
-![Fluxo](Fluxo.png)
