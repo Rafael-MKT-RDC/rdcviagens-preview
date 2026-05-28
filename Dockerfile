@@ -1,6 +1,6 @@
 FROM node:20-alpine
 WORKDIR /app
-EXPOSE 3000
+EXPOSE 80
 
 RUN npm install -g pnpm@10.4.1
 
