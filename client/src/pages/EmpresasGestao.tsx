@@ -222,18 +222,25 @@ export default function EmpresasGestao() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="RDC Gestão de Viagens | Viagens Corporativas para PMEs"
-        description="Gestão completa de viagens corporativas para pequenas e médias empresas. Economize até 30%, centralize reservas e tenha controle total dos gastos."
-        keywords="gestão viagens corporativas, viagens PME, travel management pequenas empresas, controle viagens empresariais, RDC gestão"
-        canonical="https://rdcviagens.com.br/solucoes-corporativas/gestao"
+        title="Gestão de Viagens Corporativas para PMEs"
+        description="Gestão completa de viagens corporativas para pequenas e médias empresas. Economize até 30%, centralize reservas e controle gastos. Solicite uma demonstração!"
+        keywords="gestão viagens corporativas, travel management PME, viagens empresariais, controle gastos viagem, reservas corporativas, RDC gestão"
+        canonical="/solucoes-corporativas/gestao"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "RDC Gestão de Viagens",
+          "provider": { "@type": "Organization", "name": "RDC Viagens" },
+          "description": "Gestão completa de viagens corporativas para pequenas e médias empresas com economia de até 30%.",
+          "serviceType": "Gestão de Viagens Corporativas"
+        }}
       />
       <Header />
       
       {/* Hero Section */}
       <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/AbahMgOqOmGaOCLA.jpg" 
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/AbahMgOqOmGaOCLA.jpg" 
             alt="RDC Gestão de Viagens"
             className="w-full h-full object-cover"
           />
@@ -249,9 +256,13 @@ export default function EmpresasGestao() {
           </Link>
           
           <div className="max-w-3xl">
+            <img src="/logos/b2b/logo-gestao.svg" 
+              alt="RDC Gestão de Viagens" 
+              className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" 
+            />
             <Badge className="mb-4 bg-[#E8506A] hover:bg-rose-600 text-white border-0">
               <Plane className="w-4 h-4 mr-2" />
-              RDC Gestão de Viagens
+              Gestão Corporativa
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Sua empresa viaja.{" "}

@@ -8,9 +8,12 @@ interface SEOProps {
   ogType?: string;
   ogImage?: string;
   noindex?: boolean;
-  /** Schema.org article author (para páginas de blog/conteúdo) */
-  author?: string;
+  schema?: object | object[];
 }
+
+const SITE_NAME = "RDC Viagens";
+const BASE_URL = "https://rdcviagens.com.br";
+const DEFAULT_OG_IMAGE = "https://rdcviagens.com.br/og-image.jpg";
 
 export default function SEO({
   title,
@@ -18,15 +21,16 @@ export default function SEO({
   keywords,
   canonical,
   ogType = "website",
-  ogImage,
+  ogImage = DEFAULT_OG_IMAGE,
   noindex = false,
-  author,
+  schema,
 }: SEOProps) {
   useEffect(() => {
-    // Título: garante sufixo "| RDC Viagens"
-    document.title = title.includes("RDC Viagens") ? title : `${title} | RDC Viagens`;
+    // Update document title
+    const fullTitle = `${title} | ${SITE_NAME}`;
+    document.title = fullTitle;
 
-    // Helper: cria ou atualiza meta tag
+    // Helper to set or create meta tags
     const setMeta = (attr: string, key: string, content: string) => {
       let el = document.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
       if (!el) {
@@ -37,31 +41,25 @@ export default function SEO({
       el.setAttribute("content", content);
     };
 
-    // Meta básico
+    // Standard meta
     setMeta("name", "description", description);
     if (keywords) setMeta("name", "keywords", keywords);
     setMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow");
-    if (author) setMeta("name", "author", author);
 
     // Open Graph
-    setMeta("property", "og:site_name", "RDC Viagens");
-    setMeta("property", "og:locale", "pt_BR");
-    setMeta("property", "og:title", title);
+    setMeta("property", "og:title", fullTitle);
     setMeta("property", "og:description", description);
     setMeta("property", "og:type", ogType);
-    if (canonical) setMeta("property", "og:url", canonical);
-    if (ogImage) {
-      setMeta("property", "og:image", ogImage);
-      setMeta("property", "og:image:width", "1200");
-      setMeta("property", "og:image:height", "630");
-    }
+    setMeta("property", "og:site_name", SITE_NAME);
+    setMeta("property", "og:locale", "pt_BR");
+    if (canonical) setMeta("property", "og:url", `${BASE_URL}${canonical}`);
+    setMeta("property", "og:image", ogImage);
 
     // Twitter Card
-    setMeta("name", "twitter:card", ogImage ? "summary_large_image" : "summary");
-    setMeta("name", "twitter:site", "@rdcviagens");
-    setMeta("name", "twitter:title", title);
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:title", fullTitle);
     setMeta("name", "twitter:description", description);
-    if (ogImage) setMeta("name", "twitter:image", ogImage);
+    setMeta("name", "twitter:image", ogImage);
 
     // Canonical link
     if (canonical) {
@@ -71,9 +69,31 @@ export default function SEO({
         link.setAttribute("rel", "canonical");
         document.head.appendChild(link);
       }
-      link.setAttribute("href", canonical);
+      link.setAttribute("href", `${BASE_URL}${canonical}`);
     }
-  }, [title, description, keywords, canonical, ogType, ogImage, noindex, author]);
+
+    // Schema.org JSON-LD
+    if (schema) {
+      // Remove previous page-specific schema
+      const existingSchemas = document.querySelectorAll('script[data-page-schema="true"]');
+      existingSchemas.forEach(el => el.remove());
+
+      const schemas = Array.isArray(schema) ? schema : [schema];
+      schemas.forEach(s => {
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.setAttribute("data-page-schema", "true");
+        script.textContent = JSON.stringify(s);
+        document.head.appendChild(script);
+      });
+    }
+
+    return () => {
+      // Cleanup page-specific schemas on unmount
+      const existingSchemas = document.querySelectorAll('script[data-page-schema="true"]');
+      existingSchemas.forEach(el => el.remove());
+    };
+  }, [title, description, keywords, canonical, ogType, ogImage, noindex, schema]);
 
   return null;
 }

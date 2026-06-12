@@ -14,8 +14,8 @@ export default function NotFound() {
   return (
     <>
       <SEO
-        title="Página Não Encontrada | RDC Viagens"
-        description="A página que você procura não foi encontrada. Navegue pelo site da RDC Viagens para encontrar planos de assinatura, destinos e soluções corporativas."
+        title="Página Não Encontrada"
+        description="A página que você procura não foi encontrada. Navegue pelo site da RDC Viagens para descobrir planos de assinatura, destinos e soluções corporativas de viagens."
         noindex={true}
       />
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">

@@ -99,9 +99,9 @@ const features = [
 ];
 
 const corporateSolutions = [
-  { title: "RDC Premiação", description: "Benefício corporativo que transforma vidas. Ofereça viagens como benefício para seus colaboradores.", href: "/solucoes-corporativas#premiacao", cta: "Descubra como premiar" },
-  { title: "RDC Gestão de Viagens", description: "Gestão completa de viagens corporativas com eficiência, controle e economia.", href: "/solucoes-corporativas#gestao", cta: "Conheça a gestão inteligente" },
-  { title: "RDC Parcerias", description: "Alianças estratégicas para criar novos canais de aquisição e valor agregado.", href: "/solucoes-corporativas#parcerias", cta: "Vamos construir juntos?" }
+  { title: "RDC Premiação", description: "Benefício corporativo que transforma vidas. Ofereça viagens como reconhecimento para seus colaboradores.", href: "/solucoes-corporativas#premiacao", cta: "Descubra como premiar", logo: "/logos/b2b/logo-premiacao.svg", ctaBg: "bg-[#FFEA01] hover:bg-[#E6D300] text-[#2D2D2D]" },
+  { title: "RDC Gestão de Viagens", description: "Gestão completa de viagens corporativas com eficiência, controle e economia.", href: "/solucoes-corporativas#gestao", cta: "Conheça a gestão inteligente", logo: "/logos/b2b/logo-gestao.svg", ctaBg: "bg-[#E8506A] hover:bg-[#D04058] text-white" },
+  { title: "RDC Parcerias", description: "Alianças estratégicas para criar novos canais de aquisição e valor agregado.", href: "/solucoes-corporativas#parcerias", cta: "Vamos construir juntos?", logo: "/logos/b2b/logo-parcerias.svg", ctaBg: "bg-[#9B6AE0] hover:bg-[#8050C0] text-white" }
 ];
 
 const redesHoteleirasHome = [
@@ -168,12 +168,6 @@ export default function Home() {
   }, []);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-      <SEO
-        title="RDC Viagens | Assinatura de Viagens a partir de R$ 97,20/mês"
-        description="RDC Viagens: pioneira em assinatura de viagens no Brasil há 35 anos. Planos de 2 a 7 diárias a partir de R$ 97,20/mês. Acesso a mais de 200 mil destinos em hotéis Accor, Marriott, Hilton e mais."
-        keywords="assinatura de viagens, RDC Viagens, planos de viagem mensais, viagens com economia, hotéis com desconto, viagens planejadas, turismo Brasil, Accor, Marriott, Hilton"
-        canonical="https://rdcviagens.com.br"
-      />
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
@@ -197,6 +191,31 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <SEO
+        title="Assinatura de Viagens com até 60% de Economia"
+        description="Assinatura de viagens com até 60% de economia em mais de 200 mil hotéis e resorts no Brasil e no mundo. 7 diárias por ano e tarifa exclusiva ilimitada. Conheça!"
+        keywords="assinatura de viagens, RDC Viagens, clube de viagens, hospedagem com desconto, hotéis 4 e 5 estrelas, viagens planejadas, economia em viagens, turismo Brasil, Accor, Marriott, Hilton"
+        canonical="/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "TravelAgency",
+          "name": "RDC Viagens",
+          "url": "https://rdcviagens.com.br",
+          "logo": "https://rdcviagens.com.br/logo.png",
+          "description": "Pioneira em assinatura de viagens no Brasil há mais de 35 anos. Acesso a +200 mil hotéis e resorts com economia de até 60%.",
+          "foundingDate": "1991",
+          "telephone": "0800-055-2600",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "BR"
+          },
+          "sameAs": [
+            "https://www.instagram.com/rdcviagens",
+            "https://www.facebook.com/rdcviagens",
+            "https://www.linkedin.com/company/rdcviagens"
+          ]
+        }}
+      />
       <Header />
       
       {/* 1. Hero Carousel */}
@@ -456,26 +475,24 @@ export default function Home() {
             <p className="text-lg text-[#555555] max-w-2xl mx-auto">Conectamos viagens aos <strong>objetivos estratégicos</strong> da sua organização, oferecendo soluções que fortalecem <strong>engajamento, reconhecimento e experiência</strong>.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-            {corporateSolutions.map((solution, index) => {
-              const colorMap = [
-                { bg: "bg-[#FDE8EC]", border: "border-[#F5A0B0]", iconBg: "bg-[#FAD0D8]", iconText: "text-[#D04058]", link: "text-[#D04058] hover:text-[#B83048]" },
-                { bg: "bg-[#FFF8EB]", border: "border-[#FFCC80]", iconBg: "bg-[#FFF0D6]", iconText: "text-[#CC7400]", link: "text-[#CC7400] hover:text-[#CC7400]" },
-                { bg: "bg-[#F5EDFF]", border: "border-[#DFC8FF]", iconBg: "bg-[#F0E4FF]", iconText: "text-[#9B6AE0]", link: "text-[#9B6AE0] hover:text-[#8050C0]" },
-              ];
-              const colors = colorMap[index];
-              return (
-              <Card key={index} className={`border ${colors.border} shadow-sm hover:shadow-lg transition-all duration-300 ${colors.bg}`}>
-                <CardContent className="pt-8 pb-6 text-center">
-                  <h3 className="font-bold text-lg text-[#2D2D2D] mb-3">{solution.title}</h3>
-                  <p className="text-[#555555] text-sm mb-6 leading-relaxed">{solution.description}</p>
-                  <Link href={solution.href} className={`inline-flex items-center font-semibold text-sm ${colors.link} transition-colors`}>{solution.cta} <ArrowRight className="ml-1 h-4 w-4" /></Link>
+            {corporateSolutions.map((solution, index) => (
+              <Card key={index} className="border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden">
+                <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                  <div className="w-full flex justify-center mb-6">
+                    <img src={solution.logo} alt={solution.title} className="h-14 object-contain" />
+                  </div>
+                  <p className="text-[#555555] text-sm mb-8 leading-relaxed flex-1">{solution.description}</p>
+                  <Link href={solution.href} className="w-full">
+                    <Button className={`w-full rounded-full font-semibold ${solution.ctaBg}`}>
+                      {solution.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
-              );
-            })}
+            ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/solucoes-corporativas"><Button size="lg" className="bg-[#001A9E] hover:bg-[#001070] text-white px-8 rounded-full">Explorar todas as soluções <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <Link href="/solucoes-corporativas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">Explorar todas as soluções <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
           </div>
         </div>
       </section>

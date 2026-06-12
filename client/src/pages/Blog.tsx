@@ -62,10 +62,10 @@ export default function Blog() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Blog | Dicas de Viagem e Destinos | RDC Viagens"
-        description="Blog da RDC Viagens com dicas de destinos, roteiros de viagem, oportunidades e novidades do mundo do turismo. Inspire-se para sua próxima viagem."
-        keywords="blog viagens, dicas de viagem, destinos turísticos, roteiros viagem, RDC blog"
-        canonical="https://rdcviagens.com.br/blog"
+        title="Blog de Viagens | Dicas, Destinos e Roteiros"
+        description="Dicas de viagem, roteiros exclusivos e destinos imperdíveis no Brasil e no mundo. Inspire-se para planejar sua próxima jornada com o blog da RDC Viagens!"
+        keywords="blog viagens, dicas de viagem, destinos turísticos, roteiros viagem, economia hospedagem, turismo Brasil, RDC blog"
+        canonical="/blog"
       />
       <Header />
       
@@ -92,8 +92,7 @@ export default function Blog() {
             {posts.map((post) => (
               <Card key={post.id} className="border-0 shadow-lg overflow-hidden group cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={post.image} 
+                  <img src={post.image} 
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />

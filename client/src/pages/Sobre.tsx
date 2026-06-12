@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Target, Shield, Eye, Compass, Lightbulb, Search, Rocket, Award, Plane, Building2, Users, TrendingUp, Star, Globe, Handshake, Trophy, ChevronLeft, ChevronRight, Heart, HandHeart } from "lucide-react";
+import { Target, Shield, Eye, Compass, Lightbulb, Search, Rocket, Award, Plane, Building2, Users, TrendingUp, Star, Globe, Handshake, Trophy, ChevronLeft, ChevronRight, HandHeart } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -82,11 +82,10 @@ const timeline = [
 ];
 
 const values = [
-  { icon: Shield, title: "Confiança", description: <>Construímos <strong className="text-[#2D2D2D]">relações de confiança</strong> com clientes, parceiros e colaboradores, <strong className="text-[#2D2D2D]">honrando cada compromisso</strong> e garantindo <strong className="text-[#2D2D2D]">segurança</strong> em todas as etapas da jornada.</> },
+  { icon: Shield, title: "Confiança", description: <>Construímos <strong className="text-[#2D2D2D]">relações de confiança</strong> com assinantes, parceiros e colaboradores, <strong className="text-[#2D2D2D]">honrando cada compromisso</strong> e garantindo <strong className="text-[#2D2D2D]">segurança</strong> em todas as etapas da jornada.</> },
   { icon: Lightbulb, title: "Inovação", description: <>Inovamos continuamente para <strong className="text-[#2D2D2D]">simplificar e elevar a experiência de viagem</strong>, trazendo <strong className="text-[#2D2D2D]">novas ideias, tecnologias</strong> e formas de trabalhar que tornam cada jornada mais acessível, prática e inesquecível.</> },
-  { icon: Search, title: "Transparência", description: <>Agimos com <strong className="text-[#2D2D2D]">honestidade e clareza</strong>, compartilhando informações de <strong className="text-[#2D2D2D]">forma aberta</strong> para que clientes, parceiros e colaboradores saibam exatamente o que esperar em cada etapa da jornada.</> },
-  { icon: Heart, title: "Compromisso com a Experiência", description: <>Entregamos experiências que vão <strong className="text-[#2D2D2D]">além da viagem</strong>, criando <strong className="text-[#2D2D2D]">momentos que transformam</strong> e impactam positivamente a vida das pessoas.</> },
-  { icon: HandHeart, title: "Acessibilidade/Democratização", description: <>Tornamos o <strong className="text-[#2D2D2D]">sonho de viajar possível para todos</strong>, oferecendo <strong className="text-[#2D2D2D]">soluções acessíveis</strong> sem abrir mão de <strong className="text-[#2D2D2D]">qualidade, conforto</strong> e boas experiências.</> }
+  { icon: Search, title: "Transparência", description: <>Agimos com <strong className="text-[#2D2D2D]">honestidade e clareza</strong>, compartilhando informações de <strong className="text-[#2D2D2D]">forma aberta</strong> para que assinantes, parceiros e colaboradores saibam exatamente o que esperar em cada etapa da jornada.</> },
+  { icon: HandHeart, title: "Cuidar de Pessoas", description: <>Colocamos <strong className="text-[#2D2D2D]">pessoas no centro</strong> de tudo que fazemos, tratando cada <strong className="text-[#2D2D2D]">assinante, colaborador e parceiro</strong> com atenção, empatia e respeito — porque acreditamos que uma <strong className="text-[#2D2D2D]">viagem inesquecível</strong> começa no <strong className="text-[#2D2D2D]">cuidado genuíno</strong> com quem está ao nosso lado em cada etapa da jornada.</> }
 ];
 
 function TimelineScroller({ items }: { items: typeof timeline }) {
@@ -259,10 +258,23 @@ export default function Sobre() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Sobre a RDC Viagens | 35 Anos de História no Turismo Brasileiro"
-        description="Conheça a história da RDC Viagens: mais de 35 anos democratizando o acesso a viagens de qualidade. Propósito, missão, visão, valores e timeline de conquistas desde 1991."
-        keywords="sobre RDC Viagens, história RDC, missão valores, empresa de viagens, turismo Brasil"
-        canonical="https://rdcviagens.com.br/sobre"
+        title="Sobre Nós | +35 Anos de Experiência em Viagens"
+        description="Há mais de 35 anos democratizando o acesso a viagens de qualidade no Brasil. Pioneira em assinatura de viagens, com mais de 1 milhão de diárias entregues."
+        keywords="sobre RDC Viagens, história RDC Viagens, empresa de turismo Brasil, assinatura viagens pioneira, quem somos RDC, valores RDC"
+        canonical="/sobre"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "Sobre a RDC Viagens",
+          "description": "Mais de 35 anos democratizando o acesso a viagens de qualidade no Brasil.",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "RDC Viagens",
+            "foundingDate": "1991",
+            "numberOfEmployees": { "@type": "QuantitativeValue", "value": 400 },
+            "slogan": "Transformamos intenção em jornada"
+          }
+        }}
       />
       <Header />
 
@@ -381,7 +393,7 @@ export default function Sobre() {
                 </div>
                 <h3 className="text-2xl font-bold text-[#2D2D2D] mb-2">Missão</h3>
                 <p className="text-[#555555] leading-relaxed">
-                  Transformar o sonho de viajar em realidade para todos, oferecendo <strong>soluções acessíveis, confortáveis e bem planejadas</strong>, com opções práticas e econômicas para clientes, empresas e parceiros, criando <strong>experiências inesquecíveis</strong> em cada viagem.
+                  Transformar o sonho de viajar em realidade para todos, oferecendo <strong>soluções acessíveis, confortáveis e bem planejadas</strong>, com opções práticas e econômicas para assinantes, empresas e parceiros, criando <strong>experiências inesquecíveis</strong> em cada viagem.
                 </p>
               </CardContent>
             </Card>
@@ -392,7 +404,7 @@ export default function Sobre() {
                 </div>
                 <h3 className="text-2xl font-bold text-[#2D2D2D] mb-2">Visão</h3>
                 <p className="text-[#555555] leading-relaxed">
-                  Ser a <strong>marca líder em soluções de viagem</strong> acessíveis e transformadoras, alcançando até 2030 <strong>R$ 1 bilhão em faturamento, 1 milhão de clientes e 1 milhão de diárias vendidas</strong>, gerando um impacto positivo e duradouro na vida das pessoas.
+                  Ser a <strong>marca líder em soluções de viagem</strong> acessíveis e transformadoras, alcançando até 2030 <strong>R$ 1 bilhão em faturamento, 1 milhão de assinantes e 1 milhão de diárias vendidas</strong>, gerando um impacto positivo e duradouro na vida das pessoas.
                 </p>
               </CardContent>
             </Card>
@@ -410,38 +422,17 @@ export default function Sobre() {
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D]">Nossos Valores</h2>
           </div>
           <div className="max-w-5xl mx-auto">
-            {/* Primeira linha: 3 valores */}
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
-              {values.slice(0, 3).map((value, index) => {
+            <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {values.map((value, index) => {
                 const colors = [
                   { bg: 'bg-[#E8F4FA]', icon: 'text-[#001A9E]', border: 'border-t-[#001A9E]' },
                   { bg: 'bg-[#FFF0D6]', icon: 'text-[#E68200]', border: 'border-t-[#FF9100]' },
                   { bg: 'bg-[#E8F4FA]', icon: 'text-[#001A9E]', border: 'border-t-[#00B4D8]' },
+                  { bg: 'bg-[#FFF0D6]', icon: 'text-[#E68200]', border: 'border-t-[#FF9100]' },
                 ];
                 const c = colors[index];
                 return (
                   <Card key={index} className={`border-0 border-t-4 ${c.border} shadow-md hover:shadow-xl transition-all duration-300 bg-white group`}>
-                    <CardContent className="p-6">
-                      <div className={`w-14 h-14 rounded-2xl ${c.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        <value.icon className={`w-7 h-7 ${c.icon}`} />
-                      </div>
-                      <h3 className="font-bold text-lg text-[#2D2D2D] mb-3">{value.title}</h3>
-                      <p className="text-[#555555] text-sm leading-relaxed">{value.description}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-            {/* Segunda linha: 2 valores centralizados */}
-            <div className="grid sm:grid-cols-2 gap-6 max-w-[680px] mx-auto">
-              {values.slice(3).map((value, index) => {
-                const colors = [
-                  { bg: 'bg-[#FFF0D6]', icon: 'text-[#E68200]', border: 'border-t-[#FF9100]' },
-                  { bg: 'bg-[#E8F4FA]', icon: 'text-[#001A9E]', border: 'border-t-[#001A9E]' },
-                ];
-                const c = colors[index];
-                return (
-                  <Card key={index + 3} className={`border-0 border-t-4 ${c.border} shadow-md hover:shadow-xl transition-all duration-300 bg-white group`}>
                     <CardContent className="p-6">
                       <div className={`w-14 h-14 rounded-2xl ${c.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                         <value.icon className={`w-7 h-7 ${c.icon}`} />

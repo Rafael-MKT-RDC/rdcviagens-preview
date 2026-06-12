@@ -44,8 +44,7 @@ export default function TrustBadges({ variant = "default", className = "" }: Tru
       <div className={`flex items-center gap-6 ${className}`}>
         {badges.map((badge) => (
           <div key={badge.label} className="flex items-center gap-2">
-            <img 
-              src={badge.src} 
+            <img src={badge.src} 
               alt={badge.alt} 
               className="h-12 w-auto object-contain"
             />
@@ -59,8 +58,7 @@ export default function TrustBadges({ variant = "default", className = "" }: Tru
     return (
       <div className={`flex items-center justify-center gap-8 ${className}`}>
         {badges.map((badge) => (
-          <img 
-            key={badge.label}
+          <img key={badge.label}
             src={badge.src} 
             alt={badge.alt} 
             className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all"
@@ -85,8 +83,7 @@ export default function TrustBadges({ variant = "default", className = "" }: Tru
           {badges.map((badge) => (
             <Card key={badge.label} className="border-0 shadow-md hover:shadow-lg transition-shadow bg-white">
               <CardContent className="p-3 md:p-6 flex flex-col items-center">
-                <img 
-                  src={badge.src} 
+                <img src={badge.src} 
                   alt={badge.alt} 
                   className="h-12 md:h-20 w-auto object-contain mb-2 md:mb-3"
                 />

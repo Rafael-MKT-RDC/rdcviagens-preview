@@ -141,10 +141,10 @@ export default function SejaParceiro() {
   return (
     <>
       <SEO
-        title="Seja Parceiro Hoteleiro | Cadastre seu Hotel na RDC Viagens"
-        description="Cadastre seu hotel ou pousada na RDC Viagens e alcance mais de 200 mil assinantes. Aumente sua ocupação com uma parceria de 35 anos de experiência no turismo brasileiro."
-        keywords="parceiro hoteleiro, cadastrar hotel RDC, parceria hoteleira, aumentar ocupação hotel, RDC Viagens parceiro"
-        canonical="https://rdcviagens.com.br/seja-parceiro"
+        title="Seja Parceiro Hoteleiro | Cadastre seu Hotel"
+        description="Cadastre seu hotel ou pousada na RDC Viagens e alcance mais de 200 mil assinantes ativos. Aumente sua ocupação com 35 anos de experiência. Seja parceiro!"
+        keywords="parceiro hoteleiro RDC, cadastrar hotel, parceria hoteleira, aumentar ocupação hotel, RDC Viagens parceiro, rede hoteleira"
+        canonical="/seja-parceiro"
       />
     <div className="min-h-screen bg-white">
       <Header />
@@ -152,8 +152,7 @@ export default function SejaParceiro() {
       {/* Hero */}
       <section className="relative text-white pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="https://private-us-east-1.manuscdn.com/sessionFile/OPAJZzSDsUMxkZVwUha8Gs/sandbox/GArLQouH1mIazmtD8grsPB-img-1_1771611881000_na1fn_cGFyY2Vpcm8taGVybw.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1BBSlp6U0RzVU14a1pWd1VoYThHcy9zYW5kYm94L0dBckxRb3VIMW1JYXptdEQ4Z3JzUEItaW1nLTFfMTc3MTYxMTg4MTAwMF9uYTFmbl9jR0Z5WTJWcGNtOHRhR1Z5YncuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=pQMU4rTldlvmXe57HgwZFmDwCXoySl0tn2CS8draf~HXageSjfNIHSujUiJNsBzl1KOop-VJRDEqSHm05yH0hdyLTfsW7jsY91YIZBcrLHDzq2p4hMsBiKLKUnMtxvrWfDYtvxfTFxRTBpXVlPyrUhbAkq2573rohBbZHrXuSvhpuP36qXaJAiV87JNXw8RVsGl-TahNgaiwcTY7FefiCgxD98-lNG~HXCJpfM81DnZMMODsrAEPc8KwL10POSi-OYvvZ3GtNTX6kLfGX~UGFZ88VeW50odqdwHGrDI-gsQzGiLXEoYYgPxwHwFEIVnKE73DOt-M4XrEaF-XBQMw0w__" 
+          <img src="https://private-us-east-1.manuscdn.com/sessionFile/OPAJZzSDsUMxkZVwUha8Gs/sandbox/GArLQouH1mIazmtD8grsPB-img-1_1771611881000_na1fn_cGFyY2Vpcm8taGVybw.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1BBSlp6U0RzVU14a1pWd1VoYThHcy9zYW5kYm94L0dBckxRb3VIMW1JYXptdEQ4Z3JzUEItaW1nLTFfMTc3MTYxMTg4MTAwMF9uYTFmbl9jR0Z5WTJWcGNtOHRhR1Z5YncuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=pQMU4rTldlvmXe57HgwZFmDwCXoySl0tn2CS8draf~HXageSjfNIHSujUiJNsBzl1KOop-VJRDEqSHm05yH0hdyLTfsW7jsY91YIZBcrLHDzq2p4hMsBiKLKUnMtxvrWfDYtvxfTFxRTBpXVlPyrUhbAkq2573rohBbZHrXuSvhpuP36qXaJAiV87JNXw8RVsGl-TahNgaiwcTY7FefiCgxD98-lNG~HXCJpfM81DnZMMODsrAEPc8KwL10POSi-OYvvZ3GtNTX6kLfGX~UGFZ88VeW50odqdwHGrDI-gsQzGiLXEoYYgPxwHwFEIVnKE73DOt-M4XrEaF-XBQMw0w__" 
             alt="Resort à beira-mar ao pôr do sol" 
             className="w-full h-full object-cover"
           />

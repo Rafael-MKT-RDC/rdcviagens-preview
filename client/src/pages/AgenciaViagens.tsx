@@ -296,19 +296,18 @@ export default function AgenciaViagens() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Agência de Viagens RDC | Pacotes Completos com Desconto"
-        description="Agência de viagens exclusiva para assinantes RDC. Pacotes completos com aéreo, hotel, traslados, passeios e ingressos. Condições especiais e consultores especializados."
-        keywords="agência de viagens, pacotes de viagem, viagens completas, aéreo hotel, RDC agência, pacotes turísticos"
-        canonical="https://rdcviagens.com.br/agencia"
+        title="Agência de Viagens | Pacotes Exclusivos"
+        description="Pacotes de viagens completos com aéreo, hotel, traslados e passeios. Condições especiais para assinantes RDC com consultores dedicados. Solicite sua cotação!"
+        keywords="agência viagens RDC, pacotes viagem completos, viagens com desconto, aéreo hotel, pacotes turísticos, consultores viagem"
+        canonical="/agencia"
       />
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 overflow-hidden">
+      <section className="relative pt-29 pb-32 md:pt-34 md:pb-40 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#00148A] via-[#001070] to-[#001A9E]" />
         <div className="absolute inset-0 opacity-20">
-          <img
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&h=800&fit=crop"
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&h=800&fit=crop"
             alt="Viagem"
             className="w-full h-full object-cover"
           />
@@ -350,15 +349,15 @@ export default function AgenciaViagens() {
         </div>
 
         {/* Wave divider */}
-        <div className="relative -mb-1">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+        <div className="absolute bottom-0 left-0 right-0 z-10">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" preserveAspectRatio="none">
             <path d="M0,60 C360,120 720,0 1440,60 L1440,120 L0,120 Z" fill="white" />
           </svg>
         </div>
       </section>
 
       {/* Differentials Strip */}
-      <section className="py-10 md:py-12 bg-white">
+      <section className="relative z-10 py-10 md:py-12 bg-white">
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
@@ -548,8 +547,7 @@ export default function AgenciaViagens() {
                 }`}
               >
                 <div className="relative h-52 overflow-hidden">
-                  <img
-                    src={pkg.image}
+                  <img src={pkg.image}
                     alt={pkg.destination}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />

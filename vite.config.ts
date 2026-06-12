@@ -23,9 +23,12 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    strictPort: false,
+    strictPort: false, // Will find next available port if 3000 is busy
     host: true,
-    allowedHosts: ["localhost", "127.0.0.1"],
+    allowedHosts: [
+      "localhost",
+      "127.0.0.1",
+    ],
     fs: {
       strict: true,
       deny: ["**/.*"],

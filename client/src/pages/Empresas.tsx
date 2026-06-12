@@ -23,6 +23,7 @@ const solutions = [
   {
     id: "gestao",
     icon: Plane,
+    logo: "/logos/b2b/logo-gestao.svg",
     title: "RDC Viagens Corporativas",
     subtitle: "Sua empresa viaja. Nós cuidamos de tudo.",
     description: "Plataforma completa de reservas e produtos turísticos para viagens corporativas. Centralize reservas, controle gastos e economize — sem burocracia, sem complicação.",
@@ -39,6 +40,7 @@ const solutions = [
   {
     id: "premiacao",
     icon: Plane,
+    logo: "/logos/b2b/logo-premiacao.svg",
     title: "RDC Premiação",
     subtitle: "Viagens que transformam resultados e valorizam reconhecimento.",
     description: "Uma solução estratégica para áreas como RH, Marketing e Comercial que buscam engajar públicos e impulsionar resultados com colaboradores, clientes e parceiros.",
@@ -55,6 +57,7 @@ const solutions = [
   {
     id: "parcerias",
     icon: Handshake,
+    logo: "/logos/b2b/logo-parcerias.svg",
     title: "RDC Parcerias",
     subtitle: "Novas frentes de crescimento para o seu negócio.",
     description: "Alianças estratégicas com bancos, empresas, entidades e plataformas que buscam se diferenciar, gerar novas receitas e ampliar sua proposta de valor.",
@@ -97,18 +100,25 @@ export default function Empresas() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Soluções Corporativas | RDC Viagens"
-        description="Soluções corporativas da RDC Viagens: viagens corporativas, premiação e incentivo, e parcerias estratégicas para bancos, empresas e plataformas."
-        keywords="soluções corporativas, viagens corporativas, incentivo corporativo, RDC empresas, premiação colaboradores, parcerias estratégicas"
-        canonical="https://rdcviagens.com.br/solucoes-corporativas"
+        title="Soluções Corporativas | Premiação e Gestão"
+        description="Soluções corporativas de viagens para empresas: premiação e incentivo, gestão de viagens para PMEs e parcerias estratégicas. Descubra como podemos ajudar!"
+        keywords="soluções corporativas viagens, viagens corporativas, premiação colaboradores, incentivo viagens, gestão viagens empresas, parcerias estratégicas turismo"
+        canonical="/solucoes-corporativas"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Soluções Corporativas RDC Viagens",
+          "provider": { "@type": "Organization", "name": "RDC Viagens" },
+          "description": "Soluções corporativas de viagens: premiação e incentivo, gestão de viagens para PMEs e parcerias estratégicas.",
+          "serviceType": ["Premiação Corporativa", "Gestão de Viagens", "Parcerias Estratégicas"]
+        }}
       />
       <Header />
       
       {/* Hero Section */}
       <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="https://private-us-east-1.manuscdn.com/sessionFile/OPAJZzSDsUMxkZVwUha8Gs/sandbox/UwjsP9SnZnOCoDdkW5bcgs-img-1_1771435428000_na1fn_Y29ycC1oZXJvLXYy.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1BBSlp6U0RzVU14a1pWd1VoYThHcy9zYW5kYm94L1V3anNQOVNuWm5PQ29EZGtXNWJjZ3MtaW1nLTFfMTc3MTQzNTQyODAwMF9uYTFmbl9ZMjl5Y0Mxb1pYSnZMWFl5LmpwZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=hTF~Y4M8sdSkkXwzVe-RQGxbqFgUr0tn7T83aUdmQWV5Y8A7-4wEsBDNFcMGPYcmNxkf3VaI9XekB8VAsRcUvc5UGoKAvfVLd~E7hXQr755m0138F~2U2MF8OeHLH47SXTiv3emZnP~aY63yhsgeU8ZL9kosIP70s4eDock3yxk3tU9RMHMgo-gwp5m495TuYiKfz1seR~swf2QLS1B2bBGapo3NUEv8P5mrFTF31XgrSVsqd7AaM0rOLvg-CeF3o8DFclewKzab3xN~m~fQHk9d8g8Vshpk5vaf3-MKwDFb1qKF9vqDPTdC8aY-uj8TJAOZxnz~B0L1ebnneGaf9Q__" 
+          <img src="https://private-us-east-1.manuscdn.com/sessionFile/OPAJZzSDsUMxkZVwUha8Gs/sandbox/UwjsP9SnZnOCoDdkW5bcgs-img-1_1771435428000_na1fn_Y29ycC1oZXJvLXYy.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1BBSlp6U0RzVU14a1pWd1VoYThHcy9zYW5kYm94L1V3anNQOVNuWm5PQ29EZGtXNWJjZ3MtaW1nLTFfMTc3MTQzNTQyODAwMF9uYTFmbl9ZMjl5Y0Mxb1pYSnZMWFl5LmpwZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=hTF~Y4M8sdSkkXwzVe-RQGxbqFgUr0tn7T83aUdmQWV5Y8A7-4wEsBDNFcMGPYcmNxkf3VaI9XekB8VAsRcUvc5UGoKAvfVLd~E7hXQr755m0138F~2U2MF8OeHLH47SXTiv3emZnP~aY63yhsgeU8ZL9kosIP70s4eDock3yxk3tU9RMHMgo-gwp5m495TuYiKfz1seR~swf2QLS1B2bBGapo3NUEv8P5mrFTF31XgrSVsqd7AaM0rOLvg-CeF3o8DFclewKzab3xN~m~fQHk9d8g8Vshpk5vaf3-MKwDFb1qKF9vqDPTdC8aY-uj8TJAOZxnz~B0L1ebnneGaf9Q__" 
             alt="Soluções Corporativas RDC Viagens"
             className="w-full h-full object-cover"
           />
@@ -172,9 +182,10 @@ export default function Empresas() {
                 className={`grid lg:grid-cols-2 gap-12 items-center`}
               >
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className={`w-16 h-16 rounded-2xl ${colors.iconBg} flex items-center justify-center mb-6`}>
-                    <solution.icon className={`w-8 h-8 ${colors.iconText}`} />
-                  </div>
+                  <img src={solution.logo} 
+                    alt={solution.title} 
+                    className="h-12 md:h-14 w-auto mb-6" 
+                  />
                   <h3 className="text-2xl md:text-3xl font-bold text-[#2D2D2D] mb-2">
                     {solution.title}
                   </h3>
@@ -204,8 +215,7 @@ export default function Empresas() {
                 </div>
                 <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-                    <img 
-                      src={solution.image} 
+                    <img src={solution.image} 
                       alt={solution.title}
                       className="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
                     />

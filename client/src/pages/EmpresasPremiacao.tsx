@@ -249,18 +249,25 @@ export default function EmpresasPremiacao() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="RDC Premiação | Incentivo Corporativo com Viagens"
-        description="Viagens como ferramenta de incentivo para engajar públicos e impulsionar resultados. Solução para RH, Marketing, Comercial e Facilities. ROI comprovado."
-        keywords="premiação corporativa, incentivo viagens, incentivo colaboradores, RDC premiação, campanha incentivo, engajamento corporativo"
-        canonical="https://rdcviagens.com.br/solucoes-corporativas/premiacao"
+        title="Premiação | Incentivo com Viagens"
+        description="Viagens como ferramenta de incentivo corporativo para engajar colaboradores, clientes e parceiros. Solução completa para RH e Marketing. Conheça os benefícios!"
+        keywords="premiação corporativa viagens, incentivo colaboradores, campanha incentivo, engajamento corporativo, RDC premiação, viagens como prêmio, incentivo vendas"
+        canonical="/solucoes-corporativas/premiacao"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "RDC Premiação",
+          "provider": { "@type": "Organization", "name": "RDC Viagens" },
+          "description": "Viagens como ferramenta de incentivo corporativo para engajar públicos e impulsionar resultados.",
+          "serviceType": "Premiação e Incentivo Corporativo"
+        }}
       />
       <Header />
       
       {/* Hero Section */}
       <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/GimvoAfcHdbhLYXE.jpg" 
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/GimvoAfcHdbhLYXE.jpg" 
             alt="RDC Premiação"
             className="w-full h-full object-cover"
           />
@@ -276,9 +283,13 @@ export default function EmpresasPremiacao() {
           </Link>
           
           <div className="max-w-3xl">
+            <img src="/logos/b2b/logo-premiacao.svg" 
+              alt="RDC Premiação" 
+              className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" 
+            />
             <Badge className="mb-4 bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] border-0">
               <Plane className="w-4 h-4 mr-2" />
-              RDC Premiação
+              Incentivo Corporativo
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Viagens que transformam{" "}

@@ -232,10 +232,10 @@ export default function Duvidas() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Dúvidas Frequentes (FAQ) | RDC Viagens"
-        description="Tire suas dúvidas sobre a assinatura RDC Viagens. Perguntas frequentes sobre planos, reservas, pagamentos, portal do assinante e programa de indicação."
-        keywords="dúvidas RDC, FAQ viagens, perguntas frequentes, como funciona assinatura, reservas RDC"
-        canonical="https://rdcviagens.com.br/duvidas"
+        title="Dúvidas Frequentes | Assinatura de Viagens"
+        description="Tire suas dúvidas sobre a assinatura RDC Viagens: como funciona, carência de 40 dias, tarifa exclusiva, reservas e pagamentos. Encontre todas as respostas!"
+        keywords="dúvidas RDC Viagens, FAQ assinatura viagens, como funciona RDC, carência assinatura, tarifa exclusiva, reservas RDC"
+        canonical="/duvidas"
       />
       <StructuredData type="faq" />
       <Header />
