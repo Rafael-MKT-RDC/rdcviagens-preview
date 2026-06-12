@@ -228,18 +228,25 @@ export default function EmpresasParcerias() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="RDC Parcerias | Alianças Estratégicas em Viagens"
-        description="Alianças estratégicas com bancos, empresas, entidades e plataformas. Crie novos canais de aquisição, novas fontes de receita e acelere o crescimento do seu negócio."
-        keywords="parcerias estratégicas, alianças viagens, canal de aquisição, RDC parcerias, parceiro viagens, white label viagens"
-        canonical="https://rdcviagens.com.br/solucoes-corporativas/parcerias"
+        title="Parcerias e Alianças Estratégicas em Viagens"
+        description="Parcerias estratégicas com bancos, fintechs, empresas e plataformas digitais. Crie novos canais de receita com soluções de viagens. Torne-se parceiro agora!"
+        keywords="parcerias estratégicas viagens, white label viagens, parceiro viagens, canal aquisição turismo, RDC parcerias, co-branded viagens"
+        canonical="/solucoes-corporativas/parcerias"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "RDC Parcerias",
+          "provider": { "@type": "Organization", "name": "RDC Viagens" },
+          "description": "Alianças estratégicas com bancos, empresas e plataformas para criar novos canais de aquisição e receita com viagens.",
+          "serviceType": "Parcerias Estratégicas"
+        }}
       />
       <Header />
       
       {/* Hero Section */}
       <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="https://private-us-east-1.manuscdn.com/sessionFile/OPAJZzSDsUMxkZVwUha8Gs/sandbox/WRvIlNunEXhMeqmbWFNZpX-img-1_1771874609000_na1fn_cGFyY2VyaWFzLWhlcm8tYmctdjI.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1BBSlp6U0RzVU14a1pWd1VoYThHcy9zYW5kYm94L1dSdklsTnVuRVhoTWVxbWJXRk5acFgtaW1nLTFfMTc3MTg3NDYwOTAwMF9uYTFmbl9jR0Z5WTJWeWFXRnpMV2hsY204dFltY3RkakkuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Wwr0F7DoAlgimCSMGmG25SEPTNjTdKCOW5PRIld7MwIeFtvnAnT~EVumN711fAkmsx48mzOX1HKxq4Zb7k1rIaCXQ3VzZnEO3K5-wPSKP4na9iU~tZWY16bcAQ6WjI6RwtYTz14MRdkus0GXo3dn9ES8YT2tX2625y0FVTzOIkx0SPEZuXAP77xPNwsVaW7fFD1u1BasbGFqJzHfbCoIzi4t867EYIi7iSUOKOCGfK~NZrBlNDIQEby5Umju5JGe09xsErYISd1ShEX264k4dwdRaye7hHTEAgRW3BoukDCbBJuixhC9Xn96hj-K3YHlBrVn8CTXB8o~9q7CVCOlMw__" 
+          <img src="https://private-us-east-1.manuscdn.com/sessionFile/OPAJZzSDsUMxkZVwUha8Gs/sandbox/WRvIlNunEXhMeqmbWFNZpX-img-1_1771874609000_na1fn_cGFyY2VyaWFzLWhlcm8tYmctdjI.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1BBSlp6U0RzVU14a1pWd1VoYThHcy9zYW5kYm94L1dSdklsTnVuRVhoTWVxbWJXRk5acFgtaW1nLTFfMTc3MTg3NDYwOTAwMF9uYTFmbl9jR0Z5WTJWeWFXRnpMV2hsY204dFltY3RkakkuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Wwr0F7DoAlgimCSMGmG25SEPTNjTdKCOW5PRIld7MwIeFtvnAnT~EVumN711fAkmsx48mzOX1HKxq4Zb7k1rIaCXQ3VzZnEO3K5-wPSKP4na9iU~tZWY16bcAQ6WjI6RwtYTz14MRdkus0GXo3dn9ES8YT2tX2625y0FVTzOIkx0SPEZuXAP77xPNwsVaW7fFD1u1BasbGFqJzHfbCoIzi4t867EYIi7iSUOKOCGfK~NZrBlNDIQEby5Umju5JGe09xsErYISd1ShEX264k4dwdRaye7hHTEAgRW3BoukDCbBJuixhC9Xn96hj-K3YHlBrVn8CTXB8o~9q7CVCOlMw__" 
             alt="RDC Parcerias"
             className="w-full h-full object-cover"
           />
@@ -255,9 +262,13 @@ export default function EmpresasParcerias() {
           </Link>
           
           <div className="max-w-3xl">
+            <img src="/logos/b2b/logo-parcerias.svg" 
+              alt="RDC Parcerias" 
+              className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" 
+            />
             <Badge className="mb-4 bg-[#9B6AE0] hover:bg-violet-700 text-white border-0">
               <Handshake className="w-4 h-4 mr-2" />
-              RDC Parcerias
+              Alianças Estratégicas
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Novas fronteiras de crescimento{" "}

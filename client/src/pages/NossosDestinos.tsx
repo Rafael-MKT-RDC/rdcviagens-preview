@@ -193,10 +193,10 @@ export default function NossosDestinos() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Destinos RDC Viagens | +200 Mil Hotéis e Resorts no Brasil e no Mundo"
-        description="Explore mais de 200 mil destinos no Brasil e no mundo com a RDC Viagens. Nordeste, Sudeste, Sul, Europa, Caribe e muito mais. Redes hoteleiras como Accor, Marriott e Hilton."
-        keywords="destinos viagens, hotéis Brasil, resorts nordeste, viagens internacionais, Accor, Marriott, Hilton, destinos RDC"
-        canonical="https://rdcviagens.com.br/destinos"
+        title="Destinos | +200 Mil Hotéis e Resorts"
+        description="Explore mais de 200 mil hotéis e resorts no Brasil e no mundo: Nordeste, Europa, Caribe e muito mais. Redes Accor, Marriott e Hilton. Descubra os destinos!"
+        keywords="destinos RDC Viagens, hotéis Brasil, resorts nordeste, viagens internacionais, Accor, Marriott, Hilton, hotéis 4 estrelas, hotéis 5 estrelas"
+        canonical="/destinos"
       />
       <Header />
 
@@ -371,8 +371,7 @@ export default function NossosDestinos() {
                       >
                         {/* Imagem */}
                         <div className="relative h-48 overflow-hidden">
-                          <img
-                            src={regiao.imagem}
+                          <img src={regiao.imagem}
                             alt={regiao.nome}
                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                           />
@@ -479,8 +478,7 @@ export default function NossosDestinos() {
                       className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
                     >
                       <div className="relative h-52 overflow-hidden">
-                        <img
-                          src={continente.imagem}
+                        <img src={continente.imagem}
                           alt={continente.nome}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
@@ -542,8 +540,7 @@ export default function NossosDestinos() {
                 className="group bg-white rounded-2xl border border-[#E8E8E8] p-5 hover:shadow-lg hover:border-[#FFCC80] transition-all duration-300 text-center"
               >
                 <div className="w-14 h-14 mx-auto mb-3 rounded-2xl bg-[#F6F6F6] flex items-center justify-center overflow-hidden group-hover:bg-[#FFF8EB] transition-colors">
-                  <img
-                    src={rede.logo}
+                  <img src={rede.logo}
                     alt={rede.nome}
                     className="w-8 h-8 object-contain"
                     onError={(e) => {

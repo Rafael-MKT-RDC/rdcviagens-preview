@@ -306,8 +306,7 @@ function PartnerLogo({ name, size = "md" }: { name: string; size?: "sm" | "md" |
 
   return (
     <div className={`${sizeClasses[size]} rounded-2xl flex items-center justify-center bg-white border border-[#E8E8E8] shadow-sm overflow-hidden`}>
-      <img
-        src={faviconUrl}
+      <img src={faviconUrl}
         alt={`Logo ${name}`}
         className={`${imgSizes[size]} object-contain`}
         onError={() => setImgError(true)}
@@ -358,8 +357,7 @@ function BrandMarquee({ direction = "left" }: { direction?: "left" | "right" }) 
           >
             <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center overflow-hidden shrink-0">
               {partnerDomains[partner.name] ? (
-                <img
-                  src={`https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${partnerDomains[partner.name]}&size=128`}
+                <img src={`https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${partnerDomains[partner.name]}&size=128`}
                   alt={partner.name}
                   className="w-7 h-7 object-contain"
                   onError={(e) => {
@@ -401,10 +399,10 @@ export default function ClubeVantagens() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Clube de Vantagens RDC | Descontos Exclusivos para Assinantes"
-        description="Clube de Vantagens exclusivo para assinantes RDC. Descontos de até 50% em restaurantes, entretenimento, saúde, educação e muito mais."
-        keywords="clube de vantagens, descontos exclusivos, benefícios assinantes, RDC vantagens, economia"
-        canonical="https://rdcviagens.com.br/clube-vantagens"
+        title="Clube de Vantagens | Descontos Exclusivos"
+        description="Descontos de até 50% em restaurantes, entretenimento, saúde, educação e beleza em todo o Brasil. Benefício exclusivo para assinantes RDC. Aproveite agora!"
+        keywords="clube vantagens RDC, descontos exclusivos, benefícios assinantes, economia dia a dia, descontos restaurantes, RDC vantagens"
+        canonical="/clube-vantagens"
       />
       <Header />
 

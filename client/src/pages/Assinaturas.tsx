@@ -65,11 +65,6 @@ import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 const MARKET_DAILY_RATE = 550;
 
 const plans = [
-  { id: "2-diarias", days: 2, price: 97.20, popular: false, recommended: false },
-  { id: "3-diarias", days: 3, price: 143.50, popular: false, recommended: false },
-  { id: "4-diarias", days: 4, price: 189.90, popular: false, recommended: false },
-  { id: "5-diarias", days: 5, price: 235.20, popular: false, recommended: false },
-  { id: "6-diarias", days: 6, price: 279.30, popular: false, recommended: false },
   { id: "7-diarias", days: 7, price: 319.90, popular: true, recommended: true },
 ];
 
@@ -236,6 +231,14 @@ const faqs = [
   {
     question: "Posso usar minhas diárias para passagens aéreas?",
     answer: "Sim! Você pode trocar suas diárias por passagens aéreas, aluguel de carro e até cruzeiros. É a flexibilidade que você precisa para montar a jornada ideal."
+  },
+  {
+    question: "Existe carência para usar minhas diárias?",
+    answer: "Sim. Após a assinatura, o assinante já pode começar a reservar suas viagens, porém a liberação das diárias ocorre após 40 dias do pagamento da primeira mensalidade. Esse prazo garante a segurança da operação e permite que você já planeje sua viagem com antecedência junto à nossa agência dedicada."
+  },
+  {
+    question: "O que é a Tarifa Exclusiva RDC?",
+    answer: "A Tarifa Exclusiva é um benefício ilimitado da sua assinatura: você pode viajar mais, pagando muito menos, com até 60% abaixo do mercado. São mais de 200 mil hotéis e resorts disponíveis desde o primeiro dia da assinatura, sem carência e sem limite de uso. A tarifa exclusiva não consome suas diárias — é um desconto adicional que está sempre ativo para você reservar o ano todo."
   }
 ];
 
@@ -281,12 +284,6 @@ export default function Assinaturas() {
   }, []);
 
   const scrollToPlans = () => {
-      <SEO
-        title="Planos de Assinatura de Viagens | RDC Viagens"
-        description="Conheça os planos de assinatura da RDC Viagens. De 2 a 7 diárias por ano nos melhores hotéis com economia de até 60%. Planos a partir de R$ 97,20/mês."
-        keywords="planos de assinatura viagens, assinatura hotéis, férias planejadas, economia viagens, RDC assinaturas"
-        canonical="https://rdcviagens.com.br/assinaturas"
-      />
     const plansSection = document.getElementById("planos");
     if (plansSection) {
       plansSection.scrollIntoView({ behavior: "smooth" });
@@ -300,6 +297,26 @@ export default function Assinaturas() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <SEO
+        title="Assinatura de Viagens | 7 Diárias por Ano"
+        description="Plano de 7 diárias por ano em hotéis e resorts 4 e 5 estrelas com até 60% de economia. Tarifa exclusiva ilimitada e agência de viagens dedicada. Assine agora!"
+        keywords="assinatura de viagens, plano de viagens mensal, clube de hospedagem, diárias hotel com desconto, RDC assinaturas, férias planejadas, economia em hotéis, viagens com desconto"
+        canonical="/assinaturas"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Assinatura RDC Viagens - 7 Diárias",
+          "description": "Plano de assinatura com 7 diárias por ano em hotéis e resorts de 4 e 5 estrelas, tarifa exclusiva ilimitada com até 60% de desconto, agência dedicada e Portal do Assinante.",
+          "brand": { "@type": "Brand", "name": "RDC Viagens" },
+          "offers": {
+            "@type": "Offer",
+            "price": "319.90",
+            "priceCurrency": "BRL",
+            "priceValidUntil": "2026-12-31",
+            "availability": "https://schema.org/InStock"
+          }
+        }}
+      />
       <Header />
       
       {/* Hero Section */}
@@ -559,7 +576,7 @@ export default function Assinaturas() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 md:p-6">
                   <CircleDollarSign className="w-8 h-8 text-[#FF9100] mx-auto mb-3" />
                   <h3 className="font-bold text-lg mb-2">Escolha seu plano</h3>
-                  <p className="text-[#8ECAE6] text-sm">Selecione a quantidade de diárias ideal para o seu perfil. Planos a partir de <strong>R$ 97,20/mês</strong>.</p>
+                  <p className="text-[#8ECAE6] text-sm">Selecione a quantidade de diárias ideal para o seu perfil e comece a planejar suas viagens.</p>
                 </div>
               </div>
 
@@ -590,9 +607,9 @@ export default function Assinaturas() {
               <Button 
                 size="lg" 
                 className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full"
-                onClick={scrollToPlans}
+                onClick={() => openSubscriptionModal()}
               >
-                Escolher meu plano
+                Quero começar minha jornada
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
@@ -627,7 +644,7 @@ export default function Assinaturas() {
               </div>
               <h3 className="font-bold text-lg text-[#2D2D2D] mb-2">Diárias de Hospedagem</h3>
               <p className="text-[#555555] text-sm leading-relaxed">
-                De <strong className="text-[#2D2D2D]">2 a 7 diárias por ano</strong> em hotéis e resorts de todo o Brasil e exterior, com validade de 12 meses.
+                <strong className="text-[#2D2D2D]">7 diárias por ano</strong> em hotéis e resorts de todo o Brasil e exterior.
               </p>
             </div>
 
@@ -636,9 +653,9 @@ export default function Assinaturas() {
               <div className="w-12 h-12 rounded-xl bg-[#FF9100] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <BadgePercent className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-bold text-lg text-[#2D2D2D] mb-2">Tarifa Especial</h3>
+              <h3 className="font-bold text-lg text-[#2D2D2D] mb-2">Tarifa Exclusiva</h3>
               <p className="text-[#555555] text-sm leading-relaxed">
-                Acesso a <strong className="text-[#2D2D2D]">tarifas com até 60% de desconto</strong> em mais de 200 mil destinos — sem consumir suas diárias.
+                Uso <strong className="text-[#2D2D2D]">ilimitado e sem carência</strong>: até 60% abaixo do mercado em +200 mil hotéis e resorts, disponível desde o primeiro dia da assinatura, o ano todo — sem consumir suas diárias.
               </p>
             </div>
 
@@ -690,10 +707,10 @@ export default function Assinaturas() {
           <div className="mt-8 md:mt-12 text-center">
             <Button 
               size="lg" 
-              className="bg-[#001A9E] hover:bg-[#001070] text-white px-8 shadow-lg shadow-[#001A9E]/30"
-              onClick={() => document.getElementById('planos')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 shadow-lg shadow-[#FF9100]/30 rounded-full"
+              onClick={() => openSubscriptionModal()}
             >
-              Ver planos e preços
+              Transformar minhas viagens
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
@@ -709,15 +726,15 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3 md:mb-4">
-              Escolha quantas diárias você quer por ano
+              Nosso plano de assinatura
             </h2>
             <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">
-              A única diferença entre os planos é a <strong>quantidade de diárias</strong>. Todos incluem os mesmos serviços e benefícios.
+              <strong>7 diárias por ano</strong> com todos os benefícios e serviços inclusos. O plano completo para quem quer viajar de verdade.
             </p>
           </div>
 
-          {/* Grid de planos — 3 colunas desktop, 2 mobile */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 max-w-4xl mx-auto">
+          {/* Plano único — centralizado */}
+          <div className="flex justify-center max-w-md mx-auto">
             {plans.map((plan) => {
               const dailyCost = (plan.price / 30).toFixed(2).replace(".", ",");
               return (
@@ -729,14 +746,6 @@ export default function Assinaturas() {
                       : "bg-white border border-[#D6D6D6] hover:border-[#8ECAE6]"
                   }`}
                 >
-                  {plan.recommended && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="inline-flex items-center gap-1 bg-white text-[#E68200] text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                        <Crown className="w-3 h-3" />
-                        Mais popular
-                      </span>
-                    </div>
-                  )}
 
                   <div className={`text-4xl md:text-5xl font-bold mb-0.5 ${plan.recommended ? "text-white" : "text-[#001A9E]"}`}>
                     {plan.days}
@@ -790,28 +799,7 @@ export default function Assinaturas() {
             })}
           </div>
 
-          {/* Benefícios inclusos em todos os planos */}
-          <div className="mt-10 md:mt-14 max-w-4xl mx-auto">
-            <div className="text-center mb-6 md:mb-8">
-              <Badge className="mb-3 bg-[#E8F4FA] text-[#001A9E] border-0">
-                <Check className="w-3 h-3 mr-1" />
-                Incluso em todos os planos
-              </Badge>
-              <h3 className="text-lg md:text-xl font-bold text-[#2D2D2D]">
-                Todos os planos incluem
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              {sharedBenefits.map((benefit, index) => (
-                <div key={index} className="flex items-start gap-2.5 p-3 md:p-4 bg-white rounded-xl border border-[#E8E8E8] hover:border-[#8ECAE6] hover:shadow-sm transition-all">
-                  <div className="w-8 h-8 rounded-lg bg-[#F6F6F6] flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-4 h-4 text-[#001A9E]" />
-                  </div>
-                  <span className="text-xs md:text-sm text-[#404040] font-medium leading-tight">{benefit.text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+
 
         </div>
         </AnimateOnScroll>
@@ -835,7 +823,7 @@ export default function Assinaturas() {
               </div>
             </div>
             <Link href="/programa-indicacao">
-              <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white whitespace-nowrap">
+              <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white whitespace-nowrap rounded-full">
                 Quero indicar e ganhar
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
@@ -1205,8 +1193,7 @@ export default function Assinaturas() {
                           "{testimonial.text}"
                         </p>
                         <div className="flex items-center gap-3">
-                          <img 
-                            src={testimonial.image} 
+                          <img src={testimonial.image} 
                             alt={testimonial.name}
                             className="w-10 h-10 rounded-full object-cover"
                           />
@@ -1265,8 +1252,7 @@ export default function Assinaturas() {
                     "{testimonial.text}"
                   </p>
                   <div className="flex items-center gap-3">
-                    <img 
-                      src={testimonial.image} 
+                    <img src={testimonial.image} 
                       alt={testimonial.name}
                       className="w-12 h-12 rounded-full object-cover"
                     />
@@ -1355,27 +1341,33 @@ export default function Assinaturas() {
         </AnimateOnScroll>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-10 md:py-20 bg-[#F6F6F6]">
+      {/* CTA Final */}
+      <section className="py-10 md:py-20 bg-gradient-to-br from-[#00148A] to-[#001070]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3 md:mb-4">
-              Ainda tem dúvidas?
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-3 md:mb-4">
+              Sua próxima jornada começa aqui
             </h2>
-            <p className="text-sm md:text-lg text-[#555555] mb-6 md:mb-8">
-              Nossa equipe está pronta para ajudar você a encontrar o <strong>plano ideal</strong> para suas próximas jornadas.
+            <p className="text-sm md:text-lg text-[#8ECAE6] mb-6 md:mb-8">
+              Cada viagem é uma história esperando para ser vivida. Deixe a gente te guiar nessa jornada — com <strong>economia, cuidado e liberdade</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8"
+                className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full"
                 onClick={() => openSubscriptionModal()}
               >
-                Falar com um especialista
+                Quero começar minha jornada
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="border-[#001A9E] text-[#001A9E] hover:bg-[#F6F6F6] px-8">
-                WhatsApp
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white text-white hover:bg-white/10 px-8 rounded-full"
+                onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+              >
+                Falar pelo WhatsApp
               </Button>
             </div>
           </div>
@@ -1399,7 +1391,7 @@ export default function Assinaturas() {
           onClick={() => openSubscriptionModal()}
         >
           <ShoppingCart className="w-5 h-5 mr-2" />
-              Quero conhecer os planos
+              Iniciar minha jornada
         </Button>
       </div>
 

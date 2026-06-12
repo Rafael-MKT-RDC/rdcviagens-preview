@@ -7,8 +7,8 @@ const organizationSchema = {
   "alternateName": "RDC Férias e Viagens",
   "url": "https://rdcviagens.com.br",
   "logo": "https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/Logo_RDC_oficial_4e0ebd10.png",
-  "description": "Pioneira em assinatura de viagens no Brasil há 35 anos. Planos a partir de R$ 97,20/mês com acesso a mais de 200 mil destinos no Brasil e no mundo.",
-  "foundingDate": "1991",
+  "description": "Pioneira em assinatura de viagens no Brasil há mais de 35 anos. Plano de 7 diárias por ano com tarifa exclusiva de até 60% OFF em +200 mil hotéis e resorts no Brasil e no mundo.",
+  "foundingDate": "1992",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Rua Manoel Coelho, 600, Centro",
@@ -39,12 +39,6 @@ const organizationSchema = {
     "https://www.linkedin.com/company/rdcviagens",
     "https://www.tiktok.com/@rdc.viagens"
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.5",
-    "reviewCount": "1000",
-    "bestRating": "5"
-  },
   "numberOfEmployees": {
     "@type": "QuantitativeValue",
     "value": "400"
@@ -73,7 +67,23 @@ const faqSchema = {
       "name": "O que é a assinatura de viagens da RDC?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A assinatura de viagens da RDC é um plano mensal que dá acesso a hospedagens nos melhores hotéis e resorts com economia. São 6 planos de 2 a 7 diárias por ano, a partir de R$ 97,20/mês, com acesso a mais de 200 mil destinos no Brasil e no mundo."
+        "text": "A assinatura de viagens da RDC é um plano mensal que dá acesso a 7 diárias por ano em hotéis e resorts de 4 e 5 estrelas, além de tarifa exclusiva ilimitada com até 60% de desconto em +200 mil hotéis no Brasil e no mundo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é a carência da assinatura RDC Viagens?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Após a assinatura, o assinante pode realizar reservas após 40 dias do primeiro pagamento. A Tarifa Exclusiva, porém, está disponível desde o primeiro dia da assinatura, sem carência."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é a Tarifa Exclusiva da RDC Viagens?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Tarifa Exclusiva é um benefício ilimitado e sem carência: tarifas com até 60% abaixo do mercado em +200 mil hotéis e resorts, disponível desde o primeiro dia da assinatura, o ano todo, sem consumir suas diárias."
       }
     },
     {
@@ -97,7 +107,7 @@ const faqSchema = {
       "name": "O que é o Viaje Tranquilo da RDC?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "O Viaje Tranquilo é um serviço exclusivo para assinantes por R$ 19,90 por reserva que oferece prioridade de atendimento, suporte emergencial 24h com atendimento humano, isenção da taxa RDC para alterações de reserva e solicitação imediata de early check-in e late check-out."
+        "text": "O Viaje Tranquilo é um serviço exclusivo para assinantes por R$ 29,90 por reserva que oferece prioridade de atendimento, suporte emergencial 24h com atendimento humano, isenção da taxa RDC para alterações de reserva e solicitação imediata de early check-in e late check-out."
       }
     },
     {

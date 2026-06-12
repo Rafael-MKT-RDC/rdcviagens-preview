@@ -85,10 +85,17 @@ export default function TrabalheConosco() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Trabalhe Conosco | Carreiras na RDC Viagens"
-        description="Faça parte da equipe RDC Viagens. Empresa certificada Great Place to Work com mais de 400 RDCLovers. Confira nossas vagas no LinkedIn."
-        keywords="trabalhe conosco, vagas RDC Viagens, carreiras turismo, emprego viagens, GPTW"
-        canonical="https://rdcviagens.com.br/trabalhe-conosco"
+        title="Trabalhe Conosco | Vagas e Carreiras"
+        description="Faça parte da equipe RDC Viagens, empresa certificada Great Place to Work com mais de 400 colaboradores apaixonados por viagens. Confira as vagas abertas!"
+        keywords="trabalhe conosco RDC, vagas RDC Viagens, carreiras turismo, emprego viagens, GPTW, oportunidades RDC"
+        canonical="/trabalhe-conosco"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "JobPosting",
+          "hiringOrganization": { "@type": "Organization", "name": "RDC Viagens" },
+          "description": "Oportunidades de carreira na RDC Viagens, empresa certificada Great Place to Work.",
+          "employmentType": "FULL_TIME"
+        }}
       />
       <Header />
       

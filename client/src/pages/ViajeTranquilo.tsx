@@ -1,6 +1,6 @@
 /**
  * Viaje Tranquilo - Serviço exclusivo para assinantes RDC
- * Preço: R$ 19,90 por reserva
+ * Preço: R$ 29,90 por reserva
  * Padrão visual: mesmo das demais páginas do site
  * Hero: gradiente azul escuro + blobs + wave divider
  * Seções: alternância branco / cinza claro
@@ -97,10 +97,10 @@ export default function ViajeTranquilo() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Viaje Tranquilo | Atendimento Personalizado | RDC Viagens"
-        description="Viaje Tranquilo: serviço exclusivo por R$ 19,90 para assinantes RDC com prioridade de atendimento, suporte 24h, isenção de taxas e early check-in/late check-out."
-        keywords="viaje tranquilo, atendimento personalizado viagem, suporte 24h viagem, RDC viagens assinante"
-        canonical="https://rdcviagens.com.br/viaje-tranquilo"
+        title="Viaje Tranquilo | Suporte 24h e Atendimento"
+        description="Prioridade no atendimento, suporte 24h, early check-in e late check-out por apenas R$ 29,90/mês. Serviço exclusivo para assinantes RDC. Contrate agora!"
+        keywords="viaje tranquilo RDC, atendimento VIP viagem, suporte 24h viagem, early check-in, late check-out, prioridade atendimento"
+        canonical="/viaje-tranquilo"
       />
       <Header />
 
@@ -127,7 +127,7 @@ export default function ViajeTranquilo() {
               <strong className="text-white">suporte 24 horas</strong>, prioridade no atendimento e benefícios exclusivos para curtir cada momento sem preocupação.
             </p>
             <p className="text-sm md:text-lg text-[#FFB040] italic mb-6 md:mb-8">
-              A partir de apenas R$ 19,90 por reserva.
+              A partir de apenas R$ 29,90 por reserva.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
@@ -171,7 +171,7 @@ export default function ViajeTranquilo() {
                   <p className="text-[#8ECAE6] text-xs uppercase tracking-wider font-medium mb-2">A partir de</p>
                   <div className="flex items-baseline justify-center gap-1 mb-1">
                     <span className="text-lg font-bold">R$</span>
-                    <span className="text-5xl font-extrabold leading-none">19</span>
+                    <span className="text-5xl font-extrabold leading-none">29</span>
                     <span className="text-2xl font-bold">,90</span>
                   </div>
                   <p className="text-[#8ECAE6] text-sm">por reserva</p>
@@ -282,7 +282,7 @@ export default function ViajeTranquilo() {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div className="md:max-w-md">
                   <h3 className="text-lg md:text-xl font-bold text-white mb-2">
-                    Contrate agora por apenas R$ 19,90
+                    Contrate agora por apenas R$ 29,90
                   </h3>
                   <p className="text-[#8ECAE6] text-sm leading-relaxed">
                     Contrate o <strong className="text-white">Viaje Tranquilo</strong> ao reservar a sua hospedagem ou ao adquirir qualquer produto turístico com a RDC,
@@ -334,7 +334,7 @@ export default function ViajeTranquilo() {
                     {[
                       "Sem compromisso",
                       "Retorno em até 24h úteis",
-                      "Apenas R$ 19,90 por reserva",
+                      "Apenas R$ 29,90 por reserva",
                     ].map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-[#F6F6F6] flex items-center justify-center flex-shrink-0">

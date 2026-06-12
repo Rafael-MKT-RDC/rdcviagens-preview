@@ -195,10 +195,10 @@ export default function ProgramaIndicacao() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Programa Indique e Ganhe | RDC Viagens"
-        description="Indique amigos para a RDC Viagens e ganhe recompensas. Preencha o formulário e nossa equipe entra em contato com seu indicado."
-        keywords="programa indicação, indique e ganhe, recompensas viagens, RDC indicação, desconto assinatura"
-        canonical="https://rdcviagens.com.br/programa-indicacao"
+        title="Programa Indique e Ganhe | Recompensas"
+        description="Indique amigos para a RDC Viagens e ganhe recompensas exclusivas a cada indicação confirmada. Quanto mais você indica, mais ganha. Comece a indicar agora!"
+        keywords="programa indicação RDC, indique e ganhe, recompensas viagens, indicar amigos, desconto assinatura viagens"
+        canonical="/programa-indicacao"
       />
       <Header />
       

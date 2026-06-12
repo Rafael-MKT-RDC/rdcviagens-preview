@@ -74,10 +74,11 @@ export default function Documentos() {
   return (
     <>
       <SEO
-        title="Documentos Legais | Termos, Privacidade e Contratos | RDC Viagens"
-        description="Acesse os documentos legais da RDC Viagens: termos de uso, política de privacidade, contratos de assinatura e regulamentos. Transparência e segurança para nossos assinantes."
-        keywords="documentos RDC Viagens, termos de uso, política de privacidade, contrato assinatura viagens, regulamento"
-        canonical="https://rdcviagens.com.br/documentos"
+        title="Documentos Legais | Termos e Privacidade"
+        description="Acesse os documentos legais da RDC Viagens: termos de uso, política de privacidade e contratos de assinatura. Transparência e segurança para nossos assinantes."
+        keywords="documentos RDC Viagens, termos de uso, política privacidade, contrato assinatura, regulamento viagens"
+        canonical="/documentos"
+        noindex={true}
       />
     <div className="min-h-screen bg-white">
       <Header />

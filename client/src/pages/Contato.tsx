@@ -12,10 +12,16 @@ export default function Contato() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="Contato | Fale com a RDC Viagens"
-        description="Entre em contato com a RDC Viagens. Atendimento por chat, WhatsApp e televendas 0800-055-2600. Segunda a sexta, das 9h às 19h."
-        keywords="contato RDC Viagens, telefone RDC, WhatsApp RDC, atendimento, fale conosco, televendas"
-        canonical="https://rdcviagens.com.br/contato"
+        title="Contato | Fale Conosco | Atendimento 0800"
+        description="Fale com a RDC Viagens pelo chat, WhatsApp ou televendas gratuito 0800-055-2600. Atendimento de segunda a sexta, das 9h às 19h. Tire suas dúvidas agora!"
+        keywords="contato RDC Viagens, telefone RDC, WhatsApp RDC, atendimento viagens, fale conosco, televendas 0800"
+        canonical="/contato"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contato RDC Viagens",
+          "description": "Canais de atendimento da RDC Viagens: chat, WhatsApp e televendas 0800-055-2600."
+        }}
       />
       <Header />
       
