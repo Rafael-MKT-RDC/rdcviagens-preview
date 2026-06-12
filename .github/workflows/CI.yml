@@ -1,0 +1,17 @@
+name: Deploy CI/CD
+
+on:
+  pull_request:
+    branches: [ master ]
+    types:
+      - labeled
+      - synchronize
+      - reopened
+  pull_request_review:
+    types:
+      - submitted
+
+jobs:
+  CallRdcCI:
+    uses: RdcViagens/ActionWorkflowTemplate/.github/workflows/RdcCIPipeline.yml@master
+    secrets: inherit

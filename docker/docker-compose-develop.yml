@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  rdcviagens-site:
+    image: registry.rdcviagens.com.br:80/rdc/rdcviagens-site:latest
+    environment:
+      - NODE_ENV=development
+      - TZ=America/Sao_Paulo
+    networks:
+      - rdc
+      - nginx-swarm
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+networks:
+  rdc:
+    external: true
+    name: rdc
+  nginx-swarm:
+    external: true

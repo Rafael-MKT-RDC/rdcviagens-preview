@@ -1,0 +1,13 @@
+name: Notify Teams on PR
+on:
+  pull_request:
+    types: [review_requested, review_submitted]
+    branches: [ develop,release,stage,master ]
+  pull_request_review:
+    types: [submitted, changes_requested]
+    branches: [develop, release, stage, master]
+
+jobs:
+  CallMergeMe:
+    uses: RdcViagens/ActionWorkflowTemplate/.github/workflows/ReviewNotify.yml@master
+    secrets: inherit
