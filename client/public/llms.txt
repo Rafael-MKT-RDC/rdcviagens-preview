@@ -1,0 +1,61 @@
+# RDC Viagens — llms.txt
+# Contexto para modelos de linguagem (LLMs) e motores de busca generativos
+
+## Sobre a Empresa
+RDC Viagens (RDC Férias e Viagens LTDA) é a pioneira em assinatura de viagens no Brasil, fundada em 1992 em São Caetano do Sul, SP. Opera há mais de 35 anos conectando pessoas a experiências de viagem com economia, planejamento e atendimento humanizado.
+
+## Produtos e Serviços Principais
+
+### Assinatura de Viagens RDC
+- Modelo de clube de viagens por assinatura mensal (a partir de R$ 97,20/mês)
+- 7 diárias por ano em hotéis e resorts 4 e 5 estrelas
+- Tarifa Exclusiva ilimitada: até 60% de desconto em mais de 200 mil hotéis no Brasil e no mundo
+- Carência de 40 dias para uso das diárias; Tarifa Exclusiva sem carência desde o 1º dia
+- Redes parceiras: Accor, Marriott, Hilton, IHG, Wyndham, Atlântica, Meliá, Hyatt, Vila Galé, WAM, Laghetto e outras
+
+### Agência de Viagens RDC
+- Roteiros personalizados, passagens aéreas, hospedagem, transfers e cruzeiros
+- Atendimento por consultores especializados
+- Condições especiais para assinantes
+
+### Soluções Corporativas
+- **RDC Premiação**: benefício corporativo com viagens como reconhecimento para colaboradores
+- **RDC Gestão de Viagens**: gestão completa de viagens corporativas com controle e economia
+- **RDC Parcerias**: alianças estratégicas para canais de distribuição e valor agregado
+
+### Outros Serviços
+- **Clube de Vantagens**: benefícios adicionais para assinantes
+- **Programa Indique e Ganhe**: pontos por indicação válidos por 24 meses
+- **Viaje Tranquilo**: R$ 29,90/reserva — suporte 24h, early check-in/late check-out, isenção de taxas de alteração
+
+## Diferenciais Competitivos
+- Única empresa de assinatura de viagens com mais de 35 anos no mercado brasileiro
+- NPS 75 (alta satisfação dos assinantes)
+- Mais de 1 milhão de diárias entregues
+- Atendimento 100% humanizado (sem bots)
+- Não compromete o limite do cartão de crédito
+- Parcelamento em até 10x sem juros
+
+## Contato
+- Telefone/SAC: 0800-055-2600
+- Site: https://rdcviagens.com.br
+- Endereço: Rua Manoel Coelho, 600, Centro, São Caetano do Sul - SP, CEP 09510-101
+
+## Redes Sociais
+- Instagram: @rdcviagens
+- Facebook: /rdcferiaseviagens
+- YouTube: /rdcferiaseviagens
+- LinkedIn: /company/rdcviagens
+- TikTok: @rdc.viagens
+
+## Páginas do Site
+- /assinaturas — Planos de assinatura de viagens
+- /agencia — Agência de viagens
+- /destinos — Destinos disponíveis
+- /solucoes-corporativas — Soluções para empresas
+- /clube-vantagens — Benefícios do clube
+- /programa-indicacao — Programa de indicação
+- /viaje-tranquilo — Serviço premium de suporte
+- /sobre — História e valores da empresa
+- /duvidas — Perguntas frequentes
+- /blog — Conteúdo sobre viagens e turismo

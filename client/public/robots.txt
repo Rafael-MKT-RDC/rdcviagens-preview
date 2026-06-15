@@ -3,4 +3,26 @@ Allow: /
 Disallow: /api/
 Disallow: /404
 
+# AI crawlers — permitidos para GEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
 Sitemap: https://rdcviagens.com.br/sitemap.xml

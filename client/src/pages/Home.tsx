@@ -223,7 +223,7 @@ export default function Home() {
         {heroSlides.map((slide, index) => (
           <div key={slide.id} className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"}`}>
             <div className="absolute inset-0">
-              <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
+              <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" fetchPriority={index === 0 ? "high" : "low"} loading={index === 0 ? "eager" : "lazy"} />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
             </div>
             <div className="relative h-full container flex items-center">
@@ -298,7 +298,7 @@ export default function Home() {
               <Link href="/sobre"><Button className="bg-[#001A9E] hover:bg-[#001070]">Conheça nossa história <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             </div>
             <div className="relative">
-              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ImYicCgyeERQbRNm.jpg" alt="Destino turístico brasileiro" className="rounded-2xl shadow-2xl" />
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ImYicCgyeERQbRNm.jpg" alt="Destino turístico brasileiro" className="rounded-2xl shadow-2xl" loading="lazy" />
               <div className="absolute -bottom-4 -left-2 md:-bottom-6 md:-left-6 bg-[#001A9E] text-white p-4 md:p-6 rounded-2xl shadow-lg">
                 <div className="text-2xl md:text-4xl font-bold">+35</div>
                 <div className="text-xs md:text-sm text-[#8ECAE6]">anos de história</div>
@@ -376,7 +376,7 @@ export default function Home() {
               return (
                 <Link key={index} href={cat.link}>
                   <div className="group relative h-72 md:h-96 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
                     <div className="absolute top-4 left-4">
                       <div className="w-10 h-10 rounded-full bg-[#FF9100] flex items-center justify-center">
@@ -421,7 +421,7 @@ export default function Home() {
               <Link href="/assinaturas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200]">Conhecer planos <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             </div>
             <div>
-              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg" alt="Praia paradisíaca" className="rounded-2xl shadow-2xl" />
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg" alt="Praia paradisíaca" className="rounded-2xl shadow-2xl" loading="lazy" />
             </div>
           </div>
         </div>
@@ -430,7 +430,7 @@ export default function Home() {
       {/* 8. Agência de Viagens */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=800&fit=crop" alt="Destino paradisíaco" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=800&fit=crop" alt="Destino paradisíaco" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-[#00148A]/70" />
         </div>
         <div className="relative container">
