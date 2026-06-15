@@ -100,7 +100,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/Logo_RDC_oficial_4e0ebd10.png" 
+            <img src="/logos/logo-rdc.svg" 
               alt="RDC Viagens" 
               className="h-10 md:h-12 w-auto"
             />

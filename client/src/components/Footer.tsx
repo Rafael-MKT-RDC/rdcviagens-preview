@@ -56,7 +56,7 @@ export default function Footer() {
           {/* Logo e descrição */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <Link href="/">
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/Logo_RDC_oficial_4e0ebd10.png" 
+              <img src="/logos/logo-rdc.svg" 
                 alt="RDC Viagens" 
                 className="h-12 w-auto mb-4 brightness-0 invert"
               />
