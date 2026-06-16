@@ -10,7 +10,8 @@
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
-    "studio": "sanity dev"
+    "studio": "sanity dev",
+    "studio:deploy": "sanity deploy --yes"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
