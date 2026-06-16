@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,60 +6,16 @@ import { Calendar, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
-const posts = [
-  {
-    id: 1,
-    title: "10 destinos para explorar no Nordeste brasileiro",
-    excerpt: "Descubra as praias mais bonitas e os melhores roteiros para suas férias no Nordeste.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg",
-    category: "Destinos",
-    date: "15 Jan 2026"
-  },
-  {
-    id: 2,
-    title: "Serra Gaúcha: vinícolas e experiências únicas",
-    excerpt: "Um guia completo para aproveitar o melhor da região serrana do Rio Grande do Sul.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ImYicCgyeERQbRNm.jpg",
-    category: "Roteiros",
-    date: "10 Jan 2026"
-  },
-  {
-    id: 3,
-    title: "Como economizar até 60% em hospedagem",
-    excerpt: "Dicas práticas para viajar mais gastando menos com a assinatura RDC.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/dtVwkyALqxKTftZh.jpg",
-    category: "Dicas",
-    date: "05 Jan 2026"
-  },
-  {
-    id: 4,
-    title: "Chapada Diamantina: aventura e natureza",
-    excerpt: "Trilhas, cachoeiras e paisagens espetaculares no coração da Bahia.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/tVQGjOywLFbspfyI.jpg",
-    category: "Aventura",
-    date: "01 Jan 2026"
-  },
-  {
-    id: 5,
-    title: "Pantanal: o santuário da vida selvagem",
-    excerpt: "Conheça o maior ecossistema alagado do mundo e sua fauna incrível.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/kLTGHUyyAHMCuMQP.jpg",
-    category: "Natureza",
-    date: "28 Dez 2025"
-  },
-  {
-    id: 6,
-    title: "Viagem em família: como planejar férias perfeitas",
-    excerpt: "Guia completo para organizar viagens inesquecíveis com crianças.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/dtVwkyALqxKTftZh.jpg",
-    category: "Família",
-    date: "20 Dez 2025"
-  }
-];
+import { getBlogPosts, type BlogPost } from "@/lib/contentService";
 
 export default function Blog() {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    getBlogPosts().then(setPosts);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
