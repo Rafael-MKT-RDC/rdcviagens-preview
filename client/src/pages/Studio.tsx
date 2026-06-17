@@ -91,6 +91,35 @@ const config = defineConfig({
                   .documentId('paginaDestinos')
                   .title('Página Destinos'),
               ),
+            S.listItem()
+              .title('Página Premiação')
+              .id('paginaPremiacao')
+              .child(
+                S.document()
+                  .schemaType('paginaPremiacao')
+                  .documentId('paginaPremiacao')
+                  .title('Página Premiação'),
+              ),
+            S.divider(),
+            S.listItem()
+              .title('Página Gestão')
+              .id('paginaGestao')
+              .child(
+                S.document()
+                  .schemaType('paginaGestao')
+                  .documentId('paginaGestao')
+                  .title('Página Gestão'),
+              ),
+            S.divider(),
+            S.listItem()
+              .title('Página Parcerias')
+              .id('paginaParcerias')
+              .child(
+                S.document()
+                  .schemaType('paginaParcerias')
+                  .documentId('paginaParcerias')
+                  .title('Página Parcerias'),
+              ),
             S.divider(),
             S.listItem()
               .title('Página Viaje Tranquilo')
