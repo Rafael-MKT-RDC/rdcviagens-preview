@@ -32,6 +32,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { Link } from "wouter";
+import { CtaLink } from "@/components/CtaLink";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { usePageDoc } from "@/hooks/usePageDoc";
@@ -690,17 +691,17 @@ export default function ClubeVantagens() {
             </h2>
             <p className="text-lg text-[#C7E5F3]/80 mb-8 max-w-2xl mx-auto">{c.ctaTexto ?? "Ao se tornar assinante RDC, você não ganha apenas diárias nos melhores hotéis e resorts. Você tem acesso ao Clube de Vantagens com descontos exclusivos em mais de 50 marcas parceiras durante o ano todo."}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/assinaturas">
+              <CtaLink href={c.ctaBotao1Link ?? "/assinaturas"}>
                 <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF9100] to-[#E68200] text-white font-bold rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-[#FF9100]/30 text-lg">
                   {c.ctaBotao1 ?? "Quero ser assinante"}
                   <ArrowRight className="w-5 h-5" />
                 </button>
-              </Link>
-              <Link href="/agencia">
+              </CtaLink>
+              <CtaLink href={c.ctaBotao2Link ?? "/agencia"}>
                 <button className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-2xl hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20">
                   {c.ctaBotao2 ?? "Conhecer a agência"}
                 </button>
-              </Link>
+              </CtaLink>
             </div>
 
             <p className="text-[#8ECAE6]/60 text-sm mt-8">

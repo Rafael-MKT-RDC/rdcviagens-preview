@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { CtaLink } from "@/components/CtaLink";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -302,7 +303,7 @@ export default function Home() {
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-6">{c.sobreTitulo ?? "Transformamos o sonho de viajar em realidade"}</h2>
               <p className="text-[#555555] mb-4 leading-relaxed">A RDC Viagens nasceu com o propósito de <strong>democratizar o acesso a viagens de qualidade</strong>. Acreditamos que viajar não é luxo, é necessidade — e todos merecem <strong>experiências transformadoras</strong>.</p>
               <p className="text-[#555555] mb-8 leading-relaxed">Com mais de <strong>três décadas de experiência</strong>, desenvolvemos soluções inovadoras que permitem que famílias e empresas planejem suas viagens com <strong>economia, previsibilidade</strong> e o suporte de uma <strong>equipe dedicada</strong>.</p>
-              <Link href="/sobre"><Button className="bg-[#001A9E] hover:bg-[#001070]">{c.sobreCta ?? "Conheça nossa história"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <CtaLink href={c.sobreCtaLink ?? "/sobre"}><Button className="bg-[#001A9E] hover:bg-[#001070]">{c.sobreCta ?? "Conheça nossa história"} <ArrowRight className="ml-2 h-4 w-4" /></Button></CtaLink>
             </div>
             <div className="relative">
               <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ImYicCgyeERQbRNm.jpg" alt="Destino turístico brasileiro" className="rounded-2xl shadow-2xl" loading="lazy" />
@@ -361,9 +362,9 @@ export default function Home() {
           </div>
           <div className="text-center mt-8">
             <p className="text-sm text-[#777777] mb-4">{c.redesNota ?? "E mais de 16 redes e milhares de hotéis independentes em todo o mundo."}</p>
-            <Link href="/destinos">
+            <CtaLink href={c.redesCtaLink ?? "/destinos"}>
               <Button variant="outline" className="border-[#001A9E] text-[#001A9E] hover:bg-[#F6F6F6]">{c.redesCta ?? "Ver todos os destinos"} <ArrowRight className="ml-2 h-4 w-4" /></Button>
-            </Link>
+            </CtaLink>
           </div>
         </div>
         </AnimateOnScroll>
@@ -425,7 +426,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <Link href="/assinaturas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200]">{c.assinaturasCta ?? "Conhecer planos"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <CtaLink href={c.assinaturasCtaLink ?? "/assinaturas"}><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200]">{c.assinaturasCta ?? "Conhecer planos"} <ArrowRight className="ml-2 h-4 w-4" /></Button></CtaLink>
             </div>
             <div>
               <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg" alt="Praia paradisíaca" className="rounded-2xl shadow-2xl" loading="lazy" />
@@ -464,11 +465,11 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <Link href="/agencia">
+            <CtaLink href={c.agenciaCtaLink ?? "/agencia"}>
               <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">
                 {c.agenciaCta ?? "Conhecer a agência"} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
+            </CtaLink>
           </div>
         </div>
       </section>
@@ -499,7 +500,7 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/solucoes-corporativas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">{c.corpCta ?? "Explorar todas as soluções"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <CtaLink href={c.corpCtaLink ?? "/solucoes-corporativas"}><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">{c.corpCta ?? "Explorar todas as soluções"} <ArrowRight className="ml-2 h-4 w-4" /></Button></CtaLink>
           </div>
         </div>
       </section>

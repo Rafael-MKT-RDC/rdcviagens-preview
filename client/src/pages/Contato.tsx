@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, MessageCircle, Globe, ArrowRight, Headset } from "lucide-react";
 import { Link } from "wouter";
+import { CtaLink } from "@/components/CtaLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -114,11 +115,11 @@ export default function Contato() {
             <div className="bg-[#F6F6F6] rounded-2xl p-6 md:p-8 text-center">
               <h3 className="text-xl font-bold text-[#2D2D2D] mb-3">{c.duvidasTitulo ?? "Tem alguma dúvida?"}</h3>
               <p className="text-[#555555] mb-6">{c.duvidasTexto ?? "Consulte nossa Central de Ajuda com as perguntas mais frequentes sobre a RDC Viagens."}</p>
-              <Link href="/duvidas">
+              <CtaLink href={c.duvidasBotaoLink ?? "/duvidas"}>
                 <Button variant="outline" className="border-[#001A9E] text-[#001A9E] hover:bg-[#F6F6F6]">
                   {c.duvidasBotao ?? "Ver perguntas frequentes"} <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-              </Link>
+              </CtaLink>
             </div>
           </div>
         </div>

@@ -25,6 +25,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "wouter";
+import { CtaLink } from "@/components/CtaLink";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { usePageDoc } from "@/hooks/usePageDoc";
@@ -631,17 +632,17 @@ export default function NossosDestinos() {
             <p className="text-lg text-white/70 max-w-2xl mx-auto mb-10">{c.ctaTexto ?? "Assine a RDC e tenha acesso a hotéis no Brasil e no mundo inteiro, com economia e planejamento. Sua próxima viagem começa aqui."}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/assinaturas">
+              <CtaLink href={c.ctaBotao1Link ?? "/assinaturas"}>
                 <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF9100] to-[#E68200] text-white rounded-2xl font-semibold text-lg hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-[#FF9100]/30">
                   {c.ctaBotao1 ?? "Ver planos de assinatura"}
                   <ArrowRight className="w-5 h-5" />
                 </button>
-              </Link>
-              <Link href="/agencia">
+              </CtaLink>
+              <CtaLink href={c.ctaBotao2Link ?? "/agencia"}>
                 <button className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-semibold text-lg hover:bg-white/20 transition-all border border-white/20">
                   {c.ctaBotao2 ?? "Conhecer a agência"}
                 </button>
-              </Link>
+              </CtaLink>
             </div>
           </motion.div>
         </div>

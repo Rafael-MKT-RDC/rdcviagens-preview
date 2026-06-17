@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { CtaLink } from "@/components/CtaLink";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -273,12 +274,12 @@ export default function Empresas() {
             </h2>
             <p className="text-lg text-[#8ECAE6] mb-8">{c.ctaTexto ?? "Fale com nossa equipe. Vamos entender o cenário da sua empresa e indicar o caminho que faz mais sentido para os seus objetivos."}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contato">
+              <CtaLink href={c.ctaBotaoLink ?? "/contato"}>
                 <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8">
                   {c.ctaBotao ?? "Falar com a equipe"}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-              </Link>
+              </CtaLink>
             </div>
           </div>
         </div>

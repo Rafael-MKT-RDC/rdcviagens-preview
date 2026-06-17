@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
+import { CtaLink } from "@/components/CtaLink";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -768,7 +769,7 @@ export default function Assinaturas() {
                         : "bg-[#001A9E] hover:bg-[#001070] text-white"
                     }`}
                     size="sm"
-                    onClick={() => window.open('https://rdcviagens.com.br/assinar', '_blank')}
+                    onClick={() => window.open(c.planoCtaLink ?? 'https://rdcviagens.com.br/assinar', '_blank')}
                   >
                     {c.planoCta ?? "Assinar agora"}
                   </Button>
@@ -1273,12 +1274,12 @@ export default function Assinaturas() {
               </h2>
               <p className="text-[#8ECAE6] text-sm md:text-lg leading-relaxed">{c.agenciaTexto ?? "Como assinante RDC, você tem acesso a uma agência dedicada que cuida de cada detalhe: passagens, hospedagem, roteiros personalizados, transfers e muito mais."}</p>
             </div>
-            <Link href="/agencia">
+            <CtaLink href={c.agenciaCtaLink ?? "/agencia"}>
               <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 whitespace-nowrap">
                 {c.agenciaCta ?? "Conhecer a agência"}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </Link>
+            </CtaLink>
           </div>
         </div>
         </AnimateOnScroll>
@@ -1343,7 +1344,7 @@ export default function Assinaturas() {
                 size="lg" 
                 variant="outline" 
                 className="border-white text-white hover:bg-white/10 px-8 rounded-full"
-                onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+                onClick={() => window.open(c.ctaBotao2Link ?? 'https://wa.me/5511999999999', '_blank')}
               >
                 {c.ctaBotao2 ?? "Falar pelo WhatsApp"}
               </Button>

@@ -15,6 +15,7 @@ import { usePageDoc } from "@/hooks/usePageDoc";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
+import { CtaLink } from "@/components/CtaLink";
 import {
   Headphones,
   Clock,
@@ -464,12 +465,12 @@ export default function ViajeTranquilo() {
               {c.ctaTitulo ?? "Ainda não é assinante RDC?"}
             </h2>
             <p className="text-[#8ECAE6] text-sm md:text-base mb-6 max-w-lg mx-auto">{c.ctaTexto ?? "Conheça nossos planos de assinatura e tenha acesso ao Viaje Tranquilo e muito mais."}</p>
-            <Link href="/assinaturas">
+            <CtaLink href={c.ctaBotaoLink ?? "/assinaturas"}>
               <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white font-semibold px-8 rounded-full">
                 {c.ctaBotao ?? "Conhecer planos"}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </Link>
+            </CtaLink>
           </AnimateOnScroll>
         </div>
       </section>

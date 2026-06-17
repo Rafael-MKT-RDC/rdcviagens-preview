@@ -116,7 +116,7 @@ export default function TrabalheConosco() {
             <p className="text-xl text-[#C7E5F3] mb-8">{c.heroSubtitulo ?? "Faça parte de uma equipe apaixonada por transformar sonhos em viagens inesquecíveis. Na RDC, você cresce junto com a gente!"}</p>
             <div className="flex flex-wrap gap-4">
               <a 
-                href="https://www.linkedin.com/company/rdcviagens/jobs/" 
+                href={c.vagasBotaoLink ?? "https://www.linkedin.com/company/rdcviagens/jobs/"}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -232,7 +232,7 @@ export default function TrabalheConosco() {
             <p className="text-[#C7E5F3] mb-8 max-w-2xl mx-auto">{c.vagasTexto ?? "Na RDC Viagens, você terá a oportunidade de crescer profissionalmente enquanto ajuda milhares de pessoas a realizarem o sonho de viajar. Todas as nossas vagas são publicadas diretamente no LinkedIn."}</p>
             <div className="flex flex-wrap justify-center gap-4">
               <a 
-                href="https://www.linkedin.com/company/rdcviagens/jobs/" 
+                href={c.vagasBotaoLink ?? "https://www.linkedin.com/company/rdcviagens/jobs/"}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
