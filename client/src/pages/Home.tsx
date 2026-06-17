@@ -551,4 +551,13 @@ export default function Home() {
             </form>
             <p className="text-xs text-[#FFCC80] mt-4">
               Ao se inscrever, você concorda com nossa{" "}
-              <Link href="/termos" className="
+              <Link href="/termos" className="underline hover:text-white">Política de Privacidade</Link>. Cancele quando quiser.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
