@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import TrustBadges from "@/components/TrustBadges";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 
 const timeline = [
   {
@@ -255,6 +256,9 @@ function TimelineScroller({ items }: { items: typeof timeline }) {
 }
 
 export default function Sobre() {
+  const c = usePageDoc<any>('paginaSobre');
+  const timelineData = timeline.map((tl, i) => ({ ...tl, ...(c.timeline?.[i] ?? {}) }));
+  const valuesData = values.map((v, i) => ({ ...v, ...(c.valores?.[i] ?? {}) }));
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
@@ -282,13 +286,11 @@ export default function Sobre() {
       <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 bg-gradient-to-br from-[#00148A] to-[#001070]">
         <div className="container">
           <div className="max-w-3xl">
-            <Badge className="mb-4 bg-[#FF9100] text-white border-0">Sobre a RDC</Badge>
+            <Badge className="mb-4 bg-[#FF9100] text-white border-0">{c.heroBadge ?? "Sobre a RDC"}</Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Nossa História
+              {c.heroTitulo ?? "Nossa História"}
             </h1>
-            <p className="text-xl text-[#C7E5F3]">
-              Há mais de <strong>35 anos transformando o sonho de viajar</strong> em realidade para milhares de famílias brasileiras.
-            </p>
+            <p className="text-xl text-[#C7E5F3]">{c.heroSubtitulo ?? "Há mais de 35 anos transformando o sonho de viajar em realidade para milhares de famílias brasileiras."}</p>
           </div>
         </div>
       </section>
@@ -298,47 +300,33 @@ export default function Sobre() {
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">Quem Somos</Badge>
+            <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">{c.quemBadge ?? "Quem Somos"}</Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-8">
-              A pioneira em assinatura de viagens no Brasil
+              {c.quemTitulo ?? "A pioneira em assinatura de viagens no Brasil"}
             </h2>
             <div className="space-y-5 text-[#555555] text-lg leading-relaxed">
-              <p>
-                Fundada em 1991, a <strong className="text-[#2D2D2D]">RDC Viagens</strong> nasceu com uma ideia simples e transformadora:
-                tornar viagens de qualidade acessíveis para todos os brasileiros. Fomos a primeira empresa do país a criar
-                o conceito de <strong className="text-[#2D2D2D]">assinatura de viagens</strong>, permitindo que famílias planejem suas férias
-                com economia, previsibilidade e acesso a hospedagem nos melhores hotéis e resorts.
-              </p>
-              <p>
-                Ao longo de mais de três décadas, construímos uma trajetória marcada por <strong>inovação, parcerias estratégicas</strong>
-                e um <strong>compromisso genuíno</strong> com a satisfação dos nossos assinantes. Da primeira Assinatura de Viagens RDC em 1993
-                ao marco de mais de 100 mil assinantes em 2022, cada etapa da nossa história reflete a busca constante
-                por oferecer experiências que vão além da hospedagem.
-              </p>
-              <p>
-                Hoje, a RDC Viagens é muito mais do que uma empresa de turismo. Somos um <strong>ecossistema completo de soluções
-                de viagem</strong> que atende tanto famílias quanto empresas, com uma agência dedicada, um clube de vantagens exclusivo,
-                programas de premiação corporativa e uma rede de mais de 2 mil hotéis parceiros em mais de 400 cidades.
-              </p>
+              <p>{c.quemParagrafo1 ?? "Fundada em 1991, a RDC Viagens nasceu com uma ideia simples e transformadora: tornar viagens de qualidade acessíveis para todos os brasileiros. Fomos a primeira empresa do país a criar o conceito de assinatura de viagens, permitindo que famílias planejem suas férias com economia, previsibilidade e acesso a hospedagem nos melhores hotéis e resorts."}</p>
+              <p>{c.quemParagrafo2 ?? "Ao longo de mais de três décadas, construímos uma trajetória marcada por inovação, parcerias estratégicas e um compromisso genuíno com a satisfação dos nossos assinantes. Da primeira Assinatura de Viagens RDC em 1993 ao marco de mais de 100 mil assinantes em 2022, cada etapa da nossa história reflete a busca constante por oferecer experiências que vão além da hospedagem."}</p>
+              <p>{c.quemParagrafo3 ?? "Hoje, a RDC Viagens é muito mais do que uma empresa de turismo. Somos um ecossistema completo de soluções de viagem que atende tanto famílias quanto empresas, com uma agência dedicada, um clube de vantagens exclusivo, programas de premiação corporativa e uma rede de mais de 2 mil hotéis parceiros em mais de 400 cidades."}</p>
             </div>
 
             {/* Números em destaque */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-12">
               <div className="text-center p-3 md:p-4 rounded-2xl bg-[#F6F6F6]">
-                <span className="text-2xl md:text-3xl font-bold text-[#001A9E] block">+35</span>
-                <span className="text-xs md:text-sm text-[#555555]">Anos de história</span>
+                <span className="text-2xl md:text-3xl font-bold text-[#001A9E] block">{c.quemStats?.[0]?.value ?? "+35"}</span>
+                <span className="text-xs md:text-sm text-[#555555]">{c.quemStats?.[0]?.label ?? "Anos de história"}</span>
               </div>
               <div className="text-center p-3 md:p-4 rounded-2xl bg-[#FFF8EB]">
-                <span className="text-2xl md:text-3xl font-bold text-[#E68200] block">+100 mil</span>
-                <span className="text-xs md:text-sm text-[#555555]">Assinantes</span>
+                <span className="text-2xl md:text-3xl font-bold text-[#E68200] block">{c.quemStats?.[1]?.value ?? "+100 mil"}</span>
+                <span className="text-xs md:text-sm text-[#555555]">{c.quemStats?.[1]?.label ?? "Assinantes"}</span>
               </div>
               <div className="text-center p-3 md:p-4 rounded-2xl bg-[#F6F6F6]">
-                <span className="text-2xl md:text-3xl font-bold text-[#001A9E] block">+2 mil</span>
-                <span className="text-xs md:text-sm text-[#555555]">Hotéis parceiros</span>
+                <span className="text-2xl md:text-3xl font-bold text-[#001A9E] block">{c.quemStats?.[2]?.value ?? "+2 mil"}</span>
+                <span className="text-xs md:text-sm text-[#555555]">{c.quemStats?.[2]?.label ?? "Hotéis parceiros"}</span>
               </div>
               <div className="text-center p-3 md:p-4 rounded-2xl bg-[#FFF8EB]">
-                <span className="text-2xl md:text-3xl font-bold text-[#E68200] block">+400</span>
-                <span className="text-xs md:text-sm text-[#555555]">Cidades atendidas</span>
+                <span className="text-2xl md:text-3xl font-bold text-[#E68200] block">{c.quemStats?.[3]?.value ?? "+400"}</span>
+                <span className="text-xs md:text-sm text-[#555555]">{c.quemStats?.[3]?.label ?? "Cidades atendidas"}</span>
               </div>
             </div>
           </div>
@@ -351,12 +339,12 @@ export default function Sobre() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">Linha do Tempo</Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D]">Fatos Marcantes</h2>
-            <p className="text-[#555555] mt-3 max-w-2xl mx-auto">Mais de três décadas de <strong>conquistas, inovação e compromisso</strong> com o viajante brasileiro.</p>
+            <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">{c.timelineBadge ?? "Linha do Tempo"}</Badge>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D]">{c.timelineTitulo ?? "Fatos Marcantes"}</h2>
+            <p className="text-[#555555] mt-3 max-w-2xl mx-auto">{c.timelineSubtitulo ?? "Mais de três décadas de conquistas, inovação e compromisso com o viajante brasileiro."}</p>
           </div>
 
-          <TimelineScroller items={timeline} />
+          <TimelineScroller items={timelineData} />
         </div>
         </AnimateOnScroll>
       </section>
@@ -369,13 +357,11 @@ export default function Sobre() {
             <div className="w-20 h-20 rounded-full bg-[#FF9100]/20 flex items-center justify-center mx-auto mb-6">
               <Compass className="w-10 h-10 text-[#FF9100]" />
             </div>
-            <Badge className="mb-4 bg-[#FF9100]/20 text-[#FFB040] border-0">Nosso Propósito</Badge>
+            <Badge className="mb-4 bg-[#FF9100]/20 text-[#FFB040] border-0">{c.propositoBadge ?? "Nosso Propósito"}</Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6">
-              Realizar o sonho de cada viajante
+              {c.propositoTitulo ?? "Realizar o sonho de cada viajante"}
             </h2>
-            <p className="text-xl text-[#C7E5F3] leading-relaxed">
-              Realizar o sonho de cada viajante, proporcionando <strong>experiências inesquecíveis</strong> com <strong>conforto, planejamento e economia</strong>.
-            </p>
+            <p className="text-xl text-[#C7E5F3] leading-relaxed">{c.propositoTexto ?? "Realizar o sonho de cada viajante, proporcionando experiências inesquecíveis com conforto, planejamento e economia."}</p>
           </div>
         </div>
         </AnimateOnScroll>
@@ -391,10 +377,8 @@ export default function Sobre() {
                 <div className="w-14 h-14 rounded-full bg-[#E8F4FA] flex items-center justify-center mb-5">
                   <Target className="w-7 h-7 text-[#001A9E]" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#2D2D2D] mb-2">Missão</h3>
-                <p className="text-[#555555] leading-relaxed">
-                  Transformar o sonho de viajar em realidade para todos, oferecendo <strong>soluções acessíveis, confortáveis e bem planejadas</strong>, com opções práticas e econômicas para assinantes, empresas e parceiros, criando <strong>experiências inesquecíveis</strong> em cada viagem.
-                </p>
+                <h3 className="text-2xl font-bold text-[#2D2D2D] mb-2">{c.missaoTitulo ?? "Missão"}</h3>
+                <p className="text-[#555555] leading-relaxed">{c.missaoTexto ?? "Transformar o sonho de viajar em realidade para todos, oferecendo soluções acessíveis, confortáveis e bem planejadas, com opções práticas e econômicas para assinantes, empresas e parceiros, criando experiências inesquecíveis em cada viagem."}</p>
               </CardContent>
             </Card>
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
@@ -402,10 +386,8 @@ export default function Sobre() {
                 <div className="w-14 h-14 rounded-full bg-[#FFF0D6] flex items-center justify-center mb-5">
                   <Eye className="w-7 h-7 text-[#E68200]" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#2D2D2D] mb-2">Visão</h3>
-                <p className="text-[#555555] leading-relaxed">
-                  Ser a <strong>marca líder em soluções de viagem</strong> acessíveis e transformadoras, alcançando até 2030 <strong>R$ 1 bilhão em faturamento, 1 milhão de assinantes e 1 milhão de diárias vendidas</strong>, gerando um impacto positivo e duradouro na vida das pessoas.
-                </p>
+                <h3 className="text-2xl font-bold text-[#2D2D2D] mb-2">{c.visaoTitulo ?? "Visão"}</h3>
+                <p className="text-[#555555] leading-relaxed">{c.visaoTexto ?? "Ser a marca líder em soluções de viagem acessíveis e transformadoras, alcançando até 2030 R$ 1 bilhão em faturamento, 1 milhão de assinantes e 1 milhão de diárias vendidas, gerando um impacto positivo e duradouro na vida das pessoas."}</p>
               </CardContent>
             </Card>
           </div>
@@ -418,12 +400,12 @@ export default function Sobre() {
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-[#FFF0D6] text-[#E68200] border-0">O que nos guia</Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D]">Nossos Valores</h2>
+            <Badge className="mb-4 bg-[#FFF0D6] text-[#E68200] border-0">{c.valoresBadge ?? "O que nos guia"}</Badge>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D]">{c.valoresTitulo ?? "Nossos Valores"}</h2>
           </div>
           <div className="max-w-5xl mx-auto">
             <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {values.map((value, index) => {
+              {valuesData.map((value, index) => {
                 const colors = [
                   { bg: 'bg-[#E8F4FA]', icon: 'text-[#001A9E]', border: 'border-t-[#001A9E]' },
                   { bg: 'bg-[#FFF0D6]', icon: 'text-[#E68200]', border: 'border-t-[#FF9100]' },

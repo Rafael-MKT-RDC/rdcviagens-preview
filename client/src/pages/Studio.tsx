@@ -37,6 +37,15 @@ const config = defineConfig({
                   .documentId('paginaHome')
                   .title('Página Home'),
               ),
+            S.listItem()
+              .title('Página Sobre')
+              .id('paginaSobre')
+              .child(
+                S.document()
+                  .schemaType('paginaSobre')
+                  .documentId('paginaSobre')
+                  .title('Página Sobre'),
+              ),
             S.divider(),
             S.listItem().title('Posts do Blog').schemaType('blogPost').child(S.documentTypeList('blogPost')),
             S.listItem().title('FAQ – Perguntas Frequentes').schemaType('faqCategoria').child(S.documentTypeList('faqCategoria')),
