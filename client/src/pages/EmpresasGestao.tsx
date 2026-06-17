@@ -33,6 +33,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 
 const painPoints = [
   {
@@ -192,6 +193,7 @@ const maskCNPJ = (value: string) => {
 };
 
 export default function EmpresasGestao() {
+  const c = usePageDoc<any>('paginaGestao');
   const [formData, setFormData] = useState({
     nome: '',
     empresa: '',
@@ -262,11 +264,11 @@ export default function EmpresasGestao() {
             />
             <Badge className="mb-4 bg-[#E8506A] hover:bg-rose-600 text-white border-0">
               <Plane className="w-4 h-4 mr-2" />
-              Gestão Corporativa
+              {c.heroBadge ?? "Gestão Corporativa"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Sua empresa viaja.{" "}
-              <span className="text-[#E8506A]">Nós cuidamos de tudo.</span>
+              {c.heroTitulo ?? "Sua empresa viaja."}{" "}
+              <span className="text-[#E8506A]">{c.heroDestaque ?? "Nós cuidamos de tudo."}</span>
             </h1>
             <p className="text-xl text-[#C7E5F3] mb-4">
               Gestão completa de viagens corporativas para <strong className="text-white">pequenas e médias empresas</strong>. 
@@ -282,7 +284,7 @@ export default function EmpresasGestao() {
                 className="bg-[#E8506A] hover:bg-rose-600 text-white px-8 rounded-full"
                 onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Solicitar proposta gratuita
+                {c.heroCta ?? "Solicitar proposta gratuita"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
 
@@ -704,10 +706,10 @@ export default function EmpresasGestao() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-xl md:text-2xl font-bold text-[#2D2D2D] mb-4">
-              Pronto para transformar a gestão de viagens da sua empresa?
+              {c.ctaTitulo ?? "Pronto para transformar a gestão de viagens da sua empresa?"}
             </h2>
             <p className="text-lg text-[#555555] mb-8">
-              Fale com nossos especialistas e descubra como economizar nas viagens da sua empresa.
+              {c.ctaTexto ?? "Fale com nossos especialistas e descubra como economizar nas viagens da sua empresa."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -715,7 +717,7 @@ export default function EmpresasGestao() {
                 className="bg-[#E8506A] hover:bg-rose-600 text-white px-8 rounded-full"
                 onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Solicitar proposta gratuita
+                {c.ctaBotao ?? "Solicitar proposta gratuita"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
 

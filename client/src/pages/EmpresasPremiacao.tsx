@@ -34,6 +34,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 
 /*
  * Página RDC Premiação
@@ -219,6 +220,7 @@ const maskCNPJ = (value: string) => {
 };
 
 export default function EmpresasPremiacao() {
+  const c = usePageDoc<any>('paginaPremiacao');
   const [formData, setFormData] = useState({
     nome: '',
     empresa: '',
@@ -289,11 +291,11 @@ export default function EmpresasPremiacao() {
             />
             <Badge className="mb-4 bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] border-0">
               <Plane className="w-4 h-4 mr-2" />
-              Incentivo Corporativo
+              {c.heroBadge ?? "Incentivo Corporativo"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Viagens que transformam{" "}
-              <span className="text-[#F5B800]">resultados</span>
+              {c.heroTitulo ?? "Viagens que transformam"}{" "}
+              <span className="text-[#F5B800]">{c.heroDestaque ?? "resultados"}</span>
             </h1>
             <p className="text-xl text-[#FDF0C0] mb-4">
               Uma solução estratégica para áreas como <strong className="text-white">RH, Marketing e Comercial</strong> que buscam 
@@ -308,7 +310,7 @@ export default function EmpresasPremiacao() {
                 className="bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] px-8 rounded-full"
                 onClick={() => document.getElementById('formulario-premiacao')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Solicitar proposta
+                {c.heroCta ?? "Solicitar proposta"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -761,7 +763,7 @@ export default function EmpresasPremiacao() {
           <div className="max-w-3xl mx-auto text-center">
             <Plane className="w-16 h-16 text-[#F5B800] mx-auto mb-6" />
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-              Pronto para transformar a forma de conceder incentivos?
+              {c.ctaTitulo ?? "Pronto para transformar a forma de conceder incentivos?"}
             </h2>
             <p className="text-lg text-[#FAE080] mb-8">
               Converse com nossa equipe de consultoria corporativa e descubra como o <strong>RDC Premiação</strong> 
@@ -773,7 +775,7 @@ export default function EmpresasPremiacao() {
                 className="bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] px-8"
                 onClick={() => document.getElementById('formulario-premiacao')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Solicitar proposta
+                {c.ctaBotao ?? "Solicitar proposta"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>

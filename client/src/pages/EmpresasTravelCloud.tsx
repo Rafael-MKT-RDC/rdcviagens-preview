@@ -37,6 +37,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 
 const useCases = [
   {
@@ -177,6 +178,7 @@ function FaqItem({ question, answer }: { question: string; answer: React.ReactNo
 }
 
 export default function EmpresasTravelCloud() {
+  const c = usePageDoc<any>('paginaTravelCloud');
   const [formData, setFormData] = useState({
     nome: "",
     empresa: "",
@@ -245,11 +247,11 @@ export default function EmpresasTravelCloud() {
           <div className="max-w-3xl">
             <Badge className="mb-4 bg-[#00B4D8] hover:bg-[#0096B4] text-white border-0">
               <Cloud className="w-4 h-4 mr-2" />
-              Nova Solução Corporativa
+              {c.heroBadge ?? "Nova Solução Corporativa"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Viagens dentro do{" "}
-              <span className="text-[#00B4D8]">seu ecossistema.</span>
+              {c.heroTitulo ?? "Viagens dentro do"}{" "}
+              <span className="text-[#00B4D8]">{c.heroDestaque ?? "seu ecossistema."}</span>
             </h1>
             <p className="text-xl text-[#C7E5F3] mb-4">
               A <strong className="text-white">RDC Travel Cloud</strong> é uma plataforma <strong className="text-white">white label</strong> que permite 
@@ -264,7 +266,7 @@ export default function EmpresasTravelCloud() {
                 className="bg-[#00B4D8] hover:bg-[#0096B4] text-white px-8 rounded-full"
                 onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Agendar uma conversa
+                {c.heroCta ?? "Agendar uma conversa"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -733,7 +735,7 @@ export default function EmpresasTravelCloud() {
                 className="bg-[#00B4D8] hover:bg-[#0096B4] text-white px-8 rounded-full"
                 onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Agendar uma conversa
+                {c.heroCta ?? "Agendar uma conversa"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>

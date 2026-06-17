@@ -32,6 +32,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 
 /*
  * Página RDC Parcerias
@@ -198,6 +199,7 @@ const maskCNPJ = (value: string) => {
 };
 
 export default function EmpresasParcerias() {
+  const c = usePageDoc<any>('paginaParcerias');
   const [formData, setFormData] = useState({
     nome: '',
     empresa: '',
@@ -268,11 +270,11 @@ export default function EmpresasParcerias() {
             />
             <Badge className="mb-4 bg-[#9B6AE0] hover:bg-violet-700 text-white border-0">
               <Handshake className="w-4 h-4 mr-2" />
-              Alianças Estratégicas
+              {c.heroBadge ?? "Alianças Estratégicas"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Novas fronteiras de crescimento{" "}
-              <span className="text-[#B78AFF]">para o seu negócio</span>
+              {c.heroTitulo ?? "Novas fronteiras de crescimento"}{" "}
+              <span className="text-[#B78AFF]">{c.heroDestaque ?? "para o seu negócio"}</span>
             </h1>
             <p className="text-xl text-[#F0E4FF] mb-4">
               A RDC conecta pessoas a experiências de viagem <strong className="text-white">há mais de 35 anos</strong>. 
@@ -289,7 +291,7 @@ export default function EmpresasParcerias() {
                 className="bg-[#9B6AE0] hover:bg-violet-700 text-white px-8 rounded-full"
                 onClick={() => document.getElementById('formulario-parcerias')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Explorar parceria
+                {c.heroCta ?? "Explorar parceria"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -673,7 +675,7 @@ export default function EmpresasParcerias() {
           <div className="max-w-3xl mx-auto text-center">
             <Handshake className="w-16 h-16 text-[#B78AFF] mx-auto mb-6" />
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-              Grandes parcerias começam com uma boa conversa
+              {c.ctaTitulo ?? "Grandes parcerias começam com uma boa conversa"}
             </h2>
             <p className="text-lg text-[#DFC8FF] mb-8">
               Se você enxerga em viagens uma <strong>oportunidade estratégica</strong> para o seu negócio, 
@@ -685,7 +687,7 @@ export default function EmpresasParcerias() {
                 className="bg-[#9B6AE0] hover:bg-violet-700 text-white px-8"
                 onClick={() => document.getElementById('formulario-parcerias')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Explorar parceria
+                {c.ctaBotao ?? "Explorar parceria"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>

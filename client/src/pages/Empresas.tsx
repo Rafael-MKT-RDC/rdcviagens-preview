@@ -18,6 +18,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 
 const solutions = [
   {
@@ -114,6 +115,7 @@ const differentials = [
 ];
 
 export default function Empresas() {
+  const c = usePageDoc<any>('paginaEmpresas');
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
@@ -145,11 +147,11 @@ export default function Empresas() {
         <div className="container relative z-10">
           <div className="max-w-3xl">
             <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">
-              Soluções Corporativas
+              {c.heroBadge ?? "Soluções Corporativas"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Viagens a serviço do{" "}
-              <span className="text-[#FF9100]">seu negócio</span>
+              {c.heroTitulo ?? "Viagens a serviço do"}{" "}
+              <span className="text-[#FF9100]">{c.heroDestaque ?? "seu negócio"}</span>
             </h1>
             <p className="text-xl text-[#C7E5F3] mb-8">
               <strong>Viagens corporativas</strong>, <strong>programas de incentivo</strong> e a <strong>unidade de parcerias 
@@ -161,7 +163,7 @@ export default function Empresas() {
                 className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full"
                 onClick={() => document.getElementById('solucoes')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Conhecer soluções
+                {c.heroCta ?? "Conhecer soluções"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -294,7 +296,7 @@ export default function Empresas() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-              Não sabe qual solução é a ideal?
+              {c.ctaTitulo ?? "Não sabe qual solução é a ideal?"}
             </h2>
             <p className="text-lg text-[#8ECAE6] mb-8">
               Fale com nossa equipe. Vamos entender o cenário da sua empresa 
@@ -303,7 +305,7 @@ export default function Empresas() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contato">
                 <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8">
-                  Falar com a equipe
+                  {c.ctaBotao ?? "Falar com a equipe"}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
