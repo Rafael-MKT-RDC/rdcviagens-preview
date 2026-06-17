@@ -7,12 +7,18 @@ import configuracoesGlobais from './configuracoesGlobais'
 import paginaHome from './paginaHome'
 import paginaSobre from './paginaSobre'
 import paginaAssinaturas from './paginaAssinaturas'
+import paginaAgencia from './paginaAgencia'
+import paginaIndicacao from './paginaIndicacao'
+import paginaClube from './paginaClube'
 
 export const schemaTypes = [
   configuracoesGlobais,
   paginaHome,
   paginaSobre,
   paginaAssinaturas,
+  paginaAgencia,
+  paginaIndicacao,
+  paginaClube,
   blogPost,
   faqCategoria,
   depoimento,
