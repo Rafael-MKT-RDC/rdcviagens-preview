@@ -5,8 +5,9 @@ import SEO from "@/components/SEO";
  * Paleta: Azul RDC (#1a3a6b) + Rosa (#e91e8c) + Branco
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { getRedesHoteleiras } from "@/lib/contentService";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -177,6 +178,13 @@ export default function NossosDestinos() {
   const [busca, setBusca] = useState("");
   const [regiaoAtiva, setRegiaoAtiva] = useState<string | null>(null);
   const [abaAtiva, setAbaAtiva] = useState<"brasil" | "internacional">("brasil");
+  const [cmsRedes, setCmsRedes] = useState<any[]>([]);
+
+  useEffect(() => {
+    getRedesHoteleiras().then((r) => { if (r && r.length) setCmsRedes(r); }).catch(() => {});
+  }, []);
+
+  const redes = cmsRedes.length ? cmsRedes : redesHoteleiras;
 
   // Filtrar destinos pela busca
   const todosDestinosBrasil = regioesBrasil.flatMap((r) =>
@@ -523,7 +531,7 @@ export default function NossosDestinos() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {redesHoteleiras.map((rede, i) => (
+            {redes.map((rede, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}

@@ -35,6 +35,7 @@ import SEO from "@/components/SEO";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { useHomeContent } from "@/hooks/useHomeContent";
+import { getRedesHoteleiras } from "@/lib/contentService";
 const heroSlides = [
   {
     id: 1,
@@ -161,8 +162,14 @@ export default function Home() {
   const [newsletterName, setNewsletterName] = useState("");
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterLoading, setNewsletterLoading] = useState(false);
+  const [cmsRedes, setCmsRedes] = useState<any[]>([]);
+
+  useEffect(() => {
+    getRedesHoteleiras().then((r) => { if (r && r.length) setCmsRedes(r); }).catch(() => {});
+  }, []);
 
   const c = useHomeContent();
+  const redes = cmsRedes.length ? cmsRedes : redesHoteleirasHome;
   const slides = c.hero && c.hero.length ? c.hero : heroSlides;
   const statsData = c.stats && c.stats.length ? c.stats : stats;
   const featuresData = features.map((f, i) => ({ ...f, ...(c.features?.[i] ?? {}) }));
@@ -352,7 +359,7 @@ export default function Home() {
             <p className="text-[#555555] max-w-2xl mx-auto">{c.redesSubtitulo ?? "Hospede-se nas maiores e melhores redes do Brasil e do mundo. Todas disponíveis para nossos assinantes."}</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
-            {redesHoteleirasHome.map((rede) => (
+            {redes.map((rede) => (
               <div key={rede.nome} className="bg-[#F6F6F6] rounded-2xl p-4 flex flex-col items-center text-center hover:shadow-md transition-shadow">
                 <img src={rede.logo} alt={rede.nome} className="w-10 h-10 mb-2 object-contain" />
                 <span className="font-semibold text-sm text-[#2D2D2D]">{rede.nome}</span>
