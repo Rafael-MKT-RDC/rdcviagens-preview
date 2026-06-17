@@ -13,6 +13,7 @@ import paginaClube from './paginaClube'
 import paginaDestinos from './paginaDestinos'
 import paginaViajeTranquilo from './paginaViajeTranquilo'
 import paginaEmpresas from './paginaEmpresas'
+import paginaTravelCloud from './paginaTravelCloud'
 import paginaPremiacao from './paginaPremiacao'
 import paginaGestao from './paginaGestao'
 import paginaParcerias from './paginaParcerias'
@@ -34,6 +35,7 @@ export const schemaTypes = [
   paginaDestinos,
   paginaViajeTranquilo,
   paginaEmpresas,
+  paginaTravelCloud,
   paginaPremiacao,
   paginaGestao,
   paginaParcerias,
