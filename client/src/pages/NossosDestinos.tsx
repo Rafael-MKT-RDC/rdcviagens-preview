@@ -27,6 +27,7 @@ import {
 import { Link } from "wouter";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 // Regiões do Brasil com destinos e hotéis
 const regioesBrasil = [
   {
@@ -171,6 +172,7 @@ const redesHoteleiras = [
 ];
 
 export default function NossosDestinos() {
+  const c = usePageDoc<any>('paginaDestinos');
   const [busca, setBusca] = useState("");
   const [regiaoAtiva, setRegiaoAtiva] = useState<string | null>(null);
   const [abaAtiva, setAbaAtiva] = useState<"brasil" | "internacional">("brasil");
@@ -216,21 +218,17 @@ export default function NossosDestinos() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6">
               <Globe className="w-4 h-4" />
-              +200 mil destinos no Brasil e no mundo
+              {c.heroBadge ?? "+200 mil destinos no Brasil e no mundo"}
             </span>
 
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Nossos{" "}
+              {c.heroTitulo ?? "Nossos"}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9100] to-[#E68200]">
-                Destinos
+                {c.heroDestaque ?? "Destinos"}
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10">
-              Explore mais de <strong className="text-white">200 mil opções de hospedagem</strong> nos melhores hotéis
-              do Brasil e do mundo. Das praias do Nordeste às montanhas da Europa,
-              seu próximo destino está aqui.
-            </p>
+            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10">{c.heroSubtitulo ?? "Explore mais de 200 mil opções de hospedagem nos melhores hotéis do Brasil e do mundo. Das praias do Nordeste às montanhas da Europa, seu próximo destino está aqui."}</p>
 
             {/* Buscador */}
             <div className="max-w-2xl mx-auto relative">
@@ -340,13 +338,11 @@ export default function NossosDestinos() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="text-center mb-10">
-                  <span className="text-sm font-semibold text-[#FF9100] uppercase tracking-wider">Destinos Nacionais</span>
+                  <span className="text-sm font-semibold text-[#FF9100] uppercase tracking-wider">{c.nacLabel ?? "Destinos Nacionais"}</span>
                   <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mt-2">
-                    Explore o Brasil de Norte a Sul
+                    {c.nacTitulo ?? "Explore o Brasil de Norte a Sul"}
                   </h2>
-                  <p className="text-[#777777] mt-3 max-w-2xl mx-auto">
-                    Mais de 33 mil hotéis parceiros em todas as regiões do Brasil. Clique em uma região para ver os principais destinos.
-                  </p>
+                  <p className="text-[#777777] mt-3 max-w-2xl mx-auto">{c.nacSubtitulo ?? "Mais de 33 mil hotéis parceiros em todas as regiões do Brasil. Clique em uma região para ver os principais destinos."}</p>
                 </div>
 
                 {/* Grid de regiões */}
@@ -457,13 +453,11 @@ export default function NossosDestinos() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="text-center mb-10">
-                  <span className="text-sm font-semibold text-[#FF9100] uppercase tracking-wider">Destinos Internacionais</span>
+                  <span className="text-sm font-semibold text-[#FF9100] uppercase tracking-wider">{c.intLabel ?? "Destinos Internacionais"}</span>
                   <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mt-2">
-                    O mundo inteiro ao seu alcance
+                    {c.intTitulo ?? "O mundo inteiro ao seu alcance"}
                   </h2>
-                  <p className="text-[#777777] mt-3 max-w-2xl mx-auto">
-                    Mais de 170 mil opções de hospedagem em 6 continentes. De praias caribenhas a cidades europeias, seu destino dos sonhos está aqui.
-                  </p>
+                  <p className="text-[#777777] mt-3 max-w-2xl mx-auto">{c.intSubtitulo ?? "Mais de 170 mil opções de hospedagem em 6 continentes. De praias caribenhas a cidades europeias, seu destino dos sonhos está aqui."}</p>
                 </div>
 
                 {/* Grid de continentes */}
@@ -520,13 +514,11 @@ export default function NossosDestinos() {
       <section className="py-16 md:py-20 bg-white">
         <div className="container">
           <div className="text-center mb-14">
-            <span className="text-sm font-semibold text-[#FF9100] uppercase tracking-wider">Nossas Redes Parceiras</span>
+            <span className="text-sm font-semibold text-[#FF9100] uppercase tracking-wider">{c.redesLabel ?? "Nossas Redes Parceiras"}</span>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mt-2">
-              As principais redes hoteleiras do mundo
+              {c.redesTitulo ?? "As principais redes hoteleiras do mundo"}
             </h2>
-            <p className="text-[#777777] mt-3 max-w-2xl mx-auto">
-              Trabalhamos com as <strong>principais redes hoteleiras nacionais e internacionais</strong> para oferecer uma excelente experiência de hospedagem para nossos assinantes.
-            </p>
+            <p className="text-[#777777] mt-3 max-w-2xl mx-auto">{c.redesSubtitulo ?? "Trabalhamos com as principais redes hoteleiras nacionais e internacionais para oferecer uma excelente experiência de hospedagem para nossos assinantes."}</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -574,9 +566,9 @@ export default function NossosDestinos() {
       <section className="py-16 md:py-20 bg-[#F6F6F6]">
         <div className="container">
           <div className="text-center mb-14">
-            <span className="text-sm font-semibold text-[#FF9100] uppercase tracking-wider">Por que escolher a RDC</span>
+            <span className="text-sm font-semibold text-[#FF9100] uppercase tracking-wider">{c.difLabel ?? "Por que escolher a RDC"}</span>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mt-2">
-              Muito mais que hospedagem
+              {c.difTitulo ?? "Muito mais que hospedagem"}
             </h2>
           </div>
 
@@ -634,23 +626,20 @@ export default function NossosDestinos() {
           >
             <Globe className="w-12 h-12 text-[#FF9100] mx-auto mb-6" />
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-              Mais de 200 mil destinos esperando por você
+              {c.ctaTitulo ?? "Mais de 200 mil destinos esperando por você"}
             </h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto mb-10">
-              Assine a RDC e tenha acesso a hotéis no Brasil e no mundo inteiro,
-              com <strong>economia e planejamento</strong>. Sua próxima viagem começa aqui.
-            </p>
+            <p className="text-lg text-white/70 max-w-2xl mx-auto mb-10">{c.ctaTexto ?? "Assine a RDC e tenha acesso a hotéis no Brasil e no mundo inteiro, com economia e planejamento. Sua próxima viagem começa aqui."}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/assinaturas">
                 <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF9100] to-[#E68200] text-white rounded-2xl font-semibold text-lg hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-[#FF9100]/30">
-                  Ver planos de assinatura
+                  {c.ctaBotao1 ?? "Ver planos de assinatura"}
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </Link>
               <Link href="/agencia">
                 <button className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-semibold text-lg hover:bg-white/20 transition-all border border-white/20">
-                  Conhecer a agência
+                  {c.ctaBotao2 ?? "Conhecer a agência"}
                 </button>
               </Link>
             </div>

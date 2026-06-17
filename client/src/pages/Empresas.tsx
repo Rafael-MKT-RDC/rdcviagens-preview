@@ -18,6 +18,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 
 const solutions = [
   {
@@ -97,6 +98,7 @@ const differentials = [
 ];
 
 export default function Empresas() {
+  const c = usePageDoc<any>('paginaEmpresas');
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
@@ -128,23 +130,20 @@ export default function Empresas() {
         <div className="container relative z-10">
           <div className="max-w-3xl">
             <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">
-              Soluções Corporativas
+              {c.heroBadge ?? "Soluções Corporativas"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Viagens a serviço do{" "}
-              <span className="text-[#FF9100]">seu negócio</span>
+              {c.heroTitulo ?? "Viagens a serviço do"}{" "}
+              <span className="text-[#FF9100]">{c.heroDestaque ?? "seu negócio"}</span>
             </h1>
-            <p className="text-xl text-[#C7E5F3] mb-8">
-              <strong>Viagens corporativas</strong>, <strong>programas de incentivo</strong> e a <strong>unidade de parcerias 
-              estratégicas</strong> que impulsiona novos negócios e potencializa resultados para a sua empresa.
-            </p>
+            <p className="text-xl text-[#C7E5F3] mb-8">{c.heroSubtitulo ?? "Viagens corporativas, programas de incentivo e a unidade de parcerias estratégicas que impulsiona novos negócios e potencializa resultados para a sua empresa."}</p>
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
                 className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full"
                 onClick={() => document.getElementById('solucoes')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Conhecer soluções
+                {c.heroCta ?? "Conhecer soluções"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -158,12 +157,9 @@ export default function Empresas() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Soluções para cada necessidade da sua empresa
+              {c.solTitulo ?? "Soluções para cada necessidade da sua empresa"}
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
-              Cada uma voltada para atender diferentes necessidades da sua empresa: <strong>eficiência, engajar pessoas e gerar oportunidades de negócio</strong>. 
-              Escolha a solução ideal para o momento da sua empresa.
-            </p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.solSubtitulo ?? "Cada uma voltada para atender diferentes necessidades da sua empresa: eficiência, engajar pessoas e gerar oportunidades de negócio. Escolha a solução ideal para o momento da sua empresa."}</p>
           </div>
 
           <div className="space-y-20">
@@ -241,12 +237,9 @@ export default function Empresas() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Por que a RDC Viagens
+              {c.difTitulo ?? "Por que a RDC Viagens"}
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
-              A experiência de quem está no mercado há <strong>mais de três décadas</strong>, 
-              com a <strong>agilidade</strong> de quem entende as necessidades de hoje
-            </p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.difSubtitulo ?? "A experiência de quem está no mercado há mais de três décadas, com a agilidade de quem entende as necessidades de hoje"}</p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -276,16 +269,13 @@ export default function Empresas() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-              Não sabe qual solução é a ideal?
+              {c.ctaTitulo ?? "Não sabe qual solução é a ideal?"}
             </h2>
-            <p className="text-lg text-[#8ECAE6] mb-8">
-              Fale com nossa equipe. Vamos entender o cenário da sua empresa 
-              e indicar o caminho que faz <strong>mais sentido para os seus objetivos</strong>.
-            </p>
+            <p className="text-lg text-[#8ECAE6] mb-8">{c.ctaTexto ?? "Fale com nossa equipe. Vamos entender o cenário da sua empresa e indicar o caminho que faz mais sentido para os seus objetivos."}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contato">
                 <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8">
-                  Falar com a equipe
+                  {c.ctaBotao ?? "Falar com a equipe"}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>

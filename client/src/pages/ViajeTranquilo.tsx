@@ -11,6 +11,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
@@ -80,6 +81,7 @@ const faqs = [
 
 /* ─── Component ─── */
 export default function ViajeTranquilo() {
+  const c = usePageDoc<any>('paginaViajeTranquilo');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formSent, setFormSent] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
@@ -116,19 +118,14 @@ export default function ViajeTranquilo() {
         <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">
-              Exclusivo para Assinantes
+              {c.heroBadge ?? "Exclusivo para Assinantes"}
             </Badge>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
-              Atendimento personalizado{" "}
-              <span className="text-[#FF9100]">do início ao fim</span> da sua viagem
+              {c.heroTitulo ?? "Atendimento personalizado"}{" "}
+              <span className="text-[#FF9100]">{c.heroDestaque ?? "do início ao fim"}</span>{c.heroFinal ?? " da sua viagem"}
             </h1>
-            <p className="text-base md:text-xl text-[#C7E5F3] mb-4 md:mb-6">
-              Com o <strong className="text-white">Viaje Tranquilo</strong>, você conta com{" "}
-              <strong className="text-white">suporte 24 horas</strong>, prioridade no atendimento e benefícios exclusivos para curtir cada momento sem preocupação.
-            </p>
-            <p className="text-sm md:text-lg text-[#FFB040] italic mb-6 md:mb-8">
-              A partir de apenas R$ 29,90 por reserva.
-            </p>
+            <p className="text-base md:text-xl text-[#C7E5F3] mb-4 md:mb-6">{c.heroSubtitulo ?? "Com o Viaje Tranquilo, você conta com suporte 24 horas, prioridade no atendimento e benefícios exclusivos para curtir cada momento sem preocupação."}</p>
+            <p className="text-sm md:text-lg text-[#FFB040] italic mb-6 md:mb-8">{c.heroPreco ?? "A partir de apenas R$ 29,90 por reserva."}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 size="lg"
@@ -182,14 +179,10 @@ export default function ViajeTranquilo() {
               <div className="md:col-span-2">
                 <AnimateOnScroll variant="fade-up">
                   <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-                    O que é o Viaje Tranquilo?
+                    {c.oQueTitulo ?? "O que é o Viaje Tranquilo?"}
                   </h2>
-                  <p className="text-[#555555] text-base leading-relaxed mb-4">
-                    O <strong className="text-[#2D2D2D]">Viaje Tranquilo</strong> é um serviço exclusivo para assinantes RDC. Ao contratá-lo, você garante <strong className="text-[#2D2D2D]">suporte personalizado</strong> em todas as etapas da sua viagem — da reserva até o retorno.
-                  </p>
-                  <p className="text-[#555555] text-base leading-relaxed">
-                    Contrate ao reservar sua hospedagem ou ao adquirir qualquer produto turístico com a RDC, seja <strong className="text-[#2D2D2D]">on-line, por chat ou por telefone</strong>, com o nosso Atendimento.
-                  </p>
+                  <p className="text-[#555555] text-base leading-relaxed mb-4">{c.oQueP1 ?? "O Viaje Tranquilo é um serviço exclusivo para assinantes RDC. Ao contratá-lo, você garante suporte personalizado em todas as etapas da sua viagem — da reserva até o retorno."}</p>
+                  <p className="text-[#555555] text-base leading-relaxed">{c.oQueP2 ?? "Contrate ao reservar sua hospedagem ou ao adquirir qualquer produto turístico com a RDC, seja on-line, por chat ou por telefone, com o nosso Atendimento."}</p>
                 </AnimateOnScroll>
               </div>
             </div>
@@ -205,14 +198,12 @@ export default function ViajeTranquilo() {
           <AnimateOnScroll variant="fade-up">
             <div className="text-center mb-10 md:mb-14">
               <Badge className="mb-3 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">
-                Benefícios Exclusivos
+                {c.benefBadge ?? "Benefícios Exclusivos"}
               </Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3">
-                Desde a reserva até a volta da sua viagem
+                {c.benefTitulo ?? "Desde a reserva até a volta da sua viagem"}
               </h2>
-              <p className="text-[#555555] text-base max-w-xl mx-auto">
-                Confira as vantagens de contratar o Viaje Tranquilo na sua próxima reserva.
-              </p>
+              <p className="text-[#555555] text-base max-w-xl mx-auto">{c.benefSubtitulo ?? "Confira as vantagens de contratar o Viaje Tranquilo na sua próxima reserva."}</p>
             </div>
           </AnimateOnScroll>
 
@@ -247,11 +238,9 @@ export default function ViajeTranquilo() {
           <AnimateOnScroll variant="fade-up">
             <div className="text-center mb-10 md:mb-14">
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3">
-                Como contratar
+                {c.comoTitulo ?? "Como contratar"}
               </h2>
-              <p className="text-[#555555] text-base max-w-xl mx-auto">
-                Adicione o <strong>Viaje Tranquilo</strong> ao reservar sua hospedagem ou adquirir qualquer produto turístico com a RDC.
-              </p>
+              <p className="text-[#555555] text-base max-w-xl mx-auto">{c.comoSubtitulo ?? "Adicione o Viaje Tranquilo ao reservar sua hospedagem ou adquirir qualquer produto turístico com a RDC."}</p>
             </div>
           </AnimateOnScroll>
 
@@ -318,11 +307,9 @@ export default function ViajeTranquilo() {
             <AnimateOnScroll variant="fade-up">
               <div className="text-center mb-10">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3">
-                  Tenho interesse
+                  {c.formTitulo ?? "Tenho interesse"}
                 </h2>
-                <p className="text-[#555555] text-base max-w-xl mx-auto">
-                  Preencha o formulário e nossa equipe entrará em contato para ajudar você a contratar o <strong>Viaje Tranquilo</strong>.
-                </p>
+                <p className="text-[#555555] text-base max-w-xl mx-auto">{c.formSubtitulo ?? "Preencha o formulário e nossa equipe entrará em contato para ajudar você a contratar o Viaje Tranquilo."}</p>
               </div>
             </AnimateOnScroll>
 
@@ -433,7 +420,7 @@ export default function ViajeTranquilo() {
           <AnimateOnScroll variant="fade-up">
             <div className="text-center mb-10">
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3">
-                Dúvidas frequentes
+                {c.faqTitulo ?? "Dúvidas frequentes"}
               </h2>
             </div>
           </AnimateOnScroll>
@@ -474,14 +461,12 @@ export default function ViajeTranquilo() {
         <div className="container relative z-10 text-center">
           <AnimateOnScroll variant="fade-up">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
-              Ainda não é assinante RDC?
+              {c.ctaTitulo ?? "Ainda não é assinante RDC?"}
             </h2>
-            <p className="text-[#8ECAE6] text-sm md:text-base mb-6 max-w-lg mx-auto">
-              Conheça nossos planos de assinatura e tenha acesso ao <strong className="text-white">Viaje Tranquilo</strong> e muito mais.
-            </p>
+            <p className="text-[#8ECAE6] text-sm md:text-base mb-6 max-w-lg mx-auto">{c.ctaTexto ?? "Conheça nossos planos de assinatura e tenha acesso ao Viaje Tranquilo e muito mais."}</p>
             <Link href="/assinaturas">
               <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white font-semibold px-8 rounded-full">
-                Conhecer planos
+                {c.ctaBotao ?? "Conhecer planos"}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
