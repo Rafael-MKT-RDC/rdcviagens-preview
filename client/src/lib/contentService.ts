@@ -56,6 +56,13 @@ export interface ParceiroClube {
   url?: string
 }
 
+export interface RedeHoteleira {
+  id: string | number
+  nome: string
+  logo?: string
+  descricao?: string
+}
+
 export interface Destino {
   id: string | number
   nome: string
@@ -236,6 +243,13 @@ const QUERY_PARCEIROS = `*[_type == "parceiroClube" && ativo == true] | order(no
   url
 }`
 
+const QUERY_REDES = `*[_type == "redeHoteleira" && ativo == true] | order(ordem asc, nome asc) {
+  "id": _id,
+  nome,
+  "logo": logo.asset->url,
+  descricao
+}`
+
 const QUERY_DESTINOS = `*[_type == "destino"] | order(destaque desc, nome asc) {
   "id": _id,
   nome,
@@ -285,6 +299,16 @@ export async function getParceirosClube(): Promise<ParceiroClube[]> {
   if (!USE_SANITY) return []
   try {
     return await sanityClient.fetch<ParceiroClube[]>(QUERY_PARCEIROS)
+  } catch (err) {
+    console.warn('[contentService] Sanity fetch failed:', err)
+    return []
+  }
+}
+
+export async function getRedesHoteleiras(): Promise<RedeHoteleira[]> {
+  if (!USE_SANITY) return []
+  try {
+    return await sanityClient.fetch<RedeHoteleira[]>(QUERY_REDES)
   } catch (err) {
     console.warn('[contentService] Sanity fetch failed:', err)
     return []
