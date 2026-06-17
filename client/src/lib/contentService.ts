@@ -395,3 +395,16 @@ export async function getHomePage(): Promise<HomeContent | null> {
     return null
   }
 }
+
+// ────────────────────────────────────────────────────────────────────────────
+// Genérico: busca um documento singleton de página por _type
+// ────────────────────────────────────────────────────────────────────────────
+export async function getPageDoc<T = any>(type: string): Promise<T | null> {
+  if (!USE_SANITY) return null
+  try {
+    return await sanityClient.fetch<T | null>('*[_type == $type][0]', { type })
+  } catch (err) {
+    console.warn('[contentService] Sanity fetch (page) falhou:', err)
+    return null
+  }
+}
