@@ -285,7 +285,7 @@ export default function EmpresasPremiacao() {
           </Link>
           
           <div className="max-w-3xl">
-            <img src="/manus-storage/logo-premiacao_f657ce1e.png" 
+            <img src="/logos/b2b/logo-premiacao.svg" 
               alt="RDC Premiação" 
               className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" 
             />

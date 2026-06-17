@@ -25,7 +25,7 @@ const solutions = [
   {
     id: "gestao",
     icon: Plane,
-    logo: "/manus-storage/logo-gestao_050b9d15.png",
+    logo: "/logos/b2b/logo-gestao.svg",
     title: "RDC Viagens Corporativas",
     subtitle: "Sua empresa viaja. Nós cuidamos de tudo.",
     description: "Plataforma completa de reservas e produtos turísticos para viagens corporativas. Centralize reservas, controle gastos e economize — sem burocracia, sem complicação.",
@@ -42,7 +42,7 @@ const solutions = [
   {
     id: "premiacao",
     icon: Plane,
-    logo: "/manus-storage/logo-premiacao_f657ce1e.png",
+    logo: "/logos/b2b/logo-premiacao.svg",
     title: "RDC Premiação",
     subtitle: "Viagens que transformam resultados e valorizam reconhecimento.",
     description: "Uma solução estratégica para áreas como RH, Marketing e Comercial que buscam engajar públicos e impulsionar resultados com colaboradores, clientes e parceiros.",
@@ -59,7 +59,7 @@ const solutions = [
   {
     id: "parcerias",
     icon: Handshake,
-    logo: "/manus-storage/logo-parcerias_17fe84e4.png",
+    logo: "/logos/b2b/logo-parcerias.svg",
     title: "RDC Parcerias",
     subtitle: "Novas frentes de crescimento para o seu negócio.",
     description: "Alianças estratégicas com bancos, empresas, entidades e plataformas que buscam se diferenciar, gerar novas receitas e ampliar sua proposta de valor.",
@@ -76,7 +76,7 @@ const solutions = [
   {
     id: "travelcloud",
     icon: Plane,
-    logo: "/manus-storage/logo-gestao_050b9d15.png",
+    logo: "/logos/b2b/logo-gestao.svg",
     title: "RDC Travel Cloud",
     subtitle: "Viagens dentro do seu ecossistema.",
     description: "Plataforma white label que permite que parceiros ofereçam viagens dentro de seus próprios ambientes digitais, com toda a operação turística especializada da RDC nos bastidores.",

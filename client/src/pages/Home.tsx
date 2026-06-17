@@ -101,9 +101,9 @@ const features = [
 ];
 
 const corporateSolutions = [
-  { title: "RDC Premiação", description: "Benefício corporativo que transforma vidas. Ofereça viagens como reconhecimento para seus colaboradores.", href: "/solucoes-corporativas#premiacao", cta: "Descubra como premiar", logo: "/manus-storage/logo-premiacao_f657ce1e.png", ctaBg: "bg-[#FFEA01] hover:bg-[#E6D300] text-[#2D2D2D]" },
-  { title: "RDC Gestão de Viagens", description: "Gestão completa de viagens corporativas com eficiência, controle e economia.", href: "/solucoes-corporativas#gestao", cta: "Conheça a gestão inteligente", logo: "/manus-storage/logo-gestao_050b9d15.png", ctaBg: "bg-[#E8506A] hover:bg-[#D04058] text-white" },
-  { title: "RDC Parcerias", description: "Alianças estratégicas para criar novos canais de aquisição e valor agregado.", href: "/solucoes-corporativas#parcerias", cta: "Vamos construir juntos?", logo: "/manus-storage/logo-parcerias_17fe84e4.png", ctaBg: "bg-[#9B6AE0] hover:bg-[#8050C0] text-white" }
+  { title: "RDC Premiação", description: "Benefício corporativo que transforma vidas. Ofereça viagens como reconhecimento para seus colaboradores.", href: "/solucoes-corporativas#premiacao", cta: "Descubra como premiar", logo: "/logos/b2b/logo-premiacao.svg", ctaBg: "bg-[#FFEA01] hover:bg-[#E6D300] text-[#2D2D2D]" },
+  { title: "RDC Gestão de Viagens", description: "Gestão completa de viagens corporativas com eficiência, controle e economia.", href: "/solucoes-corporativas#gestao", cta: "Conheça a gestão inteligente", logo: "/logos/b2b/logo-gestao.svg", ctaBg: "bg-[#E8506A] hover:bg-[#D04058] text-white" },
+  { title: "RDC Parcerias", description: "Alianças estratégicas para criar novos canais de aquisição e valor agregado.", href: "/solucoes-corporativas#parcerias", cta: "Vamos construir juntos?", logo: "/logos/b2b/logo-parcerias.svg", ctaBg: "bg-[#9B6AE0] hover:bg-[#8050C0] text-white" }
 ];
 
 const redesHoteleirasHome = [

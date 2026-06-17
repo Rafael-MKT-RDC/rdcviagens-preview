@@ -258,7 +258,7 @@ export default function EmpresasGestao() {
           </Link>
           
           <div className="max-w-3xl">
-            <img src="/manus-storage/logo-gestao_050b9d15.png" 
+            <img src="/logos/b2b/logo-gestao.svg" 
               alt="RDC Gestão de Viagens" 
               className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" 
             />
