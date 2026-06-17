@@ -16,6 +16,12 @@ import paginaEmpresas from './paginaEmpresas'
 import paginaPremiacao from './paginaPremiacao'
 import paginaGestao from './paginaGestao'
 import paginaParcerias from './paginaParcerias'
+import paginaBlog from './paginaBlog'
+import paginaDuvidas from './paginaDuvidas'
+import paginaContato from './paginaContato'
+import paginaDocumentos from './paginaDocumentos'
+import paginaTrabalhe from './paginaTrabalhe'
+import paginaSejaParceiro from './paginaSejaParceiro'
 
 export const schemaTypes = [
   configuracoesGlobais,
@@ -31,6 +37,12 @@ export const schemaTypes = [
   paginaPremiacao,
   paginaGestao,
   paginaParcerias,
+  paginaBlog,
+  paginaDuvidas,
+  paginaContato,
+  paginaDocumentos,
+  paginaTrabalhe,
+  paginaSejaParceiro,
   blogPost,
   faqCategoria,
   depoimento,
