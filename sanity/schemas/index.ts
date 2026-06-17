@@ -2,6 +2,7 @@ import blogPost from './blogPost'
 import faqCategoria from './faqCategoria'
 import depoimento from './depoimento'
 import parceiroClube from './parceiroClube'
+import redeHoteleira from './redeHoteleira'
 import destino from './destino'
 import configuracoesGlobais from './configuracoesGlobais'
 import paginaHome from './paginaHome'
@@ -49,5 +50,6 @@ export const schemaTypes = [
   faqCategoria,
   depoimento,
   parceiroClube,
+  redeHoteleira,
   destino,
 ]
