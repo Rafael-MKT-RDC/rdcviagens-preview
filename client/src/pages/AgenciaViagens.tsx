@@ -45,6 +45,7 @@ import { toast } from "sonner";
 import SEO from "@/components/SEO";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 /*
  * Design Philosophy: Tropical Elegance
  * - Página da Agência de Viagens exclusiva para assinantes RDC
@@ -232,6 +233,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export default function AgenciaViagens() {
+  const c = usePageDoc<any>('paginaAgencia');
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -316,23 +318,20 @@ export default function AgenciaViagens() {
           <div className="max-w-3xl">
             <Badge className="mb-6 bg-[#FF9100] text-white border-0 px-4 py-1.5 text-sm">
               <Sparkles className="w-4 h-4 mr-2" />
-              Assinantes têm condições especiais
+              {c.heroBadge ?? "Assinantes têm condições especiais"}
             </Badge>
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
-              Sua agência de viagens{" "}
-              <span className="text-[#FF9100]">completa</span>
+              {c.heroTitulo ?? "Sua agência de viagens"}{" "}
+              <span className="text-[#FF9100]">{c.heroDestaque ?? "completa"}</span>
             </h1>
-            <p className="text-base md:text-xl text-[#C7E5F3] mb-6 md:mb-8 max-w-2xl leading-relaxed">
-              A agência RDC cuida de <strong>cada detalhe da sua viagem</strong>, do planejamento à volta para casa.
-              Atendemos todos os viajantes — e quem é assinante aproveita <strong>tarifas ainda melhores</strong>.
-            </p>
+            <p className="text-base md:text-xl text-[#C7E5F3] mb-6 md:mb-8 max-w-2xl leading-relaxed">{c.heroSubtitulo ?? "A agência RDC cuida de cada detalhe da sua viagem, do planejamento à volta para casa. Atendemos todos os viajantes — e quem é assinante aproveita tarifas ainda melhores."}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
                 className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8"
                 onClick={scrollToForm}
               >
-                Solicitar cotação
+                {c.heroCta ?? "Solicitar cotação"}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Link href="/assinaturas">
@@ -400,14 +399,12 @@ export default function AgenciaViagens() {
         <div className="container">
           <div className="text-center mb-14">
             <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">
-              Nossos Serviços
+              {c.servicosBadge ?? "Nossos Serviços"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Tudo que você precisa em um só lugar
+              {c.servicosTitulo ?? "Tudo que você precisa em um só lugar"}
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
-              Nossa agência oferece <strong>todos os serviços</strong> para tornar sua viagem perfeita, do início ao fim. Atendemos todos os viajantes, com <strong>condições especiais para assinantes</strong>.
-            </p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.servicosSubtitulo ?? "Nossa agência oferece todos os serviços para tornar sua viagem perfeita, do início ao fim. Atendemos todos os viajantes, com condições especiais para assinantes."}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -436,14 +433,12 @@ export default function AgenciaViagens() {
         <div className="container">
           <div className="text-center mb-14">
             <Badge className="mb-4 bg-[#FFF0D6] text-[#CC7400] border-0">
-              Como Funciona
+              {c.comoBadge ?? "Como Funciona"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Simples, rápido e sem estresse
+              {c.comoTitulo ?? "Simples, rápido e sem estresse"}
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
-              Você sonha, a gente planeja. Veja como é <strong>fácil viajar</strong> com a agência RDC.
-            </p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.comoSubtitulo ?? "Você sonha, a gente planeja. Veja como é fácil viajar com a agência RDC."}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
@@ -476,13 +471,10 @@ export default function AgenciaViagens() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
-                  Atendemos todos os viajantes.
-                  <span className="text-[#FF9100]"> Assinantes têm mais vantagens.</span>
+                  {c.vantTitulo ?? "Atendemos todos os viajantes."}
+                  <span className="text-[#FF9100]">{c.vantDestaque ?? " Assinantes têm mais vantagens."}</span>
                 </h2>
-                <p className="text-[#C7E5F3] leading-relaxed">
-                  Qualquer pessoa pode solicitar uma cotação e viajar com a agência RDC.
-                  Mas quem é assinante conta com <strong>tarifas ainda mais competitivas</strong>, <strong>prioridade no atendimento</strong> e condições exclusivas de pagamento.
-                </p>
+                <p className="text-[#C7E5F3] leading-relaxed">{c.vantTexto ?? "Qualquer pessoa pode solicitar uma cotação e viajar com a agência RDC. Mas quem é assinante conta com tarifas ainda mais competitivas, prioridade no atendimento e condições exclusivas de pagamento."}</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 <div className="space-y-4">
@@ -528,14 +520,12 @@ export default function AgenciaViagens() {
         <div className="container">
           <div className="text-center mb-14">
             <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">
-              Inspiração
+              {c.pacotesBadge ?? "Inspiração"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Pacotes em destaque
+              {c.pacotesTitulo ?? "Pacotes em destaque"}
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
-              Confira algumas sugestões de pacotes. Nossos consultores podem montar o <strong>roteiro ideal</strong> para você.
-            </p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.pacotesSubtitulo ?? "Confira algumas sugestões de pacotes. Nossos consultores podem montar o roteiro ideal para você."}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -643,14 +633,12 @@ export default function AgenciaViagens() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <Badge className="mb-4 bg-white/20 text-white border-0">
-                Fale Conosco
+                {c.formBadge ?? "Fale Conosco"}
               </Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-                Solicite sua cotação
+                {c.formTitulo ?? "Solicite sua cotação"}
               </h2>
-              <p className="text-[#C7E5F3] max-w-2xl mx-auto leading-relaxed">
-                Preencha o formulário e nossa equipe entrará em contato para montar o roteiro perfeito para você.
-              </p>
+              <p className="text-[#C7E5F3] max-w-2xl mx-auto leading-relaxed">{c.formSubtitulo ?? "Preencha o formulário e nossa equipe entrará em contato para montar o roteiro perfeito para você."}</p>
               <div className="flex flex-wrap justify-center gap-6 mt-6">
                 <div className="flex items-center gap-2 text-white">
                   <HeadphonesIcon className="w-5 h-5 text-[#FFB040]" />
@@ -879,14 +867,12 @@ export default function AgenciaViagens() {
           <div className="text-center mb-14">
             <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">
               <HelpCircle className="w-4 h-4 mr-1" />
-              Perguntas Frequentes
+              {c.faqBadge ?? "Perguntas Frequentes"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Dúvidas sobre a agência
+              {c.faqTitulo ?? "Dúvidas sobre a agência"}
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
-              Respondemos as perguntas mais comuns sobre nossos serviços de agência.
-            </p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.faqSubtitulo ?? "Respondemos as perguntas mais comuns sobre nossos serviços de agência."}</p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-3">
@@ -946,21 +932,19 @@ export default function AgenciaViagens() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center text-white">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-              Viaje com mais economia sendo assinante
+              {c.ctaTitulo ?? "Viaje com mais economia sendo assinante"}
             </h2>
-            <p className="text-xl text-[#8ECAE6] mb-8 leading-relaxed">
-              Qualquer pessoa pode viajar com a agência RDC, mas assinantes contam com tarifas diferenciadas, atendimento prioritário e condições especiais. Descubra como economizar ainda mais.
-            </p>
+            <p className="text-xl text-[#8ECAE6] mb-8 leading-relaxed">{c.ctaTexto ?? "Qualquer pessoa pode viajar com a agência RDC, mas assinantes contam com tarifas diferenciadas, atendimento prioritário e condições especiais. Descubra como economizar ainda mais."}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/assinaturas">
                 <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8">
-                  Conhecer planos de assinatura
+                  {c.ctaBotao1 ?? "Conhecer planos de assinatura"}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
               <Link href="/contato">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8">
-                  Falar com a equipe
+                  {c.ctaBotao2 ?? "Falar com a equipe"}
                 </Button>
               </Link>
             </div>

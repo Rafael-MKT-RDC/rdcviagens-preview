@@ -30,6 +30,7 @@ import SEO from "@/components/SEO";
 import { toast } from "sonner";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 /*
  * Design Philosophy: Tropical Elegance
  * - Página dedicada ao Programa de Indicação
@@ -149,6 +150,7 @@ const faqs = [
 ];
 
 export default function ProgramaIndicacao() {
+  const c = usePageDoc<any>('paginaIndicacao');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     indicadorNome: "",
@@ -213,16 +215,13 @@ export default function ProgramaIndicacao() {
           <div className="text-center max-w-3xl mx-auto">
             <Badge className="mb-4 bg-[#FF9100] hover:bg-yellow-600 text-black border-0">
               <Gift className="w-4 h-4 mr-1" />
-              Programa de Indicação
+              {c.heroBadge ?? "Programa de Indicação"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Indique amigos e{" "}
-              <span className="text-[#FF9100]">ganhe pontos</span>
+              {c.heroTitulo ?? "Indique amigos e"}{" "}
+              <span className="text-[#FF9100]">{c.heroDestaque ?? "ganhe pontos"}</span>
             </h1>
-            <p className="text-xl text-[#C7E5F3] mb-8">
-              Compartilhe a experiência RDC com quem você ama e <strong>acumule pontos</strong> para trocar 
-              por descontos em hospedagem, voos, carros e muito mais!
-            </p>
+            <p className="text-xl text-[#C7E5F3] mb-8">{c.heroSubtitulo ?? "Compartilhe a experiência RDC com quem você ama e acumule pontos para trocar por descontos em hospedagem, voos, carros e muito mais!"}</p>
             <Button 
               size="lg" 
               className="bg-[#FF9100] hover:bg-yellow-600 text-black px-8 py-6 text-lg rounded-full font-semibold"
@@ -230,7 +229,7 @@ export default function ProgramaIndicacao() {
                 document.getElementById("formulario-indicacao")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              Indicar agora
+              {c.heroCta ?? "Indicar agora"}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
@@ -250,14 +249,12 @@ export default function ProgramaIndicacao() {
         <div className="container">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">
-              Como funciona
+              {c.comoBadge ?? "Como funciona"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Simples assim
+              {c.comoTitulo ?? "Simples assim"}
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
-              Em <strong>4 passos</strong> você já está acumulando pontos para suas próximas viagens
-            </p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.comoSubtitulo ?? "Em 4 passos você já está acumulando pontos para suas próximas viagens"}</p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
@@ -292,14 +289,12 @@ export default function ProgramaIndicacao() {
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-[#FF9100] text-black border-0">
               <Send className="w-4 h-4 mr-1" />
-              Formulário de Indicação
+              {c.formBadge ?? "Formulário de Indicação"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-              Indique agora mesmo
+              {c.formTitulo ?? "Indique agora mesmo"}
             </h2>
-            <p className="text-lg text-[#8ECAE6] max-w-2xl mx-auto">
-              Preencha os dados abaixo e nossa equipe entrará em contato com seu indicado para apresentar os <strong>planos RDC</strong>
-            </p>
+            <p className="text-lg text-[#8ECAE6] max-w-2xl mx-auto">{c.formSubtitulo ?? "Preencha os dados abaixo e nossa equipe entrará em contato com seu indicado para apresentar os planos RDC"}</p>
           </div>
 
           <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
@@ -464,14 +459,12 @@ export default function ProgramaIndicacao() {
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-[#FFF0D6] text-[#CC7400] border-0">
               <Sparkles className="w-4 h-4 mr-1" />
-              Recompensas
+              {c.recompBadge ?? "Recompensas"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Troque seus pontos por
+              {c.recompTitulo ?? "Troque seus pontos por"}
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
-              Troque seus pontos por <strong>todos os produtos turísticos</strong> do ecossistema RDC
-            </p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.recompSubtitulo ?? "Troque seus pontos por todos os produtos turísticos do ecossistema RDC"}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -497,11 +490,9 @@ export default function ProgramaIndicacao() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Perguntas frequentes
+              {c.faqTitulo ?? "Perguntas frequentes"}
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
-              Tire suas dúvidas sobre o Programa de Indicação
-            </p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.faqSubtitulo ?? "Tire suas dúvidas sobre o Programa de Indicação"}</p>
           </div>
 
           <div className="max-w-3xl mx-auto">
@@ -560,12 +551,9 @@ export default function ProgramaIndicacao() {
         <AnimateOnScroll variant="fade">
         <div className="container text-center">
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-            Comece a indicar hoje mesmo!
+            {c.ctaTitulo ?? "Comece a indicar hoje mesmo!"}
           </h2>
-          <p className="text-lg text-[#2D2D2D] mb-8 max-w-2xl mx-auto">
-            <strong>Quanto mais você compartilha, mais você viaja!</strong> Indique amigos e familiares 
-            e acumule pontos para trocar por <strong>benefícios incríveis</strong>.
-          </p>
+          <p className="text-lg text-[#2D2D2D] mb-8 max-w-2xl mx-auto">{c.ctaTexto ?? "Quanto mais você compartilha, mais você viaja! Indique amigos e familiares e acumule pontos para trocar por benefícios incríveis."}</p>
           <Button 
             size="lg" 
             className="bg-[#001A9E] hover:bg-[#001070] text-white px-8 py-6 text-lg rounded-full"
@@ -573,7 +561,7 @@ export default function ProgramaIndicacao() {
               document.getElementById("formulario-indicacao")?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            Indicar agora
+            {c.ctaBotao ?? "Indicar agora"}
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>

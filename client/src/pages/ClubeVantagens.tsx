@@ -34,6 +34,7 @@ import {
 import { Link } from "wouter";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 /* ─── FAQ Item ─── */
 function FaqItem({ icon: FaqIcon, question, answer, index }: {
   icon: ComponentType<LucideProps>;
@@ -387,6 +388,7 @@ function getCategoryLabel(category: string) {
 
 /* ─── Página principal ─── */
 export default function ClubeVantagens() {
+  const c = usePageDoc<any>('paginaClube');
   const [activeCategory, setActiveCategory] = useState("TODOS");
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -424,32 +426,28 @@ export default function ClubeVantagens() {
               >
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-[#FFB040] text-sm font-medium mb-6 backdrop-blur-sm border border-white/10">
                   <Gift className="w-4 h-4" />
-                  Exclusivo para assinantes RDC
+                  {c.heroBadge ?? "Exclusivo para assinantes RDC"}
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                  Clube de{" "}
+                  {c.heroTitulo ?? "Clube de"}{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9100] to-orange-300">
-                    Vantagens
+                    {c.heroDestaque ?? "Vantagens"}
                   </span>
                 </h1>
-                <p className="text-lg md:text-xl text-[#C7E5F3]/80 mb-8 max-w-2xl mx-auto leading-relaxed">
-                  Economize na viagem e durante o ano todo. Acesse descontos exclusivos
-                  nos maiores varejistas do Brasil — são mais de <strong className="text-white">50 marcas parceiras</strong> com
-                  ofertas especiais para você.
-                </p>
+                <p className="text-lg md:text-xl text-[#C7E5F3]/80 mb-8 max-w-2xl mx-auto leading-relaxed">{c.heroSubtitulo ?? "Economize na viagem e durante o ano todo. Acesse descontos exclusivos nos maiores varejistas do Brasil — são mais de 50 marcas parceiras com ofertas especiais para você."}</p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
                     <BadgePercent className="w-5 h-5 text-[#FF9100]" />
-                    <span className="text-white font-medium">Até 50% de desconto</span>
+                    <span className="text-white font-medium">{c.heroStat1 ?? "Até 50% de desconto"}</span>
                   </div>
                   <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
                     <Star className="w-5 h-5 text-[#FF9100]" />
-                    <span className="text-white font-medium">+50 marcas parceiras</span>
+                    <span className="text-white font-medium">{c.heroStat2 ?? "+50 marcas parceiras"}</span>
                   </div>
                   <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
                     <Lock className="w-5 h-5 text-[#06D6A0]" />
-                    <span className="text-white font-medium">Acesso pela área logada</span>
+                    <span className="text-white font-medium">{c.heroStat3 ?? "Acesso pela área logada"}</span>
                   </div>
                 </div>
               </motion.div>
@@ -472,9 +470,9 @@ export default function ClubeVantagens() {
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="text-center mb-12">
-            <span className="text-[#E68200] font-semibold text-sm tracking-wider uppercase">Como funciona</span>
+            <span className="text-[#E68200] font-semibold text-sm tracking-wider uppercase">{c.comoLabel ?? "Como funciona"}</span>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mt-2">
-              Simples, rápido e econômico
+              {c.comoTitulo ?? "Simples, rápido e econômico"}
             </h2>
           </div>
 
@@ -521,13 +519,11 @@ export default function ClubeVantagens() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-10">
-            <span className="text-[#E68200] font-semibold text-sm tracking-wider uppercase">Nossos parceiros</span>
+            <span className="text-[#E68200] font-semibold text-sm tracking-wider uppercase">{c.parcLabel ?? "Nossos parceiros"}</span>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mt-2">
-              Explore por categoria
+              {c.parcTitulo ?? "Explore por categoria"}
             </h2>
-            <p className="text-[#555555] mt-3 max-w-2xl mx-auto">
-              Filtre por categoria ou busque sua marca favorita. Todos os descontos são acessíveis pela <strong>área logada do assinante</strong>.
-            </p>
+            <p className="text-[#555555] mt-3 max-w-2xl mx-auto">{c.parcSubtitulo ?? "Filtre por categoria ou busque sua marca favorita. Todos os descontos são acessíveis pela área logada do assinante."}</p>
           </div>
 
           {/* Search */}
@@ -620,13 +616,11 @@ export default function ClubeVantagens() {
         <AnimateOnScroll variant="zoom-in">
         <div className="container">
           <div className="text-center mb-12">
-            <span className="text-[#E68200] font-semibold text-sm tracking-wider uppercase">Tire suas dúvidas</span>
+            <span className="text-[#E68200] font-semibold text-sm tracking-wider uppercase">{c.faqLabel ?? "Tire suas dúvidas"}</span>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mt-2">
-              Perguntas Frequentes
+              {c.faqTitulo ?? "Perguntas Frequentes"}
             </h2>
-            <p className="text-[#777777] mt-3 max-w-2xl mx-auto">
-              Tudo o que você precisa saber sobre o <strong>Clube de Vantagens</strong> e como aproveitar os descontos exclusivos.
-            </p>
+            <p className="text-[#777777] mt-3 max-w-2xl mx-auto">{c.faqSubtitulo ?? "Tudo o que você precisa saber sobre o Clube de Vantagens e como aproveitar os descontos exclusivos."}</p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-3">
@@ -692,23 +686,19 @@ export default function ClubeVantagens() {
           <div className="max-w-3xl mx-auto text-center">
             <Gift className="w-14 h-14 text-[#FF9100] mx-auto mb-6" />
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-              Economize na viagem e no dia a dia
+              {c.ctaTitulo ?? "Economize na viagem e no dia a dia"}
             </h2>
-            <p className="text-lg text-[#C7E5F3]/80 mb-8 max-w-2xl mx-auto">
-              Ao se tornar assinante RDC, você não ganha apenas diárias nos melhores hotéis e resorts.
-              Você tem acesso ao <strong className="text-white">Clube de Vantagens</strong> com descontos exclusivos
-              em mais de 50 marcas parceiras durante o ano todo.
-            </p>
+            <p className="text-lg text-[#C7E5F3]/80 mb-8 max-w-2xl mx-auto">{c.ctaTexto ?? "Ao se tornar assinante RDC, você não ganha apenas diárias nos melhores hotéis e resorts. Você tem acesso ao Clube de Vantagens com descontos exclusivos em mais de 50 marcas parceiras durante o ano todo."}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/assinaturas">
                 <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF9100] to-[#E68200] text-white font-bold rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg shadow-[#FF9100]/30 text-lg">
-                  Quero ser assinante
+                  {c.ctaBotao1 ?? "Quero ser assinante"}
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </Link>
               <Link href="/agencia">
                 <button className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-2xl hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20">
-                  Conhecer a agência
+                  {c.ctaBotao2 ?? "Conhecer a agência"}
                 </button>
               </Link>
             </div>

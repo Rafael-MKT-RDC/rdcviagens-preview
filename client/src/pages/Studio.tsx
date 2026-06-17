@@ -55,6 +55,33 @@ const config = defineConfig({
                   .documentId('paginaAssinaturas')
                   .title('Página Assinaturas'),
               ),
+            S.listItem()
+              .title('Página Agência')
+              .id('paginaAgencia')
+              .child(
+                S.document()
+                  .schemaType('paginaAgencia')
+                  .documentId('paginaAgencia')
+                  .title('Página Agência'),
+              ),
+            S.listItem()
+              .title('Página Indicação')
+              .id('paginaIndicacao')
+              .child(
+                S.document()
+                  .schemaType('paginaIndicacao')
+                  .documentId('paginaIndicacao')
+                  .title('Página Indicação'),
+              ),
+            S.listItem()
+              .title('Página Clube')
+              .id('paginaClube')
+              .child(
+                S.document()
+                  .schemaType('paginaClube')
+                  .documentId('paginaClube')
+                  .title('Página Clube'),
+              ),
             S.divider(),
             S.listItem().title('Posts do Blog').schemaType('blogPost').child(S.documentTypeList('blogPost')),
             S.listItem().title('FAQ – Perguntas Frequentes').schemaType('faqCategoria').child(S.documentTypeList('faqCategoria')),
