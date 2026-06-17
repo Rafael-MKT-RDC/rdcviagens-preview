@@ -23,6 +23,15 @@ export default defineConfig({
                   .documentId('configuracoesGlobais')
                   .title('Configurações Globais'),
               ),
+            S.listItem()
+              .title('Página Home')
+              .id('paginaHome')
+              .child(
+                S.document()
+                  .schemaType('paginaHome')
+                  .documentId('paginaHome')
+                  .title('Página Home'),
+              ),
             S.divider(),
             S.listItem().title('Posts do Blog').schemaType('blogPost').child(S.documentTypeList('blogPost')),
             S.listItem().title('FAQ – Perguntas Frequentes').schemaType('faqCategoria').child(S.documentTypeList('faqCategoria')),
