@@ -264,7 +264,7 @@ export default function EmpresasParcerias() {
           </Link>
           
           <div className="max-w-3xl">
-            <img src="/logos/b2b/logo-parcerias.svg" 
+            <img src="/manus-storage/logo-parcerias_17fe84e4.png" 
               alt="RDC Parcerias" 
               className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" 
             />

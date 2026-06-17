@@ -25,7 +25,7 @@ const solutions = [
   {
     id: "gestao",
     icon: Plane,
-    logo: "/logos/b2b/logo-gestao.svg",
+    logo: "/manus-storage/logo-gestao_050b9d15.png",
     title: "RDC Viagens Corporativas",
     subtitle: "Sua empresa viaja. Nós cuidamos de tudo.",
     description: "Plataforma completa de reservas e produtos turísticos para viagens corporativas. Centralize reservas, controle gastos e economize — sem burocracia, sem complicação.",
@@ -42,7 +42,7 @@ const solutions = [
   {
     id: "premiacao",
     icon: Plane,
-    logo: "/logos/b2b/logo-premiacao.svg",
+    logo: "/manus-storage/logo-premiacao_f657ce1e.png",
     title: "RDC Premiação",
     subtitle: "Viagens que transformam resultados e valorizam reconhecimento.",
     description: "Uma solução estratégica para áreas como RH, Marketing e Comercial que buscam engajar públicos e impulsionar resultados com colaboradores, clientes e parceiros.",
@@ -59,7 +59,7 @@ const solutions = [
   {
     id: "parcerias",
     icon: Handshake,
-    logo: "/logos/b2b/logo-parcerias.svg",
+    logo: "/manus-storage/logo-parcerias_17fe84e4.png",
     title: "RDC Parcerias",
     subtitle: "Novas frentes de crescimento para o seu negócio.",
     description: "Alianças estratégicas com bancos, empresas, entidades e plataformas que buscam se diferenciar, gerar novas receitas e ampliar sua proposta de valor.",
@@ -71,6 +71,23 @@ const solutions = [
       "Integração via API, white-label ou co-branding",
       "Zero complexidade operacional para o parceiro",
       "Suporte dedicado de marketing e vendas"
+    ]
+  },
+  {
+    id: "travelcloud",
+    icon: Plane,
+    logo: "/manus-storage/logo-gestao_050b9d15.png",
+    title: "RDC Travel Cloud",
+    subtitle: "Viagens dentro do seu ecossistema.",
+    description: "Plataforma white label que permite que parceiros ofereçam viagens dentro de seus próprios ambientes digitais, com toda a operação turística especializada da RDC nos bastidores.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+    href: "/solucoes-corporativas/travel-cloud",
+    audience: "Para Fintechs, Plataformas de Benefícios, Apps de Despesas e Marketplaces",
+    features: [
+      "White label: marca do parceiro preservada",
+      "Operação turística completa pela RDC",
+      "+200 mil hotéis e resorts disponíveis",
+      "Modelos B2B e B2B2C flexíveis"
     ]
   }
 ];
@@ -170,6 +187,7 @@ export default function Empresas() {
                 gestao: { iconBg: "bg-[#FAD0D8]", iconText: "text-[#D04058]", subtitle: "text-[#D04058]", check: "text-[#E8506A]", btnBg: "bg-[#E8506A]", btnHover: "hover:bg-rose-700", badgeBg: "bg-[#E8506A]", badgeText: "text-white" },
                 premiacao: { iconBg: "bg-[#FFF0D6]", iconText: "text-[#CC7400]", subtitle: "text-[#CC7400]", check: "text-[#E68200]", btnBg: "bg-[#FF9100]", btnHover: "hover:bg-[#E68200]", badgeBg: "bg-[#FF9100]", badgeText: "text-[#2D2D2D]" },
                 parcerias: { iconBg: "bg-[#F0E4FF]", iconText: "text-[#9B6AE0]", subtitle: "text-[#9B6AE0]", check: "text-[#B78AFF]", btnBg: "bg-violet-600", btnHover: "hover:bg-violet-700", badgeBg: "bg-violet-600", badgeText: "text-white" },
+                travelcloud: { iconBg: "bg-[#E0F7FA]", iconText: "text-[#0077B6]", subtitle: "text-[#00B4D8]", check: "text-[#00B4D8]", btnBg: "bg-[#00B4D8]", btnHover: "hover:bg-[#0096B4]", badgeBg: "bg-[#00B4D8]", badgeText: "text-white" },
               };
               const colors = colorMap[solution.id] || colorMap.gestao;
               return (
@@ -283,10 +301,4 @@ export default function Empresas() {
             </div>
           </div>
         </div>
-        </AnimateOnScroll>
-      </section>
-
-      <Footer />
-    </div>
-  );
-}
+      

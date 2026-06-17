@@ -101,9 +101,9 @@ const features = [
 ];
 
 const corporateSolutions = [
-  { title: "RDC Premiação", description: "Benefício corporativo que transforma vidas. Ofereça viagens como reconhecimento para seus colaboradores.", href: "/solucoes-corporativas#premiacao", cta: "Descubra como premiar", logo: "/logos/b2b/logo-premiacao.svg", ctaBg: "bg-[#FFEA01] hover:bg-[#E6D300] text-[#2D2D2D]" },
-  { title: "RDC Gestão de Viagens", description: "Gestão completa de viagens corporativas com eficiência, controle e economia.", href: "/solucoes-corporativas#gestao", cta: "Conheça a gestão inteligente", logo: "/logos/b2b/logo-gestao.svg", ctaBg: "bg-[#E8506A] hover:bg-[#D04058] text-white" },
-  { title: "RDC Parcerias", description: "Alianças estratégicas para criar novos canais de aquisição e valor agregado.", href: "/solucoes-corporativas#parcerias", cta: "Vamos construir juntos?", logo: "/logos/b2b/logo-parcerias.svg", ctaBg: "bg-[#9B6AE0] hover:bg-[#8050C0] text-white" }
+  { title: "RDC Premiação", description: "Benefício corporativo que transforma vidas. Ofereça viagens como reconhecimento para seus colaboradores.", href: "/solucoes-corporativas#premiacao", cta: "Descubra como premiar", logo: "/manus-storage/logo-premiacao_f657ce1e.png", ctaBg: "bg-[#FFEA01] hover:bg-[#E6D300] text-[#2D2D2D]" },
+  { title: "RDC Gestão de Viagens", description: "Gestão completa de viagens corporativas com eficiência, controle e economia.", href: "/solucoes-corporativas#gestao", cta: "Conheça a gestão inteligente", logo: "/manus-storage/logo-gestao_050b9d15.png", ctaBg: "bg-[#E8506A] hover:bg-[#D04058] text-white" },
+  { title: "RDC Parcerias", description: "Alianças estratégicas para criar novos canais de aquisição e valor agregado.", href: "/solucoes-corporativas#parcerias", cta: "Vamos construir juntos?", logo: "/manus-storage/logo-parcerias_17fe84e4.png", ctaBg: "bg-[#9B6AE0] hover:bg-[#8050C0] text-white" }
 ];
 
 const redesHoteleirasHome = [
@@ -231,7 +231,7 @@ export default function Home() {
         {slides.map((slide, index) => (
           <div key={slide.id} className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"}`}>
             <div className="absolute inset-0">
-              <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" fetchPriority={index === 0 ? "high" : "low"} loading={index === 0 ? "eager" : "lazy"} />
+              <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
             </div>
             <div className="relative h-full container flex items-center">
@@ -306,7 +306,7 @@ export default function Home() {
               <CtaLink href={c.sobreCtaLink ?? "/sobre"}><Button className="bg-[#001A9E] hover:bg-[#001070]">{c.sobreCta ?? "Conheça nossa história"} <ArrowRight className="ml-2 h-4 w-4" /></Button></CtaLink>
             </div>
             <div className="relative">
-              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ImYicCgyeERQbRNm.jpg" alt="Destino turístico brasileiro" className="rounded-2xl shadow-2xl" loading="lazy" />
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ImYicCgyeERQbRNm.jpg" alt="Destino turístico brasileiro" className="rounded-2xl shadow-2xl" />
               <div className="absolute -bottom-4 -left-2 md:-bottom-6 md:-left-6 bg-[#001A9E] text-white p-4 md:p-6 rounded-2xl shadow-lg">
                 <div className="text-2xl md:text-4xl font-bold">{c.sobreBadge ?? "+35"}</div>
                 <div className="text-xs md:text-sm text-[#8ECAE6]">anos de história</div>
@@ -384,7 +384,7 @@ export default function Home() {
               return (
                 <Link key={index} href={cat.link}>
                   <div className="group relative h-72 md:h-96 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
                     <div className="absolute top-4 left-4">
                       <div className="w-10 h-10 rounded-full bg-[#FF9100] flex items-center justify-center">
@@ -429,7 +429,7 @@ export default function Home() {
               <CtaLink href={c.assinaturasCtaLink ?? "/assinaturas"}><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200]">{c.assinaturasCta ?? "Conhecer planos"} <ArrowRight className="ml-2 h-4 w-4" /></Button></CtaLink>
             </div>
             <div>
-              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg" alt="Praia paradisíaca" className="rounded-2xl shadow-2xl" loading="lazy" />
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg" alt="Praia paradisíaca" className="rounded-2xl shadow-2xl" />
             </div>
           </div>
         </div>
@@ -438,7 +438,7 @@ export default function Home() {
       {/* 8. Agência de Viagens */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=800&fit=crop" alt="Destino paradisíaco" className="w-full h-full object-cover" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=800&fit=crop" alt="Destino paradisíaco" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[#00148A]/70" />
         </div>
         <div className="relative container">
@@ -551,13 +551,4 @@ export default function Home() {
             </form>
             <p className="text-xs text-[#FFCC80] mt-4">
               Ao se inscrever, você concorda com nossa{" "}
-              <Link href="/termos" className="underline hover:text-white">Política de Privacidade</Link>. Cancele quando quiser.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
-}
+              <Link href="/termos" className="
