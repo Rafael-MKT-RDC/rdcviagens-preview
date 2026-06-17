@@ -38,6 +38,8 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { usePageDoc } from "@/hooks/usePageDoc";
+import { CtaLink } from "@/components/CtaLink";
+import { RDStationForm } from "@/components/RDStationForm";
 
 const useCases = [
   {
@@ -264,7 +266,7 @@ export default function EmpresasTravelCloud() {
               <Button 
                 size="lg" 
                 className="bg-[#00B4D8] hover:bg-[#0096B4] text-white px-8 rounded-full"
-                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => { const l = c.heroCtaLink ?? "#formulario"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.heroCta ?? "Agendar uma conversa"}
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -500,6 +502,11 @@ export default function EmpresasTravelCloud() {
               </p>
             </div>
 
+            {c.formRdId ? (
+              <div className="rdc-rd-form bg-[#F6F6F6] rounded-2xl p-8 md:p-10 shadow-lg border border-[#E8E8E8]">
+                <RDStationForm formId={c.formRdId} token="UA-7667371-1" />
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="bg-[#F6F6F6] rounded-2xl p-8 md:p-10 shadow-lg border border-[#E8E8E8]">
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Nome */}
@@ -680,6 +687,7 @@ export default function EmpresasTravelCloud() {
                 </p>
               </div>
             </form>
+            )}
           </div>
         </div>
         </AnimateOnScroll>
@@ -733,7 +741,7 @@ export default function EmpresasTravelCloud() {
               <Button 
                 size="lg" 
                 className="bg-[#00B4D8] hover:bg-[#0096B4] text-white px-8 rounded-full"
-                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => { const l = c.heroCtaLink ?? "#formulario"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.heroCta ?? "Agendar uma conversa"}
                 <ArrowRight className="ml-2 h-4 w-4" />

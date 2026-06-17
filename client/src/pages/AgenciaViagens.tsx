@@ -47,6 +47,7 @@ import SEO from "@/components/SEO";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { usePageDoc } from "@/hooks/usePageDoc";
+import { RDStationForm } from "@/components/RDStationForm";
 /*
  * Design Philosophy: Tropical Elegance
  * - Página da Agência de Viagens exclusiva para assinantes RDC
@@ -290,10 +291,10 @@ export default function AgenciaViagens() {
   };
 
   const scrollToForm = () => {
-    const formSection = document.getElementById("formulario-cotacao");
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: "smooth" });
-    }
+    const l = c.heroCtaLink ?? "#formulario-cotacao";
+    if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" });
+    else if (/^https?:\/\//.test(l)) window.open(l, "_blank");
+    else window.location.assign(l);
   };
 
   return (
@@ -686,6 +687,11 @@ export default function AgenciaViagens() {
                 ) : (
                   <Card className="border-0 shadow-lg">
                     <CardContent className="pt-8 pb-8">
+                      {c.formRdId ? (
+                        <div className="rdc-rd-form space-y-4">
+                          <RDStationForm formId={c.formRdId} token="UA-7667371-1" />
+                        </div>
+                      ) : (
                       <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div className="space-y-2">
@@ -853,6 +859,7 @@ export default function AgenciaViagens() {
                           Seus dados estão seguros. Não compartilhamos suas informações.
                         </p>
                       </form>
+                      )}
                     </CardContent>
                   </Card>
                 )}

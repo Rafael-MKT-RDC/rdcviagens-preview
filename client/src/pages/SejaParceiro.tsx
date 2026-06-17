@@ -8,6 +8,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { usePageDoc } from "@/hooks/usePageDoc";
+import { RDStationForm } from "@/components/RDStationForm";
 import { toast } from "sonner";
 import SEO from "@/components/SEO";
 
@@ -268,6 +269,11 @@ export default function SejaParceiro() {
           </div>
 
           <div className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl">
+            {c.formRdId ? (
+              <div className="rdc-rd-form space-y-5">
+                <RDStationForm formId={c.formRdId} token="UA-7667371-1" />
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid md:grid-cols-2 gap-5">
                 <div>
@@ -412,10 +418,11 @@ export default function SejaParceiro() {
                 Ao enviar, você concorda com nossa{" "}
                 <Link href="/documentos" className="text-[#0020B8] hover:underline">
                   Política de Privacidade
-                </Link>. 
+                </Link>.
                 Seus dados serão utilizados exclusivamente para contato comercial.
               </p>
             </form>
+            )}
           </div>
         </div>
       </section>

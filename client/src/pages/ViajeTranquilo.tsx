@@ -342,7 +342,7 @@ export default function ViajeTranquilo() {
                   {/* === PILOTO opção B: formulário do RD Station incorporado === */}
                   <div className="bg-white border border-[#E8E8E8] rounded-2xl p-6 md:p-8 shadow-sm rdc-rd-form">
                     <RDStationForm
-                      formId="formulario-rdc-abril-2026-70adf1392cb35b6650e4"
+                      formId={c.formRdId ?? "formulario-rdc-abril-2026-70adf1392cb35b6650e4"}
                       token="UA-7667371-1"
                     />
                   </div>

@@ -31,6 +31,7 @@ import { toast } from "sonner";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { usePageDoc } from "@/hooks/usePageDoc";
+import { RDStationForm } from "@/components/RDStationForm";
 /*
  * Design Philosophy: Tropical Elegance
  * - Página dedicada ao Programa de Indicação
@@ -225,9 +226,7 @@ export default function ProgramaIndicacao() {
             <Button 
               size="lg" 
               className="bg-[#FF9100] hover:bg-yellow-600 text-black px-8 py-6 text-lg rounded-full font-semibold"
-              onClick={() => {
-                document.getElementById("formulario-indicacao")?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => { const l = c.heroCtaLink ?? "#formulario-indicacao"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
             >
               {c.heroCta ?? "Indicar agora"}
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -297,6 +296,11 @@ export default function ProgramaIndicacao() {
             <p className="text-lg text-[#8ECAE6] max-w-2xl mx-auto">{c.formSubtitulo ?? "Preencha os dados abaixo e nossa equipe entrará em contato com seu indicado para apresentar os planos RDC"}</p>
           </div>
 
+          {c.formRdId ? (
+            <div className="rdc-rd-form max-w-3xl mx-auto">
+              <RDStationForm formId={c.formRdId} token="UA-7667371-1" />
+            </div>
+          ) : (
           <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Dados do Indicador */}
@@ -448,6 +452,7 @@ export default function ProgramaIndicacao() {
               </p>
             </div>
           </form>
+          )}
         </div>
         </AnimateOnScroll>
       </section>
@@ -557,9 +562,7 @@ export default function ProgramaIndicacao() {
           <Button 
             size="lg" 
             className="bg-[#001A9E] hover:bg-[#001070] text-white px-8 py-6 text-lg rounded-full"
-            onClick={() => {
-              document.getElementById("formulario-indicacao")?.scrollIntoView({ behavior: "smooth" });
-            }}
+            onClick={() => { const l = c.ctaBotaoLink ?? "#formulario-indicacao"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
           >
             {c.ctaBotao ?? "Indicar agora"}
             <ArrowRight className="w-5 h-5 ml-2" />

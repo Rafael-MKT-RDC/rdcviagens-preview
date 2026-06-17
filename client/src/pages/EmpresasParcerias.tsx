@@ -33,6 +33,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { usePageDoc } from "@/hooks/usePageDoc";
+import { RDStationForm } from "@/components/RDStationForm";
 
 /*
  * Página RDC Parcerias
@@ -289,7 +290,7 @@ export default function EmpresasParcerias() {
               <Button 
                 size="lg" 
                 className="bg-[#9B6AE0] hover:bg-violet-700 text-white px-8 rounded-full"
-                onClick={() => document.getElementById('formulario-parcerias')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => { const l = c.heroCtaLink ?? "#formulario-parcerias"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.heroCta ?? "Explorar parceria"}
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -443,6 +444,11 @@ export default function EmpresasParcerias() {
 
             <Card className="border-0 shadow-xl">
               <CardContent className="p-8">
+                {c.formRdId ? (
+                  <div className="rdc-rd-form space-y-5">
+                    <RDStationForm formId={c.formRdId} token="UA-7667371-1" />
+                  </div>
+                ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid md:grid-cols-2 gap-5">
                     {/* Nome */}
@@ -632,10 +638,11 @@ export default function EmpresasParcerias() {
                   </Button>
 
                   <p className="text-xs text-[#777777] text-center">
-                    Ao enviar, você concorda com nossa política de privacidade. 
+                    Ao enviar, você concorda com nossa política de privacidade.
                     Seus dados são protegidos e não serão compartilhados.
                   </p>
                 </form>
+                )}
               </CardContent>
             </Card>
           </div>
@@ -685,7 +692,7 @@ export default function EmpresasParcerias() {
               <Button 
                 size="lg" 
                 className="bg-[#9B6AE0] hover:bg-violet-700 text-white px-8"
-                onClick={() => document.getElementById('formulario-parcerias')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => { const l = c.ctaBotaoLink ?? "#formulario-parcerias"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.ctaBotao ?? "Explorar parceria"}
                 <ArrowRight className="ml-2 h-4 w-4" />

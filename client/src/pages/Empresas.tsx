@@ -161,7 +161,7 @@ export default function Empresas() {
               <Button 
                 size="lg" 
                 className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full"
-                onClick={() => document.getElementById('solucoes')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => { const l = c.heroCtaLink ?? "#solucoes"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.heroCta ?? "Conhecer soluções"}
                 <ArrowRight className="ml-2 h-4 w-4" />

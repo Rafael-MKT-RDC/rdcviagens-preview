@@ -34,6 +34,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { usePageDoc } from "@/hooks/usePageDoc";
+import { RDStationForm } from "@/components/RDStationForm";
 
 const painPoints = [
   {
@@ -282,7 +283,7 @@ export default function EmpresasGestao() {
               <Button 
                 size="lg" 
                 className="bg-[#E8506A] hover:bg-rose-600 text-white px-8 rounded-full"
-                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => { const l = c.heroCtaLink ?? "#formulario"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.heroCta ?? "Solicitar proposta gratuita"}
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -462,6 +463,11 @@ export default function EmpresasGestao() {
               </p>
             </div>
 
+            {c.formRdId ? (
+              <div className="rdc-rd-form bg-white rounded-2xl p-8 md:p-10 shadow-2xl">
+                <RDStationForm formId={c.formRdId} token="UA-7667371-1" />
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl">
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Nome */}
@@ -662,6 +668,7 @@ export default function EmpresasGestao() {
                 </p>
               </div>
             </form>
+            )}
           </div>
         </div>
         </AnimateOnScroll>
@@ -715,7 +722,7 @@ export default function EmpresasGestao() {
               <Button 
                 size="lg" 
                 className="bg-[#E8506A] hover:bg-rose-600 text-white px-8 rounded-full"
-                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => { const l = c.ctaBotaoLink ?? "#formulario"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.ctaBotao ?? "Solicitar proposta gratuita"}
                 <ArrowRight className="ml-2 h-4 w-4" />
