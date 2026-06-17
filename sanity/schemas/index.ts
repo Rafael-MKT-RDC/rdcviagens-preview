@@ -6,11 +6,13 @@ import destino from './destino'
 import configuracoesGlobais from './configuracoesGlobais'
 import paginaHome from './paginaHome'
 import paginaSobre from './paginaSobre'
+import paginaAssinaturas from './paginaAssinaturas'
 
 export const schemaTypes = [
   configuracoesGlobais,
   paginaHome,
   paginaSobre,
+  paginaAssinaturas,
   blogPost,
   faqCategoria,
   depoimento,
