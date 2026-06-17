@@ -53,6 +53,7 @@ import SubscriptionModal from "@/components/SubscriptionModal";
 import SEO from "@/components/SEO";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 /*
  * Design Philosophy: Tropical Elegance
  * - Espaços amplos e respiráveis que evocam a sensação de férias
@@ -243,6 +244,7 @@ const faqs = [
 ];
 
 export default function Assinaturas() {
+  const c = usePageDoc<any>('paginaAssinaturas');
   const [showFloatingButton, setShowFloatingButton] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -329,24 +331,22 @@ export default function Assinaturas() {
         <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">
-              Assinatura de Viagem RDC
+              {c.heroBadge ?? "Assinatura de Viagem RDC"}
             </Badge>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
-              O jeito inteligente de{" "}
-              <span className="text-[#FF9100]">viajar o ano todo</span>
+              {c.heroTituloLinha1 ?? "O jeito inteligente de"}{" "}
+              <span className="text-[#FF9100]">{c.heroDestaque ?? "viajar o ano todo"}</span>
             </h1>
-            <p className="text-base md:text-xl text-[#C7E5F3] mb-4 md:mb-6">
-              A <strong>Assinatura RDC</strong> é planejamento inteligente: você paga uma mensalidade e tem acesso a <strong>diárias de hospedagem</strong> com economia de até 60%. Previsibilidade que vira viagem.
-            </p>
+            <p className="text-base md:text-xl text-[#C7E5F3] mb-4 md:mb-6">{c.heroSubtitulo ?? "A Assinatura RDC é planejamento inteligente: você paga uma mensalidade e tem acesso a diárias de hospedagem com economia de até 60%. Previsibilidade que vira viagem."}</p>
             <p className="text-sm md:text-lg text-[#FFB040] italic mb-6 md:mb-8">
-              Porque as melhores memórias são feitas ao lado de quem a gente ama.
+              {c.heroFrase ?? "Porque as melhores memórias são feitas ao lado de quem a gente ama."}
             </p>
             <Button 
               size="lg" 
               className="bg-[#FF9100] hover:bg-[#E68200] text-white px-6 py-4 md:px-8 md:py-6 text-base md:text-lg rounded-full"
               onClick={scrollToPlans}
             >
-              Ver planos
+              {c.heroCta ?? "Ver planos"}
             </Button>
           </div>
         </div>
@@ -389,14 +389,12 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-12">
             <Badge className="mb-3 bg-[#FFF0D6] text-[#CC7400] border-0">
-              Para quem é
+              {c.perfilBadge ?? "Para quem é"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3 md:mb-4">
-              A Assinatura RDC foi feita para você
+              {c.perfilTitulo ?? "A Assinatura RDC foi feita para você"}
             </h2>
-            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">
-              Se você se identifica com algum desses perfis, a <strong>Assinatura RDC</strong> pode transformar a forma como você viaja
-            </p>
+            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">{c.perfilSubtitulo ?? "Se você se identifica com algum desses perfis, a Assinatura RDC pode transformar a forma como você viaja"}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
@@ -442,14 +440,12 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-12">
             <Badge className="mb-3 bg-[#D4F5E9] text-[#06D6A0] border-0">
-              Transformação
+              {c.antesBadge ?? "Transformação"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3 md:mb-4">
-              A diferença de ter a Assinatura RDC
+              {c.antesTitulo ?? "A diferença de ter a Assinatura RDC"}
             </h2>
-            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">
-              Descubra como a assinatura <strong>transforma sua forma de viajar</strong>
-            </p>
+            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">{c.antesSubtitulo ?? "Descubra como a assinatura transforma sua forma de viajar"}</p>
           </div>
 
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -554,14 +550,12 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-12">
             <Badge className="mb-3 bg-white/20 text-white border-0">
-              Simples assim
+              {c.comoBadge ?? "Simples assim"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
-              Como funciona
+              {c.comoTitulo ?? "Como funciona"}
             </h2>
-            <p className="text-sm md:text-lg text-[#8ECAE6] max-w-2xl mx-auto">
-              Em <strong>3 passos simples</strong> você começa a viajar com a Assinatura RDC
-            </p>
+            <p className="text-sm md:text-lg text-[#8ECAE6] max-w-2xl mx-auto">{c.comoSubtitulo ?? "Em 3 passos simples você começa a viajar com a Assinatura RDC"}</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -609,7 +603,7 @@ export default function Assinaturas() {
                 className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full"
                 onClick={() => openSubscriptionModal()}
               >
-                Quero começar minha jornada
+                {c.ctaBotao1 ?? "Quero começar minha jornada"}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
@@ -626,14 +620,12 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-14">
             <Badge className="mb-3 bg-[#FFF0D6] text-[#CC7400] border-0">
-              Tudo incluso na sua assinatura
+              {c.recebeBadge ?? "Tudo incluso na sua assinatura"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3 md:mb-4">
-              O que você recebe ao assinar
+              {c.recebeTitulo ?? "O que você recebe ao assinar"}
             </h2>
-            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">
-              Cada plano da <strong className="text-[#2D2D2D]">Assinatura RDC</strong> inclui um pacote completo de benefícios para você viajar mais e melhor
-            </p>
+            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">{c.recebeSubtitulo ?? "Cada plano da Assinatura RDC inclui um pacote completo de benefícios para você viajar mais e melhor"}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
@@ -726,17 +718,15 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3 md:mb-4">
-              Nosso plano de assinatura
+              {c.planosTitulo ?? "Nosso plano de assinatura"}
             </h2>
-            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">
-              <strong>7 diárias por ano</strong> com todos os benefícios e serviços inclusos. O plano completo para quem quer viajar de verdade.
-            </p>
+            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">{c.planosSubtitulo ?? "7 diárias por ano com todos os benefícios e serviços inclusos. O plano completo para quem quer viajar de verdade."}</p>
           </div>
 
           {/* Plano único — centralizado */}
           <div className="flex justify-center max-w-md mx-auto">
             {plans.map((plan) => {
-              const dailyCost = (plan.price / 30).toFixed(2).replace(".", ",");
+              const dailyCost = ((c.planoPreco ?? plan.price) / 30).toFixed(2).replace(".", ",");
               return (
                 <div 
                   key={plan.id}
@@ -748,7 +738,7 @@ export default function Assinaturas() {
                 >
 
                   <div className={`text-4xl md:text-5xl font-bold mb-0.5 ${plan.recommended ? "text-white" : "text-[#001A9E]"}`}>
-                    {plan.days}
+                    {c.planoDias ?? plan.days}
                   </div>
                   <div className={`text-xs md:text-sm font-semibold mb-3 md:mb-4 ${plan.recommended ? "text-[#FFF0D6]" : "text-[#777777]"}`}>
                     diárias/ano
@@ -760,7 +750,7 @@ export default function Assinaturas() {
                     <div className="flex items-baseline justify-center gap-0.5">
                       <span className={`text-xs ${plan.recommended ? "text-[#FFCC80]" : "text-[#999999]"}`}>R$</span>
                       <span className={`text-2xl md:text-3xl font-bold ${plan.recommended ? "text-white" : "text-[#2D2D2D]"}`}>
-                        {plan.price.toFixed(2).replace(".", ",")}
+                        {(c.planoPreco ?? plan.price).toFixed(2).replace(".", ",")}
                       </span>
                     </div>
                     <p className={`text-xs ${plan.recommended ? "text-[#FFCC80]" : "text-[#999999]"}`}>/mês</p>
@@ -780,7 +770,7 @@ export default function Assinaturas() {
                     size="sm"
                     onClick={() => window.open('https://rdcviagens.com.br/assinar', '_blank')}
                   >
-                    Assinar agora
+                    {c.planoCta ?? "Assinar agora"}
                   </Button>
                   <button 
                     className={`w-full mt-2 text-[10px] md:text-xs font-medium underline underline-offset-2 ${
@@ -792,7 +782,7 @@ export default function Assinaturas() {
                   </button>
 
                   <p className={`text-[9px] md:text-[10px] mt-2 ${plan.recommended ? "text-[#FFCC80]" : "text-[#999999]"}`}>
-                    + adesão de R$ 880
+                    + adesão de {c.planoAdesao ?? "R$ 880"}
                   </p>
                 </div>
               );
@@ -839,14 +829,12 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-12">
             <Badge className="mb-3 bg-[#E8F4FA] text-[#001A9E] border-0">
-              Comparativo
+              {c.comparativoBadge ?? "Comparativo"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3 md:mb-4">
-              Por que escolher a Assinatura RDC?
+              {c.comparativoTitulo ?? "Por que escolher a Assinatura RDC?"}
             </h2>
-            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">
-              Compare e descubra por que somos a <strong>escolha inteligente</strong> para quem quer viajar mais
-            </p>
+            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">{c.comparativoSubtitulo ?? "Compare e descubra por que somos a escolha inteligente para quem quer viajar mais"}</p>
           </div>
 
           {/* Mobile: Cards com swipe */}
@@ -1134,11 +1122,9 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
-              Por que a Assinatura RDC é diferente
+              {c.difTitulo ?? "Por que a Assinatura RDC é diferente"}
             </h2>
-            <p className="text-sm md:text-lg text-[#8ECAE6] max-w-2xl mx-auto">
-              Diferenciais que fazem da Assinatura RDC a <strong>escolha inteligente</strong> para suas jornadas
-            </p>
+            <p className="text-sm md:text-lg text-[#8ECAE6] max-w-2xl mx-auto">{c.difSubtitulo ?? "Diferenciais que fazem da Assinatura RDC a escolha inteligente para suas jornadas"}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
@@ -1166,14 +1152,12 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-12">
             <Badge className="mb-3 bg-[#E8F4FA] text-[#001A9E] border-0">
-              Depoimentos
+              {c.depoBadge ?? "Depoimentos"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3 md:mb-4">
-              O que nossos assinantes dizem
+              {c.depoTitulo ?? "O que nossos assinantes dizem"}
             </h2>
-            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">
-              <strong>Milhões de diárias entregues</strong> e mais de <strong>35 anos de mercado</strong>. Pioneira em assinatura de viagens no Brasil.
-            </p>
+            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">{c.depoSubtitulo ?? "Milhões de diárias entregues e mais de 35 anos de mercado. Pioneira em assinatura de viagens no Brasil."}</p>
           </div>
 
           {/* Mobile: Carrossel de depoimentos */}
@@ -1282,18 +1266,16 @@ export default function Assinaturas() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-xl">
               <Badge className="mb-4 bg-[#FF9100] text-white border-0">
-                Exclusivo para Assinantes
+                {c.agenciaBadge ?? "Exclusivo para Assinantes"}
               </Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-3 md:mb-4">
-                Sua agência de viagens dedicada
+                {c.agenciaTitulo ?? "Sua agência de viagens dedicada"}
               </h2>
-              <p className="text-[#8ECAE6] text-sm md:text-lg leading-relaxed">
-                Como assinante RDC, você tem acesso a uma <strong>agência dedicada</strong> que cuida de cada detalhe: passagens, hospedagem, <strong>roteiros personalizados</strong>, transfers e muito mais.
-              </p>
+              <p className="text-[#8ECAE6] text-sm md:text-lg leading-relaxed">{c.agenciaTexto ?? "Como assinante RDC, você tem acesso a uma agência dedicada que cuida de cada detalhe: passagens, hospedagem, roteiros personalizados, transfers e muito mais."}</p>
             </div>
             <Link href="/agencia">
               <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 whitespace-nowrap">
-                Conhecer a agência
+                {c.agenciaCta ?? "Conhecer a agência"}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -1308,11 +1290,9 @@ export default function Assinaturas() {
         <div className="container">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3 md:mb-4">
-              Perguntas frequentes
+              {c.faqTitulo ?? "Perguntas frequentes"}
             </h2>
-            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">
-              Tire suas dúvidas sobre a Assinatura RDC
-            </p>
+            <p className="text-sm md:text-lg text-[#555555] max-w-2xl mx-auto">{c.faqSubtitulo ?? "Tire suas dúvidas sobre a Assinatura RDC"}</p>
           </div>
 
           <div className="max-w-3xl mx-auto">
@@ -1347,11 +1327,9 @@ export default function Assinaturas() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-3 md:mb-4">
-              Sua próxima jornada começa aqui
+              {c.ctaTitulo ?? "Sua próxima jornada começa aqui"}
             </h2>
-            <p className="text-sm md:text-lg text-[#8ECAE6] mb-6 md:mb-8">
-              Cada viagem é uma história esperando para ser vivida. Deixe a gente te guiar nessa jornada — com <strong>economia, cuidado e liberdade</strong>.
-            </p>
+            <p className="text-sm md:text-lg text-[#8ECAE6] mb-6 md:mb-8">{c.ctaTexto ?? "Cada viagem é uma história esperando para ser vivida. Deixe a gente te guiar nessa jornada — com economia, cuidado e liberdade."}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
@@ -1367,7 +1345,7 @@ export default function Assinaturas() {
                 className="border-white text-white hover:bg-white/10 px-8 rounded-full"
                 onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
               >
-                Falar pelo WhatsApp
+                {c.ctaBotao2 ?? "Falar pelo WhatsApp"}
               </Button>
             </div>
           </div>

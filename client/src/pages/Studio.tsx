@@ -46,6 +46,15 @@ const config = defineConfig({
                   .documentId('paginaSobre')
                   .title('Página Sobre'),
               ),
+            S.listItem()
+              .title('Página Assinaturas')
+              .id('paginaAssinaturas')
+              .child(
+                S.document()
+                  .schemaType('paginaAssinaturas')
+                  .documentId('paginaAssinaturas')
+                  .title('Página Assinaturas'),
+              ),
             S.divider(),
             S.listItem().title('Posts do Blog').schemaType('blogPost').child(S.documentTypeList('blogPost')),
             S.listItem().title('FAQ – Perguntas Frequentes').schemaType('faqCategoria').child(S.documentTypeList('faqCategoria')),
