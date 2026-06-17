@@ -10,6 +10,9 @@ import paginaAssinaturas from './paginaAssinaturas'
 import paginaAgencia from './paginaAgencia'
 import paginaIndicacao from './paginaIndicacao'
 import paginaClube from './paginaClube'
+import paginaDestinos from './paginaDestinos'
+import paginaViajeTranquilo from './paginaViajeTranquilo'
+import paginaEmpresas from './paginaEmpresas'
 
 export const schemaTypes = [
   configuracoesGlobais,
@@ -19,6 +22,9 @@ export const schemaTypes = [
   paginaAgencia,
   paginaIndicacao,
   paginaClube,
+  paginaDestinos,
+  paginaViajeTranquilo,
+  paginaEmpresas,
   blogPost,
   faqCategoria,
   depoimento,
