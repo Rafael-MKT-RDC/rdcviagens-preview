@@ -52,6 +52,7 @@ const navItems = [
       { label: "RDC Premiação", href: "/solucoes-corporativas/premiacao" },
       { label: "RDC Gestão de Viagens", href: "/solucoes-corporativas/gestao" },
       { label: "RDC Parcerias", href: "/solucoes-corporativas/parcerias" },
+      { label: "RDC Travel Cloud", href: "/solucoes-corporativas/travel-cloud" },
     ]
   },
   { label: "Blog", href: "/blog" },
@@ -105,7 +106,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <img src="/logos/logo-rdc.svg" 
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/Logo_RDC_oficial_4e0ebd10.png" 
               alt="RDC Viagens" 
               className="h-10 md:h-12 w-auto"
             />

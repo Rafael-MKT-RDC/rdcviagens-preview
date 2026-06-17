@@ -8,7 +8,7 @@ const organizationSchema = {
   "url": "https://rdcviagens.com.br",
   "logo": "https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/Logo_RDC_oficial_4e0ebd10.png",
   "description": "Pioneira em assinatura de viagens no Brasil há mais de 35 anos. Plano de 7 diárias por ano com tarifa exclusiva de até 60% OFF em +200 mil hotéis e resorts no Brasil e no mundo.",
-  "foundingDate": "1992",
+  "foundingDate": "1991",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Rua Manoel Coelho, 600, Centro",
@@ -39,6 +39,12 @@ const organizationSchema = {
     "https://www.linkedin.com/company/rdcviagens",
     "https://www.tiktok.com/@rdc.viagens"
   ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "1000",
+    "bestRating": "5"
+  },
   "numberOfEmployees": {
     "@type": "QuantitativeValue",
     "value": "400"
