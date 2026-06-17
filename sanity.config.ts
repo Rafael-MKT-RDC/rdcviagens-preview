@@ -193,6 +193,15 @@ export default defineConfig({
                   .documentId('paginaEmpresas')
                   .title('Página Empresas'),
               ),
+            S.listItem()
+              .title('Página Travel Cloud')
+              .id('paginaTravelCloud')
+              .child(
+                S.document()
+                  .schemaType('paginaTravelCloud')
+                  .documentId('paginaTravelCloud')
+                  .title('Página Travel Cloud'),
+              ),
             S.divider(),
             S.listItem().title('Posts do Blog').schemaType('blogPost').child(S.documentTypeList('blogPost')),
             S.listItem().title('FAQ – Perguntas Frequentes').schemaType('faqCategoria').child(S.documentTypeList('faqCategoria')),
