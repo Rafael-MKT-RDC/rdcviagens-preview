@@ -300,3 +300,69 @@ export async function getDestinos(): Promise<Destino[]> {
     return []
   }
 }
+
+// ────────────────────────────────────────────────────────────────────────────
+// Configurações Globais (barra superior + rodapé) — piloto CMS
+// ────────────────────────────────────────────────────────────────────────────
+
+export interface SiteSettings {
+  telefone: string
+  diasAtendimento: string
+  horario: string
+  tipoLigacao: string
+  textoInstitucional: string
+  email: string
+  horarioRodape: string
+  endereco: string
+  copyright: string
+  social: {
+    facebook?: string
+    instagram?: string
+    linkedin?: string
+    youtube?: string
+    tiktok?: string
+  }
+}
+
+export const FALLBACK_SETTINGS: SiteSettings = {
+  telefone: '0800-055-2600',
+  diasAtendimento: 'Seg a Sex',
+  horario: '9h às 19h',
+  tipoLigacao: 'Ligação gratuita',
+  textoInstitucional:
+    'Pioneira em assinatura de viagens no Brasil. Transformamos o sonho de viajar em um hábito possível, leve e constante na vida das pessoas.',
+  email: 'contato@rdcviagens.com.br',
+  horarioRodape: 'Seg a Sex, 9h às 19h · Ligação gratuita',
+  endereco: 'Rua Manoel Coelho, 600, Centro, São Caetano do Sul - SP, 09510-101',
+  copyright: '© {ano} RDC Viagens. Todos os direitos reservados.',
+  social: {
+    facebook: 'https://www.facebook.com/rdcferiaseviagens',
+    instagram: 'https://www.instagram.com/rdcviagens',
+    linkedin: 'https://www.linkedin.com/company/rdcviagens',
+    youtube: 'https://www.youtube.com/c/rdcferiaseviagens',
+    tiktok: 'https://www.tiktok.com/@rdc.viagens',
+  },
+}
+
+const QUERY_SETTINGS = `*[_type == "configuracoesGlobais"][0]{
+  telefone, diasAtendimento, horario, tipoLigacao,
+  textoInstitucional, email, horarioRodape, endereco, copyright,
+  "social": redesSociais
+}`
+
+export async function getSiteSettings(): Promise<SiteSettings> {
+  if (!USE_SANITY) return FALLBACK_SETTINGS
+  try {
+    const data = await sanityClient.fetch<Partial<SiteSettings> | null>(QUERY_SETTINGS)
+    if (!data) return FALLBACK_SETTINGS
+    // Mescla com o fallback para nunca renderizar campo vazio
+    return {
+      ...FALLBACK_SETTINGS,
+      ...data,
+      social: { ...FALLBACK_SETTINGS.social, ...(data.social ?? {}) },
+    }
+  } catch (err) {
+    console.warn('[contentService] Sanity fetch (settings) falhou, usando fallback:', err)
+    return FALLBACK_SETTINGS
+  }
+}
