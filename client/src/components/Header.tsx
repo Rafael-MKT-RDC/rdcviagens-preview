@@ -12,12 +12,15 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Mail, User, ChevronDown, Headset, Clock } from "lucide-react";
 import NewsletterModal from "./NewsletterModal";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 /*
  * Design Philosophy: Tropical Elegance
  * - Header fixo com blur backdrop
  * - Navegação limpa e organizada
  * - Cores: Azul profundo + Laranja accent
+ *
+ * Conteúdo da barra de telefone vem do CMS (Configurações Globais).
  */
 
 const navItems = [
@@ -59,6 +62,8 @@ const navItems = [
 export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const settings = useSiteSettings();
+  const telHref = `tel:${settings.telefone.replace(/\D/g, "")}`;
 
   return (
     <>
@@ -68,29 +73,29 @@ export default function Header() {
         {/* Desktop: uma linha */}
         <div className="hidden md:flex items-center justify-center h-9 text-sm gap-2">
           <a 
-            href="tel:08000552600" 
+            href={telHref} 
             className="flex items-center gap-1.5 hover:text-[#FFB040] transition-colors"
           >
             <Headset className="w-3.5 h-3.5 text-[#FF9100]" />
-            <span className="font-bold">Televendas: 0800-055-2600</span>
+            <span className="font-bold">Televendas: {settings.telefone}</span>
           </a>
           <span className="text-[#4060E0]">|</span>
-          <span className="text-[#8ECAE6]">Seg a Sex, 9h às 19h</span>
+          <span className="text-[#8ECAE6]">{settings.diasAtendimento}, {settings.horario}</span>
           <span className="text-[#4060E0]">|</span>
-          <span className="text-[#8ECAE6]">Ligação gratuita</span>
+          <span className="text-[#8ECAE6]">{settings.tipoLigacao}</span>
         </div>
         {/* Mobile: duas linhas */}
         <a 
-          href="tel:08000552600" 
+          href={telHref} 
           className="flex md:hidden flex-col items-center justify-center py-1.5 hover:text-[#FFB040] transition-colors"
         >
           <div className="flex items-center gap-1 text-[10px] text-[#8ECAE6] uppercase tracking-wider">
             <Headset className="w-3 h-3 text-[#FF9100]" />
             <span>Televendas</span>
             <span className="text-[#0028D0]">|</span>
-            <span>Seg-Sex 9h-19h</span>
+            <span>{settings.diasAtendimento} {settings.horario}</span>
           </div>
-          <span className="font-bold text-xs tracking-wide">0800-055-2600 <span className="font-normal text-[#8ECAE6] text-[10px]">Ligação gratuita</span></span>
+          <span className="font-bold text-xs tracking-wide">{settings.telefone} <span className="font-normal text-[#8ECAE6] text-[10px]">{settings.tipoLigacao}</span></span>
         </a>
       </div>
     </div>
@@ -238,7 +243,7 @@ export default function Header() {
                   <hr className="my-4" />
                   {/* Televendas no mobile */}
                   <a
-                    href="tel:08000552600"
+                    href={telHref}
                     className="flex items-center gap-3 p-3 rounded-xl bg-[#00148A] text-white hover:bg-[#001070] transition-colors"
                   >
                     <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#FF9100]/20">
@@ -246,8 +251,8 @@ export default function Header() {
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[10px] uppercase tracking-wider text-[#8ECAE6]">Televendas</span>
-                      <span className="font-bold text-sm">0800-055-2600</span>
-                      <span className="text-[10px] text-[#8ECAE6]">Seg a Sex, 9h às 19h · Ligação gratuita</span>
+                      <span className="font-bold text-sm">{settings.telefone}</span>
+                      <span className="text-[10px] text-[#8ECAE6]">{settings.diasAtendimento}, {settings.horario} · {settings.tipoLigacao}</span>
                     </div>
                   </a>
                 </nav>

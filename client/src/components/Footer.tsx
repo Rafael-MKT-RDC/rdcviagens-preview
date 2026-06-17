@@ -1,5 +1,6 @@
 import { Link } from "wouter";
-import { MapPin, Facebook, Instagram, Linkedin, Youtube, Headset } from "lucide-react";
+import { MapPin, Mail, Facebook, Instagram, Linkedin, Youtube, Headset } from "lucide-react";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg className={className || "w-5 h-5"} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -10,8 +11,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 /*
  * Design Philosophy: Tropical Elegance
  * - Footer escuro com informações organizadas
- * - Links úteis e contato
- * - Redes sociais
+ * - Conteúdo (texto, contato, redes) vem do CMS (Configurações Globais)
  */
 
 const footerLinks = {
@@ -40,15 +40,19 @@ const footerLinks = {
   ],
 };
 
-const socialLinks = [
-  { icon: Facebook, href: "https://www.facebook.com/rdcferiaseviagens", label: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/rdcviagens", label: "Instagram" },
-  { icon: Linkedin, href: "https://www.linkedin.com/company/rdcviagens", label: "LinkedIn" },
-  { icon: Youtube, href: "https://www.youtube.com/c/rdcferiaseviagens", label: "YouTube" },
-  { icon: TikTokIcon, href: "https://www.tiktok.com/@rdc.viagens", label: "TikTok" },
-];
-
 export default function Footer() {
+  const settings = useSiteSettings();
+  const telHref = `tel:${settings.telefone.replace(/\D/g, "")}`;
+  const copyright = settings.copyright.replace("{ano}", String(new Date().getFullYear()));
+
+  const socialLinks = [
+    { icon: Facebook, href: settings.social.facebook, label: "Facebook" },
+    { icon: Instagram, href: settings.social.instagram, label: "Instagram" },
+    { icon: Linkedin, href: settings.social.linkedin, label: "LinkedIn" },
+    { icon: Youtube, href: settings.social.youtube, label: "YouTube" },
+    { icon: TikTokIcon, href: settings.social.tiktok, label: "TikTok" },
+  ].filter((s) => Boolean(s.href));
+
   return (
     <footer className="bg-[#2D2D2D] text-white">
       <div className="container py-8 md:py-16">
@@ -62,8 +66,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[#999999] text-sm leading-relaxed">
-              <strong>Pioneira em assinatura de viagens no Brasil.</strong> Transformamos o sonho de viajar 
-              em um hábito possível, leve e constante na vida das pessoas.
+              {settings.textoInstitucional}
             </p>
             <div className="flex gap-3 mt-6 flex-wrap">
               {socialLinks.map((social) => (
@@ -138,14 +141,14 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:08000552600"
+                  href={telHref}
                   className="flex items-start gap-3 p-3 -mx-3 rounded-lg bg-[#00148A]/50 border border-[#001070]/50 hover:bg-[#001070]/50 transition-colors group"
                 >
                   <Headset className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-[#8ECAE6]">Televendas</p>
-                    <p className="font-bold text-lg text-white group-hover:text-[#FFB040] transition-colors">0800-055-2600</p>
-                    <p className="text-xs text-[#8ECAE6]">Seg a Sex, 9h às 19h · Ligação gratuita</p>
+                    <p className="font-bold text-lg text-white group-hover:text-[#FFB040] transition-colors">{settings.telefone}</p>
+                    <p className="text-xs text-[#8ECAE6]">{settings.horarioRodape}</p>
                   </div>
                 </a>
               </li>
@@ -154,7 +157,15 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm text-[#999999]">Endereço</p>
-                  <p>Rua Manoel Coelho, 600, Centro,<br />São Caetano do Sul - SP, 09510-101</p>
+                  <p>{settings.endereco}</p>
+                </div>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm text-[#999999]">E-mail</p>
+                  <a href={`mailto:${settings.email}`} className="hover:text-[#FFB040] transition-colors break-all">{settings.email}</a>
                 </div>
               </li>
             </ul>
@@ -167,7 +178,7 @@ export default function Footer() {
         <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#777777] text-sm">
-              © {new Date().getFullYear()} RDC Viagens. Todos os direitos reservados.
+              {copyright}
             </p>
 
           </div>
