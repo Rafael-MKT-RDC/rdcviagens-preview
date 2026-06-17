@@ -77,6 +77,35 @@ export default defineConfig({
                   .documentId('paginaClube')
                   .title('Página Clube'),
               ),
+            S.listItem()
+              .title('Página Destinos')
+              .id('paginaDestinos')
+              .child(
+                S.document()
+                  .schemaType('paginaDestinos')
+                  .documentId('paginaDestinos')
+                  .title('Página Destinos'),
+              ),
+            S.divider(),
+            S.listItem()
+              .title('Página Viaje Tranquilo')
+              .id('paginaViajeTranquilo')
+              .child(
+                S.document()
+                  .schemaType('paginaViajeTranquilo')
+                  .documentId('paginaViajeTranquilo')
+                  .title('Página Viaje Tranquilo'),
+              ),
+            S.divider(),
+            S.listItem()
+              .title('Página Empresas')
+              .id('paginaEmpresas')
+              .child(
+                S.document()
+                  .schemaType('paginaEmpresas')
+                  .documentId('paginaEmpresas')
+                  .title('Página Empresas'),
+              ),
             S.divider(),
             S.listItem().title('Posts do Blog').schemaType('blogPost').child(S.documentTypeList('blogPost')),
             S.listItem().title('FAQ – Perguntas Frequentes').schemaType('faqCategoria').child(S.documentTypeList('faqCategoria')),
