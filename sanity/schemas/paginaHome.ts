@@ -1,0 +1,97 @@
+import { defineType, defineField } from 'sanity'
+
+const txt = (name: string, title: string, group: string, rows?: number) =>
+  defineField(rows ? { name, title, type: 'text', rows, group } : { name, title, type: 'string', group })
+
+export default defineType({
+  name: 'paginaHome',
+  title: 'Página Home',
+  type: 'document',
+  groups: [
+    { name: 'hero', title: 'Hero (banners)', default: true },
+    { name: 'stats', title: 'Estatísticas' },
+    { name: 'sobre', title: 'Sobre' },
+    { name: 'porque', title: 'Por que escolher' },
+    { name: 'redes', title: 'Redes hoteleiras' },
+    { name: 'destinos', title: 'Destinos' },
+    { name: 'assinaturas', title: 'RDC Assinaturas' },
+    { name: 'agencia', title: 'Agência' },
+    { name: 'corp', title: 'Soluções Corporativas' },
+    { name: 'news', title: 'Newsletter' },
+  ],
+  fields: [
+    defineField({
+      name: 'hero', title: 'Banners do hero', type: 'array', group: 'hero',
+      of: [{
+        type: 'object',
+        fields: [
+          { name: 'badge', title: 'Selo (badge)', type: 'string' },
+          { name: 'title', title: 'Título', type: 'string' },
+          { name: 'highlight', title: 'Palavra em destaque (laranja)', type: 'string' },
+          { name: 'subtitle', title: 'Complemento do título', type: 'string' },
+          { name: 'description', title: 'Descrição', type: 'text', rows: 3 },
+          { name: 'cta', title: 'Texto do botão (vazio = sem botão)', type: 'string' },
+          { name: 'link', title: 'Link do botão', type: 'string' },
+          { name: 'image', title: 'Imagem de fundo (URL)', type: 'url' },
+        ],
+        preview: { select: { title: 'badge', subtitle: 'title' } },
+      }],
+    }),
+    defineField({
+      name: 'stats', title: 'Estatísticas (4)', type: 'array', group: 'stats',
+      of: [{ type: 'object', fields: [
+        { name: 'value', title: 'Número', type: 'string' },
+        { name: 'label', title: 'Texto', type: 'string' },
+      ], preview: { select: { title: 'value', subtitle: 'label' } } }],
+    }),
+    txt('sobreTitulo', 'Título', 'sobre'),
+    txt('sobreParagrafo1', 'Parágrafo 1', 'sobre', 3),
+    txt('sobreParagrafo2', 'Parágrafo 2', 'sobre', 3),
+    txt('sobreCta', 'Texto do botão', 'sobre'),
+    txt('sobreBadge', 'Selo da imagem (ex: +35)', 'sobre'),
+    txt('sobreImagem', 'Imagem (URL)', 'sobre'),
+    txt('porqueTitulo', 'Título', 'porque'),
+    txt('porqueSubtitulo', 'Subtítulo', 'porque', 2),
+    defineField({
+      name: 'features', title: 'Cards (4)', type: 'array', group: 'porque',
+      of: [{ type: 'object', fields: [
+        { name: 'title', title: 'Título', type: 'string' },
+        { name: 'description', title: 'Descrição', type: 'text', rows: 2 },
+      ], preview: { select: { title: 'title' } } }],
+    }),
+    txt('redesBadge', 'Selo', 'redes'),
+    txt('redesTitulo', 'Título', 'redes'),
+    txt('redesSubtitulo', 'Subtítulo', 'redes', 2),
+    txt('redesNota', 'Nota abaixo dos logos', 'redes', 2),
+    txt('redesCta', 'Texto do botão', 'redes'),
+    txt('destinosTitulo', 'Título', 'destinos'),
+    txt('destinosSubtitulo', 'Subtítulo', 'destinos', 2),
+    txt('assinaturasBadge', 'Selo', 'assinaturas'),
+    txt('assinaturasTitulo', 'Título', 'assinaturas'),
+    txt('assinaturasTexto', 'Texto principal', 'assinaturas', 3),
+    txt('assinaturasCardTitulo', 'Título do card', 'assinaturas'),
+    txt('assinaturasCardTexto', 'Texto do card', 'assinaturas', 3),
+    defineField({ name: 'assinaturasBullets', title: 'Itens do card', type: 'array', of: [{ type: 'string' }], group: 'assinaturas' }),
+    txt('assinaturasCta', 'Texto do botão', 'assinaturas'),
+    txt('assinaturasImagem', 'Imagem (URL)', 'assinaturas'),
+    txt('agenciaBadge', 'Selo', 'agencia'),
+    txt('agenciaTitulo', 'Título', 'agencia'),
+    txt('agenciaTexto', 'Texto', 'agencia', 3),
+    txt('agenciaCta', 'Texto do botão', 'agencia'),
+    txt('corpBadge', 'Selo', 'corp'),
+    txt('corpTitulo', 'Título', 'corp'),
+    txt('corpSubtitulo', 'Subtítulo', 'corp', 2),
+    defineField({
+      name: 'corpSolucoes', title: 'Soluções (3)', type: 'array', group: 'corp',
+      of: [{ type: 'object', fields: [
+        { name: 'title', title: 'Título', type: 'string' },
+        { name: 'description', title: 'Descrição', type: 'text', rows: 2 },
+        { name: 'cta', title: 'Texto do botão', type: 'string' },
+      ], preview: { select: { title: 'title' } } }],
+    }),
+    txt('corpCta', 'Texto do botão geral', 'corp'),
+    txt('newsTitulo', 'Título', 'news'),
+    txt('newsSubtitulo', 'Subtítulo', 'news', 2),
+  ],
+  preview: { prepare: () => ({ title: 'Página Home' }) },
+})

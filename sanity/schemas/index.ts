@@ -4,9 +4,11 @@ import depoimento from './depoimento'
 import parceiroClube from './parceiroClube'
 import destino from './destino'
 import configuracoesGlobais from './configuracoesGlobais'
+import paginaHome from './paginaHome'
 
 export const schemaTypes = [
   configuracoesGlobais,
+  paginaHome,
   blogPost,
   faqCategoria,
   depoimento,
