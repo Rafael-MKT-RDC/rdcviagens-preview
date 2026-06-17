@@ -33,6 +33,7 @@ import TrustBadges from "@/components/TrustBadges";
 import SEO from "@/components/SEO";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { useHomeContent } from "@/hooks/useHomeContent";
 const heroSlides = [
   {
     id: 1,
@@ -160,15 +161,21 @@ export default function Home() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterLoading, setNewsletterLoading] = useState(false);
 
+  const c = useHomeContent();
+  const slides = c.hero && c.hero.length ? c.hero : heroSlides;
+  const statsData = c.stats && c.stats.length ? c.stats : stats;
+  const featuresData = features.map((f, i) => ({ ...f, ...(c.features?.[i] ?? {}) }));
+  const corpData = corporateSolutions.map((sol, i) => ({ ...sol, ...(c.corpSolucoes?.[i] ?? {}) }));
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 10000);
     return () => clearInterval(timer);
   }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -220,7 +227,7 @@ export default function Home() {
       
       {/* 1. Hero Carousel */}
       <section className="relative h-[85vh] min-h-[500px] md:h-screen md:min-h-[600px] max-h-[900px] overflow-hidden">
-        {heroSlides.map((slide, index) => (
+        {slides.map((slide, index) => (
           <div key={slide.id} className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"}`}>
             <div className="absolute inset-0">
               <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" fetchPriority={index === 0 ? "high" : "low"} loading={index === 0 ? "eager" : "lazy"} />
@@ -234,7 +241,7 @@ export default function Home() {
                 </h1>
                 <p className="text-sm sm:text-base md:text-xl text-[#D6D6D6] mb-4 md:mb-8 line-clamp-3 md:line-clamp-none">{slide.description}</p>
                 <div className="flex flex-wrap gap-2 md:gap-4">
-                  {slide.type === "institucional" ? (
+                  {(!slide.cta || !slide.link) ? (
                     /* Slide institucional: sem link, apenas informações */
                     <div className="flex flex-wrap gap-3 mt-2">
                       {["+35 anos de experi\u00eancia", "+200 mil destinos", "+1 milh\u00e3o de di\u00e1rias entregues"].map((item) => (
@@ -264,7 +271,7 @@ export default function Home() {
           <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
         </button>
         <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          {heroSlides.map((_, index) => (
+          {slides.map((_, index) => (
             <button key={index} onClick={() => setCurrentSlide(index)} className={`h-2 rounded-full transition-all ${index === currentSlide ? "w-8 bg-[#FF9100]" : "w-2 bg-white/50"}`} aria-label={`Ir para slide ${index + 1}`} />
           ))}
         </div>
@@ -275,7 +282,7 @@ export default function Home() {
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
+            {statsData.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-[#FF9100] mb-1">{stat.value}</div>
                 <div className="text-sm text-[#8ECAE6]">{stat.label}</div>
@@ -292,15 +299,15 @@ export default function Home() {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-6">Transformamos o sonho de viajar em realidade</h2>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-6">{c.sobreTitulo ?? "Transformamos o sonho de viajar em realidade"}</h2>
               <p className="text-[#555555] mb-4 leading-relaxed">A RDC Viagens nasceu com o propósito de <strong>democratizar o acesso a viagens de qualidade</strong>. Acreditamos que viajar não é luxo, é necessidade — e todos merecem <strong>experiências transformadoras</strong>.</p>
               <p className="text-[#555555] mb-8 leading-relaxed">Com mais de <strong>três décadas de experiência</strong>, desenvolvemos soluções inovadoras que permitem que famílias e empresas planejem suas viagens com <strong>economia, previsibilidade</strong> e o suporte de uma <strong>equipe dedicada</strong>.</p>
-              <Link href="/sobre"><Button className="bg-[#001A9E] hover:bg-[#001070]">Conheça nossa história <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <Link href="/sobre"><Button className="bg-[#001A9E] hover:bg-[#001070]">{c.sobreCta ?? "Conheça nossa história"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             </div>
             <div className="relative">
               <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ImYicCgyeERQbRNm.jpg" alt="Destino turístico brasileiro" className="rounded-2xl shadow-2xl" loading="lazy" />
               <div className="absolute -bottom-4 -left-2 md:-bottom-6 md:-left-6 bg-[#001A9E] text-white p-4 md:p-6 rounded-2xl shadow-lg">
-                <div className="text-2xl md:text-4xl font-bold">+35</div>
+                <div className="text-2xl md:text-4xl font-bold">{c.sobreBadge ?? "+35"}</div>
                 <div className="text-xs md:text-sm text-[#8ECAE6]">anos de história</div>
               </div>
             </div>
@@ -314,11 +321,11 @@ export default function Home() {
         <AnimateOnScroll variant="zoom-in">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Por que escolher a RDC Viagens?</h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">Combinamos <strong>experiência, tecnologia e atendimento humanizado</strong> para oferecer as melhores soluções de viagem.</p>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{c.porqueTitulo ?? "Por que escolher a RDC Viagens?"}</h2>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.porqueSubtitulo ?? "Combinamos experiência, tecnologia e atendimento humanizado para oferecer as melhores soluções de viagem."}</p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {features.map((feature, index) => (
+            {featuresData.map((feature, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="pt-4 md:pt-6 px-3 md:px-6">
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#E8F4FA] flex items-center justify-center mb-3 md:mb-4">
@@ -339,9 +346,9 @@ export default function Home() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-10">
-            <Badge className="mb-3 bg-[#E8F4FA] text-[#001A9E] border-0">+200 mil destinos</Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3">Redes hoteleiras parceiras</h2>
-            <p className="text-[#555555] max-w-2xl mx-auto">Hospede-se nas maiores e melhores redes do Brasil e do mundo. Todas disponíveis para <strong>nossos assinantes</strong>.</p>
+            <Badge className="mb-3 bg-[#E8F4FA] text-[#001A9E] border-0">{c.redesBadge ?? "+200 mil destinos"}</Badge>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3">{c.redesTitulo ?? "Redes hoteleiras parceiras"}</h2>
+            <p className="text-[#555555] max-w-2xl mx-auto">{c.redesSubtitulo ?? "Hospede-se nas maiores e melhores redes do Brasil e do mundo. Todas disponíveis para nossos assinantes."}</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
             {redesHoteleirasHome.map((rede) => (
@@ -353,9 +360,9 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <p className="text-sm text-[#777777] mb-4">E mais de 16 redes e milhares de hotéis independentes em todo o mundo.</p>
+            <p className="text-sm text-[#777777] mb-4">{c.redesNota ?? "E mais de 16 redes e milhares de hotéis independentes em todo o mundo."}</p>
             <Link href="/destinos">
-              <Button variant="outline" className="border-[#001A9E] text-[#001A9E] hover:bg-[#F6F6F6]">Ver todos os destinos <ArrowRight className="ml-2 h-4 w-4" /></Button>
+              <Button variant="outline" className="border-[#001A9E] text-[#001A9E] hover:bg-[#F6F6F6]">{c.redesCta ?? "Ver todos os destinos"} <ArrowRight className="ml-2 h-4 w-4" /></Button>
             </Link>
           </div>
         </div>
@@ -367,8 +374,8 @@ export default function Home() {
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Destinos que esperam por você</h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">Do litoral brasileiro aos destinos mais exclusivos do mundo, a RDC leva você para <strong>onde sua jornada pedir</strong>.</p>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{c.destinosTitulo ?? "Destinos que esperam por você"}</h2>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.destinosSubtitulo ?? "Do litoral brasileiro aos destinos mais exclusivos do mundo, a RDC leva você para onde sua jornada pedir."}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {destinationCategories.map((cat, index) => {
@@ -406,19 +413,19 @@ export default function Home() {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge className="mb-4 bg-[#FFF0D6] text-[#CC7400] border-0">Para você e sua família</Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">RDC Assinaturas</h2>
+              <Badge className="mb-4 bg-[#FFF0D6] text-[#CC7400] border-0">{c.assinaturasBadge ?? "Para você e sua família"}</Badge>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{c.assinaturasTitulo ?? "RDC Assinaturas"}</h2>
               <p className="text-base md:text-xl text-[#555555] mb-4 md:mb-6"><strong>O jeito inteligente de viajar o ano todo.</strong> Com uma mensalidade acessível, você viaja <strong>mais vezes</strong>, para <strong>mais destinos</strong>, com quem você ama.</p>
               <div className="bg-[#F6F6F6] rounded-2xl p-6 mb-6">
-                <h3 className="font-semibold text-lg text-[#2D2D2D] mb-2">Assinatura de Viagens</h3>
+                <h3 className="font-semibold text-lg text-[#2D2D2D] mb-2">{c.assinaturasCardTitulo ?? "Assinatura de Viagens"}</h3>
                 <p className="text-[#555555] text-sm mb-4">Hospedagem em hotéis e resorts com <strong>economia de até 60%</strong>. Planeje suas viagens ao longo do ano com <strong>previsibilidade</strong> e o suporte de uma <strong>agência dedicada</strong>.</p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {["Planejamento facilitado", "Economia real", "Agência dedicada", "Não compromete o limite do cartão"].map((item) => (
+                  {(c.assinaturasBullets ?? ["Planejamento facilitado", "Economia real", "Agência dedicada", "Não compromete o limite do cartão"]).map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-[#404040]"><Check className="w-4 h-4 text-[#FF9100]" />{item}</li>
                   ))}
                 </ul>
               </div>
-              <Link href="/assinaturas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200]">Conhecer planos <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <Link href="/assinaturas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200]">{c.assinaturasCta ?? "Conhecer planos"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             </div>
             <div>
               <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg" alt="Praia paradisíaca" className="rounded-2xl shadow-2xl" loading="lazy" />
@@ -436,10 +443,10 @@ export default function Home() {
         <div className="relative container">
           <div className="max-w-3xl mx-auto text-center">
             <Badge className="mb-4 bg-[#FF9100]/20 text-[#FFB040] border-0 backdrop-blur-sm">
-              <Plane className="w-3 h-3 mr-1" />Agência de Viagens RDC
+              <Plane className="w-3 h-3 mr-1" />{c.agenciaBadge ?? "Agência de Viagens RDC"}
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-              Sua jornada completa, com a nossa expertise
+              {c.agenciaTitulo ?? "Sua jornada completa, com a nossa expertise"}
             </h2>
             <p className="text-lg text-[#C7E5F3] mb-8 leading-relaxed max-w-2xl mx-auto">
               Aéreo, hospedagem, transfers, cruzeiros e passeios em um só lugar. Nossa agência monta o <strong className="text-white">roteiro ideal para qualquer destino</strong>, com condições especiais para assinantes.
@@ -459,7 +466,7 @@ export default function Home() {
             </div>
             <Link href="/agencia">
               <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">
-                Conhecer a agência <ArrowRight className="ml-2 h-4 w-4" />
+                {c.agenciaCta ?? "Conhecer a agência"} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
@@ -470,12 +477,12 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-[#F6F6F6]">
         <div className="container">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">Soluções Corporativas</Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Viagens a serviço do seu negócio</h2>
+            <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">{c.corpBadge ?? "Soluções Corporativas"}</Badge>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{c.corpTitulo ?? "Viagens a serviço do seu negócio"}</h2>
             <p className="text-lg text-[#555555] max-w-2xl mx-auto">Conectamos viagens aos <strong>objetivos estratégicos</strong> da sua organização, oferecendo soluções que fortalecem <strong>engajamento, reconhecimento e experiência</strong>.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-            {corporateSolutions.map((solution, index) => (
+            {corpData.map((solution, index) => (
               <Card key={index} className="border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden">
                 <CardContent className="p-8 flex flex-col items-center text-center h-full">
                   <div className="w-full flex justify-center mb-6">
@@ -492,7 +499,7 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/solucoes-corporativas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">Explorar todas as soluções <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <Link href="/solucoes-corporativas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">{c.corpCta ?? "Explorar todas as soluções"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
           </div>
         </div>
       </section>
@@ -508,7 +515,7 @@ export default function Home() {
               <Mail className="w-8 h-8 text-white" />
             </div>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-              Receba inspirações e oportunidades de viagem
+              {c.newsTitulo ?? "Receba inspirações e oportunidades de viagem"}
             </h2>
             <p className="text-sm md:text-lg text-[#FFF0D6] mb-6 md:mb-8">
               Inscreva-se na nossa newsletter e receba <strong>dicas de destinos e novidades</strong> da RDC Viagens direto no seu e-mail.
