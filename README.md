@@ -1,20 +1,4 @@
 # RDC Viagens - Código Fonte Extraído
-# Deploy
-Para realizar um deploy siga os passos abaixo.</br>
-* 1 - Crie sua feature com base na branch master
-* 2 - Desenvolva e envie para o Git Remoto sua feature
-
-### Ambiente Develop
-* 3 - Abra um PR da feature para a branch **master** (sem aprovador) com a label **deploy no ambiente develop**
-
-### Ambiente Homolog
-* 3 - Abra um PR da feature para a branch **master** (sem aprovador) com a label **deploy no ambiente homolog**
-
-### Ambiente Produção
-* 3 - Abra um PR da branch gerada pela esteira (concatenada com `_release`) para a branch **master** com a label **deploy no ambiente homolog** E com aprovador
-* 4 - Solicite a Aprovação do PR aguarde a geração do card de Publicação em https://rdcviagens.atlassian.net/jira/software/c/projects/PUB/boards/17, complete fazendo o link de sua atividade
-* 5 - Solicite ao DevOps a subida do pacote
-* 6 - Dúvidas? Procure o DevOps
 
 ## Descrição
 Este repositório contém o código fonte extraído e depurado do site RDC Viagens (https://rdcviagens-kxhhapxw.manus.space/).
