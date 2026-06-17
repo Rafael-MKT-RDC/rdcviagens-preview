@@ -36,6 +36,11 @@ import { CtaLink } from "@/components/CtaLink";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { usePageDoc } from "@/hooks/usePageDoc";
+import { getParceirosClube } from "@/lib/contentService";
+
+/* Formato unificado de parceiro usado na página (CMS ou fallback) */
+type UIPartner = { name: string; category: string; discountLabel: string; logoUrl?: string };
+
 /* ─── FAQ Item ─── */
 function FaqItem({ icon: FaqIcon, question, answer, index }: {
   icon: ComponentType<LucideProps>;
@@ -274,7 +279,7 @@ function getInitials(name: string) {
     .toUpperCase();
 }
 
-function PartnerLogo({ name, size = "md" }: { name: string; size?: "sm" | "md" | "lg" }) {
+function PartnerLogo({ name, size = "md", logoUrl }: { name: string; size?: "sm" | "md" | "lg"; logoUrl?: string }) {
   const [imgError, setImgError] = useState(false);
   const domain = partnerDomains[name];
   const colors = brandColors[name] || { bg: "#1a3a6b", text: "#fff" };
@@ -290,6 +295,15 @@ function PartnerLogo({ name, size = "md" }: { name: string; size?: "sm" | "md" |
     md: "w-9 h-9",
     lg: "w-11 h-11",
   };
+
+  // Logo enviado pelo CMS tem prioridade
+  if (logoUrl) {
+    return (
+      <div className={`${sizeClasses[size]} rounded-2xl flex items-center justify-center bg-white border border-[#E8E8E8] shadow-sm overflow-hidden p-1.5`}>
+        <img src={logoUrl} alt={`Logo ${name}`} className="max-w-full max-h-full object-contain" loading="lazy" />
+      </div>
+    );
+  }
 
   const faviconUrl = domain
     ? `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=128`
@@ -319,46 +333,23 @@ function PartnerLogo({ name, size = "md" }: { name: string; size?: "sm" | "md" |
 }
 
 /* ─── Carrossel infinito de marcas ─── */
-function BrandMarquee({ direction = "left" }: { direction?: "left" | "right" }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  // Dividir parceiros em duas metades para as duas linhas
-  const half = Math.ceil(partners.length / 2);
-  const items = direction === "left" ? partners.slice(0, half) : partners.slice(half);
-  // Duplicar para efeito infinito
+function BrandMarquee({ items, direction = "left" }: { items: UIPartner[]; direction?: "left" | "right" }) {
+  if (!items.length) return null;
+  // Duplica a faixa para o loop infinito (translateX -50% = exatamente 1 set)
   const doubled = [...items, ...items];
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    let animId: number;
-    let pos = 0;
-    const speed = direction === "left" ? 0.5 : -0.5;
-    const totalWidth = el.scrollWidth / 2;
-
-    function animate() {
-      pos += speed;
-      if (direction === "left" && pos >= totalWidth) pos = 0;
-      if (direction === "right" && pos <= -totalWidth) pos = 0;
-      el!.style.transform = `translateX(${direction === "left" ? -pos : totalWidth + pos}px)`;
-      animId = requestAnimationFrame(animate);
-    }
-
-    animId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animId);
-  }, [direction]);
 
   return (
     <div className="overflow-hidden">
-      <div ref={scrollRef} className="flex gap-6 will-change-transform" style={{ width: "max-content" }}>
+      <div className={`rdc-marquee-track gap-6 ${direction === "left" ? "rdc-marquee-left" : "rdc-marquee-right"}`}>
         {doubled.map((partner, i) => (
           <div
             key={`${partner.name}-${i}`}
             className="flex items-center gap-3 px-5 py-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 shrink-0 hover:bg-white/20 transition-colors"
           >
-            <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center overflow-hidden shrink-0">
-              {partnerDomains[partner.name] ? (
+            <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center overflow-hidden shrink-0 p-1">
+              {partner.logoUrl ? (
+                <img src={partner.logoUrl} alt={partner.name} className="max-w-full max-h-full object-contain" loading="lazy" />
+              ) : partnerDomains[partner.name] ? (
                 <img src={`https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${partnerDomains[partner.name]}&size=128`}
                   alt={partner.name}
                   className="w-7 h-7 object-contain"
@@ -392,8 +383,41 @@ export default function ClubeVantagens() {
   const c = usePageDoc<any>('paginaClube');
   const [activeCategory, setActiveCategory] = useState("TODOS");
   const [searchTerm, setSearchTerm] = useState("");
+  const [cmsPartners, setCmsPartners] = useState<UIPartner[]>([]);
 
-  const filteredPartners = partners.filter((p) => {
+  useEffect(() => {
+    getParceirosClube()
+      .then((list) => {
+        if (list && list.length) {
+          setCmsPartners(
+            list.map((p) => ({
+              name: p.nome,
+              category: p.categoria,
+              discountLabel: p.desconto,
+              logoUrl: p.logo,
+            }))
+          );
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  // Lista atual (favicons) usada como fallback enquanto o CMS estiver vazio
+  const fallbackPartners: UIPartner[] = partners.map((p) => ({
+    name: p.name,
+    category: p.category,
+    discountLabel: `até ${p.discount}%`,
+  }));
+
+  const livePartners: UIPartner[] = cmsPartners.length ? cmsPartners : fallbackPartners;
+  const liveCategories = Array.from(new Set(livePartners.map((p) => p.category)));
+
+  // Duas filas para o carrossel do topo
+  const marqueeHalf = Math.ceil(livePartners.length / 2);
+  const marqueeTop = livePartners.slice(0, marqueeHalf);
+  const marqueeBottom = livePartners.slice(marqueeHalf);
+
+  const filteredPartners = livePartners.filter((p) => {
     const matchCategory = activeCategory === "TODOS" || p.category === activeCategory;
     const matchSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
     return matchCategory && matchSearch;
@@ -457,11 +481,11 @@ export default function ClubeVantagens() {
 
           {/* Carrossel infinito de marcas - linha 1 */}
           <div className="mb-4 overflow-hidden">
-            <BrandMarquee direction="left" />
+            <BrandMarquee items={marqueeTop} direction="left" />
           </div>
           {/* Carrossel infinito de marcas - linha 2 */}
           <div className="pb-12 overflow-hidden">
-            <BrandMarquee direction="right" />
+            <BrandMarquee items={marqueeBottom} direction="right" />
           </div>
         </div>
       </section>
@@ -543,17 +567,19 @@ export default function ClubeVantagens() {
 
           {/* Category filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {categories.map((cat) => {
-              const Icon = cat.icon;
-              const isActive = activeCategory === cat.id;
-              const count = cat.id === "TODOS"
-                ? partners.length
-                : partners.filter((p) => p.category === cat.id).length;
+            {[{ id: "TODOS" }, ...liveCategories.map((cat) => ({ id: cat }))].map((catObj) => {
+              const known = categories.find((cc) => cc.id === catObj.id);
+              const Icon = known?.icon ?? Filter;
+              const label = catObj.id === "TODOS" ? "Todos" : getCategoryLabel(catObj.id);
+              const isActive = activeCategory === catObj.id;
+              const count = catObj.id === "TODOS"
+                ? livePartners.length
+                : livePartners.filter((p) => p.category === catObj.id).length;
 
               return (
                 <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
+                  key={catObj.id}
+                  onClick={() => setActiveCategory(catObj.id)}
                   className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-medium transition-all duration-300 ${
                     isActive
                       ? "bg-[#1a3a6b] text-white shadow-lg shadow-blue-900/20"
@@ -561,7 +587,7 @@ export default function ClubeVantagens() {
                   }`}
                 >
                   <Icon className="w-4 h-4" />
-                  {cat.label}
+                  {label}
                   <span className={`text-xs px-1.5 py-0.5 rounded-xl ${isActive ? "bg-white/20" : "bg-[#F0F0F0]"}`}>
                     {count}
                   </span>
@@ -589,10 +615,10 @@ export default function ClubeVantagens() {
                   className="group relative overflow-visible bg-white rounded-2xl border border-[#E8E8E8] p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-[#FFCC80] hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#FF9100] to-rose-500 text-white text-xs font-bold shadow-lg z-10">
-                    até {partner.discount}%
+                    {partner.discountLabel}
                   </div>
                   <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
-                    <PartnerLogo name={partner.name} size="lg" />
+                    <PartnerLogo name={partner.name} size="lg" logoUrl={partner.logoUrl} />
                   </div>
                   <h3 className="text-sm font-semibold text-[#2D2D2D] mb-1">{partner.name}</h3>
                   <span className="text-xs text-[#777777]">{getCategoryLabel(partner.category)}</span>
