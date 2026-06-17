@@ -1,7 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
+import { lazy, Suspense } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -26,6 +27,8 @@ import StructuredData from "./components/StructuredData";
 import WhatsAppButton from "./components/WhatsAppButton";
 import BackToTopButton from "./components/BackToTopButton";
 import ScrollToTop from "./components/ScrollToTop";
+
+const StudioPage = lazy(() => import("./pages/Studio"));
 
 function Router() {
   return (
@@ -56,6 +59,14 @@ function Router() {
 }
 
 function App() {
+  const [location] = useLocation();
+  if (location.startsWith("/studio")) {
+    return (
+      <Suspense fallback={<div style={{ padding: 40, fontFamily: "sans-serif" }}>Carregando estúdio…</div>}>
+        <StudioPage />
+      </Suspense>
+    );
+  }
   return (
     <ErrorBoundary>
       <ThemeProvider
