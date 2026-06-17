@@ -300,3 +300,29 @@
 .rdc-rd-form .rd-button:hover {
   background: #e68200;
 }
+
+/* ════════════════════════════════════════════════════════════════
+   Carrossel infinito de logos (marquee) — duas filas, robusto via CSS.
+   A faixa é duplicada ([...itens, ...itens]); -50% = exatamente 1 set.
+   ════════════════════════════════════════════════════════════════ */
+@keyframes rdc-marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes rdc-marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.rdc-marquee-track {
+  display: flex;
+  width: max-content;
+}
+.rdc-marquee-left {
+  animation: rdc-marquee-left 50s linear infinite;
+}
+.rdc-marquee-right {
+  animation: rdc-marquee-right 50s linear infinite;
+}
+.rdc-marquee-track:hover {
+  animation-play-state: paused;
+}
