@@ -207,6 +207,7 @@ export default defineConfig({
             S.listItem().title('FAQ – Perguntas Frequentes').schemaType('faqCategoria').child(S.documentTypeList('faqCategoria')),
             S.listItem().title('Depoimentos').schemaType('depoimento').child(S.documentTypeList('depoimento')),
             S.listItem().title('Parceiros – Clube de Vantagens').schemaType('parceiroClube').child(S.documentTypeList('parceiroClube')),
+            S.listItem().title('Redes Hoteleiras').schemaType('redeHoteleira').child(S.documentTypeList('redeHoteleira')),
             S.listItem().title('Destinos').schemaType('destino').child(S.documentTypeList('destino')),
           ]),
     }),
