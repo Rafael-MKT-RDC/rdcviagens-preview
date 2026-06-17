@@ -11,6 +11,7 @@ import Empresas from "./pages/Empresas";
 import EmpresasPremiacao from "./pages/EmpresasPremiacao";
 import EmpresasGestao from "./pages/EmpresasGestao";
 import EmpresasParcerias from "./pages/EmpresasParcerias";
+import EmpresasTravelCloud from "./pages/EmpresasTravelCloud";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import Blog from "./pages/Blog";
@@ -39,6 +40,7 @@ function Router() {
       <Route path={"/solucoes-corporativas/premiacao"} component={EmpresasPremiacao} />
       <Route path={"/solucoes-corporativas/gestao"} component={EmpresasGestao} />
       <Route path={"/solucoes-corporativas/parcerias"} component={EmpresasParcerias} />
+      <Route path={"/solucoes-corporativas/travel-cloud"} component={EmpresasTravelCloud} />
       <Route path={"/sobre"} component={Sobre} />
       <Route path={"/contato"} component={Contato} />
       <Route path={"/blog"} component={Blog} />
