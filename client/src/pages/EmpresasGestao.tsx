@@ -33,7 +33,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
-import { usePageDoc } from "@/hooks/usePageDoc";
 
 const painPoints = [
   {
@@ -193,7 +192,6 @@ const maskCNPJ = (value: string) => {
 };
 
 export default function EmpresasGestao() {
-  const c = usePageDoc<any>('paginaGestao');
   const [formData, setFormData] = useState({
     nome: '',
     empresa: '',
@@ -264,21 +262,27 @@ export default function EmpresasGestao() {
             />
             <Badge className="mb-4 bg-[#E8506A] hover:bg-rose-600 text-white border-0">
               <Plane className="w-4 h-4 mr-2" />
-              {c.heroBadge ?? "Gestão Corporativa"}
+              Gestão Corporativa
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              {c.heroTitulo ?? "Sua empresa viaja."}{" "}
-              <span className="text-[#E8506A]">{c.heroDestaque ?? "Nós cuidamos de tudo."}</span>
+              Sua empresa viaja.{" "}
+              <span className="text-[#E8506A]">Nós cuidamos de tudo.</span>
             </h1>
-            <p className="text-xl text-[#C7E5F3] mb-4">{c.heroSub1 ?? "Gestão completa de viagens corporativas para pequenas e médias empresas. Centralize reservas, controle gastos e economize até 30% — sem burocracia, sem complicação."}</p>
-            <p className="text-lg text-[#8ECAE6] mb-8">{c.heroSub2 ?? "Mais de 35 anos de experiência ajudando empresas como a sua a viajar melhor e gastar menos."}</p>
+            <p className="text-xl text-[#C7E5F3] mb-4">
+              Gestão completa de viagens corporativas para <strong className="text-white">pequenas e médias empresas</strong>. 
+              <strong>Centralize reservas, controle gastos</strong> e economize até 30% — <strong>sem burocracia</strong>, 
+              sem complicação.
+            </p>
+            <p className="text-lg text-[#8ECAE6] mb-8">
+              Mais de <strong>35 anos de experiência</strong> ajudando empresas como a sua a <strong>viajar melhor e gastar menos</strong>.
+            </p>
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
                 className="bg-[#E8506A] hover:bg-rose-600 text-white px-8 rounded-full"
                 onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                {c.heroCta ?? "Solicitar proposta gratuita"}
+                Solicitar proposta gratuita
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
 
@@ -293,12 +297,15 @@ export default function EmpresasGestao() {
         <div className="container">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-[#FEE2E2] text-[#B91C1C] border-0">
-              {c.desafiosBadge ?? "Sua empresa se identifica?"}
+              Sua empresa se identifica?
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.desafiosTitulo ?? "Desafios que conhecemos bem"}
+              Desafios que conhecemos bem
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.desafiosSubtitulo ?? "Se sua empresa enfrenta algum desses problemas, a RDC Gestão de Viagens é a solução que você precisa."}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              Se sua empresa enfrenta algum desses problemas, a <strong>RDC Gestão de Viagens</strong> 
+              é a solução que você precisa.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -355,12 +362,15 @@ export default function EmpresasGestao() {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-[#FAD0D8] text-[#B83048] border-0">
               <Settings className="w-4 h-4 mr-2" />
-              {c.comoBadge ?? "Como resolvemos"}
+              Como resolvemos
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.comoTitulo ?? "Tudo que sua empresa precisa em um só lugar"}
+              Tudo que sua empresa precisa em um só lugar
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.comoSubtitulo ?? "Uma solução pensada para o dia a dia de PMEs que precisam de agilidade, economia e controle."}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              Uma solução pensada para o dia a dia de PMEs que precisam de 
+              <strong>agilidade, economia e controle</strong>.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -399,12 +409,15 @@ export default function EmpresasGestao() {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-[#FAD0D8] text-[#B83048] border-0">
               <Users className="w-4 h-4 mr-2" />
-              {c.quemBadge ?? "Para quem é"}
+              Para quem é
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.quemTitulo ?? "Feito para quem toma decisões"}
+              Feito para quem toma decisões
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.quemSubtitulo ?? "Se você é responsável por organizar, aprovar ou gerenciar viagens na sua empresa, essa solução é para você."}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              Se você é responsável por <strong>organizar, aprovar ou gerenciar viagens</strong> 
+              na sua empresa, essa solução é para você.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -436,12 +449,15 @@ export default function EmpresasGestao() {
             <div className="text-center mb-12">
               <Badge className="mb-4 bg-[#E8506A] hover:bg-rose-600 text-white border-0">
                 <FileText className="w-4 h-4 mr-2" />
-                {c.formBadge ?? "Solicite uma proposta"}
+                Solicite uma proposta
               </Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-                {c.formTitulo ?? "Vamos conversar sobre a sua empresa?"}
+                Vamos conversar sobre a sua empresa?
               </h2>
-              <p className="text-lg text-[#8ECAE6] max-w-2xl mx-auto">{c.formSubtitulo ?? "Preencha o formulário abaixo e nossa equipe entrará em contato para entender suas necessidades e apresentar a solução mais adequada."}</p>
+              <p className="text-lg text-[#8ECAE6] max-w-2xl mx-auto">
+                Preencha o formulário abaixo e nossa equipe entrará em contato 
+                para entender suas necessidades e apresentar a <strong>solução mais adequada</strong>.
+              </p>
             </div>
 
             <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl">
@@ -656,10 +672,10 @@ export default function EmpresasGestao() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <Badge className="mb-4 bg-[#FAD0D8] text-[#B83048] border-0">
-                {c.faqBadge ?? "Dúvidas frequentes"}
+                Dúvidas frequentes
               </Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-                {c.faqTitulo ?? "Perguntas sobre a Gestão de Viagens"}
+                Perguntas sobre a Gestão de Viagens
               </h2>
             </div>
 
@@ -688,16 +704,18 @@ export default function EmpresasGestao() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-xl md:text-2xl font-bold text-[#2D2D2D] mb-4">
-              {c.ctaTitulo ?? "Pronto para transformar a gestão de viagens da sua empresa?"}
+              Pronto para transformar a gestão de viagens da sua empresa?
             </h2>
-            <p className="text-lg text-[#555555] mb-8">{c.ctaTexto ?? "Fale com nossos especialistas e descubra como economizar nas viagens da sua empresa."}</p>
+            <p className="text-lg text-[#555555] mb-8">
+              Fale com nossos especialistas e descubra como economizar nas viagens da sua empresa.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
                 className="bg-[#E8506A] hover:bg-rose-600 text-white px-8 rounded-full"
                 onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                {c.ctaBotao ?? "Solicitar proposta gratuita"}
+                Solicitar proposta gratuita
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
 

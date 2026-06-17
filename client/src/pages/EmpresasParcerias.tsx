@@ -32,7 +32,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
-import { usePageDoc } from "@/hooks/usePageDoc";
 
 /*
  * Página RDC Parcerias
@@ -199,7 +198,6 @@ const maskCNPJ = (value: string) => {
 };
 
 export default function EmpresasParcerias() {
-  const c = usePageDoc<any>('paginaParcerias');
   const [formData, setFormData] = useState({
     nome: '',
     empresa: '',
@@ -270,21 +268,28 @@ export default function EmpresasParcerias() {
             />
             <Badge className="mb-4 bg-[#9B6AE0] hover:bg-violet-700 text-white border-0">
               <Handshake className="w-4 h-4 mr-2" />
-              {c.heroBadge ?? "Alianças Estratégicas"}
+              Alianças Estratégicas
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              {c.heroTitulo ?? "Novas fronteiras de crescimento"}{" "}
-              <span className="text-[#B78AFF]">{c.heroDestaque ?? "para o seu negócio"}</span>
+              Novas fronteiras de crescimento{" "}
+              <span className="text-[#B78AFF]">para o seu negócio</span>
             </h1>
-            <p className="text-xl text-[#F0E4FF] mb-4">{c.heroSub1 ?? "A RDC conecta pessoas a experiências de viagem há mais de 35 anos. Agora, queremos conectar essa experiência ao seu negócio — criando uma oferta de viagens que agrega valor à sua marca, engaja sua base e gera receita."}</p>
-            <p className="text-lg text-[#DFC8FF] mb-8">{c.heroSub2 ?? "Para bancos, empresas, entidades e plataformas que buscam diferenciação real."}</p>
+            <p className="text-xl text-[#F0E4FF] mb-4">
+              A RDC conecta pessoas a experiências de viagem <strong className="text-white">há mais de 35 anos</strong>. 
+              Agora, queremos conectar essa experiência ao seu negócio — criando uma oferta de viagens 
+              que agrega valor à sua marca, engaja sua base e gera receita.
+            </p>
+            <p className="text-lg text-[#DFC8FF] mb-8">
+              Para <strong>bancos, empresas, entidades e plataformas</strong> 
+               que buscam <strong>diferenciação real</strong>.
+            </p>
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
                 className="bg-[#9B6AE0] hover:bg-violet-700 text-white px-8 rounded-full"
                 onClick={() => document.getElementById('formulario-parcerias')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                {c.heroCta ?? "Explorar parceria"}
+                Explorar parceria
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -299,12 +304,15 @@ export default function EmpresasParcerias() {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
               <Zap className="w-4 h-4 mr-2" />
-              {c.valueBadge ?? "Por que ser parceiro RDC"}
+              Por que ser parceiro RDC
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.valueTitulo ?? "O que você ganha com essa parceria"}
+              O que você ganha com essa parceria
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.valueSubtitulo ?? "Viagens são o benefício mais desejado pelos brasileiros. Oferecer isso aos seus clientes é um diferencial que gera resultado concreto."}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              <strong>Viagens são o benefício mais desejado</strong> pelos brasileiros. 
+              Oferecer isso aos seus clientes é um diferencial que gera <strong>resultado concreto</strong>.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -335,12 +343,15 @@ export default function EmpresasParcerias() {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
               <Target className="w-4 h-4 mr-2" />
-              {c.perfilBadge ?? "Perfis de Parceiros"}
+              Perfis de Parceiros
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.perfilTitulo ?? "Quem já pode se beneficiar"}
+              Quem já pode se beneficiar
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.perfilSubtitulo ?? "Desenhamos modelos de parceria que se encaixam na realidade de cada segmento. Veja como a RDC pode agregar valor ao seu negócio."}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              Desenhamos <strong>modelos de parceria</strong> que se encaixam na realidade de cada segmento. 
+              Veja como a RDC pode <strong>agregar valor ao seu negócio</strong>.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -379,12 +390,15 @@ export default function EmpresasParcerias() {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
               <LayoutGrid className="w-4 h-4 mr-2" />
-              {c.comoBadge ?? "Como funciona"}
+              Como funciona
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.comoTitulo ?? "Simples de começar, fácil de escalar"}
+              Simples de começar, fácil de escalar
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.comoSubtitulo ?? "Em poucas semanas sua empresa já pode oferecer viagens aos seus clientes. Nós cuidamos de toda a complexidade."}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              Em <strong>poucas semanas</strong> sua empresa já pode oferecer viagens aos seus clientes. 
+              Nós cuidamos de toda a complexidade.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
@@ -414,12 +428,15 @@ export default function EmpresasParcerias() {
             <div className="text-center mb-12">
               <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
                 <Handshake className="w-4 h-4 mr-2" />
-                {c.formBadge ?? "Vamos conversar"}
+                Vamos conversar
               </Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-                {c.formTitulo ?? "Vamos explorar as possibilidades juntos"}
+                Vamos explorar as possibilidades juntos
               </h2>
-              <p className="text-lg text-[#555555]">{c.formSubtitulo ?? "Conte um pouco sobre o seu negócio. Nossa equipe vai analisar o cenário e apresentar as melhores oportunidades de parceria para a sua realidade."}</p>
+              <p className="text-lg text-[#555555]">
+                Conte um pouco sobre o seu negócio. Nossa <strong>equipe vai analisar o cenário</strong> 
+                e apresentar as melhores oportunidades de parceria para a sua realidade.
+              </p>
             </div>
 
             <Card className="border-0 shadow-xl">
@@ -630,12 +647,14 @@ export default function EmpresasParcerias() {
         <div className="container">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
-              {c.faqBadge ?? "Perguntas Frequentes"}
+              Perguntas Frequentes
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.faqTitulo ?? "Dúvidas sobre parcerias"}
+              Dúvidas sobre parcerias
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.faqSubtitulo ?? "Respostas para as principais perguntas sobre o programa de parcerias da RDC"}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              Respostas para as <strong>principais perguntas</strong> sobre o programa de parcerias da RDC
+            </p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-3">
@@ -654,16 +673,19 @@ export default function EmpresasParcerias() {
           <div className="max-w-3xl mx-auto text-center">
             <Handshake className="w-16 h-16 text-[#B78AFF] mx-auto mb-6" />
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-              {c.ctaTitulo ?? "Grandes parcerias começam com uma boa conversa"}
+              Grandes parcerias começam com uma boa conversa
             </h2>
-            <p className="text-lg text-[#DFC8FF] mb-8">{c.ctaTexto ?? "Se você enxerga em viagens uma oportunidade estratégica para o seu negócio, estamos prontos para explorar esse caminho juntos."}</p>
+            <p className="text-lg text-[#DFC8FF] mb-8">
+              Se você enxerga em viagens uma <strong>oportunidade estratégica</strong> para o seu negócio, 
+              estamos prontos para explorar esse caminho juntos.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
                 className="bg-[#9B6AE0] hover:bg-violet-700 text-white px-8"
                 onClick={() => document.getElementById('formulario-parcerias')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                {c.ctaBotao ?? "Explorar parceria"}
+                Explorar parceria
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>

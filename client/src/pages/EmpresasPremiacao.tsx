@@ -34,7 +34,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
-import { usePageDoc } from "@/hooks/usePageDoc";
 
 /*
  * Página RDC Premiação
@@ -220,7 +219,6 @@ const maskCNPJ = (value: string) => {
 };
 
 export default function EmpresasPremiacao() {
-  const c = usePageDoc<any>('paginaPremiacao');
   const [formData, setFormData] = useState({
     nome: '',
     empresa: '',
@@ -291,21 +289,26 @@ export default function EmpresasPremiacao() {
             />
             <Badge className="mb-4 bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] border-0">
               <Plane className="w-4 h-4 mr-2" />
-              {c.heroBadge ?? "Incentivo Corporativo"}
+              Incentivo Corporativo
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              {c.heroTitulo ?? "Viagens que transformam"}{" "}
-              <span className="text-[#F5B800]">{c.heroDestaque ?? "resultados"}</span>
+              Viagens que transformam{" "}
+              <span className="text-[#F5B800]">resultados</span>
             </h1>
-            <p className="text-xl text-[#FDF0C0] mb-4">{c.heroSub1 ?? "Uma solução estratégica para áreas como RH, Marketing e Comercial que buscam engajar públicos e impulsionar resultados com colaboradores, clientes e parceiros."}</p>
-            <p className="text-lg text-[#FAE080] mb-8">{c.heroSub2 ?? "Viagens como ferramenta de incentivo — engaje, gere valor e crie experiências memoráveis."}</p>
+            <p className="text-xl text-[#FDF0C0] mb-4">
+              Uma solução estratégica para áreas como <strong className="text-white">RH, Marketing e Comercial</strong> que buscam 
+              engajar públicos e impulsionar resultados com colaboradores, clientes e parceiros.
+            </p>
+            <p className="text-lg text-[#FAE080] mb-8">
+              Viagens como <strong>ferramenta de incentivo</strong> — engaje, gere valor e crie experiências memoráveis.
+            </p>
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
                 className="bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] px-8 rounded-full"
                 onClick={() => document.getElementById('formulario-premiacao')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                {c.heroCta ?? "Solicitar proposta"}
+                Solicitar proposta
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -319,12 +322,15 @@ export default function EmpresasPremiacao() {
         <div className="container">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-[#FEE2E2] text-[#B91C1C] border-0">
-              {c.desafiosBadge ?? "Desafios Corporativos"}
+              Desafios Corporativos
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.desafiosTitulo ?? "Sua empresa enfrenta esses desafios?"}
+              Sua empresa enfrenta esses desafios?
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.desafiosSubtitulo ?? "Se a resposta for sim para algum desses pontos, o RDC Premiação é a solução que faltava para engajar públicos, incentivar resultados e fortalecer relacionamentos."}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              Se a resposta for sim para algum desses pontos, o <strong>RDC Premiação</strong> 
+              é a solução que faltava para engajar públicos, incentivar resultados e fortalecer relacionamentos.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -355,12 +361,15 @@ export default function EmpresasPremiacao() {
           <div className="text-center mb-14">
             <Badge className="mb-4 bg-[#F5B800]/20 text-[#F7CC40] border-0">
               <BarChart3 className="w-4 h-4 mr-2" />
-              {c.dadosBadge ?? "Dados de Mercado"}
+              Dados de Mercado
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-              {c.dadosTitulo ?? "Números que comprovam: viagens são o melhor incentivo"}
+              Números que comprovam: viagens são o melhor incentivo
             </h2>
-            <p className="text-lg text-[#FAE080] max-w-2xl mx-auto">{c.dadosSubtitulo ?? "Pesquisas internacionais mostram que viagens como premiação geram resultados superiores a qualquer outro tipo de recompensa — dados essenciais para o business case de áreas como RH, Marketing e Comercial."}</p>
+            <p className="text-lg text-[#FAE080] max-w-2xl mx-auto">
+              Pesquisas internacionais mostram que <strong>viagens como premiação</strong> geram resultados 
+              superiores a qualquer outro tipo de recompensa — dados essenciais para o business case de áreas como RH, Marketing e Comercial.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -410,12 +419,15 @@ export default function EmpresasPremiacao() {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-[#FDF0C0] text-[#C49300] border-0">
               <Sparkles className="w-4 h-4 mr-2" />
-              {c.resultadosBadge ?? "Impacto para sua empresa"}
+              Impacto para sua empresa
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.resultadosTitulo ?? "Resultados que a sua empresa pode medir"}
+              Resultados que a sua empresa pode medir
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.resultadosSubtitulo ?? "O RDC Premiação gera impacto nos KPIs que mais importam para as frentes de incentivo da sua empresa."}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              O RDC Premiação gera impacto nos <strong>KPIs que mais importam</strong> 
+              para as frentes de incentivo da sua empresa.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -446,12 +458,14 @@ export default function EmpresasPremiacao() {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-[#FDF0C0] text-[#C49300] border-0">
               <Target className="w-4 h-4 mr-2" />
-              {c.implBadge ?? "Como funciona"}
+              Como funciona
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.implTitulo ?? "Implementação simples e sem custos fixos"}
+              Implementação simples e sem custos fixos
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.implSubtitulo ?? "Uma solução completa que proporciona autonomia na gestão, com máxima simplicidade operacional"}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              Uma solução completa que proporciona <strong>autonomia na gestão, com máxima simplicidade operacional</strong>
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -491,12 +505,15 @@ export default function EmpresasPremiacao() {
             <div className="text-center mb-12">
               <Badge className="mb-4 bg-[#FDF0C0] text-[#C49300] border-0">
                 <Plane className="w-4 h-4 mr-2" />
-                {c.formBadge ?? "Solicite uma proposta"}
+                Solicite uma proposta
               </Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-                {c.formTitulo ?? "Leve o RDC Premiação para sua empresa"}
+                Leve o RDC Premiação para sua empresa
               </h2>
-              <p className="text-lg text-[#555555]">{c.formSubtitulo ?? "Preencha o formulário e nossa equipe de consultoria corporativa entrará em contato para apresentar uma proposta personalizada para sua empresa."}</p>
+              <p className="text-lg text-[#555555]">
+                Preencha o formulário e nossa <strong>equipe de consultoria corporativa</strong> entrará em contato 
+                para apresentar uma proposta personalizada para sua empresa.
+              </p>
             </div>
 
             <Card className="border-0 shadow-xl">
@@ -718,12 +735,14 @@ export default function EmpresasPremiacao() {
         <div className="container">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-[#FDF0C0] text-[#C49300] border-0">
-              {c.faqBadge ?? "Perguntas Frequentes"}
+              Perguntas Frequentes
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              {c.faqTitulo ?? "Dúvidas frequentes"}
+              Dúvidas frequentes
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">{c.faqSubtitulo ?? "Respostas para as principais perguntas sobre o programa de incentivo com viagens"}</p>
+            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+              Respostas para as <strong>principais perguntas sobre o programa</strong> de incentivo com viagens
+            </p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-3">
@@ -742,16 +761,19 @@ export default function EmpresasPremiacao() {
           <div className="max-w-3xl mx-auto text-center">
             <Plane className="w-16 h-16 text-[#F5B800] mx-auto mb-6" />
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
-              {c.ctaTitulo ?? "Pronto para transformar a forma de conceder incentivos?"}
+              Pronto para transformar a forma de conceder incentivos?
             </h2>
-            <p className="text-lg text-[#FAE080] mb-8">{c.ctaTexto ?? "Converse com nossa equipe de consultoria corporativa e descubra como o RDC Premiação pode engajar públicos e impulsionar resultados na sua empresa."}</p>
+            <p className="text-lg text-[#FAE080] mb-8">
+              Converse com nossa equipe de consultoria corporativa e descubra como o <strong>RDC Premiação</strong> 
+              pode engajar públicos e impulsionar resultados na sua empresa.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
                 className="bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] px-8"
                 onClick={() => document.getElementById('formulario-premiacao')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                {c.ctaBotao ?? "Solicitar proposta"}
+                Solicitar proposta
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
