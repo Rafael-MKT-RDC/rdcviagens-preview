@@ -366,3 +366,32 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     return FALLBACK_SETTINGS
   }
 }
+
+// ────────────────────────────────────────────────────────────────────────────
+// Página Home — conteúdo editável (campos opcionais; a página tem defaults)
+// ────────────────────────────────────────────────────────────────────────────
+
+export interface HomeContent {
+  hero?: Array<{ badge?: string; title?: string; highlight?: string; subtitle?: string; description?: string; cta?: string; link?: string; image?: string }>
+  stats?: Array<{ value?: string; label?: string }>
+  sobreTitulo?: string; sobreParagrafo1?: string; sobreParagrafo2?: string; sobreCta?: string; sobreBadge?: string; sobreImagem?: string
+  porqueTitulo?: string; porqueSubtitulo?: string; features?: Array<{ title?: string; description?: string }>
+  redesBadge?: string; redesTitulo?: string; redesSubtitulo?: string; redesNota?: string; redesCta?: string
+  destinosTitulo?: string; destinosSubtitulo?: string
+  assinaturasBadge?: string; assinaturasTitulo?: string; assinaturasTexto?: string; assinaturasCardTitulo?: string; assinaturasCardTexto?: string; assinaturasBullets?: string[]; assinaturasCta?: string; assinaturasImagem?: string
+  agenciaBadge?: string; agenciaTitulo?: string; agenciaTexto?: string; agenciaCta?: string
+  corpBadge?: string; corpTitulo?: string; corpSubtitulo?: string; corpSolucoes?: Array<{ title?: string; description?: string; cta?: string }>; corpCta?: string
+  newsTitulo?: string; newsSubtitulo?: string
+}
+
+const QUERY_HOME = `*[_type == "paginaHome"][0]`
+
+export async function getHomePage(): Promise<HomeContent | null> {
+  if (!USE_SANITY) return null
+  try {
+    return await sanityClient.fetch<HomeContent | null>(QUERY_HOME)
+  } catch (err) {
+    console.warn('[contentService] Sanity fetch (home) falhou:', err)
+    return null
+  }
+}
