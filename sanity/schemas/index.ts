@@ -3,5 +3,13 @@ import faqCategoria from './faqCategoria'
 import depoimento from './depoimento'
 import parceiroClube from './parceiroClube'
 import destino from './destino'
+import configuracoesGlobais from './configuracoesGlobais'
 
-export const schemaTypes = [blogPost, faqCategoria, depoimento, parceiroClube, destino]
+export const schemaTypes = [
+  configuracoesGlobais,
+  blogPost,
+  faqCategoria,
+  depoimento,
+  parceiroClube,
+  destino,
+]
