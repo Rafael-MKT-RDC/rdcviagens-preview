@@ -16,7 +16,7 @@ export default defineType({
     t('pacotesBadge','Selo','pacotes'),t('pacotesTitulo','Título','pacotes'),t('pacotesSubtitulo','Subtítulo','pacotes',2),
     t('formBadge','Selo','form'),t('formTitulo','Título','form'),t('formSubtitulo','Subtítulo','form',2),
     t('faqBadge','Selo','faq'),t('faqTitulo','Título','faq'),t('faqSubtitulo','Subtítulo','faq',2),
-    t('ctaTitulo','Título','cta'),t('ctaTexto','Texto','cta',2),t('ctaBotao1','Botão 1','cta'),t('ctaBotao2','Botão 2','cta'),
+    t('ctaTitulo','Título','cta'),t('ctaTexto','Texto','cta',2),t('ctaBotao1','Botão 1','cta'),t('ctaBotao1Link','Link do botão 1','cta'),t('ctaBotao2','Botão 2','cta'),t('ctaBotao2Link','Link do botão 2','cta'),
   ],
   preview:{prepare:()=>({title:'Página Agência'})},
 })

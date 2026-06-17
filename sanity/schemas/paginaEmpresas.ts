@@ -7,5 +7,5 @@ export default defineType({ name:'paginaEmpresas', title:'Página Soluções Cor
     t('heroBadge','Selo','hero'),t('heroTitulo','Título','hero'),t('heroDestaque','Destaque','hero'),t('heroSubtitulo','Subtítulo','hero',2),t('heroCta','Botão','hero'),
     t('solTitulo','Título','sol'),t('solSubtitulo','Subtítulo','sol',2),
     t('difTitulo','Título','dif'),t('difSubtitulo','Subtítulo','dif',2),
-    t('ctaTitulo','Título','cta'),t('ctaTexto','Texto','cta',2),t('ctaBotao','Botão','cta'),
+    t('ctaTitulo','Título','cta'),t('ctaTexto','Texto','cta',2),t('ctaBotao','Botão','cta'),t('ctaBotaoLink','Link do botão','cta'),
   ], preview:{prepare:()=>({title:'Página Empresas'})} })

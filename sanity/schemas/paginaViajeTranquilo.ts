@@ -10,5 +10,5 @@ export default defineType({ name:'paginaViajeTranquilo', title:'Página Viaje Tr
     t('comoTitulo','Título','como'),t('comoSubtitulo','Subtítulo','como',2),
     t('formTitulo','Título','form'),t('formSubtitulo','Subtítulo','form',2),
     t('faqTitulo','Título','faq'),
-    t('ctaTitulo','Título','cta'),t('ctaTexto','Texto','cta',2),t('ctaBotao','Botão','cta'),
+    t('ctaTitulo','Título','cta'),t('ctaTexto','Texto','cta',2),t('ctaBotao','Botão','cta'),t('ctaBotaoLink','Link do botão','cta'),
   ], preview:{prepare:()=>({title:'Página Viaje Tranquilo'})} })

@@ -9,5 +9,5 @@ export default defineType({ name:'paginaDestinos', title:'Página Nossos Destino
     t('intLabel','Rótulo','int'),t('intTitulo','Título','int'),t('intSubtitulo','Subtítulo','int',2),
     t('redesLabel','Rótulo','redes'),t('redesTitulo','Título','redes'),t('redesSubtitulo','Subtítulo','redes',2),
     t('difLabel','Rótulo','dif'),t('difTitulo','Título','dif'),
-    t('ctaTitulo','Título','cta'),t('ctaTexto','Texto','cta',2),t('ctaBotao1','Botão 1','cta'),t('ctaBotao2','Botão 2','cta'),
+    t('ctaTitulo','Título','cta'),t('ctaTexto','Texto','cta',2),t('ctaBotao1','Botão 1','cta'),t('ctaBotao1Link','Link do botão 1','cta'),t('ctaBotao2','Botão 2','cta'),t('ctaBotao2Link','Link do botão 2','cta'),
   ], preview:{prepare:()=>({title:'Página Destinos'})} })
