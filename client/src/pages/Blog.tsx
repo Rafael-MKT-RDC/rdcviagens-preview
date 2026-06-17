@@ -7,9 +7,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 import { getBlogPosts, type BlogPost } from "@/lib/contentService";
 
 export default function Blog() {
+  const c = usePageDoc<any>('paginaBlog');
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
@@ -30,13 +32,11 @@ export default function Blog() {
       <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 bg-gradient-to-br from-[#00148A] to-[#001070]">
         <div className="container">
           <div className="max-w-3xl">
-            <Badge className="mb-4 bg-[#FF9100] text-white border-0">Blog</Badge>
+            <Badge className="mb-4 bg-[#FF9100] text-white border-0">{c.heroBadge ?? "Blog"}</Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Inspire-se para sua próxima <span className="text-[#FF9100]">viagem</span>
+              {c.heroTitulo ?? "Inspire-se para sua próxima"} <span className="text-[#FF9100]">{c.heroDestaque ?? "viagem"}</span>
             </h1>
-            <p className="text-xl text-[#C7E5F3]">
-              Dicas, roteiros e histórias para ajudar você a planejar <strong>experiências inesquecíveis</strong>.
-            </p>
+            <p className="text-xl text-[#C7E5F3]">{c.heroSubtitulo ?? "Dicas, roteiros e histórias para ajudar você a planejar experiências inesquecíveis."}</p>
           </div>
         </div>
       </section>

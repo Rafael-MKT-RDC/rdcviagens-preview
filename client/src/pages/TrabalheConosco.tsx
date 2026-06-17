@@ -19,6 +19,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 /*
  * Design Philosophy: Tropical Elegance
  * - Página de carreiras com foco em cultura e benefícios
@@ -82,6 +83,7 @@ const values = [
 ];
 
 export default function TrabalheConosco() {
+  const c = usePageDoc<any>('paginaTrabalhe');
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
@@ -107,14 +109,11 @@ export default function TrabalheConosco() {
         </div>
         <div className="container relative">
           <div className="max-w-3xl">
-            <Badge className="mb-4 bg-[#FF9100] text-white border-0">Carreiras</Badge>
+            <Badge className="mb-4 bg-[#FF9100] text-white border-0">{c.heroBadge ?? "Carreiras"}</Badge>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Trabalhe <span className="text-[#FF9100]">Conosco</span>
+              {c.heroTitulo ?? "Trabalhe"} <span className="text-[#FF9100]">{c.heroDestaque ?? "Conosco"}</span>
             </h1>
-            <p className="text-xl text-[#C7E5F3] mb-8">
-              Faça parte de uma equipe apaixonada por <strong>transformar sonhos em viagens inesquecíveis</strong>. 
-              Na RDC, você cresce junto com a gente!
-            </p>
+            <p className="text-xl text-[#C7E5F3] mb-8">{c.heroSubtitulo ?? "Faça parte de uma equipe apaixonada por transformar sonhos em viagens inesquecíveis. Na RDC, você cresce junto com a gente!"}</p>
             <div className="flex flex-wrap gap-4">
               <a 
                 href="https://www.linkedin.com/company/rdcviagens/jobs/" 
@@ -126,7 +125,7 @@ export default function TrabalheConosco() {
                   className="bg-[#FF9100] hover:bg-[#E68200] text-white"
                 >
                   <Linkedin className="w-5 h-5 mr-2" />
-                  Ver vagas no LinkedIn
+                  {c.vagasBotao ?? "Ver vagas no LinkedIn"}
                 </Button>
               </a>
             </div>
@@ -165,14 +164,11 @@ export default function TrabalheConosco() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">Nossa Cultura</Badge>
+            <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E] border-0">{c.culturaBadge ?? "Nossa Cultura"}</Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Por que trabalhar na RDC?
+              {c.culturaTitulo ?? "Por que trabalhar na RDC?"}
             </h2>
-            <p className="text-[#555555] max-w-2xl mx-auto">
-              Somos uma empresa certificada <strong>Great Place to Work</strong>, reconhecida por valorizar 
-              nossos RDCLovers e proporcionar um <strong>ambiente de trabalho excepcional</strong>.
-            </p>
+            <p className="text-[#555555] max-w-2xl mx-auto">{c.culturaSubtitulo ?? "Somos uma empresa certificada Great Place to Work, reconhecida por valorizar nossos RDCLovers e proporcionar um ambiente de trabalho excepcional."}</p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
@@ -197,14 +193,11 @@ export default function TrabalheConosco() {
         <AnimateOnScroll variant="zoom-in">
         <div className="container">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-[#FFF0D6] text-[#CC7400] border-0">Benefícios</Badge>
+            <Badge className="mb-4 bg-[#FFF0D6] text-[#CC7400] border-0">{c.benefBadge ?? "Benefícios"}</Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              O que oferecemos
+              {c.benefTitulo ?? "O que oferecemos"}
             </h2>
-            <p className="text-[#555555] max-w-2xl mx-auto">
-              Além de um ambiente de trabalho incrível, oferecemos <strong>benefícios que fazem a diferença</strong> 
-              na sua vida pessoal e profissional.
-            </p>
+            <p className="text-[#555555] max-w-2xl mx-auto">{c.benefSubtitulo ?? "Além de um ambiente de trabalho incrível, oferecemos benefícios que fazem a diferença na sua vida pessoal e profissional."}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -234,13 +227,9 @@ export default function TrabalheConosco() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-              Venha fazer parte do nosso time!
+              {c.vagasTitulo ?? "Venha fazer parte do nosso time!"}
             </h2>
-            <p className="text-[#C7E5F3] mb-8 max-w-2xl mx-auto">
-              Na RDC Viagens, você terá a oportunidade de <strong>crescer profissionalmente</strong> enquanto 
-              ajuda milhares de pessoas a realizarem o sonho de viajar. Todas as nossas vagas são publicadas 
-              diretamente no <strong>LinkedIn</strong>.
-            </p>
+            <p className="text-[#C7E5F3] mb-8 max-w-2xl mx-auto">{c.vagasTexto ?? "Na RDC Viagens, você terá a oportunidade de crescer profissionalmente enquanto ajuda milhares de pessoas a realizarem o sonho de viajar. Todas as nossas vagas são publicadas diretamente no LinkedIn."}</p>
             <div className="flex flex-wrap justify-center gap-4">
               <a 
                 href="https://www.linkedin.com/company/rdcviagens/jobs/" 

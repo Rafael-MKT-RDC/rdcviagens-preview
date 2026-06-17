@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { FileText, Shield, ScrollText, ChevronRight, ExternalLink, Gift, CreditCard, Award, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { usePageDoc } from "@/hooks/usePageDoc";
 import SEO from "@/components/SEO";
 
 /*
@@ -71,6 +72,7 @@ const documents = [
 ];
 
 export default function Documentos() {
+  const c = usePageDoc<any>('paginaDocumentos');
   return (
     <>
       <SEO
@@ -92,12 +94,9 @@ export default function Documentos() {
             <span className="text-white">Documentos</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Central de Documentos
+            {c.heroTitulo ?? "Central de Documentos"}
           </h1>
-          <p className="text-[#C7E5F3] text-lg max-w-2xl leading-relaxed">
-            Acesse os principais documentos da RDC Viagens. <strong>Transparência e clareza</strong> 
-            para que você tenha todas as informações que precisa.
-          </p>
+          <p className="text-[#C7E5F3] text-lg max-w-2xl leading-relaxed">{c.heroSubtitulo ?? "Acesse os principais documentos da RDC Viagens. Transparência e clareza para que você tenha todas as informações que precisa."}</p>
         </div>
       </section>
 

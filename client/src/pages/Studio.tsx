@@ -100,6 +100,64 @@ const config = defineConfig({
                   .documentId('paginaPremiacao')
                   .title('Página Premiação'),
               ),
+            S.listItem()
+              .title('Página Blog')
+              .id('paginaBlog')
+              .child(
+                S.document()
+                  .schemaType('paginaBlog')
+                  .documentId('paginaBlog')
+                  .title('Página Blog'),
+              ),
+            S.listItem()
+              .title('Página Documentos')
+              .id('paginaDocumentos')
+              .child(
+                S.document()
+                  .schemaType('paginaDocumentos')
+                  .documentId('paginaDocumentos')
+                  .title('Página Documentos'),
+              ),
+            S.divider(),
+            S.listItem()
+              .title('Página Trabalhe Conosco')
+              .id('paginaTrabalhe')
+              .child(
+                S.document()
+                  .schemaType('paginaTrabalhe')
+                  .documentId('paginaTrabalhe')
+                  .title('Página Trabalhe Conosco'),
+              ),
+            S.divider(),
+            S.listItem()
+              .title('Página Seja Parceiro')
+              .id('paginaSejaParceiro')
+              .child(
+                S.document()
+                  .schemaType('paginaSejaParceiro')
+                  .documentId('paginaSejaParceiro')
+                  .title('Página Seja Parceiro'),
+              ),
+            S.divider(),
+            S.listItem()
+              .title('Página Dúvidas')
+              .id('paginaDuvidas')
+              .child(
+                S.document()
+                  .schemaType('paginaDuvidas')
+                  .documentId('paginaDuvidas')
+                  .title('Página Dúvidas'),
+              ),
+            S.divider(),
+            S.listItem()
+              .title('Página Contato')
+              .id('paginaContato')
+              .child(
+                S.document()
+                  .schemaType('paginaContato')
+                  .documentId('paginaContato')
+                  .title('Página Contato'),
+              ),
             S.divider(),
             S.listItem()
               .title('Página Gestão')

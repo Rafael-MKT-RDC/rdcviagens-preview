@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { usePageDoc } from "@/hooks/usePageDoc";
 import { toast } from "sonner";
 import SEO from "@/components/SEO";
 
@@ -102,6 +103,7 @@ const steps = [
 ];
 
 export default function SejaParceiro() {
+  const c = usePageDoc<any>('paginaSejaParceiro');
 
   const [formData, setFormData] = useState({
     nome: "",
@@ -166,17 +168,13 @@ export default function SejaParceiro() {
           </div>
           <div className="max-w-3xl">
             <span className="inline-block bg-orange-500/20 text-[#FFB040] text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-orange-500/30 backdrop-blur-sm">
-              Para hotéis e pousadas
+              {c.heroBadge ?? "Para hotéis e pousadas"}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Leve mais hóspedes para o seu hotel o{" "}
-              <span className="text-[#FF9100]">ano todo</span>
+              {c.heroTitulo ?? "Leve mais hóspedes para o seu hotel o"}{" "}
+              <span className="text-[#FF9100]">{c.heroDestaque ?? "ano todo"}</span>
             </h1>
-            <p className="text-[#C7E5F3] text-lg md:text-xl leading-relaxed max-w-2xl">
-              A RDC conecta mais de <strong>100 mil assinantes</strong> a experiências de viagem 
-              por todo o Brasil. Faça parte da nossa rede e receba <strong>hóspedes qualificados</strong> 
-              que viajam com frequência e valorizam qualidade.
-            </p>
+            <p className="text-[#C7E5F3] text-lg md:text-xl leading-relaxed max-w-2xl">{c.heroSubtitulo ?? "A RDC conecta mais de 100 mil assinantes a experiências de viagem por todo o Brasil. Faça parte da nossa rede e receba hóspedes qualificados que viajam com frequência e valorizam qualidade."}</p>
           </div>
         </div>
       </section>
@@ -207,12 +205,9 @@ export default function SejaParceiro() {
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Por que ser parceiro da RDC?
+              {c.benefTitulo ?? "Por que ser parceiro da RDC?"}
             </h2>
-            <p className="text-[#555555] text-lg leading-relaxed">
-              Uma parceria que traz <strong>resultados reais</strong> para o seu hotel, 
-              com uma <strong>base ativa de viajantes</strong> que valorizam boas experiências.
-            </p>
+            <p className="text-[#555555] text-lg leading-relaxed">{c.benefSubtitulo ?? "Uma parceria que traz resultados reais para o seu hotel, com uma base ativa de viajantes que valorizam boas experiências."}</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => {
@@ -239,11 +234,9 @@ export default function SejaParceiro() {
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
-              Como funciona
+              {c.comoTitulo ?? "Como funciona"}
             </h2>
-            <p className="text-[#555555] text-lg leading-relaxed">
-              Um processo <strong>simples e transparente</strong> para começar a receber hóspedes RDC no seu hotel.
-            </p>
+            <p className="text-[#555555] text-lg leading-relaxed">{c.comoSubtitulo ?? "Um processo simples e transparente para começar a receber hóspedes RDC no seu hotel."}</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {steps.map((step, index) => (
@@ -269,12 +262,9 @@ export default function SejaParceiro() {
         <div className="container max-w-3xl">
           <div className="text-center mb-10">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-              Cadastre seu hotel
+              {c.formTitulo ?? "Cadastre seu hotel"}
             </h2>
-            <p className="text-[#C7E5F3] text-lg leading-relaxed">
-              Preencha o formulário abaixo e nossa <strong>equipe comercial</strong> entrará em contato 
-              para conversarmos sobre essa parceria.
-            </p>
+            <p className="text-[#C7E5F3] text-lg leading-relaxed">{c.formSubtitulo ?? "Preencha o formulário abaixo e nossa equipe comercial entrará em contato para conversarmos sobre essa parceria."}</p>
           </div>
 
           <div className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl">

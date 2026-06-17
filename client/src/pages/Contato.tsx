@@ -8,7 +8,9 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 export default function Contato() {
+  const c = usePageDoc<any>('paginaContato');
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
@@ -29,13 +31,11 @@ export default function Contato() {
       <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 bg-gradient-to-br from-[#00148A] to-[#001070]">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <Badge className="mb-4 bg-[#FF9100] text-white border-0">Contato</Badge>
+            <Badge className="mb-4 bg-[#FF9100] text-white border-0">{c.heroBadge ?? "Contato"}</Badge>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
-              Fale <span className="text-[#FF9100]">conosco</span>
+              {c.heroTitulo ?? "Fale"} <span className="text-[#FF9100]">{c.heroDestaque ?? "conosco"}</span>
             </h1>
-            <p className="text-base md:text-lg text-[#C7E5F3]">
-              Estamos prontos para ajudar você a planejar sua <strong>próxima viagem inesquecível</strong>.
-            </p>
+            <p className="text-base md:text-lg text-[#C7E5F3]">{c.heroSubtitulo ?? "Estamos prontos para ajudar você a planejar sua próxima viagem inesquecível."}</p>
           </div>
         </div>
       </section>
@@ -46,14 +46,14 @@ export default function Contato() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Canais de Atendimento</h2>
-              <p className="text-base md:text-lg text-[#555555]">Escolha o canal mais conveniente para falar com a <strong>nossa equipe</strong>.</p>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{c.canaisTitulo ?? "Canais de Atendimento"}</h2>
+              <p className="text-base md:text-lg text-[#555555]">{c.canaisSubtitulo ?? "Escolha o canal mais conveniente para falar com a nossa equipe."}</p>
             </div>
 
             {/* Horário unificado */}
             <div className="flex items-center justify-center gap-2 text-[#555555] mb-8 md:mb-10">
               <Clock className="w-5 h-5 text-[#FF9100] flex-shrink-0" />
-              <span className="text-base font-medium">Segunda a sexta-feira, das 9h às 19h</span>
+              <span className="text-base font-medium">{c.horario ?? "Segunda a sexta-feira, das 9h às 19h"}</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-12">
@@ -112,11 +112,11 @@ export default function Contato() {
 
             {/* CTA para Dúvidas */}
             <div className="bg-[#F6F6F6] rounded-2xl p-6 md:p-8 text-center">
-              <h3 className="text-xl font-bold text-[#2D2D2D] mb-3">Tem alguma dúvida?</h3>
-              <p className="text-[#555555] mb-6">Consulte nossa <strong>Central de Ajuda</strong> com as perguntas mais frequentes sobre a RDC Viagens.</p>
+              <h3 className="text-xl font-bold text-[#2D2D2D] mb-3">{c.duvidasTitulo ?? "Tem alguma dúvida?"}</h3>
+              <p className="text-[#555555] mb-6">{c.duvidasTexto ?? "Consulte nossa Central de Ajuda com as perguntas mais frequentes sobre a RDC Viagens."}</p>
               <Link href="/duvidas">
                 <Button variant="outline" className="border-[#001A9E] text-[#001A9E] hover:bg-[#F6F6F6]">
-                  Ver perguntas frequentes <ArrowRight className="ml-2 w-4 h-4" />
+                  {c.duvidasBotao ?? "Ver perguntas frequentes"} <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
             </div>

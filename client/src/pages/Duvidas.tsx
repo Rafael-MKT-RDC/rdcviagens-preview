@@ -9,9 +9,11 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import StructuredData from "@/components/StructuredData";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { usePageDoc } from "@/hooks/usePageDoc";
 import { getFaqCategories, type FaqCategory } from "@/lib/contentService";
 
 export default function Duvidas() {
+  const c = usePageDoc<any>('paginaDuvidas');
   const [openFaq, setOpenFaq] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -53,9 +55,9 @@ export default function Duvidas() {
       <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 bg-gradient-to-br from-[#00148A] to-[#001070]">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <Badge className="mb-4 bg-[#FF9100] text-white border-0">Central de Ajuda</Badge>
+            <Badge className="mb-4 bg-[#FF9100] text-white border-0">{c.heroBadge ?? "Central de Ajuda"}</Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Como podemos <span className="text-[#FF9100]">ajudar</span>?
+              {c.heroTitulo ?? "Como podemos"} <span className="text-[#FF9100]">{c.heroDestaque ?? "ajudar"}</span>?
             </h1>
             <p className="text-xl text-[#C7E5F3] mb-8">
               Encontre respostas para as <strong>{totalQuestions} perguntas mais frequentes</strong> sobre a RDC Viagens.
