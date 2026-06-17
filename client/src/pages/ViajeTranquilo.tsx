@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { CtaLink } from "@/components/CtaLink";
+import { RDStationForm } from "@/components/RDStationForm";
 import {
   Headphones,
   Clock,
@@ -338,13 +339,20 @@ export default function ViajeTranquilo() {
               {/* Right — Form */}
               <div className="lg:col-span-3">
                 <AnimateOnScroll variant="fade-up">
-                  {formSent ? (
+                  {/* === PILOTO opção B: formulário do RD Station incorporado === */}
+                  <div className="bg-white border border-[#E8E8E8] rounded-2xl p-6 md:p-8 shadow-sm rdc-rd-form">
+                    <RDStationForm
+                      formId="formulario-rdc-abril-2026-70adf1392cb35b6650e4"
+                      token="UA-7667371-1"
+                    />
+                  </div>
+                  {false ? (
                     <div className="bg-white border border-[#E8E8E8] rounded-2xl p-8 md:p-10 text-center shadow-sm">
                       <CheckCircle2 className="w-14 h-14 text-[#06D6A0] mx-auto mb-4" />
                       <h3 className="text-lg font-bold text-[#2D2D2D] mb-2">Solicitação enviada!</h3>
                       <p className="text-[#555555] text-sm">Nossa equipe entrará em contato em breve para ajudar você a contratar o Viaje Tranquilo.</p>
                     </div>
-                  ) : (
+                  ) : false ? (
                     <form onSubmit={handleSubmit} className="bg-white border border-[#E8E8E8] rounded-2xl p-6 md:p-8 space-y-5 shadow-sm">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
@@ -405,7 +413,7 @@ export default function ViajeTranquilo() {
                         )}
                       </Button>
                     </form>
-                  )}
+                  ) : null}
                 </AnimateOnScroll>
               </div>
             </div>
