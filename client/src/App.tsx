@@ -62,7 +62,10 @@ function Router() {
 
 function App() {
   const [location] = useLocation();
-  if (location.startsWith("/studio")) {
+  // O estúdio embutido é o do Sanity. No modo WordPress (VITE_CMS=wordpress) a
+  // edição é no wp-admin, então /studio não é carregado.
+  const studioEnabled = (import.meta.env.VITE_CMS ?? "sanity").toLowerCase() !== "wordpress";
+  if (studioEnabled && location.startsWith("/studio")) {
     return (
       <Suspense fallback={<div style={{ padding: 40, fontFamily: "sans-serif" }}>Carregando estúdio…</div>}>
         <StudioPage />
