@@ -39,6 +39,16 @@ O conteúdo é lido por `contentService.ts`. **Se o CMS estiver vazio, a página
 
 Pontos editáveis incluem textos, **links dos botões (CTAs)** e o **ID do formulário RD Station** de cada página.
 
+### Backend de CMS (`VITE_CMS`)
+
+O site busca conteúdo por `contentService.ts`, que escolhe a fonte por variável de ambiente:
+
+- `VITE_CMS=sanity` (ou `VITE_SANITY_ENABLED=true`) — usa o **Sanity** (`/studio`). Usado no preview.
+- `VITE_CMS=wordpress` + `VITE_WP_API_URL=https://SEU-WP/wp-json` — usa o **WordPress** como CMS headless (REST `rdc/v1`); a edição é no wp-admin e `/studio` fica desativado. Usado no oficial.
+- sem variável — usa o conteúdo de fallback embutido.
+
+Em todos os casos há fallback embutido, então a página nunca quebra mesmo com o CMS vazio/fora do ar. A estrutura que o WordPress precisa ter está em `Integracao-WordPress-Headless-RDC.md`.
+
 ## Desenvolvimento
 
 ```bash
