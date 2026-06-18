@@ -356,7 +356,15 @@ function BrandMarquee({ items, direction = "left" }: { items: UIPartner[]; direc
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = "none";
-                    target.parentElement!.innerHTML = `<span class="text-xs font-bold" style="color:${brandColors[partner.name]?.bg || '#1a3a6b'}">${getInitials(partner.name)}</span>`;
+                    const parent = target.parentElement;
+                    if (parent && !parent.querySelector("[data-initials]")) {
+                      const span = document.createElement("span");
+                      span.setAttribute("data-initials", "true");
+                      span.className = "text-xs font-bold";
+                      span.style.color = brandColors[partner.name]?.bg || "#1a3a6b";
+                      span.textContent = getInitials(partner.name);
+                      parent.appendChild(span);
+                    }
                   }}
                 />
               ) : (
