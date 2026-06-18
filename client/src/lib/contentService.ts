@@ -2,17 +2,21 @@
  * contentService.ts
  * Abstraction layer between the React frontend and content sources.
  *
- * Strategy:
- *  - When VITE_SANITY_ENABLED=true, data is fetched from Sanity via GROQ.
- *  - Otherwise (default), hardcoded data is returned immediately (no network).
+ * Strategy (escolha do CMS por variável de ambiente VITE_CMS):
+ *  - VITE_CMS=wordpress  → busca do WordPress (REST rdc/v1). Usado no repo oficial.
+ *  - VITE_CMS=sanity (ou VITE_SANITY_ENABLED=true) → busca do Sanity. Usado no preview.
+ *  - caso contrário (default) → conteúdo de fallback embutido (sem rede).
  *
- * To enable Sanity: add VITE_SANITY_ENABLED=true to the .env file in the
- * project root and populate the Sanity dataset.
+ * Em qualquer caso há fallback embutido, então a página nunca quebra mesmo que o
+ * CMS esteja vazio ou fora do ar. Ver Integracao-WordPress-Headless-RDC.md.
  */
 
 import { sanityClient } from './sanityClient'
+import { wpPage, wpCollection } from './wpClient'
 
-const USE_SANITY = import.meta.env.VITE_SANITY_ENABLED === 'true'
+const CMS = (import.meta.env.VITE_CMS as string | undefined)?.toLowerCase()
+const USE_WP = CMS === 'wordpress'
+const USE_SANITY = CMS === 'sanity' || import.meta.env.VITE_SANITY_ENABLED === 'true'
 
 // ────────────────────────────────────────────────────────────────────────────
 // Types
@@ -266,6 +270,7 @@ const QUERY_DESTINOS = `*[_type == "destino"] | order(destaque desc, nome asc) {
 // ────────────────────────────────────────────────────────────────────────────
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
+  if (USE_WP) return (await wpCollection<BlogPost>('blogPost')) ?? FALLBACK_POSTS
   if (!USE_SANITY) return FALLBACK_POSTS
   try {
     return await sanityClient.fetch<BlogPost[]>(QUERY_POSTS)
@@ -276,6 +281,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 }
 
 export async function getFaqCategories(): Promise<FaqCategory[]> {
+  if (USE_WP) return (await wpCollection<FaqCategory>('faqCategoria')) ?? FALLBACK_FAQ
   if (!USE_SANITY) return FALLBACK_FAQ
   try {
     return await sanityClient.fetch<FaqCategory[]>(QUERY_FAQ)
@@ -286,6 +292,7 @@ export async function getFaqCategories(): Promise<FaqCategory[]> {
 }
 
 export async function getDepoimentos(): Promise<Depoimento[]> {
+  if (USE_WP) return (await wpCollection<Depoimento>('depoimento')) ?? []
   if (!USE_SANITY) return []
   try {
     return await sanityClient.fetch<Depoimento[]>(QUERY_DEPOIMENTOS)
@@ -296,6 +303,7 @@ export async function getDepoimentos(): Promise<Depoimento[]> {
 }
 
 export async function getParceirosClube(): Promise<ParceiroClube[]> {
+  if (USE_WP) return (await wpCollection<ParceiroClube>('parceiroClube')) ?? []
   if (!USE_SANITY) return []
   try {
     return await sanityClient.fetch<ParceiroClube[]>(QUERY_PARCEIROS)
@@ -306,6 +314,7 @@ export async function getParceirosClube(): Promise<ParceiroClube[]> {
 }
 
 export async function getRedesHoteleiras(): Promise<RedeHoteleira[]> {
+  if (USE_WP) return (await wpCollection<RedeHoteleira>('redeHoteleira')) ?? []
   if (!USE_SANITY) return []
   try {
     return await sanityClient.fetch<RedeHoteleira[]>(QUERY_REDES)
@@ -316,6 +325,7 @@ export async function getRedesHoteleiras(): Promise<RedeHoteleira[]> {
 }
 
 export async function getDestinos(): Promise<Destino[]> {
+  if (USE_WP) return (await wpCollection<Destino>('destino')) ?? []
   if (!USE_SANITY) return []
   try {
     return await sanityClient.fetch<Destino[]>(QUERY_DESTINOS)
@@ -374,17 +384,22 @@ const QUERY_SETTINGS = `*[_type == "configuracoesGlobais"][0]{
   "social": redesSociais
 }`
 
+function mergeSettings(data: Partial<SiteSettings> | null): SiteSettings {
+  if (!data) return FALLBACK_SETTINGS
+  // Mescla com o fallback para nunca renderizar campo vazio
+  return {
+    ...FALLBACK_SETTINGS,
+    ...data,
+    social: { ...FALLBACK_SETTINGS.social, ...(data.social ?? {}) },
+  }
+}
+
 export async function getSiteSettings(): Promise<SiteSettings> {
+  if (USE_WP) return mergeSettings(await wpPage<Partial<SiteSettings>>('configuracoesGlobais'))
   if (!USE_SANITY) return FALLBACK_SETTINGS
   try {
     const data = await sanityClient.fetch<Partial<SiteSettings> | null>(QUERY_SETTINGS)
-    if (!data) return FALLBACK_SETTINGS
-    // Mescla com o fallback para nunca renderizar campo vazio
-    return {
-      ...FALLBACK_SETTINGS,
-      ...data,
-      social: { ...FALLBACK_SETTINGS.social, ...(data.social ?? {}) },
-    }
+    return mergeSettings(data)
   } catch (err) {
     console.warn('[contentService] Sanity fetch (settings) falhou, usando fallback:', err)
     return FALLBACK_SETTINGS
@@ -411,6 +426,7 @@ export interface HomeContent {
 const QUERY_HOME = `*[_type == "paginaHome"][0]`
 
 export async function getHomePage(): Promise<HomeContent | null> {
+  if (USE_WP) return await wpPage<HomeContent>('paginaHome')
   if (!USE_SANITY) return null
   try {
     return await sanityClient.fetch<HomeContent | null>(QUERY_HOME)
@@ -424,6 +440,7 @@ export async function getHomePage(): Promise<HomeContent | null> {
 // Genérico: busca um documento singleton de página por _type
 // ────────────────────────────────────────────────────────────────────────────
 export async function getPageDoc<T = any>(type: string): Promise<T | null> {
+  if (USE_WP) return await wpPage<T>(type)
   if (!USE_SANITY) return null
   try {
     return await sanityClient.fetch<T | null>('*[_type == $type][0]', { type })
