@@ -23,7 +23,6 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DIST = resolve(__dirname, "..", "dist", "public");
 const BASE_URL = "https://rdcviagens.com.br";
 const SITE_NAME = "RDC Viagens";
 const SUFFIX = ` | ${SITE_NAME}`;
@@ -157,31 +156,41 @@ function buildHtml(template, route) {
   return html;
 }
 
-try {
-  const templatePath = join(DIST, "index.html");
-  if (!existsSync(templatePath)) {
-    console.warn(`[prerender] ${templatePath} não existe — pulando prerender.`);
-    process.exit(0);
-  }
-  const template = readFileSync(templatePath, "utf8");
-  let count = 0;
-  for (const route of routes) {
-    try {
-      const html = buildHtml(template, route);
-      if (route.p === "/") {
-        writeFileSync(templatePath, html, "utf8");
-      } else {
-        const dir = join(DIST, route.p);
-        mkdirSync(dir, { recursive: true });
-        writeFileSync(join(dir, "index.html"), html, "utf8");
-      }
-      count++;
-    } catch (e) {
-      console.warn(`[prerender] falha na rota ${route.p}: ${e?.message || e}`);
+/**
+ * Gera os HTMLs por rota dentro de `distDir` (ex.: .../dist/public).
+ * Nunca lança: erros viram apenas avisos (warn) para não quebrar o build.
+ */
+export function prerenderSeo(distDir) {
+  try {
+    const templatePath = join(distDir, "index.html");
+    if (!existsSync(templatePath)) {
+      console.warn(`[prerender] ${templatePath} não existe — pulando prerender.`);
+      return;
     }
+    const template = readFileSync(templatePath, "utf8");
+    let count = 0;
+    for (const route of routes) {
+      try {
+        const html = buildHtml(template, route);
+        if (route.p === "/") {
+          writeFileSync(templatePath, html, "utf8");
+        } else {
+          const dir = join(distDir, route.p);
+          mkdirSync(dir, { recursive: true });
+          writeFileSync(join(dir, "index.html"), html, "utf8");
+        }
+        count++;
+      } catch (e) {
+        console.warn(`[prerender] falha na rota ${route.p}: ${e?.message || e}`);
+      }
+    }
+    console.log(`[prerender] ${count}/${routes.length} rotas pré-renderizadas em ${distDir}.`);
+  } catch (e) {
+    console.warn(`[prerender] erro geral (ignorado): ${e?.message || e}`);
   }
-  console.log(`[prerender] ${count}/${routes.length} rotas pré-renderizadas em dist/public.`);
-} catch (e) {
-  console.warn(`[prerender] erro geral (ignorado): ${e?.message || e}`);
 }
-process.exit(0);
+
+// Execução standalone: `node scripts/prerender-seo.mjs`
+if (process.argv[1] && process.argv[1].replace(/\\/g, "/").endsWith("scripts/prerender-seo.mjs")) {
+  prerenderSeo(resolve(__dirname, "..", "dist", "public"));
+}
