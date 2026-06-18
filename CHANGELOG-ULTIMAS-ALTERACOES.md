@@ -1,6 +1,6 @@
 # Changelog — Últimas Alterações no Site RDC Viagens
 
-**Data:** 17 de junho de 2025  
+**Data:** 17 de junho de 2026  
 **Versão:** 4ebbda50
 
 ---

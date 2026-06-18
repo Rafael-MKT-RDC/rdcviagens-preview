@@ -1,59 +1,59 @@
-# RDC Viagens - Código Fonte Extraído
+# RDC Viagens — Site Institucional
 
-## Descrição
-Este repositório contém o código fonte extraído e depurado do site RDC Viagens (https://rdcviagens-kxhhapxw.manus.space/).
+Site institucional da **RDC Viagens** (RDC Férias e Viagens LTDA), construído como SPA em React + Vite com **CMS headless (Sanity)** para edição de conteúdo sem mexer no código.
 
-## Estrutura do Projeto
+## Tecnologias
+
+- **Frontend:** React 19 + Vite 7 + TypeScript
+- **Estilização:** Tailwind CSS 4 + shadcn/ui
+- **Roteamento:** Wouter (client-side)
+- **CMS:** Sanity (projeto `zb2hrfwb`, dataset `production`)
+- **Ícones:** Lucide React
+- **Formulários:** RD Station Forms (embed por contexto, ID configurável no CMS)
+
+## Estrutura
 
 ```
-rdcviagens/
-├── index.html                          # HTML original formatado (com código inline)
-├── index-clean.html                    # HTML limpo (sem código inline)
-├── README.md                           # Este arquivo
-├── assets/
-│   ├── index-BF_oKsoR.css             # Estilos CSS formatados
-│   ├── index-DYcfi-rl.js              # JavaScript original (minificado)
-│   └── index-DYcfi-rl-formatted.js    # JavaScript formatado/depurado
-└── images/
-    ├── logo-rdc.png                    # Logo da RDC Viagens
-    ├── hero-resort-pool.jpg            # Imagem hero - piscina do resort
-    ├── hero-praia-nordeste.jpg         # Imagem hero - praia do nordeste
-    ├── hero-serra-gaucha.jpg           # Imagem hero - serra gaúcha
-    ├── destino-chapada.jpg             # Destino - Chapada Diamantina
-    └── destino-pantanal.jpg            # Destino - Pantanal
+rdcviagens-site/
+├── client/
+│   ├── index.html              # Meta SEO padrão, OG/Twitter, fontes
+│   ├── public/                 # robots.txt, sitemap.xml, llms.txt, og-image.jpg, favicon
+│   └── src/
+│       ├── App.tsx             # Rotas (19 páginas públicas + /studio)
+│       ├── pages/              # Uma página por rota
+│       ├── components/         # Header, Footer, SEO, StructuredData, CtaLink, RDStationForm, etc.
+│       ├── lib/
+│       │   ├── sanityClient.ts     # Cliente Sanity (somente leitura, useCdn)
+│       │   └── contentService.ts   # Queries GROQ + dados de fallback
+│       └── pages/Studio.tsx    # Estúdio Sanity embutido em /studio
+├── sanity/
+│   └── schemas/                # Schemas do CMS (páginas singleton + coleções)
+└── sanity.config.ts            # Config do estúdio standalone
 ```
 
-## Tecnologias Utilizadas
+## CMS — como funciona
 
-- **Framework**: React (via Vite)
-- **Estilização**: TailwindCSS
-- **Fonte**: Poppins (Google Fonts)
-- **Build Tool**: Vite
+Cada página tem um documento *singleton* no Sanity (ex.: `paginaHome`, `paginaTravelCloud`). Coleções: `blogPost`, `faqCategoria`, `depoimento`, `parceiroClube` (logos + % de desconto), `redeHoteleira`, `destino`.
 
-## Arquivos
+O conteúdo é lido por `contentService.ts`. **Se o CMS estiver vazio, a página usa dados de fallback embutidos** — nunca renderiza em branco. Editores acessam o painel em **`/studio`** (ou no estúdio standalone `rdc-wp.sanity.studio`).
 
-### HTML
-- `index.html`: Arquivo HTML original com todo o código React embutido inline
-- `index-clean.html`: Versão limpa do HTML com referências externas aos arquivos CSS e JS
+Pontos editáveis incluem textos, **links dos botões (CTAs)** e o **ID do formulário RD Station** de cada página.
 
-### CSS
-- `assets/index-BF_oKsoR.css`: Arquivo CSS formatado contendo todos os estilos TailwindCSS compilados
+## Desenvolvimento
 
-### JavaScript
-- `assets/index-DYcfi-rl.js`: Arquivo JavaScript original (minificado)
-- `assets/index-DYcfi-rl-formatted.js`: Arquivo JavaScript formatado para melhor legibilidade
+```bash
+pnpm install
+pnpm dev        # ambiente local
+pnpm build      # build de produção (Vite/esbuild)
+```
 
-### Imagens
-Todas as imagens do site foram baixadas em alta resolução (2752x1536 pixels):
-- Logo em PNG com transparência
-- Imagens de destinos em formato JPG/PNG
+## Deploy
 
-## Observações
+O projeto é publicado no **domínio da RDC**. As alterações seguem o fluxo de **Pull Request** do time de desenvolvimento (não se faz commit direto na branch protegida). Há um repositório de **preview** (`rdcviagens-preview`, deploy automático na Vercel) mantido idêntico ao oficial para validação visual antes do merge.
 
-1. O site é uma Single Page Application (SPA) construída com React
-2. O código JavaScript contém toda a lógica do aplicativo React compilada
-3. Os estilos utilizam TailwindCSS com classes utilitárias
-4. As imagens são de alta qualidade para uso em banners e seções hero
+## SEO / GEO
 
-## Data de Extração
-14 de Janeiro de 2026
+- Componente `SEO` define title, description, canonical, Open Graph, Twitter Card e JSON-LD por página
+- `StructuredData` injeta Organization (TravelAgency) + WebSite globalmente
+- `sitemap.xml`, `robots.txt` (libera crawlers de IA: GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot e outros) e `llms.txt` para GEO
+- 1 `<h1>` por página, alt text em 100% das imagens, mobile-first
