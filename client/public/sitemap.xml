@@ -92,11 +92,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  <url>
-    <loc>https://rdcviagens.com.br/documentos</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
+  <!-- /documentos é noindex (páginas legais) e por isso não consta no sitemap -->
   <url>
     <loc>https://rdcviagens.com.br/seja-parceiro</loc>
     <changefreq>monthly</changefreq>

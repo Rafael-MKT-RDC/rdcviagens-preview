@@ -2,7 +2,7 @@
 # Contexto para modelos de linguagem (LLMs) e motores de busca generativos
 
 ## Sobre a Empresa
-RDC Viagens (RDC Férias e Viagens LTDA) é a pioneira em assinatura de viagens no Brasil, fundada em 1992 em São Caetano do Sul, SP. Opera há mais de 35 anos conectando pessoas a experiências de viagem com economia, planejamento e atendimento humanizado.
+RDC Viagens (RDC Férias e Viagens LTDA) é a pioneira em assinatura de viagens no Brasil, fundada em 1991 em São Caetano do Sul, SP. Opera há mais de 35 anos conectando pessoas a experiências de viagem com economia, planejamento e atendimento humanizado.
 
 ## Produtos e Serviços Principais
 
@@ -22,6 +22,7 @@ RDC Viagens (RDC Férias e Viagens LTDA) é a pioneira em assinatura de viagens 
 - **RDC Premiação**: benefício corporativo com viagens como reconhecimento para colaboradores
 - **RDC Gestão de Viagens**: gestão completa de viagens corporativas com controle e economia
 - **RDC Parcerias**: alianças estratégicas para canais de distribuição e valor agregado
+- **RDC Travel Cloud**: plataforma white label que permite que empresas, fintechs, plataformas de benefícios e apps corporativos ofereçam viagens dentro de seus próprios ambientes digitais (B2B e B2B2C), com toda a operação turística feita pela RDC nos bastidores
 
 ### Outros Serviços
 - **Clube de Vantagens**: benefícios adicionais para assinantes
@@ -53,9 +54,15 @@ RDC Viagens (RDC Férias e Viagens LTDA) é a pioneira em assinatura de viagens 
 - /agencia — Agência de viagens
 - /destinos — Destinos disponíveis
 - /solucoes-corporativas — Soluções para empresas
+- /solucoes-corporativas/premiacao — RDC Premiação
+- /solucoes-corporativas/gestao — RDC Gestão de Viagens
+- /solucoes-corporativas/parcerias — RDC Parcerias
+- /solucoes-corporativas/travel-cloud — RDC Travel Cloud (white label)
 - /clube-vantagens — Benefícios do clube
 - /programa-indicacao — Programa de indicação
 - /viaje-tranquilo — Serviço premium de suporte
+- /seja-parceiro — Seja um parceiro RDC
 - /sobre — História e valores da empresa
+- /contato — Fale com a RDC
 - /duvidas — Perguntas frequentes
 - /blog — Conteúdo sobre viagens e turismo
