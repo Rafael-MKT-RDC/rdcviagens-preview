@@ -57,3 +57,19 @@ O projeto é publicado no **domínio da RDC**. As alterações seguem o fluxo de
 - `StructuredData` injeta Organization (TravelAgency) + WebSite globalmente
 - `sitemap.xml`, `robots.txt` (libera crawlers de IA: GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot e outros) e `llms.txt` para GEO
 - 1 `<h1>` por página, alt text em 100% das imagens, mobile-first
+
+### Prerender (HTML estático por rota)
+
+Por ser uma SPA, sem prerender os metadados (title/description/JSON-LD) só
+existem após o JavaScript rodar — invisíveis para crawlers/IA sem JS. Para
+resolver, o build executa `scripts/prerender-seo.mjs` (passo automático no
+`pnpm build`), que gera um `index.html` por rota dentro de `dist/public` já com
+`<title>`, description, canonical, OG/Twitter e o JSON-LD global embutidos no
+HTML inicial. O React continua hidratando por cima normalmente.
+
+O servidor (`server/index.ts`) serve o arquivo pré-renderizado da rota quando
+existe, senão cai no `index.html` raiz (SPA). Em hospedagem estática
+(Vercel/Netlify/CDN) os arquivos por rota são servidos automaticamente.
+
+Manutenção: ao criar/editar uma página, atualize a lista de rotas em
+`scripts/prerender-seo.mjs` (títulos/descrições devem espelhar os `<SEO>`).
