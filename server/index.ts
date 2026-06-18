@@ -1,5 +1,6 @@
 import express from "express";
 import { createServer } from "http";
+import { existsSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -18,8 +19,18 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
-  // Handle client-side routing - serve index.html for all routes
-  app.get("*", (_req, res) => {
+  // Handle client-side routing.
+  // Serve o index.html PRÉ-RENDERIZADO da rota (gerado por scripts/prerender-seo.mjs),
+  // que já traz title/description/canonical/OG/JSON-LD no HTML inicial — importante
+  // para crawlers/IA sem JavaScript (SEO/GEO). Se não houver, cai no index.html raiz (SPA).
+  app.get("*", (req, res) => {
+    const routePath = req.path.replace(/\/+$/, "");
+    if (routePath && !routePath.includes(".")) {
+      const prerendered = path.join(staticPath, routePath, "index.html");
+      if (existsSync(prerendered)) {
+        return res.sendFile(prerendered);
+      }
+    }
     res.sendFile(path.join(staticPath, "index.html"));
   });
 
