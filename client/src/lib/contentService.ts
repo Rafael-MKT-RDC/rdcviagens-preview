@@ -349,6 +349,7 @@ export interface SiteSettings {
   horarioRodape: string
   endereco: string
   copyright: string
+  formNewsletterRdId?: string
   social: {
     facebook?: string
     instagram?: string
@@ -381,6 +382,7 @@ export const FALLBACK_SETTINGS: SiteSettings = {
 const QUERY_SETTINGS = `*[_type == "configuracoesGlobais"][0]{
   telefone, diasAtendimento, horario, tipoLigacao,
   textoInstitucional, email, horarioRodape, endereco, copyright,
+  formNewsletterRdId,
   "social": redesSociais
 }`
 
