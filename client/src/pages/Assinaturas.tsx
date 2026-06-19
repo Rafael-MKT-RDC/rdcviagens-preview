@@ -1375,10 +1375,11 @@ export default function Assinaturas() {
       </div>
 
       {/* Subscription Modal */}
-      <SubscriptionModal 
-        open={modalOpen} 
+      <SubscriptionModal
+        open={modalOpen}
         onOpenChange={setModalOpen}
         selectedPlan={selectedPlan}
+        formRdId={c.formRdId}
       />
     </div>
   );
