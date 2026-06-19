@@ -218,9 +218,12 @@
    Escopo: tudo dentro de .rdc-rd-form (não afeta o resto do site).
    Mira tanto os elementos nativos quanto as classes do RD (bricks).
    ════════════════════════════════════════════════════════════════ */
+/* O RD injeta estilos via seletores com ID (ex.: #rd-button-xxx), que têm
+   especificidade maior que classe. Por isso as regras abaixo usam !important:
+   é a forma confiável de o visual da RDC prevalecer sobre o tema padrão do RD. */
 .rdc-rd-form,
 .rdc-rd-form * {
-  font-family: 'Montserrat', system-ui, sans-serif;
+  font-family: 'Montserrat', 'Open Sans', system-ui, sans-serif !important;
   box-sizing: border-box;
 }
 
@@ -245,39 +248,52 @@
   margin-bottom: 1.1rem;
 }
 
-.rdc-rd-form label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #404040;
-  margin-bottom: 0.4rem;
+.rdc-rd-form label,
+.rdc-rd-form .bricks-form__label {
+  display: block !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: #404040 !important;
+  margin-bottom: 0.4rem !important;
 }
 
 .rdc-rd-form input:not([type='submit']):not([type='checkbox']):not([type='radio']),
 .rdc-rd-form select,
-.rdc-rd-form textarea {
-  width: 100%;
-  height: 2.75rem;
-  padding: 0.55rem 0.85rem;
-  font-size: 0.95rem;
-  color: #2d2d2d;
-  background: #ffffff;
-  border: 1px solid #e2e2e2;
-  border-radius: 0.85rem;
-  outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+.rdc-rd-form textarea,
+.rdc-rd-form .bricks-form__input {
+  width: 100% !important;
+  height: 2.75rem !important;
+  padding: 0.55rem 0.85rem !important;
+  font-size: 0.95rem !important;
+  color: #2d2d2d !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e2e2 !important;
+  border-radius: 0.85rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
 }
 .rdc-rd-form textarea {
-  height: auto;
-  min-height: 7rem;
-  resize: vertical;
+  height: auto !important;
+  min-height: 7rem !important;
+  resize: vertical !important;
 }
+
+/* Telefone com seletor de país (DDI) à esquerda: arredonda só os cantos da
+   direita, deixando o lado colado à bandeira reto. */
+.rdc-rd-form input[type='tel'],
+.rdc-rd-form .bricks-form__input.phone {
+  border-radius: 0 0.85rem 0.85rem 0 !important;
+}
+.rdc-rd-form .iti,
+.rdc-rd-form .intl-tel-input { width: 100% !important; }
 
 .rdc-rd-form input:not([type='submit']):focus,
 .rdc-rd-form select:focus,
-.rdc-rd-form textarea:focus {
-  border-color: #001a9e;
-  box-shadow: 0 0 0 3px rgba(0, 26, 158, 0.12);
+.rdc-rd-form textarea:focus,
+.rdc-rd-form .bricks-form__input:focus {
+  border-color: #ff9100 !important;
+  box-shadow: 0 0 0 3px rgba(255, 145, 0, 0.15) !important;
 }
 
 .rdc-rd-form .bricks-form__message,
@@ -290,24 +306,40 @@
 .rdc-rd-form button[type='submit'],
 .rdc-rd-form input[type='submit'],
 .rdc-rd-form .bricks-form__submit button,
+.rdc-rd-form .bricks--component-button,
 .rdc-rd-form .rd-button {
-  width: 100%;
-  height: 3rem;
-  margin-top: 0.4rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: #ff9100;
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
+  width: 100% !important;
+  height: 3rem !important;
+  margin-top: 0.4rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  background: #ff9100 !important;
+  background-image: none !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
 }
 .rdc-rd-form button[type='submit']:hover,
 .rdc-rd-form input[type='submit']:hover,
 .rdc-rd-form .bricks-form__submit button:hover,
+.rdc-rd-form .bricks--component-button:hover,
 .rdc-rd-form .rd-button:hover {
-  background: #e68200;
+  background: #e68200 !important;
+}
+
+/* Remove o fundo cinza padrão das seções/colunas do RD para o formulário
+   ficar sobre o branco do modal/página, como no layout original da RDC. */
+.rdc-rd-form .bricks--component-embeddable-form,
+.rdc-rd-form .bricks--section, .rdc-rd-form .rd-section,
+.rdc-rd-form .bricks--row, .rdc-rd-form .rd-row,
+.rdc-rd-form .bricks--column, .rdc-rd-form .rd-column,
+.rdc-rd-form .bricks--column > div, .rdc-rd-form .rd-column > div,
+.rdc-rd-form .bricks-form {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* ════════════════════════════════════════════════════════════════
