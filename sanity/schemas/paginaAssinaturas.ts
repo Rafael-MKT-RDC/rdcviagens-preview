@@ -30,6 +30,7 @@ export default defineType({
     t('recebeBadge','Selo','recebe'), t('recebeTitulo','Título','recebe'), t('recebeSubtitulo','Subtítulo','recebe',2),
     t('planosTitulo','Título','plano'), t('planosSubtitulo','Subtítulo','plano',2),
     num('planoDias','Diárias/ano','plano'), num('planoPreco','Preço mensal (R$)','plano'), t('planoAdesao','Adesão','plano'), t('planoCta','Botão','plano'), t('planoCtaLink','Link do botão','plano'),
+    t('formRdId','ID do formulário RD Station (modal Quero Assinar)','plano'),
     t('comparativoBadge','Selo','comp'), t('comparativoTitulo','Título','comp'), t('comparativoSubtitulo','Subtítulo','comp',2),
     t('difTitulo','Título','dif'), t('difSubtitulo','Subtítulo','dif',2),
     t('depoBadge','Selo','depo'), t('depoTitulo','Título','depo'), t('depoSubtitulo','Subtítulo','depo',2),

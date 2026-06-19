@@ -8,8 +8,16 @@ export default defineType({
     { name: 'topo', title: 'Barra de telefone (topo)', default: true },
     { name: 'rodape', title: 'Rodapé' },
     { name: 'social', title: 'Redes sociais' },
+    { name: 'formularios', title: 'Formulários (RD Station)' },
   ],
   fields: [
+    defineField({
+      name: 'formNewsletterRdId',
+      title: 'ID do formulário RD Station — Newsletter',
+      type: 'string',
+      group: 'formularios',
+      description: 'Cole aqui o ID do formulário do RD Station usado na Newsletter (modal do topo). Enquanto estiver vazio, é exibido o formulário padrão.',
+    }),
     defineField({ name: 'telefone', title: 'Telefone (Televendas)', type: 'string', group: 'topo' }),
     defineField({ name: 'diasAtendimento', title: 'Dias de atendimento', type: 'string', group: 'topo' }),
     defineField({ name: 'horario', title: 'Horário', type: 'string', group: 'topo' }),
