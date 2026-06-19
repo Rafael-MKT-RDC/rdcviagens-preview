@@ -20,10 +20,12 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
 import { Check, Loader2, Send, Phone, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
+import { RDStationForm } from "@/components/RDStationForm";
 
 interface SubscriptionModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  formRdId?: string;
   selectedPlan?: {
     id: string;
     name?: string;
@@ -68,6 +70,7 @@ const plans = [
 export default function SubscriptionModal({
   open,
   onOpenChange,
+  formRdId,
   selectedPlan,
 }: SubscriptionModalProps) {
   const [formData, setFormData] = useState<FormData>({
@@ -211,6 +214,13 @@ export default function SubscriptionModal({
           </div>
         )}
 
+        {formRdId ? (
+          /* Formulário do RD Station: a mensagem de agradecimento é exibida
+             pelo próprio RD dentro do box, conforme configurado no RD. */
+          <div className="rdc-rd-form">
+            <RDStationForm formId={formRdId} token="UA-7667371-1" />
+          </div>
+        ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="name">Nome completo *</Label>
@@ -343,6 +353,7 @@ export default function SubscriptionModal({
             Seus dados estão seguros. Não compartilhamos suas informações.
           </p>
         </form>
+        )}
       </DialogContent>
     </Dialog>
   );

@@ -12,12 +12,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Mail, Send, CheckCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { RDStationForm } from "@/components/RDStationForm";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 interface NewsletterModalProps {
   trigger?: React.ReactNode;
 }
 
 export default function NewsletterModal({ trigger }: NewsletterModalProps) {
+  const settings = useSiteSettings();
+  const rdFormId = settings.formNewsletterRdId;
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -101,6 +105,13 @@ export default function NewsletterModal({ trigger }: NewsletterModalProps) {
                 e novidades em primeira mão.
               </DialogDescription>
             </DialogHeader>
+            {rdFormId ? (
+              /* Formulário do RD Station (a mensagem de agradecimento é exibida
+                 pelo próprio RD, dentro do box, conforme configurado no RD). */
+              <div className="rdc-rd-form mt-4">
+                <RDStationForm formId={rdFormId} token="UA-7667371-1" />
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
               <div className="space-y-2">
                 <Label htmlFor="newsletter-name">Nome</Label>
@@ -123,8 +134,8 @@ export default function NewsletterModal({ trigger }: NewsletterModalProps) {
                   disabled={isSubmitting}
                 />
               </div>
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-[#FF9100] hover:bg-[#E68200]"
                 disabled={isSubmitting}
               >
@@ -147,6 +158,7 @@ export default function NewsletterModal({ trigger }: NewsletterModalProps) {
                 </a>
               </p>
             </form>
+            )}
           </>
         )}
       </DialogContent>
