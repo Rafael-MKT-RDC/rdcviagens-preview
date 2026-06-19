@@ -224,6 +224,15 @@
   box-sizing: border-box;
 }
 
+/* Esconde o título/subtítulo padrão do formulário do RD ("Título do formulário"
+   / "Subtítulo do formulário") — os modais e páginas já têm o próprio título. */
+.rdc-rd-form h1,
+.rdc-rd-form h2,
+.rdc-rd-form .bricks--component-text:has(h1),
+.rdc-rd-form .bricks--component-text:has(h2) {
+  display: none !important;
+}
+
 .rdc-rd-form .rd-form,
 .rdc-rd-form .bricks-form,
 .rdc-rd-form form {
