@@ -303,18 +303,18 @@ export default function EmpresasTravelCloud() {
       </section>
 
       {/* Use Cases Section */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               <Smartphone className="w-4 h-4 mr-2" />
               Frentes de aplicação
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Para quem é a RDC Travel Cloud?
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Uma infraestrutura de viagens para diferentes <strong>modelos de negócio B2B e B2B2C</strong>.
             </p>
           </div>
@@ -344,18 +344,18 @@ export default function EmpresasTravelCloud() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               <Settings className="w-4 h-4 mr-2" />
               Modelo operacional
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Como funciona na prática
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Três movimentos simples: <strong>distribuição, conversão e operação</strong>. O parceiro não precisa dominar turismo para capturar valor na categoria.
             </p>
           </div>
@@ -388,18 +388,18 @@ export default function EmpresasTravelCloud() {
       </section>
 
       {/* Differentials Section */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               <Zap className="w-4 h-4 mr-2" />
               Diferenciais
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Por que a RDC Travel Cloud?
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Uma solução que combina <strong>experiência digital, operação turística e modelo de negócio adaptável</strong>.
             </p>
           </div>

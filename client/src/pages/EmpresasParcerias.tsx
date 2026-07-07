@@ -301,18 +301,18 @@ export default function EmpresasParcerias() {
       </section>
 
       {/* Value Props Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               <Zap className="w-4 h-4 mr-2" />
               Por que ser parceiro RDC
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               O que você ganha com essa parceria
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               <strong>Viagens são o benefício mais desejado</strong> pelos brasileiros. 
               Oferecer isso aos seus clientes é um diferencial que gera <strong>resultado concreto</strong>.
             </p>
@@ -340,18 +340,18 @@ export default function EmpresasParcerias() {
       </section>
 
       {/* Partner Profiles Section */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="zoom-in">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               <Target className="w-4 h-4 mr-2" />
               Perfis de Parceiros
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Quem já pode se beneficiar
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Desenhamos <strong>modelos de parceria</strong> que se encaixam na realidade de cada segmento. 
               Veja como a RDC pode <strong>agregar valor ao seu negócio</strong>.
             </p>
@@ -424,19 +424,19 @@ export default function EmpresasParcerias() {
       </section>
 
       {/* Formulário de Contato */}
-      <section id="formulario-parcerias" className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section id="formulario-parcerias" className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+              <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
                 <Handshake className="w-4 h-4 mr-2" />
                 Vamos conversar
               </Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
                 Vamos explorar as possibilidades juntos
               </h2>
-              <p className="text-lg text-[#555555]">
+              <p className="text-lg text-[#C7D3E0]">
                 Conte um pouco sobre o seu negócio. Nossa <strong>equipe vai analisar o cenário</strong> 
                 e apresentar as melhores oportunidades de parceria para a sua realidade.
               </p>
@@ -464,7 +464,7 @@ export default function EmpresasParcerias() {
                           value={formData.nome}
                           onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                           placeholder="Seu nome completo"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -482,7 +482,7 @@ export default function EmpresasParcerias() {
                           value={formData.empresa}
                           onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
                           placeholder="Nome da empresa ou instituição"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -500,7 +500,7 @@ export default function EmpresasParcerias() {
                           onChange={(e) => setFormData({ ...formData, cnpj: maskCNPJ(e.target.value) })}
                           placeholder="00.000.000/0000-00"
                           maxLength={18}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -518,7 +518,7 @@ export default function EmpresasParcerias() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="seu@empresa.com.br"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -537,7 +537,7 @@ export default function EmpresasParcerias() {
                           onChange={(e) => setFormData({ ...formData, celular: maskPhone(e.target.value) })}
                           placeholder="(11) 99999-9999"
                           maxLength={15}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -554,7 +554,7 @@ export default function EmpresasParcerias() {
                           value={formData.cargo}
                           onChange={(e) => setFormData({ ...formData, cargo: e.target.value })}
                           placeholder="Seu cargo na empresa"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -570,7 +570,7 @@ export default function EmpresasParcerias() {
                       <select
                         value={formData.segmento}
                         onChange={(e) => setFormData({ ...formData, segmento: e.target.value })}
-                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors appearance-none bg-white"
+                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors appearance-none bg-white"
                       >
                         <option value="">Selecione o segmento</option>
                         <option value="Banco / Instituição Financeira">Banco / Instituição Financeira</option>
@@ -592,7 +592,7 @@ export default function EmpresasParcerias() {
                       <select
                         value={formData.tamanhoBase}
                         onChange={(e) => setFormData({ ...formData, tamanhoBase: e.target.value })}
-                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors appearance-none bg-white"
+                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors appearance-none bg-white"
                       >
                         <option value="">Selecione</option>
                         <option value="Até 1.000">Até 1.000</option>
@@ -614,7 +614,7 @@ export default function EmpresasParcerias() {
                       onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
                       placeholder="Conte-nos mais sobre o tipo de parceria que tem em mente..."
                       rows={4}
-                      className="w-full px-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors resize-none"
+                      className="w-full px-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors resize-none"
                     />
                   </div>
 

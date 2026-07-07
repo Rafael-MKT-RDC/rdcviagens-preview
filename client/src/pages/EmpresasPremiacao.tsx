@@ -320,17 +320,17 @@ export default function EmpresasPremiacao() {
       </section>
 
       {/* Pain Points - Desafios do RH */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               Desafios Corporativos
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Sua empresa enfrenta esses desafios?
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Se a resposta for sim para algum desses pontos, o <strong>RDC Premiação</strong> 
               é a solução que faltava para engajar públicos, incentivar resultados e fortalecer relacionamentos.
             </p>
@@ -416,18 +416,18 @@ export default function EmpresasPremiacao() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               <Sparkles className="w-4 h-4 mr-2" />
               Impacto para sua empresa
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Resultados que a sua empresa pode medir
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               O RDC Premiação gera impacto nos <strong>KPIs que mais importam</strong> 
               para as frentes de incentivo da sua empresa.
             </p>
@@ -455,18 +455,18 @@ export default function EmpresasPremiacao() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="zoom-in">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               <Target className="w-4 h-4 mr-2" />
               Como funciona
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Implementação simples e sem custos fixos
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Uma solução completa que proporciona <strong>autonomia na gestão, com máxima simplicidade operacional</strong>
             </p>
           </div>
@@ -501,19 +501,19 @@ export default function EmpresasPremiacao() {
       </section>
 
       {/* Formulário de Contato */}
-      <section id="formulario-premiacao" className="py-16 md:py-20 bg-white">
+      <section id="formulario-premiacao" className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+              <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
                 <Plane className="w-4 h-4 mr-2" />
                 Solicite uma proposta
               </Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
                 Leve o RDC Premiação para sua empresa
               </h2>
-              <p className="text-lg text-[#555555]">
+              <p className="text-lg text-[#C7D3E0]">
                 Preencha o formulário e nossa <strong>equipe de consultoria corporativa</strong> entrará em contato 
                 para apresentar uma proposta personalizada para sua empresa.
               </p>
@@ -541,7 +541,7 @@ export default function EmpresasPremiacao() {
                           value={formData.nome}
                           onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                           placeholder="Seu nome completo"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -559,7 +559,7 @@ export default function EmpresasPremiacao() {
                           value={formData.empresa}
                           onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
                           placeholder="Nome da empresa"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -577,7 +577,7 @@ export default function EmpresasPremiacao() {
                           onChange={(e) => setFormData({ ...formData, cnpj: maskCNPJ(e.target.value) })}
                           placeholder="00.000.000/0000-00"
                           maxLength={18}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -595,7 +595,7 @@ export default function EmpresasPremiacao() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="seu@empresa.com.br"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -614,7 +614,7 @@ export default function EmpresasPremiacao() {
                           onChange={(e) => setFormData({ ...formData, celular: maskPhone(e.target.value) })}
                           placeholder="(11) 99999-9999"
                           maxLength={15}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors"
                         />
                       </div>
                     </div>
@@ -629,7 +629,7 @@ export default function EmpresasPremiacao() {
                         <select
                           value={formData.cargo}
                           onChange={(e) => setFormData({ ...formData, cargo: e.target.value })}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors appearance-none bg-white"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors appearance-none bg-white"
                         >
                           <option value="">Selecione seu cargo</option>
                           <option value="CHRO / VP de RH">CHRO / VP de RH</option>
@@ -656,7 +656,7 @@ export default function EmpresasPremiacao() {
                       <select
                         value={formData.numColaboradores}
                         onChange={(e) => setFormData({ ...formData, numColaboradores: e.target.value })}
-                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors appearance-none bg-white"
+                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors appearance-none bg-white"
                       >
                         <option value="">Selecione</option>
                         <option value="1-10">1 a 10</option>
@@ -678,7 +678,7 @@ export default function EmpresasPremiacao() {
                       <select
                         value={formData.objetivo}
                         onChange={(e) => setFormData({ ...formData, objetivo: e.target.value })}
-                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors appearance-none bg-white"
+                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors appearance-none bg-white"
                       >
                         <option value="">Selecione o objetivo principal</option>
                         <option value="Benefício para colaboradores">Benefício para colaboradores</option>
@@ -702,7 +702,7 @@ export default function EmpresasPremiacao() {
                       onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
                       placeholder="Conte-nos mais sobre as necessidades da sua empresa..."
                       rows={4}
-                      className="w-full px-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors resize-none"
+                      className="w-full px-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-[#FF9100] transition-colors resize-none"
                     />
                   </div>
 

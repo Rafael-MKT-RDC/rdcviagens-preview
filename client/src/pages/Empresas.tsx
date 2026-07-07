@@ -75,7 +75,7 @@ const solutions = [
   {
     id: "travelcloud",
     icon: Plane,
-    logo: "/logos/b2b/logo-gestao.svg",
+    logo: "/logos/b2b/logo-travelcloud.svg",
     title: "RDC Travel Cloud",
     subtitle: "Viagens dentro do seu ecossistema.",
     description: "Plataforma white label que permite que parceiros ofereçam viagens dentro de seus próprios ambientes digitais, com toda a operação turística especializada da RDC nos bastidores.",
@@ -172,14 +172,14 @@ export default function Empresas() {
       </section>
 
       {/* Solutions Section */}
-      <section id="solucoes" className="py-16 md:py-20 bg-white">
+      <section id="solucoes" className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Soluções para cada necessidade da sua empresa
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Cada uma voltada para atender diferentes necessidades da sua empresa: <strong>eficiência, engajar pessoas e gerar oportunidades de negócio</strong>. 
               Escolha a solução ideal para o momento da sua empresa.
             </p>
@@ -191,7 +191,7 @@ export default function Empresas() {
               const colorMap: Record<string, { iconBg: string; iconText: string; subtitle: string; check: string; btnBg: string; btnHover: string; badgeBg: string; badgeText: string }> = {
                 gestao: { iconBg: "bg-[#F6F6F6]", iconText: "text-[#E07F00]", subtitle: "text-[#E07F00]", check: "text-[#FF9100]", btnBg: "bg-[#FF9100]", btnHover: "hover:bg-[#E07F00]", badgeBg: "bg-[#FF9100]", badgeText: "text-white" },
                 premiacao: { iconBg: "bg-[#F6F6F6]", iconText: "text-[#E07F00]", subtitle: "text-[#E07F00]", check: "text-[#E07F00]", btnBg: "bg-[#FF9100]", btnHover: "hover:bg-[#E07F00]", badgeBg: "bg-[#FF9100]", badgeText: "text-[#2D2D2D]" },
-                parcerias: { iconBg: "bg-[#F6F6F6]", iconText: "text-[#FF9100]", subtitle: "text-[#FF9100]", check: "text-[#FF9100]", btnBg: "bg-violet-600", btnHover: "hover:bg-[#E07F00]", badgeBg: "bg-violet-600", badgeText: "text-white" },
+                parcerias: { iconBg: "bg-[#F6F6F6]", iconText: "text-[#FF9100]", subtitle: "text-[#FF9100]", check: "text-[#FF9100]", btnBg: "bg-[#FF9100]", btnHover: "hover:bg-[#E07F00]", badgeBg: "bg-[#FF9100]", badgeText: "text-white" },
                 travelcloud: { iconBg: "bg-[#F6F6F6]", iconText: "text-[#E07F00]", subtitle: "text-[#FF9100]", check: "text-[#FF9100]", btnBg: "bg-[#FF9100]", btnHover: "hover:bg-[#E07F00]", badgeBg: "bg-[#FF9100]", badgeText: "text-white" },
               };
               const colors = colorMap[solution.id] || colorMap.gestao;
@@ -206,23 +206,23 @@ export default function Empresas() {
                     alt={solution.title} 
                     className="h-12 md:h-14 w-auto mb-6" 
                   />
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#2D2D2D] mb-2">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                     {solution.title}
                   </h3>
                   <p className={`${colors.subtitle} font-medium mb-2`}>
                     {solution.subtitle}
                   </p>
-                  <p className="text-sm text-[#777777] mb-4">
+                  <p className="text-sm text-[#9FB2C2] mb-4">
                     {solution.audience}
                   </p>
-                  <p className="text-[#555555] mb-6 leading-relaxed">
+                  <p className="text-[#C7D3E0] mb-6 leading-relaxed">
                     {solution.description}
                   </p>
                   <ul className="space-y-3 mb-8">
                     {solution.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-3">
                         <Check className={`w-5 h-5 ${colors.check} flex-shrink-0`} />
-                        <span className="text-[#404040]">{feature}</span>
+                        <span className="text-[#DCE6EF]">{feature}</span>
                       </li>
                     ))}
                   </ul>

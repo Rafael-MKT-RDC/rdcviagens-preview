@@ -295,17 +295,17 @@ export default function EmpresasGestao() {
       </section>
 
       {/* Pain Points Section */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               Sua empresa se identifica?
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Desafios que conhecemos bem
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Se sua empresa enfrenta algum desses problemas, a <strong>RDC Gestão de Viagens</strong> 
               é a solução que você precisa.
             </p>
@@ -359,18 +359,18 @@ export default function EmpresasGestao() {
       </section>
 
       {/* Solutions Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               <Settings className="w-4 h-4 mr-2" />
               Como resolvemos
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Tudo que sua empresa precisa em um só lugar
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Uma solução pensada para o dia a dia de PMEs que precisam de 
               <strong>agilidade, economia e controle</strong>.
             </p>
@@ -406,18 +406,18 @@ export default function EmpresasGestao() {
       </section>
 
       {/* For Who Section */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="zoom-in">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
+            <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">
               <Users className="w-4 h-4 mr-2" />
               Para quem é
             </Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Feito para quem toma decisões
             </h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">
+            <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">
               Se você é responsável por <strong>organizar, aprovar ou gerenciar viagens</strong> 
               na sua empresa, essa solução é para você.
             </p>
