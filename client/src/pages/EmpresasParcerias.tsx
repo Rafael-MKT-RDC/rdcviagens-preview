@@ -247,13 +247,13 @@ export default function EmpresasParcerias() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://private-us-east-1.manuscdn.com/sessionFile/OPAJZzSDsUMxkZVwUha8Gs/sandbox/WRvIlNunEXhMeqmbWFNZpX-img-1_1771874609000_na1fn_cGFyY2VyaWFzLWhlcm8tYmctdjI.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1BBSlp6U0RzVU14a1pWd1VoYThHcy9zYW5kYm94L1dSdklsTnVuRVhoTWVxbWJXRk5acFgtaW1nLTFfMTc3MTg3NDYwOTAwMF9uYTFmbl9jR0Z5WTJWeWFXRnpMV2hsY204dFltY3RkakkuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Wwr0F7DoAlgimCSMGmG25SEPTNjTdKCOW5PRIld7MwIeFtvnAnT~EVumN711fAkmsx48mzOX1HKxq4Zb7k1rIaCXQ3VzZnEO3K5-wPSKP4na9iU~tZWY16bcAQ6WjI6RwtYTz14MRdkus0GXo3dn9ES8YT2tX2625y0FVTzOIkx0SPEZuXAP77xPNwsVaW7fFD1u1BasbGFqJzHfbCoIzi4t867EYIi7iSUOKOCGfK~NZrBlNDIQEby5Umju5JGe09xsErYISd1ShEX264k4dwdRaye7hHTEAgRW3BoukDCbBJuixhC9Xn96hj-K3YHlBrVn8CTXB8o~9q7CVCOlMw__" 
             alt="RDC Parcerias"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#00148A]/95 via-[#00148A]/80 to-[#00148A]/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#082B41]/95 via-[#082B41]/80 to-[#082B41]/60"></div>
         </div>
         
         <div className="container relative z-10">
@@ -269,27 +269,27 @@ export default function EmpresasParcerias() {
               alt="RDC Parcerias" 
               className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" 
             />
-            <Badge className="mb-4 bg-[#9B6AE0] hover:bg-violet-700 text-white border-0">
+            <Badge className="mb-4 bg-[#E07F00] hover:bg-[#E07F00] text-white border-0">
               <Handshake className="w-4 h-4 mr-2" />
               {c.heroBadge ?? "Alianças Estratégicas"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               {c.heroTitulo ?? "Novas fronteiras de crescimento"}{" "}
-              <span className="text-[#B78AFF]">{c.heroDestaque ?? "para o seu negócio"}</span>
+              <span className="text-[#FF9100]">{c.heroDestaque ?? "para o seu negócio"}</span>
             </h1>
-            <p className="text-xl text-[#F0E4FF] mb-4">
+            <p className="text-xl text-[#F6F6F6] mb-4">
               A RDC conecta pessoas a experiências de viagem <strong className="text-white">há mais de 35 anos</strong>. 
               Agora, queremos conectar essa experiência ao seu negócio — criando uma oferta de viagens 
               que agrega valor à sua marca, engaja sua base e gera receita.
             </p>
-            <p className="text-lg text-[#DFC8FF] mb-8">
+            <p className="text-lg text-[#F6F6F6] mb-8">
               Para <strong>bancos, empresas, entidades e plataformas</strong> 
                que buscam <strong>diferenciação real</strong>.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
-                className="bg-[#9B6AE0] hover:bg-violet-700 text-white px-8 rounded-full"
+                className="bg-[#E07F00] hover:bg-[#E07F00] text-white px-8 rounded-full"
                 onClick={() => { const l = c.heroCtaLink ?? "#formulario-parcerias"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.heroCta ?? "Explorar parceria"}
@@ -305,7 +305,7 @@ export default function EmpresasParcerias() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
+            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
               <Zap className="w-4 h-4 mr-2" />
               Por que ser parceiro RDC
             </Badge>
@@ -322,7 +322,7 @@ export default function EmpresasParcerias() {
             {valueProps.map((prop, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                 <CardContent className="pt-6">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#9B6AE0] to-[#8050C0] flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#E07F00] to-[#E07F00] flex items-center justify-center mb-4">
                     <prop.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="font-semibold text-lg text-[#2D2D2D] mb-2">
@@ -344,7 +344,7 @@ export default function EmpresasParcerias() {
         <AnimateOnScroll variant="zoom-in">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
+            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
               <Target className="w-4 h-4 mr-2" />
               Perfis de Parceiros
             </Badge>
@@ -361,8 +361,8 @@ export default function EmpresasParcerias() {
             {partnerProfiles.map((profile, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-8">
-                  <div className="w-14 h-14 rounded-2xl bg-[#F0E4FF] flex items-center justify-center mb-6">
-                    <profile.icon className="w-7 h-7 text-[#8050C0]" />
+                  <div className="w-14 h-14 rounded-2xl bg-[#F6F6F6] flex items-center justify-center mb-6">
+                    <profile.icon className="w-7 h-7 text-[#E07F00]" />
                   </div>
                   <h3 className="text-xl font-bold text-[#2D2D2D] mb-3">
                     {profile.title}
@@ -373,7 +373,7 @@ export default function EmpresasParcerias() {
                   <ul className="space-y-3">
                     {profile.opportunities.map((item, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-[#B78AFF] flex-shrink-0 mt-0.5" />
+                        <Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" />
                         <span className="text-[#404040] text-sm">{item}</span>
                       </li>
                     ))}
@@ -391,7 +391,7 @@ export default function EmpresasParcerias() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
+            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
               <LayoutGrid className="w-4 h-4 mr-2" />
               Como funciona
             </Badge>
@@ -407,7 +407,7 @@ export default function EmpresasParcerias() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {howItWorks.map((item, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#9B6AE0] to-[#8050C0] flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#E07F00] to-[#E07F00] flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
                   {item.step}
                 </div>
                 <h3 className="font-semibold text-lg text-[#2D2D2D] mb-2">
@@ -429,7 +429,7 @@ export default function EmpresasParcerias() {
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
+              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
                 <Handshake className="w-4 h-4 mr-2" />
                 Vamos conversar
               </Badge>
@@ -464,7 +464,7 @@ export default function EmpresasParcerias() {
                           value={formData.nome}
                           onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                           placeholder="Seu nome completo"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#B78AFF] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -482,7 +482,7 @@ export default function EmpresasParcerias() {
                           value={formData.empresa}
                           onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
                           placeholder="Nome da empresa ou instituição"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#B78AFF] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -500,7 +500,7 @@ export default function EmpresasParcerias() {
                           onChange={(e) => setFormData({ ...formData, cnpj: maskCNPJ(e.target.value) })}
                           placeholder="00.000.000/0000-00"
                           maxLength={18}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#B78AFF] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -518,7 +518,7 @@ export default function EmpresasParcerias() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="seu@empresa.com.br"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#B78AFF] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -537,7 +537,7 @@ export default function EmpresasParcerias() {
                           onChange={(e) => setFormData({ ...formData, celular: maskPhone(e.target.value) })}
                           placeholder="(11) 99999-9999"
                           maxLength={15}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#B78AFF] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -554,7 +554,7 @@ export default function EmpresasParcerias() {
                           value={formData.cargo}
                           onChange={(e) => setFormData({ ...formData, cargo: e.target.value })}
                           placeholder="Seu cargo na empresa"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#B78AFF] focus:border-violet-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -570,7 +570,7 @@ export default function EmpresasParcerias() {
                       <select
                         value={formData.segmento}
                         onChange={(e) => setFormData({ ...formData, segmento: e.target.value })}
-                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#B78AFF] focus:border-violet-500 transition-colors appearance-none bg-white"
+                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors appearance-none bg-white"
                       >
                         <option value="">Selecione o segmento</option>
                         <option value="Banco / Instituição Financeira">Banco / Instituição Financeira</option>
@@ -592,7 +592,7 @@ export default function EmpresasParcerias() {
                       <select
                         value={formData.tamanhoBase}
                         onChange={(e) => setFormData({ ...formData, tamanhoBase: e.target.value })}
-                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#B78AFF] focus:border-violet-500 transition-colors appearance-none bg-white"
+                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors appearance-none bg-white"
                       >
                         <option value="">Selecione</option>
                         <option value="Até 1.000">Até 1.000</option>
@@ -614,14 +614,14 @@ export default function EmpresasParcerias() {
                       onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
                       placeholder="Conte-nos mais sobre o tipo de parceria que tem em mente..."
                       rows={4}
-                      className="w-full px-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#B78AFF] focus:border-violet-500 transition-colors resize-none"
+                      className="w-full px-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-violet-500 transition-colors resize-none"
                     />
                   </div>
 
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-[#9B6AE0] hover:bg-violet-700 text-white py-4 rounded-2xl text-lg"
+                    className="w-full bg-[#E07F00] hover:bg-[#E07F00] text-white py-4 rounded-2xl text-lg"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -655,7 +655,7 @@ export default function EmpresasParcerias() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-[#F0E4FF] text-[#8050C0] border-0">
+            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
               Perguntas Frequentes
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
@@ -676,22 +676,22 @@ export default function EmpresasParcerias() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-[#00148A] via-[#001070] to-[#00148A] text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41] text-white">
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <Handshake className="w-16 h-16 text-[#B78AFF] mx-auto mb-6" />
+            <Handshake className="w-16 h-16 text-[#FF9100] mx-auto mb-6" />
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
               {c.ctaTitulo ?? "Grandes parcerias começam com uma boa conversa"}
             </h2>
-            <p className="text-lg text-[#DFC8FF] mb-8">
+            <p className="text-lg text-[#F6F6F6] mb-8">
               Se você enxerga em viagens uma <strong>oportunidade estratégica</strong> para o seu negócio, 
               estamos prontos para explorar esse caminho juntos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-[#9B6AE0] hover:bg-violet-700 text-white px-8"
+                className="bg-[#E07F00] hover:bg-[#E07F00] text-white px-8"
                 onClick={() => { const l = c.ctaBotaoLink ?? "#formulario-parcerias"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.ctaBotao ?? "Explorar parceria"}

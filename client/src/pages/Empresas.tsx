@@ -135,32 +135,32 @@ export default function Empresas() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://private-us-east-1.manuscdn.com/sessionFile/OPAJZzSDsUMxkZVwUha8Gs/sandbox/UwjsP9SnZnOCoDdkW5bcgs-img-1_1771435428000_na1fn_Y29ycC1oZXJvLXYy.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT1BBSlp6U0RzVU14a1pWd1VoYThHcy9zYW5kYm94L1V3anNQOVNuWm5PQ29EZGtXNWJjZ3MtaW1nLTFfMTc3MTQzNTQyODAwMF9uYTFmbl9ZMjl5Y0Mxb1pYSnZMWFl5LmpwZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=hTF~Y4M8sdSkkXwzVe-RQGxbqFgUr0tn7T83aUdmQWV5Y8A7-4wEsBDNFcMGPYcmNxkf3VaI9XekB8VAsRcUvc5UGoKAvfVLd~E7hXQr755m0138F~2U2MF8OeHLH47SXTiv3emZnP~aY63yhsgeU8ZL9kosIP70s4eDock3yxk3tU9RMHMgo-gwp5m495TuYiKfz1seR~swf2QLS1B2bBGapo3NUEv8P5mrFTF31XgrSVsqd7AaM0rOLvg-CeF3o8DFclewKzab3xN~m~fQHk9d8g8Vshpk5vaf3-MKwDFb1qKF9vqDPTdC8aY-uj8TJAOZxnz~B0L1ebnneGaf9Q__" 
             alt="Soluções Corporativas RDC Viagens"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#00148A]/95 via-[#00148A]/80 to-[#00148A]/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#082B41]/95 via-[#082B41]/80 to-[#082B41]/50"></div>
         </div>
         
         <div className="container relative z-10">
           <div className="max-w-3xl">
-            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">
+            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-white border-0">
               {c.heroBadge ?? "Soluções Corporativas"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               {c.heroTitulo ?? "Viagens a serviço do"}{" "}
               <span className="text-[#FF9100]">{c.heroDestaque ?? "seu negócio"}</span>
             </h1>
-            <p className="text-xl text-[#C7E5F3] mb-8">
+            <p className="text-xl text-[#DCE6EF] mb-8">
               <strong>Viagens corporativas</strong>, <strong>programas de incentivo</strong> e a <strong>unidade de parcerias 
               estratégicas</strong> que impulsiona novos negócios e potencializa resultados para a sua empresa.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
-                className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full"
+                className="bg-[#FF9100] hover:bg-[#E07F00] text-white px-8 rounded-full"
                 onClick={() => { const l = c.heroCtaLink ?? "#solucoes"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.heroCta ?? "Conhecer soluções"}
@@ -189,10 +189,10 @@ export default function Empresas() {
             {solutions.map((solution, index) => {
               // Cores por vertical
               const colorMap: Record<string, { iconBg: string; iconText: string; subtitle: string; check: string; btnBg: string; btnHover: string; badgeBg: string; badgeText: string }> = {
-                gestao: { iconBg: "bg-[#FAD0D8]", iconText: "text-[#D04058]", subtitle: "text-[#D04058]", check: "text-[#E8506A]", btnBg: "bg-[#E8506A]", btnHover: "hover:bg-rose-700", badgeBg: "bg-[#E8506A]", badgeText: "text-white" },
-                premiacao: { iconBg: "bg-[#FFF0D6]", iconText: "text-[#CC7400]", subtitle: "text-[#CC7400]", check: "text-[#E68200]", btnBg: "bg-[#FF9100]", btnHover: "hover:bg-[#E68200]", badgeBg: "bg-[#FF9100]", badgeText: "text-[#2D2D2D]" },
-                parcerias: { iconBg: "bg-[#F0E4FF]", iconText: "text-[#9B6AE0]", subtitle: "text-[#9B6AE0]", check: "text-[#B78AFF]", btnBg: "bg-violet-600", btnHover: "hover:bg-violet-700", badgeBg: "bg-violet-600", badgeText: "text-white" },
-                travelcloud: { iconBg: "bg-[#E0F7FA]", iconText: "text-[#0077B6]", subtitle: "text-[#00B4D8]", check: "text-[#00B4D8]", btnBg: "bg-[#00B4D8]", btnHover: "hover:bg-[#0096B4]", badgeBg: "bg-[#00B4D8]", badgeText: "text-white" },
+                gestao: { iconBg: "bg-[#F6F6F6]", iconText: "text-[#E07F00]", subtitle: "text-[#E07F00]", check: "text-[#FF9100]", btnBg: "bg-[#FF9100]", btnHover: "hover:bg-[#E07F00]", badgeBg: "bg-[#FF9100]", badgeText: "text-white" },
+                premiacao: { iconBg: "bg-[#F6F6F6]", iconText: "text-[#E07F00]", subtitle: "text-[#E07F00]", check: "text-[#E07F00]", btnBg: "bg-[#FF9100]", btnHover: "hover:bg-[#E07F00]", badgeBg: "bg-[#FF9100]", badgeText: "text-[#2D2D2D]" },
+                parcerias: { iconBg: "bg-[#F6F6F6]", iconText: "text-[#FF9100]", subtitle: "text-[#FF9100]", check: "text-[#FF9100]", btnBg: "bg-violet-600", btnHover: "hover:bg-[#E07F00]", badgeBg: "bg-violet-600", badgeText: "text-white" },
+                travelcloud: { iconBg: "bg-[#F6F6F6]", iconText: "text-[#E07F00]", subtitle: "text-[#FF9100]", check: "text-[#FF9100]", btnBg: "bg-[#FF9100]", btnHover: "hover:bg-[#E07F00]", badgeBg: "bg-[#FF9100]", badgeText: "text-white" },
               };
               const colors = colorMap[solution.id] || colorMap.gestao;
               return (
@@ -239,7 +239,7 @@ export default function Empresas() {
                       alt={solution.title}
                       className="w-full h-[350px] object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#00148A]/60 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#082B41]/60 to-transparent"></div>
                     <div className="absolute bottom-6 left-6 right-6">
                       <Badge className={`${colors.badgeBg} ${colors.badgeText} border-0`}>
                         {solution.title}
@@ -273,8 +273,8 @@ export default function Empresas() {
             {differentials.map((item, index) => (
               <Card key={index} className="border-0 shadow-lg">
                 <CardContent className="pt-4 md:pt-6 px-3 md:px-6">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#FFF0D6] flex items-center justify-center mb-3 md:mb-4">
-                    <item.icon className="w-5 h-5 md:w-6 md:h-6 text-[#E68200]" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#F6F6F6] flex items-center justify-center mb-3 md:mb-4">
+                    <item.icon className="w-5 h-5 md:w-6 md:h-6 text-[#E07F00]" />
                   </div>
                   <h3 className="font-semibold text-sm md:text-lg text-[#2D2D2D] mb-1 md:mb-2">
                     {item.title}
@@ -291,20 +291,20 @@ export default function Empresas() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-[#00148A] text-white">
+      <section className="py-16 md:py-20 bg-[#082B41] text-white">
         <AnimateOnScroll variant="zoom-in">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
               {c.ctaTitulo ?? "Não sabe qual solução é a ideal?"}
             </h2>
-            <p className="text-lg text-[#8ECAE6] mb-8">
+            <p className="text-lg text-[#C7D3E0] mb-8">
               Fale com nossa equipe. Vamos entender o cenário da sua empresa 
               e indicar o caminho que faz <strong>mais sentido para os seus objetivos</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contato">
-                <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8">
+                <Button size="lg" className="bg-[#FF9100] hover:bg-[#E07F00] text-white px-8">
                   {c.ctaBotao ?? "Falar com a equipe"}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

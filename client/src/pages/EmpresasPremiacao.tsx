@@ -268,13 +268,13 @@ export default function EmpresasPremiacao() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-29 pb-16 md:pt-34 md:pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/GimvoAfcHdbhLYXE.jpg" 
             alt="RDC Premiação"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#00148A]/95 via-[#00148A]/80 to-[#00148A]/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#082B41]/95 via-[#082B41]/80 to-[#082B41]/60"></div>
         </div>
         
         <div className="container relative z-10">
@@ -290,25 +290,25 @@ export default function EmpresasPremiacao() {
               alt="RDC Premiação" 
               className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" 
             />
-            <Badge className="mb-4 bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] border-0">
+            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#FF9100] text-[#2D2D2D] border-0">
               <Plane className="w-4 h-4 mr-2" />
               {c.heroBadge ?? "Incentivo Corporativo"}
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               {c.heroTitulo ?? "Viagens que transformam"}{" "}
-              <span className="text-[#F5B800]">{c.heroDestaque ?? "resultados"}</span>
+              <span className="text-[#FF9100]">{c.heroDestaque ?? "resultados"}</span>
             </h1>
-            <p className="text-xl text-[#FDF0C0] mb-4">
+            <p className="text-xl text-[#F6F6F6] mb-4">
               Uma solução estratégica para áreas como <strong className="text-white">RH, Marketing e Comercial</strong> que buscam 
               engajar públicos e impulsionar resultados com colaboradores, clientes e parceiros.
             </p>
-            <p className="text-lg text-[#FAE080] mb-8">
+            <p className="text-lg text-[#F6F6F6] mb-8">
               Viagens como <strong>ferramenta de incentivo</strong> — engaje, gere valor e crie experiências memoráveis.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
-                className="bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] px-8 rounded-full"
+                className="bg-[#FF9100] hover:bg-[#FF9100] text-[#2D2D2D] px-8 rounded-full"
                 onClick={() => { const l = c.heroCtaLink ?? "#formulario-premiacao"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.heroCta ?? "Solicitar proposta"}
@@ -324,7 +324,7 @@ export default function EmpresasPremiacao() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#FEE2E2] text-[#B91C1C] border-0">
+            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
               Desafios Corporativos
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
@@ -340,7 +340,7 @@ export default function EmpresasPremiacao() {
             {painPoints.map((point, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 bg-white">
                 <CardContent className="pt-6">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#E8506A] to-[#D4A000] flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF9100] to-[#E07F00] flex items-center justify-center mb-4">
                     <point.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="font-semibold text-lg text-[#2D2D2D] mb-2">
@@ -358,18 +358,18 @@ export default function EmpresasPremiacao() {
       </section>
 
       {/* Market Stats Section - Números de Mercado */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-[#00148A] via-[#001070] to-[#00148A]">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41]">
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="text-center mb-14">
-            <Badge className="mb-4 bg-[#F5B800]/20 text-[#F7CC40] border-0">
+            <Badge className="mb-4 bg-[#FF9100]/20 text-[#FF9100] border-0">
               <BarChart3 className="w-4 h-4 mr-2" />
               Dados de Mercado
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
               Números que comprovam: viagens são o melhor incentivo
             </h2>
-            <p className="text-lg text-[#FAE080] max-w-2xl mx-auto">
+            <p className="text-lg text-[#F6F6F6] max-w-2xl mx-auto">
               Pesquisas internacionais mostram que <strong>viagens como premiação</strong> geram resultados 
               superiores a qualquer outro tipo de recompensa — dados essenciais para o business case de áreas como RH, Marketing e Comercial.
             </p>
@@ -380,22 +380,22 @@ export default function EmpresasPremiacao() {
               <Card key={index} className="border-0 bg-white/10 backdrop-blur-sm hover:bg-white/15 transition-colors">
                 <CardContent className="pt-6 text-center">
                   <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
-                    <stat.icon className="w-7 h-7 text-[#F5B800]" />
+                    <stat.icon className="w-7 h-7 text-[#FF9100]" />
                   </div>
                   <div className="text-3xl md:text-4xl font-bold text-white mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-[#F7CC40] font-medium mb-3">
+                  <div className="text-[#FF9100] font-medium mb-3">
                     {stat.label}
                   </div>
-                  <p className="text-[#FAE080] text-sm leading-relaxed mb-3">
+                  <p className="text-[#F6F6F6] text-sm leading-relaxed mb-3">
                     {stat.description}
                   </p>
                   <a
                     href={stat.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-[#F7CC40]/70 italic hover:text-[#F7CC40] transition-colors underline underline-offset-2"
+                    className="text-xs text-[#FF9100]/70 italic hover:text-[#FF9100] transition-colors underline underline-offset-2"
                   >
                     Fonte: {stat.source}
                   </a>
@@ -405,7 +405,7 @@ export default function EmpresasPremiacao() {
           </div>
 
           <div className="mt-10 text-center">
-            <p className="text-[#F7CC40] text-sm max-w-3xl mx-auto">
+            <p className="text-[#FF9100] text-sm max-w-3xl mx-auto">
               Colaboradores premiados com viagens relatam <strong className="text-white">maior senso de valorização</strong>{" "}
               e <strong className="text-white">aumento no sentimento de lealdade à empresa</strong> — indicadores que impactam diretamente 
               o NPS e os indicadores que sua empresa acompanha.
@@ -420,7 +420,7 @@ export default function EmpresasPremiacao() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#FDF0C0] text-[#C49300] border-0">
+            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
               <Sparkles className="w-4 h-4 mr-2" />
               Impacto para sua empresa
             </Badge>
@@ -437,7 +437,7 @@ export default function EmpresasPremiacao() {
             {benefits.map((benefit, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="pt-6">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F5B800] to-[#D4A000] flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF9100] to-[#E07F00] flex items-center justify-center mb-4">
                     <benefit.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="font-semibold text-lg text-[#2D2D2D] mb-2">
@@ -459,7 +459,7 @@ export default function EmpresasPremiacao() {
         <AnimateOnScroll variant="zoom-in">
         <div className="container">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#FDF0C0] text-[#C49300] border-0">
+            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
               <Target className="w-4 h-4 mr-2" />
               Como funciona
             </Badge>
@@ -475,7 +475,7 @@ export default function EmpresasPremiacao() {
             {features.map((feature, index) => (
               <Card key={index} className="border-0 shadow-lg">
                 <CardContent className="p-8">
-                  <div className="w-10 h-10 rounded-full bg-[#F5B800] text-[#2D2D2D] flex items-center justify-center font-bold mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#FF9100] text-[#2D2D2D] flex items-center justify-center font-bold mb-4">
                     {index + 1}
                   </div>
                   <h3 className="text-xl font-bold text-[#2D2D2D] mb-3">
@@ -487,7 +487,7 @@ export default function EmpresasPremiacao() {
                   <ul className="space-y-3">
                     {feature.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-[#F5B800] flex-shrink-0 mt-0.5" />
+                        <Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" />
                         <span className="text-[#404040] text-sm">{item}</span>
                       </li>
                     ))}
@@ -506,7 +506,7 @@ export default function EmpresasPremiacao() {
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4 bg-[#FDF0C0] text-[#C49300] border-0">
+              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
                 <Plane className="w-4 h-4 mr-2" />
                 Solicite uma proposta
               </Badge>
@@ -541,7 +541,7 @@ export default function EmpresasPremiacao() {
                           value={formData.nome}
                           onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                           placeholder="Seu nome completo"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#F5B800] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -559,7 +559,7 @@ export default function EmpresasPremiacao() {
                           value={formData.empresa}
                           onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
                           placeholder="Nome da empresa"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#F5B800] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -577,7 +577,7 @@ export default function EmpresasPremiacao() {
                           onChange={(e) => setFormData({ ...formData, cnpj: maskCNPJ(e.target.value) })}
                           placeholder="00.000.000/0000-00"
                           maxLength={18}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#F5B800] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -595,7 +595,7 @@ export default function EmpresasPremiacao() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="seu@empresa.com.br"
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#F5B800] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -614,7 +614,7 @@ export default function EmpresasPremiacao() {
                           onChange={(e) => setFormData({ ...formData, celular: maskPhone(e.target.value) })}
                           placeholder="(11) 99999-9999"
                           maxLength={15}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#F5B800] focus:border-amber-500 transition-colors"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -629,7 +629,7 @@ export default function EmpresasPremiacao() {
                         <select
                           value={formData.cargo}
                           onChange={(e) => setFormData({ ...formData, cargo: e.target.value })}
-                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#F5B800] focus:border-amber-500 transition-colors appearance-none bg-white"
+                          className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors appearance-none bg-white"
                         >
                           <option value="">Selecione seu cargo</option>
                           <option value="CHRO / VP de RH">CHRO / VP de RH</option>
@@ -656,7 +656,7 @@ export default function EmpresasPremiacao() {
                       <select
                         value={formData.numColaboradores}
                         onChange={(e) => setFormData({ ...formData, numColaboradores: e.target.value })}
-                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#F5B800] focus:border-amber-500 transition-colors appearance-none bg-white"
+                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors appearance-none bg-white"
                       >
                         <option value="">Selecione</option>
                         <option value="1-10">1 a 10</option>
@@ -678,7 +678,7 @@ export default function EmpresasPremiacao() {
                       <select
                         value={formData.objetivo}
                         onChange={(e) => setFormData({ ...formData, objetivo: e.target.value })}
-                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#F5B800] focus:border-amber-500 transition-colors appearance-none bg-white"
+                        className="w-full pl-11 pr-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors appearance-none bg-white"
                       >
                         <option value="">Selecione o objetivo principal</option>
                         <option value="Benefício para colaboradores">Benefício para colaboradores</option>
@@ -702,14 +702,14 @@ export default function EmpresasPremiacao() {
                       onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
                       placeholder="Conte-nos mais sobre as necessidades da sua empresa..."
                       rows={4}
-                      className="w-full px-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#F5B800] focus:border-amber-500 transition-colors resize-none"
+                      className="w-full px-4 py-3 border border-[#D6D6D6] rounded-2xl text-[#2D2D2D] placeholder-[#999999] focus:ring-2 focus:ring-[#FF9100] focus:border-amber-500 transition-colors resize-none"
                     />
                   </div>
 
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] py-4 rounded-2xl text-lg"
+                    className="w-full bg-[#FF9100] hover:bg-[#FF9100] text-[#2D2D2D] py-4 rounded-2xl text-lg"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -743,7 +743,7 @@ export default function EmpresasPremiacao() {
         <AnimateOnScroll variant="fade-up">
         <div className="container">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-[#FDF0C0] text-[#C49300] border-0">
+            <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">
               Perguntas Frequentes
             </Badge>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">
@@ -764,22 +764,22 @@ export default function EmpresasPremiacao() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-[#00148A] via-[#001070] to-[#00148A] text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41] text-white">
         <AnimateOnScroll variant="fade">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <Plane className="w-16 h-16 text-[#F5B800] mx-auto mb-6" />
+            <Plane className="w-16 h-16 text-[#FF9100] mx-auto mb-6" />
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
               {c.ctaTitulo ?? "Pronto para transformar a forma de conceder incentivos?"}
             </h2>
-            <p className="text-lg text-[#FAE080] mb-8">
+            <p className="text-lg text-[#F6F6F6] mb-8">
               Converse com nossa equipe de consultoria corporativa e descubra como o <strong>RDC Premiação</strong> 
               pode engajar públicos e impulsionar resultados na sua empresa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-[#F5B800] hover:bg-[#F5B800] text-[#2D2D2D] px-8"
+                className="bg-[#FF9100] hover:bg-[#FF9100] text-[#2D2D2D] px-8"
                 onClick={() => { const l = c.ctaBotaoLink ?? "#formulario-premiacao"; if (l.startsWith("#")) document.getElementById(l.slice(1))?.scrollIntoView({ behavior: "smooth" }); else if (/^https?:\/\//.test(l)) window.open(l, "_blank"); else window.location.assign(l); }}
               >
                 {c.ctaBotao ?? "Solicitar proposta"}
