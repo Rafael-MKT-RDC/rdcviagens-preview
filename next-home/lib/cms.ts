@@ -64,3 +64,15 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     return FALLBACK_SETTINGS;
   }
 }
+
+export interface RedeHoteleiraCMS { nome: string; descricao?: string; logo?: string }
+export async function getRedesHoteleiras(): Promise<RedeHoteleiraCMS[]> {
+  try {
+    const data = await sanityClient.fetch<RedeHoteleiraCMS[]>(
+      `*[_type == "redeHoteleira" && ativo == true] | order(ordem asc, nome asc){ nome, descricao, "logo": logo.asset->url }`
+    );
+    return data ?? [];
+  } catch {
+    return [];
+  }
+}
