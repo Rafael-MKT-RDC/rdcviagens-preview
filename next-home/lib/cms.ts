@@ -76,3 +76,13 @@ export async function getRedesHoteleiras(): Promise<RedeHoteleiraCMS[]> {
     return [];
   }
 }
+
+/** Busca genérica de um singleton de página por _type (ex.: "paginaSobre"). Fallback = {}. */
+export async function getPageDoc<T = Record<string, unknown>>(type: string): Promise<T> {
+  try {
+    const doc = await sanityClient.fetch<T | null>('*[_type == $type][0]', { type });
+    return (doc ?? {}) as T;
+  } catch {
+    return {} as T;
+  }
+}
