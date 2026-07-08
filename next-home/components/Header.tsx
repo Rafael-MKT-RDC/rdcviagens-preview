@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Mail, User, ChevronDown, Headset } from "lucide-react";
+import { Menu, X, User, ChevronDown, Headset } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { SiteSettings } from "@/lib/cms";
 
@@ -90,7 +90,6 @@ export default function Header({ settings }: { settings: SiteSettings }) {
             </nav>
 
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" className="hidden md:flex items-center gap-2"><Mail className="h-4 w-4" /><span>Newsletter</span></Button>
               <Button variant="outline" className="hidden md:flex"><User className="h-4 w-4 mr-2" />Portal do Assinante</Button>
               <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Abrir menu" onClick={() => setOpen(true)}><Menu className="h-6 w-6" /></Button>
             </div>

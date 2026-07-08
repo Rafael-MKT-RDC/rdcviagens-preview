@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import TrustBadges from "@/components/TrustBadges";
+import { CountUp } from "@/components/CountUp";
 import { heroSlides, stats as fallbackStats, corporateSolutions, redesHoteleiras, destinationCategories } from "@/lib/content";
 import { subscribeNewsletter, type NewsletterState } from "@/app/actions";
 import type { HomeContent } from "@/lib/cms";
@@ -28,12 +29,13 @@ const features = [
 const iconMap = { MapPin, Globe, Anchor, Sparkles } as const;
 const initialState: NewsletterState = { ok: false, message: "" };
 
-export default function HomeClient({ cms }: { cms: HomeContent }) {
+type Rede = { nome: string; descricao?: string; logo?: string };
+
+export default function HomeClient({ cms, redesCms = [] }: { cms: HomeContent; redesCms?: Rede[] }) {
   const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [state, formAction, pending] = useActionState(subscribeNewsletter, initialState);
 
-  // ---- CMS com fallback (SSR): edita no Sanity → reflete aqui ----
   const slides = cms.hero?.length
     ? cms.hero.map((h, i) => ({
         id: i,
@@ -46,6 +48,7 @@ export default function HomeClient({ cms }: { cms: HomeContent }) {
   const stats = cms.stats?.length ? cms.stats : fallbackStats;
   const corpData = corporateSolutions.map((s, i) => ({ ...s, ...(cms.corpSolucoes?.[i] ?? {}) }));
   const bullets = cms.assinaturasBullets?.length ? cms.assinaturasBullets : ["Planejamento facilitado", "Economia real", "Agência dedicada", "Não compromete o limite do cartão"];
+  const redes: Rede[] = redesCms.length ? redesCms : redesHoteleiras;
 
   useEffect(() => {
     const t = setInterval(() => setCurrentSlide((p) => (p + 1) % slides.length), 10000);
@@ -96,14 +99,14 @@ export default function HomeClient({ cms }: { cms: HomeContent }) {
         </div>
       </section>
 
-      {/* 2. Stats */}
+      {/* 2. Stats (contador animado) */}
       <section className="py-10 md:py-12 bg-[#00148A] text-white">
         <AnimateOnScroll>
           <div className="container">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-[#FF9100] mb-1">{stat.value}</div>
+                  <div className="text-3xl md:text-4xl font-bold text-[#FF9100] mb-1"><CountUp value={String(stat.value ?? "")} /></div>
                   <div className="text-sm text-[#8ECAE6]">{stat.label}</div>
                 </div>
               ))}
@@ -145,7 +148,7 @@ export default function HomeClient({ cms }: { cms: HomeContent }) {
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {features.map((f, i) => (
-                <Card key={i} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <Card key={i} className="border-0 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                   <CardContent className="pt-4 md:pt-6 px-3 md:px-6">
                     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#E8F4FA] flex items-center justify-center mb-3 md:mb-4"><f.icon className="w-5 h-5 md:w-6 md:h-6 text-[#001A9E]" /></div>
                     <h3 className="font-semibold text-sm md:text-lg text-[#2D2D2D] mb-1 md:mb-2">{cms.features?.[i]?.title ?? f.title}</h3>
@@ -158,7 +161,7 @@ export default function HomeClient({ cms }: { cms: HomeContent }) {
         </AnimateOnScroll>
       </section>
 
-      {/* 5. Redes Hoteleiras */}
+      {/* 5. Redes Hoteleiras (faixa contínua) */}
       <section className="py-12 md:py-16 bg-white">
         <AnimateOnScroll>
           <div className="container">
@@ -167,15 +170,27 @@ export default function HomeClient({ cms }: { cms: HomeContent }) {
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-3">{cms.redesTitulo ?? "Redes hoteleiras parceiras"}</h2>
               <p className="text-[#555555] max-w-2xl mx-auto">{cms.redesSubtitulo ?? "Hospede-se nas maiores e melhores redes do Brasil e do mundo. Todas disponíveis para nossos assinantes."}</p>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
-              {redesHoteleiras.map((rede) => (
-                <div key={rede.nome} className="bg-[#F6F6F6] rounded-2xl p-4 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                  <div className="w-10 h-10 mb-2 rounded-full bg-[#001A9E]/10 flex items-center justify-center"><Hotel className="w-5 h-5 text-[#001A9E]" /></div>
-                  <span className="font-semibold text-sm text-[#2D2D2D]">{rede.nome}</span>
-                  <span className="text-[11px] text-[#777777] leading-tight mt-1">{rede.descricao}</span>
+          </div>
+          <div className="marquee py-2">
+            <div className="marquee-track gap-4">
+              {[...redes, ...redes].map((rede, i) => (
+                <div key={rede.nome + i} className="shrink-0 w-56 bg-[#F6F6F6] rounded-2xl p-4 flex items-center gap-3">
+                  {rede.logo ? (
+                    <span className="w-11 h-11 rounded-xl bg-white shadow-sm flex items-center justify-center overflow-hidden shrink-0">
+                      <Image src={rede.logo} alt={rede.nome} width={44} height={44} className="w-8 h-8 object-contain" />
+                    </span>
+                  ) : (
+                    <span className="w-11 h-11 rounded-xl bg-[#001A9E]/10 flex items-center justify-center shrink-0"><Hotel className="w-5 h-5 text-[#001A9E]" /></span>
+                  )}
+                  <span className="min-w-0 text-left">
+                    <span className="block font-semibold text-sm text-[#2D2D2D] truncate">{rede.nome}</span>
+                    <span className="block text-[11px] text-[#777777] leading-tight truncate">{rede.descricao}</span>
+                  </span>
                 </div>
               ))}
             </div>
+          </div>
+          <div className="container">
             <div className="text-center mt-8">
               <p className="text-sm text-[#777777] mb-4">{cms.redesNota ?? "E mais de 16 redes e milhares de hotéis independentes em todo o mundo."}</p>
               <Link href="/destinos"><Button variant="outline">{cms.redesCta ?? "Ver todos os destinos"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
@@ -217,24 +232,28 @@ export default function HomeClient({ cms }: { cms: HomeContent }) {
 
       {/* 7. RDC Assinaturas */}
       <section className="py-16 md:py-20 bg-white">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge className="mb-4 bg-[#FFF0D6] text-[#CC7400]">{cms.assinaturasBadge ?? "Para você e sua família"}</Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.assinaturasTitulo ?? "RDC Assinaturas"}</h2>
-              <p className="text-base md:text-xl text-[#555555] mb-4 md:mb-6"><strong>O jeito inteligente de viajar o ano todo.</strong> Com uma mensalidade acessível, você viaja <strong>mais vezes</strong>, para <strong>mais destinos</strong>, com quem você ama.</p>
-              <div className="bg-[#F6F6F6] rounded-2xl p-6 mb-6">
-                <h3 className="font-semibold text-lg text-[#2D2D2D] mb-2">{cms.assinaturasCardTitulo ?? "Assinatura de Viagens"}</h3>
-                <p className="text-[#555555] text-sm mb-4">Hospedagem em hotéis e resorts com <strong>economia de até 60%</strong>. Planeje suas viagens ao longo do ano com <strong>previsibilidade</strong> e o suporte de uma <strong>agência dedicada</strong>.</p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {bullets.map((item) => (<li key={item} className="flex items-center gap-2 text-sm text-[#404040]"><Check className="w-4 h-4 text-[#FF9100]" />{item}</li>))}
-                </ul>
+        <AnimateOnScroll>
+          <div className="container">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <Badge className="mb-4 bg-[#FFF0D6] text-[#CC7400]">{cms.assinaturasBadge ?? "Para você e sua família"}</Badge>
+                <h2 className="mb-4">
+                  <Image src="/logos/b2c/RDC_assinaturas.png" alt={cms.assinaturasTitulo ?? "RDC Assinaturas"} width={264} height={99} className="h-11 md:h-14 w-auto" />
+                </h2>
+                <p className="text-base md:text-xl text-[#555555] mb-4 md:mb-6"><strong>O jeito inteligente de viajar o ano todo.</strong> Com uma mensalidade acessível, você viaja <strong>mais vezes</strong>, para <strong>mais destinos</strong>, com quem você ama.</p>
+                <div className="bg-[#F6F6F6] rounded-2xl p-6 mb-6">
+                  <h3 className="font-semibold text-lg text-[#2D2D2D] mb-2">{cms.assinaturasCardTitulo ?? "Assinatura de Viagens"}</h3>
+                  <p className="text-[#555555] text-sm mb-4">Hospedagem em hotéis e resorts com <strong>economia de até 60%</strong>. Planeje suas viagens ao longo do ano com <strong>previsibilidade</strong> e o suporte de uma <strong>agência dedicada</strong>.</p>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {bullets.map((item) => (<li key={item} className="flex items-center gap-2 text-sm text-[#404040]"><Check className="w-4 h-4 text-[#FF9100]" />{item}</li>))}
+                  </ul>
+                </div>
+                <Link href="/assinaturas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white">{cms.assinaturasCta ?? "Conhecer planos"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
               </div>
-              <Link href="/assinaturas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white">{cms.assinaturasCta ?? "Conhecer planos"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <div><Image src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg" alt="Praia paradisíaca" width={800} height={600} className="rounded-2xl shadow-2xl w-full h-auto" /></div>
             </div>
-            <div><Image src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg" alt="Praia paradisíaca" width={800} height={600} className="rounded-2xl shadow-2xl w-full h-auto" /></div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* 8. Agência */}
@@ -243,65 +262,71 @@ export default function HomeClient({ cms }: { cms: HomeContent }) {
           <Image src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=800&fit=crop" alt="Destino paradisíaco" fill sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-[#00148A]/70" />
         </div>
-        <div className="relative container">
-          <div className="max-w-3xl mx-auto text-center">
-            <Badge className="mb-4 bg-[#FF9100]/20 text-[#FFB040] backdrop-blur-sm"><Plane className="w-3 h-3 mr-1" />{cms.agenciaBadge ?? "Agência de Viagens RDC"}</Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">{cms.agenciaTitulo ?? "Sua jornada completa, com a nossa expertise"}</h2>
-            <p className="text-lg text-[#C7E5F3] mb-8 leading-relaxed max-w-2xl mx-auto">Aéreo, hospedagem, transfers, cruzeiros e passeios em um só lugar. Nossa agência monta o <strong className="text-white">roteiro ideal para qualquer destino</strong>, com condições especiais para assinantes.</p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-10 max-w-lg mx-auto">
-              {[{ e: "✈️", l: "Aéreo" }, { e: "🏨", l: "Hospedagem" }, { e: "🚐", l: "Transfers" }, { e: "🚢", l: "Cruzeiros" }].map((it) => (
-                <div key={it.l} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/10"><span className="text-2xl mb-2 block">{it.e}</span><span className="text-white text-sm font-medium">{it.l}</span></div>
-              ))}
+        <AnimateOnScroll>
+          <div className="relative container">
+            <div className="max-w-3xl mx-auto text-center">
+              <Badge className="mb-4 bg-[#FF9100]/20 text-[#FFB040] backdrop-blur-sm"><Plane className="w-3 h-3 mr-1" />{cms.agenciaBadge ?? "Agência de Viagens RDC"}</Badge>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">{cms.agenciaTitulo ?? "Sua jornada completa, com a nossa expertise"}</h2>
+              <p className="text-lg text-[#C7E5F3] mb-8 leading-relaxed max-w-2xl mx-auto">Aéreo, hospedagem, transfers, cruzeiros e passeios em um só lugar. Nossa agência monta o <strong className="text-white">roteiro ideal para qualquer destino</strong>, com condições especiais para assinantes.</p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-10 max-w-lg mx-auto">
+                {[{ e: "✈️", l: "Aéreo" }, { e: "🏨", l: "Hospedagem" }, { e: "🚐", l: "Transfers" }, { e: "🚢", l: "Cruzeiros" }].map((it) => (
+                  <div key={it.l} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/10"><span className="text-2xl mb-2 block">{it.e}</span><span className="text-white text-sm font-medium">{it.l}</span></div>
+                ))}
+              </div>
+              <Link href="/agencia"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">{cms.agenciaCta ?? "Conhecer a agência"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             </div>
-            <Link href="/agencia"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">{cms.agenciaCta ?? "Conhecer a agência"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* 9. B2B */}
       <section className="py-16 md:py-20 bg-[#F6F6F6]">
-        <div className="container">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E]">{cms.corpBadge ?? "Soluções Corporativas"}</Badge>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.corpTitulo ?? "Viagens a serviço do seu negócio"}</h2>
-            <p className="text-lg text-[#555555] max-w-2xl mx-auto">Conectamos viagens aos <strong>objetivos estratégicos</strong> da sua organização, oferecendo soluções que fortalecem <strong>engajamento, reconhecimento e experiência</strong>.</p>
+        <AnimateOnScroll>
+          <div className="container">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-[#E8F4FA] text-[#001A9E]">{cms.corpBadge ?? "Soluções Corporativas"}</Badge>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.corpTitulo ?? "Viagens a serviço do seu negócio"}</h2>
+              <p className="text-lg text-[#555555] max-w-2xl mx-auto">Conectamos viagens aos <strong>objetivos estratégicos</strong> da sua organização, oferecendo soluções que fortalecem <strong>engajamento, reconhecimento e experiência</strong>.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {corpData.map((sol, i) => (
+                <Card key={i} className="border border-gray-200 bg-white shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-2xl overflow-hidden">
+                  <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                    <div className="w-full flex justify-center mb-6 relative h-14"><Image src={sol.logo} alt={sol.title} width={150} height={56} className="h-14 w-auto object-contain" /></div>
+                    <p className="text-[#555555] text-sm mb-8 leading-relaxed flex-1">{sol.description}</p>
+                    <Link href={sol.href} className="w-full"><Button className={`w-full rounded-full font-semibold ${sol.ctaBg}`}>{sol.cta} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <div className="text-center mt-10">
+              <Link href="/solucoes-corporativas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">{cms.corpCta ?? "Explorar todas as soluções"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {corpData.map((sol, i) => (
-              <Card key={i} className="border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden">
-                <CardContent className="p-8 flex flex-col items-center text-center h-full">
-                  <div className="w-full flex justify-center mb-6 relative h-14"><Image src={sol.logo} alt={sol.title} width={150} height={56} className="h-14 w-auto object-contain" /></div>
-                  <p className="text-[#555555] text-sm mb-8 leading-relaxed flex-1">{sol.description}</p>
-                  <Link href={sol.href} className="w-full"><Button className={`w-full rounded-full font-semibold ${sol.ctaBg}`}>{sol.cta} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link href="/solucoes-corporativas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">{cms.corpCta ?? "Explorar todas as soluções"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
-          </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
-      {/* 10. Trust Badges (Reconhecimento e Confiança) */}
+      {/* 10. Trust Badges */}
       <TrustBadges />
 
-      {/* 11. Newsletter (validação no servidor) */}
+      {/* 11. Newsletter — texto à esquerda, formulário à direita */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-[#FF9100] to-[#E68200] text-white">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6"><Mail className="w-8 h-8 text-white" /></div>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">{cms.newsTitulo ?? "Receba inspirações e oportunidades de viagem"}</h2>
-            <p className="text-sm md:text-lg text-[#FFF0D6] mb-6 md:mb-8">Inscreva-se na nossa newsletter e receba <strong>dicas de destinos e novidades</strong> da RDC Viagens direto no seu e-mail.</p>
-            <form action={formAction} className="flex flex-col gap-3 max-w-lg mx-auto">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="flex-1 relative"><User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" /><Input type="text" name="nome" placeholder="Seu nome" className="pl-10 h-12 rounded-full border-0" /></div>
-                <div className="flex-1 relative"><Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" /><Input type="email" name="email" placeholder="Seu melhor e-mail" className="pl-10 h-12 rounded-full border-0" /></div>
-              </div>
-              <Button type="submit" size="lg" disabled={pending} className="bg-[#00148A] hover:bg-[#001070] text-white px-8 rounded-full h-12 w-full sm:w-auto sm:mx-auto">{pending ? "Enviando..." : "Inscrever-se"}{!pending && <Send className="ml-2 h-4 w-4" />}</Button>
-            </form>
-            {state.message && <p className={`mt-4 text-sm font-medium ${state.ok ? "text-white" : "text-[#7A1F00]"}`}>{state.message}</p>}
-            <p className="text-xs text-[#FFCC80] mt-4">Ao se inscrever, você concorda com nossa <Link href="/termos" className="underline hover:text-white">Política de Privacidade</Link>. Cancele quando quiser.</p>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-5xl mx-auto">
+            <div className="text-left">
+              <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-5"><Mail className="w-7 h-7 text-white" /></div>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">{cms.newsTitulo ?? "Receba inspirações e oportunidades de viagem"}</h2>
+              <p className="text-sm md:text-lg text-[#FFF0D6]">Inscreva-se na nossa newsletter e receba <strong>dicas de destinos e novidades</strong> da RDC Viagens direto no seu e-mail.</p>
+            </div>
+            <div>
+              <form action={formAction} className="flex flex-col gap-3">
+                <div className="relative"><User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" /><Input type="text" name="nome" placeholder="Seu nome" className="pl-10 h-12 rounded-full border-0" /></div>
+                <div className="relative"><Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" /><Input type="email" name="email" placeholder="Seu melhor e-mail" className="pl-10 h-12 rounded-full border-0" /></div>
+                <Button type="submit" size="lg" disabled={pending} className="bg-[#00148A] hover:bg-[#001070] text-white rounded-full h-12 w-full">{pending ? "Enviando..." : "Inscrever-se"}{!pending && <Send className="ml-2 h-4 w-4" />}</Button>
+              </form>
+              {state.message && <p className={`mt-3 text-sm font-medium ${state.ok ? "text-white" : "text-[#7A1F00]"}`}>{state.message}</p>}
+              <p className="text-xs text-[#FFCC80] mt-3">Ao se inscrever, você concorda com nossa <Link href="/termos" className="underline hover:text-white">Política de Privacidade</Link>. Cancele quando quiser.</p>
+            </div>
           </div>
         </div>
       </section>

@@ -32,41 +32,41 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
   const copyright = settings.copyright.replace("{ano}", String(new Date().getFullYear()));
 
   return (
-    <footer className="bg-[#082B41] text-white pt-14 pb-8">
+    <footer className="bg-[#F6F6F6] text-[#2D2D2D] pt-14 pb-8 border-t border-[#E0E0E0]">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-1">
-            <Image src="https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/Logo_RDC_oficial_4e0ebd10.png" alt="RDC Viagens" width={130} height={40} className="mb-4 brightness-0 invert" />
-            <p className="text-sm text-[#C7D3E0] leading-relaxed">{settings.textoInstitucional}</p>
+            <Image src="https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/Logo_RDC_oficial_4e0ebd10.png" alt="RDC Viagens" width={130} height={40} className="mb-4" />
+            <p className="text-sm text-[#555555] leading-relaxed">{settings.textoInstitucional}</p>
             <div className="flex gap-3 mt-5">
               {social.map(([href, Icon], i) => (
-                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"><Icon className="w-4 h-4" /></a>
+                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white border border-[#E0E0E0] flex items-center justify-center text-[#00148A] hover:bg-[#FF9100] hover:text-white hover:border-[#FF9100] transition-colors"><Icon className="w-4 h-4" /></a>
               ))}
             </div>
           </div>
           {cols.map((col) => (
             <div key={col.title}>
-              <h3 className="font-semibold mb-4">{col.title}</h3>
+              <h3 className="font-semibold mb-4 text-[#00148A]">{col.title}</h3>
               <ul className="space-y-2">
-                {col.links.map((l) => (<li key={l.label}><Link href={l.href} className="text-sm text-[#C7D3E0] hover:text-white transition-colors">{l.label}</Link></li>))}
+                {col.links.map((l) => (<li key={l.label}><Link href={l.href} className="text-sm text-[#555555] hover:text-[#00148A] transition-colors">{l.label}</Link></li>))}
               </ul>
             </div>
           ))}
           <div>
-            <h3 className="font-semibold mb-4">Contato</h3>
-            <div className="space-y-4 text-sm text-[#C7D3E0]">
-              <div className="rounded-xl bg-white/5 p-3">
-                <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-[#8ECAE6]"><Headset className="w-4 h-4 text-[#FF9100]" /> Televendas</div>
-                <div className="font-bold text-white text-lg">{settings.telefone}</div>
-                <div className="text-[11px]">{settings.horarioRodape}</div>
+            <h3 className="font-semibold mb-4 text-[#00148A]">Contato</h3>
+            <div className="space-y-4 text-sm text-[#555555]">
+              <div className="rounded-xl bg-white border border-[#E0E0E0] p-3">
+                <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-[#FF9100] font-semibold"><Headset className="w-4 h-4 text-[#FF9100]" /> Televendas</div>
+                <div className="font-bold text-[#00148A] text-lg">{settings.telefone}</div>
+                <div className="text-[11px] text-[#777777]">{settings.horarioRodape}</div>
               </div>
               <div className="flex gap-2"><MapPin className="w-4 h-4 text-[#FF9100] flex-shrink-0 mt-0.5" /><span>{settings.endereco}</span></div>
               <div className="flex gap-2"><Mail className="w-4 h-4 text-[#FF9100] flex-shrink-0 mt-0.5" /><span>{settings.email}</span></div>
             </div>
           </div>
         </div>
-        <div className="border-t border-white/10 mt-10 pt-6 text-center text-xs">
-          <span className="text-[#8ECAE6]">{copyright}</span>
+        <div className="border-t border-[#E0E0E0] mt-10 pt-6 text-center text-xs">
+          <span className="text-[#777777]">{copyright}</span>
         </div>
       </div>
     </footer>
