@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import TrustBadges from "@/components/TrustBadges";
 import { heroSlides, stats as fallbackStats, corporateSolutions, redesHoteleiras, destinationCategories } from "@/lib/content";
 import { subscribeNewsletter, type NewsletterState } from "@/app/actions";
 import type { HomeContent } from "@/lib/cms";
@@ -265,7 +266,7 @@ export default function HomeClient({ cms }: { cms: HomeContent }) {
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.corpTitulo ?? "Viagens a serviço do seu negócio"}</h2>
             <p className="text-lg text-[#555555] max-w-2xl mx-auto">Conectamos viagens aos <strong>objetivos estratégicos</strong> da sua organização, oferecendo soluções que fortalecem <strong>engajamento, reconhecimento e experiência</strong>.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {corpData.map((sol, i) => (
               <Card key={i} className="border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden">
                 <CardContent className="p-8 flex flex-col items-center text-center h-full">
@@ -281,6 +282,9 @@ export default function HomeClient({ cms }: { cms: HomeContent }) {
           </div>
         </div>
       </section>
+
+      {/* 10. Trust Badges (Reconhecimento e Confiança) */}
+      <TrustBadges />
 
       {/* 11. Newsletter (validação no servidor) */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-[#FF9100] to-[#E68200] text-white">
