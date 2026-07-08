@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import HomeClient from "@/components/HomeClient";
-import { getHomePage } from "@/lib/cms";
+import { getHomePage, getRedesHoteleiras } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Assinatura de Viagens com até 60% de Economia",
@@ -33,11 +33,11 @@ const websiteJsonLd = {
 };
 
 export default async function Page() {
-  const cms = await getHomePage(); // SSR: conteúdo vem do Sanity (fallback se vazio)
+  const [cms, redes] = await Promise.all([getHomePage(), getRedesHoteleiras()]); // SSR
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
-      <HomeClient cms={cms} />
+      <HomeClient cms={cms} redesCms={redes} />
     </>
   );
 }

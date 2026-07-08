@@ -26,3 +26,14 @@ body {
 /* animação de entrada (AnimateOnScroll) */
 .aos { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
 .aos.aos-in { opacity: 1; transform: none; }
+
+/* Faixa contínua (marquee) das redes hoteleiras */
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 45s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* Variante extra de entrada (zoom sutil) */
+.aos.aos-zoom { transform: translateY(0) scale(.96); }
+.aos.aos-zoom.aos-in { transform: none; }
