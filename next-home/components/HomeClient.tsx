@@ -294,13 +294,13 @@ export default function HomeClient({ cms, redesCms = [] }: { cms: HomeContent; r
                   <CardContent className="p-8 flex flex-col items-center text-center h-full">
                     <div className="w-full flex justify-center mb-6 relative h-14"><Image src={sol.logo} alt={sol.title} width={150} height={56} className="h-14 w-auto object-contain" /></div>
                     <p className="text-[#555555] text-sm mb-8 leading-relaxed flex-1">{sol.description}</p>
-                    <Link href={sol.href} className="w-full"><Button className={`w-full rounded-full font-semibold ${sol.ctaBg}`}>{sol.cta} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+                    <Link href={sol.href} className="w-full"><Button className={`w-full rounded-full font-semibold whitespace-normal h-auto min-h-[44px] py-2.5 text-sm leading-tight ${sol.ctaBg}`}>{sol.cta} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
                   </CardContent>
                 </Card>
               ))}
             </div>
             <div className="text-center mt-10">
-              <Link href="/solucoes-corporativas"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8 rounded-full">{cms.corpCta ?? "Explorar todas as soluções"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+              <Link href="/solucoes-corporativas"><Button size="lg" className="bg-[#082B41] hover:bg-[#04161F] text-white px-8 rounded-full">{cms.corpCta ?? "Explorar todas as soluções"} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             </div>
           </div>
         </AnimateOnScroll>
@@ -312,10 +312,12 @@ export default function HomeClient({ cms, redesCms = [] }: { cms: HomeContent; r
       {/* 11. Newsletter — texto à esquerda, formulário à direita */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-[#FF9100] to-[#E68200] text-white">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-5xl mx-auto">
             <div className="text-left">
-              <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-5"><Mail className="w-7 h-7 text-white" /></div>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">{cms.newsTitulo ?? "Receba inspirações e oportunidades de viagem"}</h2>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center shrink-0"><Mail className="w-6 h-6 text-white" /></div>
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">{cms.newsTitulo ?? "Receba inspirações e oportunidades de viagem"}</h2>
+              </div>
               <p className="text-sm md:text-lg text-[#FFF0D6]">Inscreva-se na nossa newsletter e receba <strong>dicas de destinos e novidades</strong> da RDC Viagens direto no seu e-mail.</p>
             </div>
             <div>

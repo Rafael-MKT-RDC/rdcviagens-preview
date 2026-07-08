@@ -55,10 +55,10 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
           <div>
             <h3 className="font-semibold mb-4 text-[#00148A]">Contato</h3>
             <div className="space-y-4 text-sm text-[#555555]">
-              <div className="rounded-xl bg-white border border-[#E0E0E0] p-3">
+              <div className="rounded-xl bg-[#00148A] p-3">
                 <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-[#FF9100] font-semibold"><Headset className="w-4 h-4 text-[#FF9100]" /> Televendas</div>
-                <div className="font-bold text-[#00148A] text-lg">{settings.telefone}</div>
-                <div className="text-[11px] text-[#777777]">{settings.horarioRodape}</div>
+                <div className="font-bold text-white text-lg">{settings.telefone}</div>
+                <div className="text-[11px] text-white/80">{settings.horarioRodape}</div>
               </div>
               <div className="flex gap-2"><MapPin className="w-4 h-4 text-[#FF9100] flex-shrink-0 mt-0.5" /><span>{settings.endereco}</span></div>
               <div className="flex gap-2"><Mail className="w-4 h-4 text-[#FF9100] flex-shrink-0 mt-0.5" /><span>{settings.email}</span></div>
