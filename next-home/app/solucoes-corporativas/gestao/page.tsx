@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { EmpresasGestaoClient } from "@/components/EmpresasGestaoClient";
+import { getPageDoc } from "@/lib/cms";
+
+export const revalidate = 30;
 
 export const metadata: Metadata = {
   title: "Gestão de Viagens Corporativas para PMEs",
@@ -8,6 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/solucoes-corporativas/gestao" },
 };
 const schema = { "@context": "https://schema.org", "@type": "Service", name: "RDC Gestão de Viagens", provider: { "@type": "Organization", name: "RDC Viagens" }, description: "Gestão completa de viagens corporativas para pequenas e médias empresas com economia de até 30%.", serviceType: "Gestão de Viagens Corporativas" };
-export default function GestaoPage() {
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><EmpresasGestaoClient /></>);
+export default async function GestaoPage() {
+  const cms = await getPageDoc<any>("paginaGestao");
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><EmpresasGestaoClient cms={cms} /></>);
 }
