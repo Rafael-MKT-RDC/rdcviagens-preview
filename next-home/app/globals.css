@@ -46,10 +46,11 @@ div[role="main"] h1,
 div[role="main"] h2 { display: none !important; }
 
 /* Fundo do formulário em BRANCO (segue o protótipo Manus). O embed do RD vem
-   com fundo cinza (#E2E2E2); forçamos branco nos contêineres do formulário. */
+   com fundo cinza (#E2E2E2) em contêineres aninhados; forçamos branco em todos
+   os divs do formulário (o botão é <button> e os campos são <input>, então
+   mantêm suas cores). */
 div[role="main"],
-div[role="main"] > div,
-div[role="main"] > div > div,
+div[role="main"] div,
 div[role="main"] form {
   background-color: #ffffff !important;
 }
