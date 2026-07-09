@@ -37,3 +37,17 @@ body {
 /* Variante extra de entrada (zoom sutil) */
 .aos.aos-zoom { transform: translateY(0) scale(.96); }
 .aos.aos-zoom.aos-in { transform: none; }
+
+/* ── Formulários RD Station (embed) — identidade RDC ──────────────── */
+/* Oculta o título/subtítulo padrão do RD ("Título do formulário / Subtítulo do
+   formulário") — usamos o título da própria seção do site. */
+div[role="main"] h1,
+div[role="main"] h2 { display: none !important; }
+/* Botão de envio na cor da marca (laranja RDC) */
+div[role="main"] .bricks-form__submit,
+div[role="main"] form button[type="submit"],
+div[role="main"] form input[type="submit"] {
+  background-color: var(--brand-laranja) !important;
+  border-color: var(--brand-laranja) !important;
+  color: #ffffff !important;
+}
