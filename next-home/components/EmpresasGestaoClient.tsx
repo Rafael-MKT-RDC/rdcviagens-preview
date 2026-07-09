@@ -118,7 +118,7 @@ export function EmpresasGestaoClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-12"><h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Solicite uma proposta gratuita</h2><p className="text-lg text-[#C7D3E0]">Preencha o formulário e nossos especialistas em gestão de viagens entrarão em contato para apresentar uma proposta sob medida.</p></div>
+              <div className="text-center mb-12"><h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Vamos conversar sobre a sua empresa?</h2><p className="text-lg text-[#C7D3E0]">Preencha o formulário e nossos especialistas em gestão de viagens entrarão em contato para apresentar uma proposta sob medida.</p></div>
               <Card className="border-0 shadow-2xl"><CardContent className="p-8 md:p-10"><B2BLeadForm rdFormId={RD_FORMS.gestao} cargoOptions={cargoOptions} objetivoLabel="Volume de viagens por mês" objetivoOptions={volumeOptions} colaboradoresLabel="Número de funcionários" submitLabel="Solicitar proposta gratuita" /></CardContent></Card>
             </div>
           </div>
@@ -129,7 +129,7 @@ export function EmpresasGestaoClient({ cms = {} }: { cms?: any }) {
       <section className="py-16 md:py-20 bg-white">
         <AnimateOnScroll variant="fade-up">
           <div className="container">
-            <div className="text-center mb-12"><Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">Perguntas Frequentes</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Dúvidas frequentes</h2></div>
+            <div className="text-center mb-12"><Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">Perguntas Frequentes</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Perguntas sobre a Gestão de Viagens</h2></div>
             <B2BFaq items={faqs} />
             <div className="text-center mt-8"><p className="text-[#555555] mb-4">Não encontrou sua dúvida?</p><Link href="/duvidas"><Button variant="outline" className="border-[#FF9100] text-[#FF9100] hover:bg-[#F6F6F6] rounded-full">Ver todas as dúvidas</Button></Link></div>
           </div>

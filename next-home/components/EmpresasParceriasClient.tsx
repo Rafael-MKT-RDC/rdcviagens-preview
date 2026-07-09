@@ -68,7 +68,7 @@ export function EmpresasParceriasClient({ cms = {} }: { cms?: any }) {
       <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
           <div className="container">
-            <div className="text-center mb-16"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">Por que ser parceiro RDC</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">Uma parceria que gera valor para os dois lados</h2><p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">Amplie sua proposta de valor e gere novas receitas com a solidez de quem entende de viagens há <strong>mais de 35 anos</strong>.</p></div>
+            <div className="text-center mb-16"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">Por que ser parceiro RDC</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">O que você ganha com essa parceria</h2><p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">Amplie sua proposta de valor e gere novas receitas com a solidez de quem entende de viagens há <strong>mais de 35 anos</strong>.</p></div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {valueProps.map((v, index) => { const Icon = v.icon; return (<Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 bg-white"><CardContent className="pt-6"><div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF9100] to-[#E07F00] flex items-center justify-center mb-4"><Icon className="w-7 h-7 text-white" /></div><h3 className="font-semibold text-lg text-[#2D2D2D] mb-2">{v.title}</h3><p className="text-[#555555] text-sm leading-relaxed">{v.description}</p></CardContent></Card>); })}
             </div>
@@ -80,7 +80,7 @@ export function EmpresasParceriasClient({ cms = {} }: { cms?: any }) {
       <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="fade-up">
           <div className="container">
-            <div className="text-center mb-16"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">Para quem é</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">Parcerias sob medida para cada segmento</h2><p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">Desenhamos o modelo ideal de acordo com o perfil e os objetivos do seu negócio.</p></div>
+            <div className="text-center mb-16"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">Perfis de Parceiros</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">Quem já pode se beneficiar</h2><p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">Desenhamos o modelo ideal de acordo com o perfil e os objetivos do seu negócio.</p></div>
             <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {partnerProfiles.map((p, index) => { const Icon = p.icon; return (
                 <Card key={index} className="border-0 shadow-lg"><CardContent className="p-8">
@@ -98,7 +98,7 @@ export function EmpresasParceriasClient({ cms = {} }: { cms?: any }) {
       <section className="py-16 md:py-20 bg-[#082B41]">
         <AnimateOnScroll variant="zoom-in">
           <div className="container">
-            <div className="text-center mb-16"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">Como funciona</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">Do primeiro contato ao crescimento conjunto</h2></div>
+            <div className="text-center mb-16"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">Como funciona</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">Simples de começar, fácil de escalar</h2></div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {howItWorks.map((s) => (<Card key={s.step} className="border-0 shadow-lg"><CardContent className="p-6"><div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF9100] to-[#E07F00] text-white flex items-center justify-center font-bold text-lg mb-4">{s.step}</div><h3 className="font-bold text-[#2D2D2D] mb-2">{s.title}</h3><p className="text-[#555555] text-sm leading-relaxed">{s.description}</p></CardContent></Card>))}
             </div>
@@ -111,7 +111,7 @@ export function EmpresasParceriasClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-12"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0"><Handshake className="w-4 h-4 mr-2" />Vamos conversar</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">Vamos construir uma parceria de sucesso?</h2><p className="text-lg text-[#C7D3E0]">Preencha o formulário e nossa <strong>equipe de parcerias</strong> entrará em contato para desenhar o modelo ideal para o seu negócio.</p></div>
+              <div className="text-center mb-12"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0"><Handshake className="w-4 h-4 mr-2" />Vamos conversar</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">Vamos explorar as possibilidades juntos</h2><p className="text-lg text-[#C7D3E0]">Preencha o formulário e nossa <strong>equipe de parcerias</strong> entrará em contato para desenhar o modelo ideal para o seu negócio.</p></div>
               <Card className="border-0 shadow-xl"><CardContent className="p-8"><B2BLeadForm rdFormId={RD_FORMS.parcerias} cargoOptions={segmentoOptions} cargoLabel="Segmento" objetivoLabel="Tamanho da base de clientes" objetivoOptions={baseOptions} showColaboradores={false} submitLabel="Explorar parceria" /></CardContent></Card>
             </div>
           </div>
@@ -122,7 +122,7 @@ export function EmpresasParceriasClient({ cms = {} }: { cms?: any }) {
       <section className="py-16 md:py-20 bg-[#F6F6F6]">
         <AnimateOnScroll variant="fade-up">
           <div className="container">
-            <div className="text-center mb-12"><Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">Perguntas Frequentes</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Dúvidas frequentes</h2><p className="text-lg text-[#555555] max-w-2xl mx-auto">Respostas para as <strong>principais perguntas sobre parcerias estratégicas</strong> com a RDC</p></div>
+            <div className="text-center mb-12"><Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">Perguntas Frequentes</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Dúvidas sobre parcerias</h2><p className="text-lg text-[#555555] max-w-2xl mx-auto">Respostas para as <strong>principais perguntas sobre parcerias estratégicas</strong> com a RDC</p></div>
             <B2BFaq items={faqs} />
           </div>
         </AnimateOnScroll>
