@@ -85,6 +85,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
           <Link href="/solucoes-corporativas"><Button variant="ghost" className="text-white hover:bg-white/10 mb-6"><ArrowLeft className="mr-2 h-4 w-4" />Voltar para Soluções Corporativas</Button></Link>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logos/b2b/travel_cloude_logo_branco.svg" alt="RDC Travel Cloud" className="h-12 w-auto mb-6" />
               <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Cloud className="w-4 h-4 mr-2" />{cms.heroBadge ?? "RDC Travel Cloud"}</Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Crie mais conveniência."} <span className="text-[#FF9100]">{cms.heroDestaque ?? "Adicione a categoria de viagem no seu app."}</span></h1>
