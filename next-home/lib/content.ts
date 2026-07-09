@@ -101,18 +101,6 @@ export const redesHoteleiras: Rede[] = [
   { nome: "WAM", descricao: "WAM Hotéis & Resorts", logo: "https://www.google.com/s2/favicons?domain=wamhoteis.com.br&sz=128" },
   { nome: "Windsor", descricao: "Windsor Hotéis", logo: "https://www.google.com/s2/favicons?domain=windsorhoteis.com&sz=128" },
   { nome: "Wyndham", descricao: "Ramada, Tryp, Howard Johnson, Days Inn", logo: "https://www.google.com/s2/favicons?domain=wyndhamhotels.com&sz=128" },
-]; = [
-  { nome: "Accor", descricao: "Ibis, Novotel, Mercure, Pullman, Sofitel", logo: "https://www.google.com/s2/favicons?domain=accor.com&sz=128" },
-  { nome: "Atlântica", descricao: "Comfort, Quality, Radisson, Four Points", logo: "https://www.google.com/s2/favicons?domain=atlanticahotels.com.br&sz=128" },
-  { nome: "Hilton", descricao: "Hampton, DoubleTree, Conrad, Waldorf Astoria", logo: "https://www.google.com/s2/favicons?domain=hilton.com&sz=128" },
-  { nome: "Hyatt", descricao: "Grand Hyatt, Hyatt Regency, Park Hyatt", logo: "https://www.google.com/s2/favicons?domain=hyatt.com&sz=128" },
-  { nome: "IHG", descricao: "Holiday Inn, Crowne Plaza, InterContinental", logo: "https://www.google.com/s2/favicons?domain=ihg.com&sz=128" },
-  { nome: "Laghetto", descricao: "Laghetto Hotéis & Resorts", logo: "https://www.google.com/s2/favicons?domain=laghettohoteis.com.br&sz=128" },
-  { nome: "Marriott", descricao: "Courtyard, Sheraton, W Hotels, Ritz-Carlton", logo: "https://www.google.com/s2/favicons?domain=marriott.com&sz=128" },
-  { nome: "Meliá", descricao: "Meliá, Tryp, Sol, Innside", logo: "https://www.google.com/s2/favicons?domain=melia.com&sz=128" },
-  { nome: "Vila Galé", descricao: "Vila Galé Resorts, Vila Galé Collection", logo: "https://www.google.com/s2/favicons?domain=vilagale.com&sz=128" },
-  { nome: "WAM", descricao: "WAM Hotéis & Resorts", logo: "https://www.google.com/s2/favicons?domain=wamhoteis.com.br&sz=128" },
-  { nome: "Wyndham", descricao: "Ramada, Tryp, Howard Johnson, Days Inn", logo: "https://www.google.com/s2/favicons?domain=wyndhamhotels.com&sz=128" },
 ];
 
 export const destinationCategories = [
