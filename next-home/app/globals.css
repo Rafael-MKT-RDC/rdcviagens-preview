@@ -38,28 +38,42 @@ body {
 .aos.aos-zoom { transform: translateY(0) scale(.96); }
 .aos.aos-zoom.aos-in { transform: none; }
 
-/* ── Formulários RD Station (embed) — identidade RDC ──────────────── */
+/* ── Formulários RD Station (embed) — identidade RDC (rebrand B2B) ──── */
 /* Oculta o título/subtítulo padrão do RD ("Título do formulário / Subtítulo do
    formulário") — usamos o título da própria seção do site. */
 div[role="main"] h1,
 div[role="main"] h2 { display: none !important; }
-/* Botão de envio na cor da marca (laranja RDC) */
-div[role="main"] .bricks-form__submit,
-div[role="main"] form button[type="submit"],
-div[role="main"] form input[type="submit"] {
+
+/* O wrapper do submit (.bricks-form__submit) é um DIV atrás do botão real.
+   NÃO deve receber cor/arredondamento — senão vira uma "pílula" laranja atrás
+   do botão. Mantemos transparente. */
+div[role="main"] .bricks-form__submit {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Botão real do RD Station na cor da marca (laranja RDC, formato pílula).
+   O botão do RD tem classe .rd-button / .bricks--component-button e NÃO é
+   type="submit" — por isso miramos essas classes (e input[type=submit] p/ outros temas). */
+div[role="main"] .rd-button,
+div[role="main"] .bricks--component-button,
+div[role="main"] input[type="submit"] {
   background-color: var(--brand-laranja) !important;
   border-color: var(--brand-laranja) !important;
   color: #ffffff !important;
   border-radius: 9999px !important;
   transition: background-color .2s ease, border-color .2s ease !important;
 }
-div[role="main"] .bricks-form__submit:hover,
-div[role="main"] form button[type="submit"]:hover,
-div[role="main"] form input[type="submit"]:hover {
+div[role="main"] .rd-button:hover,
+div[role="main"] .bricks--component-button:hover,
+div[role="main"] input[type="submit"]:hover {
   background-color: #E07F00 !important;
   border-color: #E07F00 !important;
 }
-/* Foco dos campos no navy B2B (padrão corporativo) */
+
+/* Foco dos campos no navy B2B (padrão corporativo). */
 div[role="main"] input:focus,
 div[role="main"] select:focus,
 div[role="main"] textarea:focus {
