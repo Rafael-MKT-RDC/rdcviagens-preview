@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { TimelineScroller } from "@/components/TimelineScroller";
 import TrustBadges from "@/components/TrustBadges";
+import { getPageDoc } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Sobre Nós | +35 Anos de Experiência em Viagens",
@@ -36,7 +37,10 @@ const values = [
   { icon: HandHeart, title: "Cuidar de Pessoas", description: <>Colocamos <strong className="text-[#2D2D2D]">pessoas no centro</strong> de tudo que fazemos, tratando cada <strong className="text-[#2D2D2D]">assinante, colaborador e parceiro</strong> com atenção, empatia e respeito — porque acreditamos que uma <strong className="text-[#2D2D2D]">viagem inesquecível</strong> começa no <strong className="text-[#2D2D2D]">cuidado genuíno</strong> com quem está ao nosso lado em cada etapa da jornada.</> },
 ];
 
-export default function SobrePage() {
+export const revalidate = 30;
+
+export default async function SobrePage() {
+  const cms = await getPageDoc<any>("paginaSobre");
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
@@ -45,8 +49,8 @@ export default function SobrePage() {
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[#00148A] to-[#001070]">
         <div className="container">
           <div className="max-w-3xl">
-            <Badge className="mb-4 bg-[#FF9100] text-white border-0">Sobre a RDC</Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Nossa História</h1>
+            <Badge className="mb-4 bg-[#FF9100] text-white border-0">{cms.heroBadge ?? "Sobre a RDC"}</Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{cms.heroTitulo ?? "Nossa História"}</h1>
             <p className="text-xl text-[#C7E5F3]">
               Há mais de <strong>35 anos transformando o sonho de viajar</strong> em realidade para milhares de famílias brasileiras.
             </p>
