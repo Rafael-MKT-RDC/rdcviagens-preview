@@ -17,6 +17,8 @@ import TrustBadges from "@/components/TrustBadges";
 import { CountUp } from "@/components/CountUp";
 import { heroSlides, stats as fallbackStats, corporateSolutions, redesHoteleiras, destinationCategories } from "@/lib/content";
 import { subscribeNewsletter, type NewsletterState } from "@/app/actions";
+import { RDStationForm } from "@/components/RDStationForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import type { HomeContent } from "@/lib/cms";
 
 const features = [
@@ -321,11 +323,7 @@ export default function HomeClient({ cms, redesCms = [] }: { cms: HomeContent; r
               <p className="text-sm md:text-lg text-[#FFF0D6]">Inscreva-se na nossa newsletter e receba <strong>dicas de destinos e novidades</strong> da RDC Viagens direto no seu e-mail.</p>
             </div>
             <div>
-              <form action={formAction} className="flex flex-col gap-3">
-                <div className="relative"><User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" /><Input type="text" name="nome" placeholder="Seu nome" className="pl-10 h-12 rounded-full border-0" /></div>
-                <div className="relative"><Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" /><Input type="email" name="email" placeholder="Seu melhor e-mail" className="pl-10 h-12 rounded-full border-0" /></div>
-                <Button type="submit" size="lg" disabled={pending} className="bg-[#00148A] hover:bg-[#001070] text-white rounded-full h-12 w-full">{pending ? "Enviando..." : "Inscrever-se"}{!pending && <Send className="ml-2 h-4 w-4" />}</Button>
-              </form>
+              <RDStationForm formId={RD_FORMS.newsletter} />
               {state.message && <p className={`mt-3 text-sm font-medium ${state.ok ? "text-white" : "text-[#7A1F00]"}`}>{state.message}</p>}
               <p className="text-xs text-[#FFCC80] mt-3">Ao se inscrever, você concorda com nossa <Link href="/termos" className="underline hover:text-white">Política de Privacidade</Link>. Cancele quando quiser.</p>
             </div>

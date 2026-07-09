@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { RDStationForm } from "@/components/RDStationForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import { Headphones, Clock, ShieldCheck, Hotel, ArrowRight, CheckCircle2, ChevronDown, MessageCircle, Phone, Globe, Shield, Send, User, Mail } from "lucide-react";
 
 const benefits = [
@@ -178,23 +180,7 @@ export function ViajeTranquiloClient() {
                       <p className="text-[#555555] text-sm">Nossa equipe entrará em contato em breve para ajudar você a contratar o Viaje Tranquilo.</p>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="bg-white border border-[#E8E8E8] rounded-2xl p-6 md:p-8 space-y-5 shadow-sm">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="space-y-2"><Label htmlFor="vt-nome" className="flex items-center gap-1.5"><User className="w-3.5 h-3.5 text-[#999999]" />Nome completo</Label><Input id="vt-nome" placeholder="Seu nome" required /></div>
-                        <div className="space-y-2"><Label htmlFor="vt-email" className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-[#999999]" />E-mail</Label><Input id="vt-email" type="email" placeholder="seu@email.com" required /></div>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="space-y-2"><Label htmlFor="vt-telefone" className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-[#999999]" />Telefone / WhatsApp</Label><Input id="vt-telefone" type="tel" placeholder="(11) 99999-9999" required /></div>
-                        <div className="space-y-2">
-                          <Label htmlFor="vt-assinante">Já é assinante RDC?</Label>
-                          <select id="vt-assinante" className="flex h-10 w-full rounded-md border border-[#D6D6D6] bg-white px-3 py-2 text-sm text-[#2D2D2D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9100]"><option value="">Selecione</option><option value="sim">Sim, sou assinante</option><option value="nao">Não, ainda não sou</option></select>
-                        </div>
-                      </div>
-                      <div className="space-y-2"><Label htmlFor="vt-mensagem">Mensagem (opcional)</Label><Textarea id="vt-mensagem" placeholder="Conte-nos mais sobre sua viagem ou dúvidas..." rows={3} className="resize-none" /></div>
-                      <Button type="submit" size="lg" className="w-full bg-[#FF9100] hover:bg-[#E68200] text-white font-semibold rounded-full" disabled={formLoading}>
-                        {formLoading ? (<span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Enviando...</span>) : (<span className="flex items-center gap-2"><Send className="w-5 h-5" />Enviar solicitação</span>)}
-                      </Button>
-                    </form>
+                    <RDStationForm formId={RD_FORMS.viajeTranquilo} />
                   )}
                 </AnimateOnScroll>
               </div>

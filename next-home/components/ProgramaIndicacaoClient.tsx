@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { RDStationForm } from "@/components/RDStationForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import { Gift, Users, Plane, Car, Building2, Ship, ArrowRight, CheckCircle2, Sparkles, Share2, UserPlus, Coins, Send, Bus, MapPin, ArrowLeftRight, Ticket, FileText } from "lucide-react";
 
 const maskCPF = (v: string) => v.replace(/\D/g, "").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d{1,2})/, "$1-$2").replace(/(-\d{2})\d+?$/, "$1");
@@ -120,38 +122,7 @@ export function ProgramaIndicacaoClient() {
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Indique agora mesmo</h2>
               <p className="text-lg text-[#8ECAE6] max-w-2xl mx-auto">Preencha os dados abaixo e nossa equipe entrará em contato com seu indicado para apresentar os <strong>planos RDC</strong></p>
             </div>
-            <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <Card className="bg-white/10 backdrop-blur-sm border-0 text-white">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-3 mb-6"><div className="w-10 h-10 rounded-full bg-[#FF9100] flex items-center justify-center"><Users className="w-5 h-5 text-black" /></div><h3 className="text-xl font-bold">Seus dados (indicador)</h3></div>
-                    <div className="space-y-4">
-                      <div><Label htmlFor="indicadorNome" className="text-[#C7E5F3] mb-1.5 block">Nome completo *</Label><Input id="indicadorNome" placeholder="Seu nome completo" value={formData.indicadorNome} onChange={(e) => handleChange("indicadorNome", e.target.value)} className={fieldClass} required /></div>
-                      <div><Label htmlFor="indicadorCpf" className="text-[#C7E5F3] mb-1.5 block">CPF *</Label><Input id="indicadorCpf" placeholder="000.000.000-00" value={formData.indicadorCpf} onChange={(e) => handleChange("indicadorCpf", maskCPF(e.target.value))} maxLength={14} className={fieldClass} required /></div>
-                      <div><Label htmlFor="indicadorEmail" className="text-[#C7E5F3] mb-1.5 block">E-mail *</Label><Input id="indicadorEmail" type="email" placeholder="seu@email.com" value={formData.indicadorEmail} onChange={(e) => handleChange("indicadorEmail", e.target.value)} className={fieldClass} required /></div>
-                      <div><Label htmlFor="indicadorTelefone" className="text-[#C7E5F3] mb-1.5 block">Telefone / WhatsApp *</Label><Input id="indicadorTelefone" type="tel" placeholder="(11) 99999-9999" value={formData.indicadorTelefone} onChange={(e) => handleChange("indicadorTelefone", maskPhone(e.target.value))} maxLength={15} className={fieldClass} required /></div>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card className="bg-white/10 backdrop-blur-sm border-0 text-white">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-3 mb-6"><div className="w-10 h-10 rounded-full bg-[#FF9100] flex items-center justify-center"><UserPlus className="w-5 h-5 text-white" /></div><h3 className="text-xl font-bold">Dados do indicado</h3></div>
-                    <div className="space-y-4">
-                      <div><Label htmlFor="indicadoNome" className="text-[#C7E5F3] mb-1.5 block">Nome completo *</Label><Input id="indicadoNome" placeholder="Nome do seu indicado" value={formData.indicadoNome} onChange={(e) => handleChange("indicadoNome", e.target.value)} className={fieldClass} required /></div>
-                      <div><Label htmlFor="indicadoEmail" className="text-[#C7E5F3] mb-1.5 block">E-mail</Label><Input id="indicadoEmail" type="email" placeholder="email@indicado.com" value={formData.indicadoEmail} onChange={(e) => handleChange("indicadoEmail", e.target.value)} className={fieldClass} /></div>
-                      <div><Label htmlFor="indicadoTelefone" className="text-[#C7E5F3] mb-1.5 block">Telefone / WhatsApp *</Label><Input id="indicadoTelefone" type="tel" placeholder="(11) 99999-9999" value={formData.indicadoTelefone} onChange={(e) => handleChange("indicadoTelefone", maskPhone(e.target.value))} maxLength={15} className={fieldClass} required /></div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-              {feedback && <p className={`text-center mt-6 font-medium ${feedback.type === "ok" ? "text-[#7BE0C0]" : "text-[#FFB4B4]"}`}>{feedback.text}</p>}
-              <div className="text-center mt-8">
-                <Button type="submit" size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-black px-12 py-6 text-lg rounded-full font-semibold" disabled={isSubmitting}>
-                  {isSubmitting ? <>Enviando...</> : <><Send className="w-5 h-5 mr-2" />Enviar indicação</>}
-                </Button>
-                <p className="text-[#8ECAE6] text-sm mt-4">Ao enviar, você autoriza a RDC Viagens a entrar em contato com o indicado.</p>
-              </div>
-            </form>
+            <RDStationForm formId={RD_FORMS.indicacao} />
           </div>
         </AnimateOnScroll>
       </section>

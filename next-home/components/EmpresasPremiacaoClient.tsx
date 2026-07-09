@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { B2BLeadForm } from "@/components/B2BLeadForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import { B2BFaq } from "@/components/B2BFaq";
 import { Plane, Check, ArrowLeft, ArrowRight, Heart, Users, TrendingUp, Award, Sparkles, Target, BarChart3, Percent, Zap, UserCheck, HandHeart } from "lucide-react";
 
@@ -131,7 +132,7 @@ export function EmpresasPremiacaoClient() {
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0"><Plane className="w-4 h-4 mr-2" />Solicite uma proposta</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">Leve o RDC Premiação para sua empresa</h2><p className="text-lg text-[#C7D3E0]">Preencha o formulário e nossa <strong>equipe de consultoria corporativa</strong> entrará em contato para apresentar uma proposta personalizada para sua empresa.</p></div>
-              <Card className="border-0 shadow-xl"><CardContent className="p-8"><B2BLeadForm cargoOptions={cargoOptions} objetivoOptions={objetivoOptions} submitLabel="Solicitar proposta gratuita" /></CardContent></Card>
+              <Card className="border-0 shadow-xl"><CardContent className="p-8"><B2BLeadForm rdFormId={RD_FORMS.premiacao} cargoOptions={cargoOptions} objetivoOptions={objetivoOptions} submitLabel="Solicitar proposta gratuita" /></CardContent></Card>
             </div>
           </div>
         </AnimateOnScroll>

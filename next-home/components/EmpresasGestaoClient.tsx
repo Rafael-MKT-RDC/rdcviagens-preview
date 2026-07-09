@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { B2BLeadForm } from "@/components/B2BLeadForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import { B2BFaq } from "@/components/B2BFaq";
 import { Plane, Check, ArrowLeft, ArrowRight, BarChart3, Shield, Clock, Wallet, Settings, Headphones as HeadphonesIcon, Users, Building2, TrendingDown, Zap, Target, Briefcase } from "lucide-react";
 
@@ -118,7 +119,7 @@ export function EmpresasGestaoClient() {
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12"><h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Solicite uma proposta gratuita</h2><p className="text-lg text-[#C7D3E0]">Preencha o formulário e nossos especialistas em gestão de viagens entrarão em contato para apresentar uma proposta sob medida.</p></div>
-              <Card className="border-0 shadow-2xl"><CardContent className="p-8 md:p-10"><B2BLeadForm cargoOptions={cargoOptions} objetivoLabel="Volume de viagens por mês" objetivoOptions={volumeOptions} colaboradoresLabel="Número de funcionários" submitLabel="Solicitar proposta gratuita" /></CardContent></Card>
+              <Card className="border-0 shadow-2xl"><CardContent className="p-8 md:p-10"><B2BLeadForm rdFormId={RD_FORMS.gestao} cargoOptions={cargoOptions} objetivoLabel="Volume de viagens por mês" objetivoOptions={volumeOptions} colaboradoresLabel="Número de funcionários" submitLabel="Solicitar proposta gratuita" /></CardContent></Card>
             </div>
           </div>
         </AnimateOnScroll>

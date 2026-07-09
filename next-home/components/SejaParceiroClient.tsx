@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { RDStationForm } from "@/components/RDStationForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import { Hotel, Users, Calendar, MapPin, ChevronRight, TrendingUp, Eye, Star, ArrowRight, Building2, BarChart3, Handshake, Send } from "lucide-react";
 
 const heroImg = "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80";
@@ -94,26 +96,7 @@ export function SejaParceiroClient() {
             {sent ? (
               <div className="text-center py-8"><div className="w-16 h-16 bg-[#D4F5E9] rounded-full flex items-center justify-center mx-auto mb-4"><Handshake className="w-8 h-8 text-[#06D6A0]" /></div><h3 className="text-2xl font-bold text-[#2D2D2D] mb-2">Formulário enviado!</h3><p className="text-[#555555]">Nossa equipe comercial entrará em contato em breve para conversar sobre a parceria.</p></div>
             ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid md:grid-cols-2 gap-5">
-                <div><label className="block text-sm font-medium text-[#404040] mb-1.5">Seu nome *</label><input type="text" name="nome" value={formData.nome} onChange={handleChange} required placeholder="Nome completo" className={inputCls} /></div>
-                <div><label className="block text-sm font-medium text-[#404040] mb-1.5">E-mail *</label><input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="seu@email.com" className={inputCls} /></div>
-              </div>
-              <div className="grid md:grid-cols-2 gap-5">
-                <div><label className="block text-sm font-medium text-[#404040] mb-1.5">Telefone *</label><input type="tel" name="telefone" value={formData.telefone} onChange={handleChange} required placeholder="(11) 99999-9999" className={inputCls} /></div>
-                <div><label className="block text-sm font-medium text-[#404040] mb-1.5">Nome do hotel / pousada *</label><input type="text" name="nomeHotel" value={formData.nomeHotel} onChange={handleChange} required placeholder="Nome do estabelecimento" className={inputCls} /></div>
-              </div>
-              <div className="grid md:grid-cols-3 gap-5">
-                <div><label className="block text-sm font-medium text-[#404040] mb-1.5">Cidade / Estado *</label><input type="text" name="cidade" value={formData.cidade} onChange={handleChange} required placeholder="Ex: Gramado - RS" className={inputCls} /></div>
-                <div><label className="block text-sm font-medium text-[#404040] mb-1.5">Categoria</label><select name="categoria" value={formData.categoria} onChange={handleChange} className={inputCls + " bg-white"}><option value="">Selecione</option><option value="3-estrelas">3 estrelas</option><option value="4-estrelas">4 estrelas</option><option value="5-estrelas">5 estrelas</option><option value="pousada">Pousada</option><option value="resort">Resort</option></select></div>
-                <div><label className="block text-sm font-medium text-[#404040] mb-1.5">Número de quartos</label><input type="text" name="quartos" value={formData.quartos} onChange={handleChange} placeholder="Ex: 120" className={inputCls} /></div>
-              </div>
-              <div><label className="block text-sm font-medium text-[#404040] mb-1.5">Mensagem (opcional)</label><textarea name="mensagem" value={formData.mensagem} onChange={handleChange} rows={3} placeholder="Conte-nos mais sobre o seu hotel e o que espera dessa parceria" className={inputCls + " resize-none"} /></div>
-              <button type="submit" disabled={isSubmitting} className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 text-base disabled:opacity-60">
-                {isSubmitting ? "Enviando..." : (<><Send className="w-5 h-5" />Quero ser parceiro</>)}
-              </button>
-              <p className="text-xs text-[#999999] text-center leading-relaxed">Ao enviar, você concorda com nossa <Link href="/documentos" className="text-[#0020B8] hover:underline">Política de Privacidade</Link>. Seus dados serão utilizados exclusivamente para contato comercial.</p>
-            </form>
+            <RDStationForm formId={RD_FORMS.sejaParceiro} />
             )}
           </div>
         </div>

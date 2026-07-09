@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { User, Building2, Hash, Mail, Phone, Briefcase, Users, Target, ArrowRight } from "lucide-react";
+import { RDStationForm } from "@/components/RDStationForm";
 
 const maskPhone = (value: string) => {
   const d = value.replace(/\D/g, "");
@@ -29,6 +30,7 @@ export function B2BLeadForm({
   showColaboradores = true,
   colaboradoresLabel = "Número de colaboradores",
   submitLabel = "Solicitar proposta gratuita",
+  rdFormId,
 }: {
   cargoOptions: string[];
   cargoLabel?: string;
@@ -37,6 +39,7 @@ export function B2BLeadForm({
   showColaboradores?: boolean;
   colaboradoresLabel?: string;
   submitLabel?: string;
+  rdFormId?: string;
 }) {
   const [formData, setFormData] = useState({ nome: "", empresa: "", cnpj: "", email: "", celular: "", cargo: "", numColaboradores: "", objetivo: "", mensagem: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,6 +60,8 @@ export function B2BLeadForm({
       setIsSubmitting(false);
     }, 1500);
   };
+
+  if (rdFormId) return <RDStationForm formId={rdFormId} />;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">

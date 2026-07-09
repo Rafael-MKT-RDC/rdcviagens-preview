@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { B2BLeadForm } from "@/components/B2BLeadForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import { Cloud, ArrowLeft, ArrowRight, Globe, Shield, Zap, Users, Building2, Layers, Puzzle, Headphones as HeadphonesIcon, BarChart3, Wallet, Target, CreditCard, Award, Heart, TrendingUp, Settings, ChevronDown } from "lucide-react";
 
 const heroImg = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80";
@@ -134,7 +135,7 @@ export function EmpresasTravelCloudClient() {
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12"><Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0"><Cloud className="w-4 h-4 mr-2" />Vamos conversar</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Agende uma conversa para desenhar sua vertical de viagens</h2><p className="text-lg text-[#555555]">Preencha o formulário e nossa equipe entrará em contato para entender seu ecossistema e desenhar o modelo ideal.</p></div>
-              <Card className="border border-[#E8E8E8] shadow-xl"><CardContent className="p-8"><B2BLeadForm cargoOptions={cargoOptions} objetivoLabel="Segmento" objetivoOptions={segmentoOptions} showColaboradores={false} submitLabel="Agendar conversa" /></CardContent></Card>
+              <Card className="border border-[#E8E8E8] shadow-xl"><CardContent className="p-8"><B2BLeadForm rdFormId={RD_FORMS.travelCloud} cargoOptions={cargoOptions} objetivoLabel="Segmento" objetivoOptions={segmentoOptions} showColaboradores={false} submitLabel="Agendar conversa" /></CardContent></Card>
             </div>
           </div>
         </AnimateOnScroll>

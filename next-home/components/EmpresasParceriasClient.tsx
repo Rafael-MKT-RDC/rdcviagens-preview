@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { B2BLeadForm } from "@/components/B2BLeadForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import { B2BFaq } from "@/components/B2BFaq";
 import { Handshake, Check, ArrowLeft, ArrowRight, Users, Zap, Building2, Landmark, Globe, Rocket, DollarSign, Network } from "lucide-react";
 
@@ -111,7 +112,7 @@ export function EmpresasParceriasClient() {
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12"><Badge className="mb-4 bg-white/10 text-[#FF9100] border-0"><Handshake className="w-4 h-4 mr-2" />Vamos conversar</Badge><h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">Vamos construir uma parceria de sucesso?</h2><p className="text-lg text-[#C7D3E0]">Preencha o formulário e nossa <strong>equipe de parcerias</strong> entrará em contato para desenhar o modelo ideal para o seu negócio.</p></div>
-              <Card className="border-0 shadow-xl"><CardContent className="p-8"><B2BLeadForm cargoOptions={segmentoOptions} cargoLabel="Segmento" objetivoLabel="Tamanho da base de clientes" objetivoOptions={baseOptions} showColaboradores={false} submitLabel="Explorar parceria" /></CardContent></Card>
+              <Card className="border-0 shadow-xl"><CardContent className="p-8"><B2BLeadForm rdFormId={RD_FORMS.parcerias} cargoOptions={segmentoOptions} cargoLabel="Segmento" objetivoLabel="Tamanho da base de clientes" objetivoOptions={baseOptions} showColaboradores={false} submitLabel="Explorar parceria" /></CardContent></Card>
             </div>
           </div>
         </AnimateOnScroll>

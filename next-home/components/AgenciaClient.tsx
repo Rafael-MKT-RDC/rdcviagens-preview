@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { RDStationForm } from "@/components/RDStationForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import {
   Plane, Hotel, Car, Ship, Shield, MapPin, Globe, Compass, Headphones as HeadphonesIcon,
   CalendarDays, ArrowRight, Star, Sparkles, Heart, Check, Clock, ChevronDown, MessageCircle,
@@ -296,47 +298,7 @@ export function AgenciaClient() {
             ) : (
               <Card className="border-0 shadow-lg">
                 <CardContent className="pt-8 pb-8">
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2"><Label htmlFor="name">Nome completo *</Label><Input id="name" name="name" placeholder="Seu nome completo" value={formData.name} onChange={handleInputChange} required /></div>
-                      <div className="space-y-2"><Label htmlFor="email">E-mail *</Label><Input id="email" name="email" type="email" placeholder="seu@email.com" value={formData.email} onChange={handleInputChange} required /></div>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2"><Label htmlFor="phone">Celular (WhatsApp) *</Label><Input id="phone" name="phone" placeholder="(00) 00000-0000" value={formData.phone} onChange={handlePhoneChange} required /></div>
-                      <div className="space-y-2"><Label htmlFor="destination">Destino desejado</Label><Input id="destination" name="destination" placeholder="Ex: Porto de Galinhas" value={formData.destination} onChange={handleInputChange} /></div>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2"><Label htmlFor="travelDate">Data prevista da viagem</Label><Input id="travelDate" name="travelDate" type="month" value={formData.travelDate} onChange={handleInputChange} /></div>
-                      <div className="space-y-2">
-                        <Label htmlFor="travelers">Número de viajantes</Label>
-                        <select id="travelers" value={formData.travelers} onChange={(e) => setFormData((prev) => ({ ...prev, travelers: e.target.value }))} className="flex h-10 w-full rounded-md border border-[#D6D6D6] bg-white px-3 py-2 text-sm text-[#2D2D2D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9100]">
-                          <option value="" disabled>Selecione</option>
-                          <option value="1">1 pessoa</option><option value="2">2 pessoas</option><option value="3">3 pessoas</option><option value="4">4 pessoas</option><option value="5+">5 ou mais</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="space-y-2"><Label htmlFor="message">Conte mais sobre sua viagem</Label><Textarea id="message" name="message" placeholder="Descreva o que você imagina para essa viagem: tipo de hospedagem, atividades, orçamento estimado..." value={formData.message} onChange={handleInputChange} rows={3} /></div>
-                    <div className="space-y-3">
-                      <Label>Canal de preferência para contato *</Label>
-                      <div className="flex gap-4">
-                        <label className="flex items-center gap-2 cursor-pointer text-sm font-normal text-[#2D2D2D]"><input type="radio" name="contactChannel" value="whatsapp" checked={formData.contactChannel === "whatsapp"} onChange={(e) => setFormData((prev) => ({ ...prev, contactChannel: e.target.value }))} className="accent-[#FF9100]" /><MessageCircle className="w-4 h-4 text-[#06D6A0]" />WhatsApp</label>
-                        <label className="flex items-center gap-2 cursor-pointer text-sm font-normal text-[#2D2D2D]"><input type="radio" name="contactChannel" value="ligacao" checked={formData.contactChannel === "ligacao"} onChange={(e) => setFormData((prev) => ({ ...prev, contactChannel: e.target.value }))} className="accent-[#FF9100]" /><Phone className="w-4 h-4 text-[#0020B8]" />Ligação</label>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Horário de preferência para contato *</Label>
-                      <div className="grid grid-cols-2 gap-2">
-                        {contactTimes.map((time) => (
-                          <Button key={time.value} type="button" variant={formData.contactTime === time.value ? "default" : "outline"} className={formData.contactTime === time.value ? "bg-[#FF9100] hover:bg-[#E68200] text-white" : "hover:border-[#FF9100] hover:text-[#E68200]"} onClick={() => setFormData((prev) => ({ ...prev, contactTime: time.value }))}>{time.label}</Button>
-                        ))}
-                      </div>
-                    </div>
-                    {formError && <p className="text-sm text-red-600 text-center">{formError}</p>}
-                    <Button type="submit" className="w-full bg-[#FF9100] hover:bg-[#E68200] text-white py-6 mt-4" disabled={isSubmitting}>
-                      {isSubmitting ? (<><Loader2 className="w-4 h-4 mr-2 animate-spin" />Enviando...</>) : (<><Send className="w-4 h-4 mr-2" />Solicitar cotação</>)}
-                    </Button>
-                    <p className="text-xs text-center text-[#777777]">Seus dados estão seguros. Não compartilhamos suas informações.</p>
-                  </form>
+                  <RDStationForm formId={RD_FORMS.agencia} />
                 </CardContent>
               </Card>
             )}

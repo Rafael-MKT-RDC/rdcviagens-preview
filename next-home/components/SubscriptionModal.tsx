@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import { RDStationForm } from "@/components/RDStationForm";
+import { RD_FORMS } from "@/lib/rdstation";
 import { Check, Loader2, Send, Phone, MessageCircle } from "lucide-react";
 
 interface SubscriptionModalProps {
@@ -109,36 +111,7 @@ export default function SubscriptionModal({ open, onOpenChange, selectedPlan }: 
             </div>
           </div>
         )}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-2"><Label htmlFor="sm-name">Nome completo *</Label><Input id="sm-name" name="name" placeholder="Seu nome completo" value={formData.name} onChange={handleInputChange} required /></div>
-          <div className="space-y-2"><Label htmlFor="sm-email">E-mail *</Label><Input id="sm-email" name="email" type="email" placeholder="seu@email.com" value={formData.email} onChange={handleInputChange} required /></div>
-          <div className="space-y-2"><Label htmlFor="sm-phone">Celular (WhatsApp) *</Label><Input id="sm-phone" name="phone" placeholder="(00) 00000-0000" value={formData.phone} onChange={handlePhoneChange} required /></div>
-          <div className="space-y-2">
-            <Label htmlFor="sm-plan">Plano de interesse *</Label>
-            <select id="sm-plan" value={formData.plan} onChange={(e) => setFormData((prev) => ({ ...prev, plan: e.target.value }))} required className="flex h-10 w-full rounded-md border border-[#D6D6D6] bg-white px-3 py-2 text-sm text-[#2D2D2D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9100]">
-              <option value="" disabled>Selecione um plano</option>
-              {plans.map((plan) => (<option key={plan.id} value={plan.id}>{plan.days} Diárias/ano - R$ {plan.price.toFixed(2).replace(".", ",")}/mês</option>))}
-            </select>
-          </div>
-          <div className="space-y-3">
-            <Label>Canal de preferência para contato *</Label>
-            <div className="flex gap-4">
-              <label className="flex items-center gap-2 cursor-pointer text-sm font-normal text-[#2D2D2D]"><input type="radio" name="sm-channel" value="whatsapp" checked={formData.contactChannel === "whatsapp"} onChange={(e) => setFormData((prev) => ({ ...prev, contactChannel: e.target.value }))} className="accent-[#FF9100]" /><MessageCircle className="w-4 h-4 text-[#06D6A0]" />WhatsApp</label>
-              <label className="flex items-center gap-2 cursor-pointer text-sm font-normal text-[#2D2D2D]"><input type="radio" name="sm-channel" value="ligacao" checked={formData.contactChannel === "ligacao"} onChange={(e) => setFormData((prev) => ({ ...prev, contactChannel: e.target.value }))} className="accent-[#FF9100]" /><Phone className="w-4 h-4 text-[#0020B8]" />Ligação</label>
-            </div>
-          </div>
-          <div className="space-y-2">
-            <Label>Horário de preferência para contato *</Label>
-            <div className="grid grid-cols-2 gap-2">
-              {contactTimes.map((time) => (<Button key={time.value} type="button" variant={formData.contactTime === time.value ? "default" : "outline"} className={formData.contactTime === time.value ? "bg-[#FF9100] hover:bg-[#E68200] text-white" : "hover:border-[#FF9100] hover:text-[#E68200]"} onClick={() => setFormData((prev) => ({ ...prev, contactTime: time.value }))}>{time.label}</Button>))}
-            </div>
-          </div>
-          {formError && <p className="text-sm text-red-600 text-center">{formError}</p>}
-          <Button type="submit" className="w-full bg-[#FF9100] hover:bg-[#E68200] text-white py-6 mt-6" disabled={isSubmitting}>
-            {isSubmitting ? (<><Loader2 className="w-4 h-4 mr-2 animate-spin" />Enviando...</>) : (<><Send className="w-4 h-4 mr-2" />Enviar solicitação</>)}
-          </Button>
-          <p className="text-xs text-center text-[#777777]">Seus dados estão seguros. Não compartilhamos suas informações.</p>
-        </form>
+        <RDStationForm formId={RD_FORMS.assinaturas} />
       </DialogContent>
     </Dialog>
   );
