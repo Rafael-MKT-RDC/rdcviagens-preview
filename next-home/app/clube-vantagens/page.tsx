@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ClubeVantagensClient } from "@/components/ClubeVantagensClient";
+import { getParceirosClube } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Clube de Vantagens | Descontos Exclusivos",
@@ -9,6 +10,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/clube-vantagens" },
 };
 
-export default function ClubeVantagensPage() {
-  return <ClubeVantagensClient />;
+export const revalidate = 30;
+
+export default async function ClubeVantagensPage() {
+  const cmsPartners = await getParceirosClube();
+  return <ClubeVantagensClient cmsPartners={cmsPartners} />;
 }
