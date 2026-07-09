@@ -56,7 +56,7 @@ export function EmpresasGestaoClient({ cms = {} }: { cms?: any }) {
           <Link href="/solucoes-corporativas"><Button variant="ghost" className="text-white hover:bg-white/10 mb-6"><ArrowLeft className="mr-2 h-4 w-4" />Voltar para Soluções Corporativas</Button></Link>
           <div className="max-w-3xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logos/b2b/logo-gestao-cor.svg" alt="RDC Gestão de Viagens" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
+            <img src="/logos/b2b/gestao_de_viagens_logo_branco.svg" alt="RDC Gestão de Viagens" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
             <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Plane className="w-4 h-4 mr-2" />{cms.heroBadge ?? "Gestão Corporativa"}</Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Sua empresa viaja."} <span className="text-[#FF9100]">{cms.heroDestaque ?? "Nós cuidamos de tudo."}</span></h1>
             <p className="text-xl text-[#DCE6EF] mb-4">Gestão completa de viagens corporativas para <strong className="text-white">pequenas e médias empresas</strong>. <strong>Centralize reservas, controle gastos</strong> e economize até 30% — <strong>sem burocracia</strong>, sem complicação.</p>

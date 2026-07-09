@@ -59,7 +59,7 @@ export function EmpresasPremiacaoClient({ cms = {} }: { cms?: any }) {
           <Link href="/solucoes-corporativas"><Button variant="ghost" className="text-white hover:bg-white/10 mb-6"><ArrowLeft className="mr-2 h-4 w-4" />Voltar para Soluções Corporativas</Button></Link>
           <div className="max-w-3xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logos/b2b/logo-premiacao-cor.svg" alt="RDC Premiação" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
+            <img src="/logos/b2b/premiacao_logo_branco.svg" alt="RDC Premiação" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
             <Badge className="mb-4 bg-[#FF9100] text-[#2D2D2D] border-0"><Plane className="w-4 h-4 mr-2" />{cms.heroBadge ?? "Incentivo Corporativo"}</Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Viagens que transformam"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "resultados"}</span></h1>
             <p className="text-xl text-[#F6F6F6] mb-4">Uma solução estratégica para áreas como <strong className="text-white">RH, Marketing e Comercial</strong> que buscam engajar públicos e impulsionar resultados com colaboradores, clientes e parceiros.</p>

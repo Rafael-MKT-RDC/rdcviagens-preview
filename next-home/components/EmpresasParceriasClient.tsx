@@ -54,7 +54,7 @@ export function EmpresasParceriasClient({ cms = {} }: { cms?: any }) {
           <Link href="/solucoes-corporativas"><Button variant="ghost" className="text-white hover:bg-white/10 mb-6"><ArrowLeft className="mr-2 h-4 w-4" />Voltar para Soluções Corporativas</Button></Link>
           <div className="max-w-3xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logos/b2b/logo-parcerias-cor.svg" alt="RDC Parcerias" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
+            <img src="/logos/b2b/parcerias_logo_branco.svg" alt="RDC Parcerias" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
             <Badge className="mb-4 bg-[#E07F00] text-white border-0"><Handshake className="w-4 h-4 mr-2" />{cms.heroBadge ?? "Alianças Estratégicas"}</Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Novas fronteiras de crescimento"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "para o seu negócio"}</span></h1>
             <p className="text-xl text-[#F6F6F6] mb-4">Alianças estratégicas com <strong className="text-white">bancos, empresas, entidades e plataformas</strong> que buscam se diferenciar, gerar novas receitas e ampliar sua proposta de valor.</p>

@@ -61,7 +61,7 @@ function FaqItem({ question, answer }: { question: string; answer: React.ReactNo
     <div className="border border-[#E0E0E0] rounded-xl overflow-hidden">
       <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-between p-5 text-left hover:bg-[#F8F8F8] transition-colors">
         <span className="font-semibold text-[#2D2D2D] pr-4">{question}</span>
-        <ChevronDown className={`w-5 h-5 text-[#00B4D8] flex-shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+        <ChevronDown className={`w-5 h-5 text-[#FF9100] flex-shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
       {isOpen && <div className="px-5 pb-5 text-[#555555] leading-relaxed border-t border-[#F0F0F0]"><div className="pt-4">{answer}</div></div>}
     </div>
@@ -75,21 +75,22 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       {/* Hero */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-br from-[#00148A] via-[#001070] to-[#000C5A]" />
+          <div className="w-full h-full bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41]" />
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-[#00B4D8] blur-3xl" />
-            <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full bg-[#FF9100] blur-3xl" />
+            <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-[#FF9100] blur-3xl" />
+            <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full bg-[#0E4D6E] blur-3xl" />
           </div>
         </div>
         <div className="container relative z-10">
           <Link href="/solucoes-corporativas"><Button variant="ghost" className="text-white hover:bg-white/10 mb-6"><ArrowLeft className="mr-2 h-4 w-4" />Voltar para Soluções Corporativas</Button></Link>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge className="mb-4 bg-[#00B4D8] hover:bg-[#0096B4] text-white border-0"><Cloud className="w-4 h-4 mr-2" />{cms.heroBadge ?? "RDC Travel Cloud"}</Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Crie mais conveniência."} <span className="text-[#00B4D8]">{cms.heroDestaque ?? "Adicione a categoria de viagem no seu app."}</span></h1>
-              <p className="text-xl text-[#C7E5F3] mb-4">{cms.heroSub1 ?? (<>Seu usuário reserva viagens <strong className="text-white">sem sair do app que já usa</strong>. Sem cadastro novo, sem outro fornecedor. A RDC opera toda a complexidade turística nos bastidores.</>)}</p>
-              <p className="text-lg text-[#8ECAE6] mb-8">{cms.heroSub2 ?? (<>Um único fornecedor. Mais tempo de tela. <strong>Nova fonte de receita para o seu negócio.</strong></>)}</p>
-              <div className="flex flex-wrap gap-4"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E08200] text-white px-8 rounded-full" onClick={scrollForm}>{cms.heroCta ?? "Criar minha vertical de viagens"}<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
+              <img src="/logos/b2b/travel_cloude_logo_branco.svg" alt="RDC Travel Cloud" className="h-12 w-auto mb-6" />
+              <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Cloud className="w-4 h-4 mr-2" />{cms.heroBadge ?? "RDC Travel Cloud"}</Badge>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Crie mais conveniência."} <span className="text-[#FF9100]">{cms.heroDestaque ?? "Adicione a categoria de viagem no seu app."}</span></h1>
+              <p className="text-xl text-[#C7D3E0] mb-4">{cms.heroSub1 ?? (<>Seu usuário reserva viagens <strong className="text-white">sem sair do app que já usa</strong>. Sem cadastro novo, sem outro fornecedor. A RDC opera toda a complexidade turística nos bastidores.</>)}</p>
+              <p className="text-lg text-[#C7D3E0] mb-8">{cms.heroSub2 ?? (<>Um único fornecedor. Mais tempo de tela. <strong>Nova fonte de receita para o seu negócio.</strong></>)}</p>
+              <div className="flex flex-wrap gap-4"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E07F00] text-white px-8 rounded-full" onClick={scrollForm}>{cms.heroCta ?? "Criar minha vertical de viagens"}<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
             </div>
             <div className="hidden lg:flex justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -100,16 +101,16 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       </section>
 
       {/* Benefits Numbers */}
-      <section id="visao-geral" className="py-12 bg-[#00148A] border-t border-white/10">
+      <section id="visao-geral" className="py-12 bg-[#082B41] border-t border-white/10">
         <AnimateOnScroll variant="fade">
           <div className="container">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
               {benefits.map((benefit, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3"><benefit.icon className="w-7 h-7 text-[#00B4D8]" /></div>
+                  <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3"><benefit.icon className="w-7 h-7 text-[#FF9100]" /></div>
                   <div className="text-3xl md:text-4xl font-bold text-white mb-1">{benefit.value}</div>
-                  <div className="text-[#00B4D8] font-medium mb-1">{benefit.label}</div>
-                  <div className="text-[#8ECAE6] text-sm">{benefit.description}</div>
+                  <div className="text-[#FF9100] font-medium mb-1">{benefit.label}</div>
+                  <div className="text-[#C7D3E0] text-sm">{benefit.description}</div>
                 </div>
               ))}
             </div>
@@ -122,7 +123,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Cloud className="w-4 h-4 mr-2" />{cms.oQueBadge ?? "O que é"}</Badge>
+              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0"><Cloud className="w-4 h-4 mr-2" />{cms.oQueBadge ?? "O que é"}</Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-6">{cms.oQueTitulo ?? "O que é a RDC Travel Cloud?"}</h2>
               <p className="text-lg text-[#555555] leading-relaxed mb-6">{cms.oQueP1 ?? (<>A RDC Travel Cloud é a <strong>infraestrutura de viagens</strong> que permite que parceiros (fintechs, plataformas de benefícios, apps corporativos, marketplaces) ofereçam viagens com conveniência dentro de seus próprios ecossistemas digitais.</>)}</p>
               <p className="text-lg text-[#555555] leading-relaxed mb-6">{cms.oQueP2 ?? (<>O parceiro <strong>distribui</strong>. A RDC <strong>opera</strong>. O usuário reserva sem sair do app. Toda a complexidade turística (inventário, tarifas, reservas, atendimento, pós-venda) fica invisível.</>)}</p>
@@ -133,7 +134,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       </section>
 
       {/* Nova fonte de receita */}
-      <section className="py-12 md:py-16 bg-gradient-to-r from-[#FF9100] to-[#FF6D00]">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-[#FF9100] to-[#E07F00]">
         <AnimateOnScroll variant="fade">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center text-white">
@@ -155,7 +156,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Smartphone className="w-4 h-4 mr-2" />{cms.frentesBadge ?? "Frentes de aplicação"}</Badge>
+              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0"><Smartphone className="w-4 h-4 mr-2" />{cms.frentesBadge ?? "Frentes de aplicação"}</Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.frentesTitulo ?? "Para quem é a RDC Travel Cloud?"}</h2>
               <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.frentesSubtitulo ?? (<>Uma infraestrutura de viagens para diferentes <strong>modelos de negócio B2B e B2B2C</strong> que buscam criar a categoria de viagem no seu ecossistema com conveniência.</>)}</p>
             </div>
@@ -163,10 +164,10 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
               {useCases.map((useCase, index) => (
                 <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 bg-white">
                   <CardContent className="p-8">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00B4D8] to-[#0077B6] flex items-center justify-center mb-4"><useCase.icon className="w-7 h-7 text-white" /></div>
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF9100] to-[#E07F00] flex items-center justify-center mb-4"><useCase.icon className="w-7 h-7 text-white" /></div>
                     <h3 className="font-bold text-xl text-[#2D2D2D] mb-2">{useCase.title}</h3>
                     <p className="text-[#555555] leading-relaxed mb-3">{useCase.description}</p>
-                    <p className="text-sm text-[#00B4D8] font-semibold">{useCase.audience}</p>
+                    <p className="text-sm text-[#FF9100] font-semibold">{useCase.audience}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -180,7 +181,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Settings className="w-4 h-4 mr-2" />{cms.modeloBadge ?? "Modelo operacional"}</Badge>
+              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0"><Settings className="w-4 h-4 mr-2" />{cms.modeloBadge ?? "Modelo operacional"}</Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.modeloTitulo ?? "Como a Travel Cloud funciona"}</h2>
               <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.modeloSubtitulo ?? (<>Três movimentos simples: <strong>habilitação, distribuição e operação</strong>. O parceiro oferece conveniência ao usuário. A RDC cuida de toda a complexidade turística.</>)}</p>
             </div>
@@ -188,10 +189,10 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
               {howItWorks.map((step, index) => (
                 <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow relative overflow-hidden">
                   <CardContent className="p-8">
-                    <div className="text-5xl font-black text-[#00B4D8]/15 absolute top-4 right-6">{step.step}</div>
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#00B4D8] to-[#0077B6] text-white flex items-center justify-center font-bold mb-4"><step.icon className="w-6 h-6" /></div>
+                    <div className="text-5xl font-black text-[#082B41]/10 absolute top-4 right-6">{step.step}</div>
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FF9100] to-[#E07F00] text-white flex items-center justify-center font-bold mb-4"><step.icon className="w-6 h-6" /></div>
                     <h3 className="text-xl font-bold text-[#2D2D2D] mb-1">{step.title}</h3>
-                    <p className="text-sm font-semibold text-[#00B4D8] mb-3">Responsável: {step.responsible}</p>
+                    <p className="text-sm font-semibold text-[#FF9100] mb-3">Responsável: {step.responsible}</p>
                     <p className="text-[#555555] leading-relaxed">{step.description}</p>
                   </CardContent>
                 </Card>
@@ -206,7 +207,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Zap className="w-4 h-4 mr-2" />{cms.difBadge ?? "Diferenciais"}</Badge>
+              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0"><Zap className="w-4 h-4 mr-2" />{cms.difBadge ?? "Diferenciais"}</Badge>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.difTitulo ?? "Por que a RDC Travel Cloud?"}</h2>
               <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.difSubtitulo ?? (<>Conveniência para o usuário, simplicidade para o parceiro. <strong>Operação turística completa, modelo adaptável e go-to-market acelerado.</strong></>)}</p>
             </div>
@@ -214,7 +215,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
               {differentials.map((diff, index) => (
                 <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 bg-white">
                   <CardContent className="p-7">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00B4D8] to-[#0077B6] flex items-center justify-center mb-4"><diff.icon className="w-6 h-6 text-white" /></div>
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF9100] to-[#E07F00] flex items-center justify-center mb-4"><diff.icon className="w-6 h-6 text-white" /></div>
                     <h3 className="font-bold text-lg text-[#2D2D2D] mb-2">{diff.title}</h3>
                     <p className="text-[#555555] text-sm leading-relaxed">{diff.description}</p>
                   </CardContent>
@@ -226,34 +227,34 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       </section>
 
       {/* RDC Prime */}
-      <section id="beneficio-lazer" className="py-16 md:py-20 bg-gradient-to-br from-[#00148A] via-[#001070] to-[#000C5A] text-white">
+      <section id="beneficio-lazer" className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41] text-white">
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E08200] text-white border-0"><Award className="w-4 h-4 mr-2" />{cms.primeBadge ?? "Produto complementar"}</Badge>
+                <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Award className="w-4 h-4 mr-2" />{cms.primeBadge ?? "Produto complementar"}</Badge>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">{cms.primeTitulo ?? "RDC Prime: benefício de viagem pessoal para o colaborador"}</h2>
-                <p className="text-lg text-[#8ECAE6] max-w-2xl mx-auto">{cms.primeSubtitulo ?? (<>O <strong className="text-white">RDC Prime</strong> é um produto separado da Travel Cloud. É um <strong className="text-white">benefício de viagem de lazer</strong> voltado ao colaborador e sua família, no mesmo modelo de assinatura que já funciona em outros segmentos de bem-estar.</>)}</p>
+                <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">{cms.primeSubtitulo ?? (<>O <strong className="text-white">RDC Prime</strong> é um produto separado da Travel Cloud. É um <strong className="text-white">benefício de viagem de lazer</strong> voltado ao colaborador e sua família, no mesmo modelo de assinatura que já funciona em outros segmentos de bem-estar.</>)}</p>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-                  <h3 className="font-bold text-lg mb-4 text-[#00B4D8]">{cms.primeComoTitulo ?? "Como funciona"}</h3>
-                  <p className="text-[#C7E5F3] leading-relaxed mb-4">A empresa habilita o acesso e o colaborador interessado adere para utilizar as vantagens em <strong className="text-white">férias, feriados, fins de semana e viagens em família</strong>. O mesmo modelo de assinatura que já funciona para academias e bem-estar, agora aplicado a viagens.</p>
-                  <p className="text-[#8ECAE6] text-sm">Benefício de <strong>alto desejo</strong>, para a família toda, que ajuda na <strong>retenção, engajamento e marca empregadora</strong>. Sem trabalho operacional para a empresa.</p>
+                  <h3 className="font-bold text-lg mb-4 text-[#FF9100]">{cms.primeComoTitulo ?? "Como funciona"}</h3>
+                  <p className="text-[#C7D3E0] leading-relaxed mb-4">A empresa habilita o acesso e o colaborador interessado adere para utilizar as vantagens em <strong className="text-white">férias, feriados, fins de semana e viagens em família</strong>. O mesmo modelo de assinatura que já funciona para academias e bem-estar, agora aplicado a viagens.</p>
+                  <p className="text-[#C7D3E0] text-sm">Benefício de <strong>alto desejo</strong>, para a família toda, que ajuda na <strong>retenção, engajamento e marca empregadora</strong>. Sem trabalho operacional para a empresa.</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-                  <h3 className="font-bold text-lg mb-4 text-[#00B4D8]">{cms.primeRecebeTitulo ?? "O que o colaborador recebe"}</h3>
+                  <h3 className="font-bold text-lg mb-4 text-[#FF9100]">{cms.primeRecebeTitulo ?? "O que o colaborador recebe"}</h3>
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" /><span className="text-[#C7E5F3]"><strong className="text-white">Tarifas exclusivas</strong> em +200 mil hotéis e resorts</span></li>
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" /><span className="text-[#C7E5F3]"><strong className="text-white">Atendimento dedicado</strong> com suporte humano e prioridade</span></li>
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" /><span className="text-[#C7E5F3]">Mais <strong className="text-white">flexibilidade</strong> para alterações e remarcações</span></li>
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" /><span className="text-[#C7E5F3]">Auxílio em <strong className="text-white">early check-in e late check-out</strong></span></li>
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" /><span className="text-[#C7E5F3]">Disponível <strong className="text-white">o ano todo</strong> — não depende de promoção ou data especial</span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]"><strong className="text-white">Tarifas exclusivas</strong> em +200 mil hotéis e resorts</span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]"><strong className="text-white">Atendimento dedicado</strong> com suporte humano e prioridade</span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]">Mais <strong className="text-white">flexibilidade</strong> para alterações e remarcações</span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]">Auxílio em <strong className="text-white">early check-in e late check-out</strong></span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]">Disponível <strong className="text-white">o ano todo</strong> — não depende de promoção ou data especial</span></li>
                   </ul>
                 </div>
               </div>
               <div className="mt-8 bg-white/5 border border-white/10 rounded-xl p-5 text-center">
-                <p className="text-[#C7E5F3] text-sm">{cms.primeNota ?? (<><strong className="text-[#FF9100]">Importante:</strong> O RDC Prime é ofertado <strong className="text-white">apenas na jornada de lazer/benefícios</strong>. Na viagem corporativa, o foco é gestão de despesas e governança, sem assinatura de benefício pessoal.</>)}</p>
+                <p className="text-[#C7D3E0] text-sm">{cms.primeNota ?? (<><strong className="text-[#FF9100]">Importante:</strong> O RDC Prime é ofertado <strong className="text-white">apenas na jornada de lazer/benefícios</strong>. Na viagem corporativa, o foco é gestão de despesas e governança, sem assinatura de benefício pessoal.</>)}</p>
               </div>
             </div>
           </div>
@@ -266,7 +267,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Mail className="w-4 h-4 mr-2" />{cms.formBadge ?? "Vamos conversar"}</Badge>
+                <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0"><Mail className="w-4 h-4 mr-2" />{cms.formBadge ?? "Vamos conversar"}</Badge>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.formTitulo ?? "Vamos desenhar sua vertical de viagens"}</h2>
                 <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.formSubtitulo ?? (<>Preencha o formulário e nossa equipe entrará em contato para entender seu modelo de negócio e apresentar a <strong>solução mais adequada</strong>.</>)}</p>
               </div>
@@ -282,13 +283,13 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0">{cms.faqBadge ?? "Dúvidas frequentes"}</Badge>
+                <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">{cms.faqBadge ?? "Dúvidas frequentes"}</Badge>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.faqTitulo ?? "Perguntas sobre a RDC Travel Cloud"}</h2>
               </div>
               <div className="space-y-3">{faqs.map((faq, index) => (<FaqItem key={index} question={faq.question} answer={faq.answer} />))}</div>
               <div className="text-center mt-8">
                 <p className="text-[#555555] mb-4">Não encontrou sua dúvida?</p>
-                <Link href="/contato"><Button variant="outline" className="border-[#00B4D8] text-[#00B4D8] hover:bg-[#E0F7FA] rounded-full">Falar com nossa equipe</Button></Link>
+                <Link href="/contato"><Button variant="outline" className="border-[#FF9100] text-[#FF9100] hover:bg-[#FFF0DB] rounded-full">Falar com nossa equipe</Button></Link>
               </div>
             </div>
           </div>
@@ -302,7 +303,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-xl md:text-2xl font-bold text-[#2D2D2D] mb-4">{cms.ctaTitulo ?? "Crie a categoria de viagem no seu ecossistema"}</h2>
               <p className="text-lg text-[#555555] mb-8">{cms.ctaTexto ?? "Um único fornecedor. Mais tempo de tela. Mais receita. Seu usuário reserva viagens sem sair do app e você não precisa operar nada."}</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E08200] text-white px-8 rounded-full" onClick={scrollForm}>{cms.ctaBotao ?? "Criar minha vertical de viagens"}<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E07F00] text-white px-8 rounded-full" onClick={scrollForm}>{cms.ctaBotao ?? "Criar minha vertical de viagens"}<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
             </div>
           </div>
         </AnimateOnScroll>
