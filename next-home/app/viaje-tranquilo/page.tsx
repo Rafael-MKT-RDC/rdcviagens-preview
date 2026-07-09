@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { ViajeTranquiloClient } from "@/components/ViajeTranquiloClient";
+import { getPageDoc } from "@/lib/cms";
+
+export const revalidate = 30;
 
 export const metadata: Metadata = {
   title: "Viaje Tranquilo | Suporte 24h e Atendimento",
@@ -9,6 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/viaje-tranquilo" },
 };
 
-export default function ViajeTranquiloPage() {
-  return <ViajeTranquiloClient />;
+export default async function ViajeTranquiloPage() {
+  const cms = await getPageDoc<any>("paginaViajeTranquilo");
+  return <ViajeTranquiloClient cms={cms} />;
 }
