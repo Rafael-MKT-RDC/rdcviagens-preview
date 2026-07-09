@@ -39,7 +39,7 @@ const faqs = [
 const segmentoOptions = ["Banco / Instituição Financeira", "Empresa / Corporação", "Entidade / Associação / Sindicato", "Plataforma / Marketplace", "Outro"];
 const baseOptions = ["Até 1.000", "1.000 a 10.000", "10.000 a 50.000", "50.000 a 200.000", "Mais de 200.000"];
 
-export function EmpresasParceriasClient() {
+export function EmpresasParceriasClient({ cms = {} }: { cms?: any }) {
   const scrollForm = () => document.getElementById("formulario-parcerias")?.scrollIntoView({ behavior: "smooth" });
   return (
     <>
@@ -55,8 +55,8 @@ export function EmpresasParceriasClient() {
           <div className="max-w-3xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logos/b2b/logo-parcerias-cor.svg" alt="RDC Parcerias" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
-            <Badge className="mb-4 bg-[#E07F00] text-white border-0"><Handshake className="w-4 h-4 mr-2" />Alianças Estratégicas</Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Novas fronteiras de crescimento <span className="text-[#FF9100]">para o seu negócio</span></h1>
+            <Badge className="mb-4 bg-[#E07F00] text-white border-0"><Handshake className="w-4 h-4 mr-2" />{cms.heroBadge ?? "Alianças Estratégicas"}</Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Novas fronteiras de crescimento"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "para o seu negócio"}</span></h1>
             <p className="text-xl text-[#F6F6F6] mb-4">Alianças estratégicas com <strong className="text-white">bancos, empresas, entidades e plataformas</strong> que buscam se diferenciar, gerar novas receitas e ampliar sua proposta de valor.</p>
             <p className="text-lg text-[#F6F6F6] mb-8">Leve o universo de viagens da RDC para a sua base — <strong>sem complexidade operacional</strong>.</p>
             <div className="flex flex-wrap gap-4"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E07F00] text-white px-8 rounded-full" onClick={scrollForm}>Explorar parceria<ArrowRight className="ml-2 h-4 w-4" /></Button></div>

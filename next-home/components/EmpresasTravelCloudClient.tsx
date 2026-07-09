@@ -59,7 +59,7 @@ function FaqItem({ question, answer }: { question: string; answer: React.ReactNo
   );
 }
 
-export function EmpresasTravelCloudClient() {
+export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
   const scrollForm = () => document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
   return (
     <>
@@ -75,8 +75,8 @@ export function EmpresasTravelCloudClient() {
           <div className="max-w-3xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logos/b2b/logo-travelcloud-cor.svg" alt="RDC Travel Cloud" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
-            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Cloud className="w-4 h-4 mr-2" />Nova Solução Corporativa</Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Viagens dentro do <span className="text-[#FF9100]">seu ecossistema.</span></h1>
+            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Cloud className="w-4 h-4 mr-2" />{cms.heroBadge ?? "Nova Solução Corporativa"}</Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Viagens dentro do"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "seu ecossistema."}</span></h1>
             <p className="text-xl text-[#DCE6EF] mb-4">A <strong className="text-white">RDC Travel Cloud</strong> é uma plataforma <strong className="text-white">white label</strong> que permite que parceiros ofereçam viagens dentro de seus próprios ambientes digitais, com <strong className="text-white">operação turística especializada</strong> da RDC.</p>
             <p className="text-lg text-[#C7D3E0] mb-8">Lance uma <strong>vertical de viagens</strong> sem construir turismo do zero. O parceiro distribui; a RDC opera.</p>
             <div className="flex flex-wrap gap-4"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] px-8 rounded-full" onClick={scrollForm}>Agendar uma conversa<ArrowRight className="ml-2 h-4 w-4" /></Button></div>

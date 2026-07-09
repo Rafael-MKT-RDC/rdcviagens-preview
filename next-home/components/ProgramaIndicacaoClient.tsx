@@ -37,7 +37,7 @@ const faqs = [
   { question: "Existe limite de indicações?", answer: "Não! Você pode indicar quantas pessoas quiser. Quanto mais você indica, mais pontos acumula para trocar por benefícios." },
 ];
 
-export function ProgramaIndicacaoClient() {
+export function ProgramaIndicacaoClient({ cms = {} }: { cms?: any }) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({ indicadorNome: "", indicadorCpf: "", indicadorEmail: "", indicadorTelefone: "", indicadoNome: "", indicadoEmail: "", indicadoTelefone: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -73,8 +73,8 @@ export function ProgramaIndicacaoClient() {
         </div>
         <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <Badge className="mb-4 bg-[#FF9100] text-black border-0"><Gift className="w-4 h-4 mr-1" />Programa de Indicação</Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Indique amigos e <span className="text-[#FF9100]">ganhe pontos</span></h1>
+            <Badge className="mb-4 bg-[#FF9100] text-black border-0"><Gift className="w-4 h-4 mr-1" />{cms.heroBadge ?? "Programa de Indicação"}</Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Indique amigos e"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "ganhe pontos"}</span></h1>
             <p className="text-xl text-[#C7E5F3] mb-8">Compartilhe a experiência RDC com quem você ama e <strong>acumule pontos</strong> para trocar por descontos em hospedagem, voos, carros e muito mais!</p>
             <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-black px-8 py-6 text-lg rounded-full font-semibold" onClick={scrollToForm}>Indicar agora<ArrowRight className="w-5 h-5 ml-2" /></Button>
           </div>

@@ -41,7 +41,7 @@ const faqs = [
 const cargoOptions = ["Diretor / Nível Executivo", "Gerente", "Coordenador", "Analista", "Secretária Executiva", "Outro"];
 const volumeOptions = ["Até 5 viagens/mês", "6 a 15 viagens/mês", "16 a 30 viagens/mês", "Mais de 30 viagens/mês"];
 
-export function EmpresasGestaoClient() {
+export function EmpresasGestaoClient({ cms = {} }: { cms?: any }) {
   const scrollForm = () => document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
   return (
     <>
@@ -57,8 +57,8 @@ export function EmpresasGestaoClient() {
           <div className="max-w-3xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logos/b2b/logo-gestao-cor.svg" alt="RDC Gestão de Viagens" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
-            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Plane className="w-4 h-4 mr-2" />Gestão Corporativa</Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Sua empresa viaja. <span className="text-[#FF9100]">Nós cuidamos de tudo.</span></h1>
+            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Plane className="w-4 h-4 mr-2" />{cms.heroBadge ?? "Gestão Corporativa"}</Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Sua empresa viaja."} <span className="text-[#FF9100]">{cms.heroDestaque ?? "Nós cuidamos de tudo."}</span></h1>
             <p className="text-xl text-[#DCE6EF] mb-4">Gestão completa de viagens corporativas para <strong className="text-white">pequenas e médias empresas</strong>. <strong>Centralize reservas, controle gastos</strong> e economize até 30% — <strong>sem burocracia</strong>, sem complicação.</p>
             <p className="text-lg text-[#C7D3E0] mb-8">Mais de <strong>35 anos de experiência</strong> ajudando empresas como a sua a <strong>viajar melhor e gastar menos</strong>.</p>
             <div className="flex flex-wrap gap-4"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] px-8 rounded-full" onClick={scrollForm}>Solicitar proposta gratuita<ArrowRight className="ml-2 h-4 w-4" /></Button></div>

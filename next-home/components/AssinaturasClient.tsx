@@ -66,7 +66,7 @@ const beneficios = [
   { icon: Handshake, title: "Programa de Indicação", desc: <>Indique amigos e <strong className="text-[#2D2D2D]">acumule pontos</strong> para trocar por descontos em hospedagem, voos, carros e experiências.</> },
 ];
 
-export function AssinaturasClient({ depoimentos }: { depoimentos?: Depoimento[] }) {
+export function AssinaturasClient({ depoimentos, cms = {} }: { depoimentos?: Depoimento[]; cms?: any }) {
   const testimonials = depoimentos && depoimentos.length
     ? depoimentos.map((d) => ({ id: d.id, name: d.nome, location: d.cargo ?? "", plan: "", image: d.foto ?? "", text: d.texto, rating: d.estrelas }))
     : FALLBACK_TESTIMONIALS;
@@ -94,8 +94,8 @@ export function AssinaturasClient({ depoimentos }: { depoimentos?: Depoimento[] 
         </div>
         <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">Assinatura de Viagem RDC</Badge>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">O jeito inteligente de <span className="text-[#FF9100]">viajar o ano todo</span></h1>
+            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">{cms.heroBadge ?? "Assinatura de Viagem RDC"}</Badge>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">{cms.heroTituloLinha1 ?? "O jeito inteligente de"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "viajar o ano todo"}</span></h1>
             <p className="text-base md:text-xl text-[#C7E5F3] mb-4 md:mb-6">A <strong>Assinatura RDC</strong> é planejamento inteligente: você paga uma mensalidade e tem acesso a <strong>diárias de hospedagem</strong> com economia de até 60%. Previsibilidade que vira viagem.</p>
             <p className="text-sm md:text-lg text-[#FFB040] italic mb-6 md:mb-8">Porque as melhores memórias são feitas ao lado de quem a gente ama.</p>
             <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-6 py-4 md:px-8 md:py-6 text-base md:text-lg rounded-full" onClick={scrollToPlans}>Ver planos</Button>

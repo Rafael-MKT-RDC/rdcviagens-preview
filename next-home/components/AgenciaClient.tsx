@@ -75,7 +75,7 @@ const faqs = [
   { q: "Em quanto tempo recebo a cotação?", a: "Após o envio da solicitação, nosso time retorna com a proposta personalizada em até 24 horas úteis. Para solicitações urgentes, entre em contato pelo WhatsApp para atendimento imediato." },
 ];
 
-export function AgenciaClient() {
+export function AgenciaClient({ cms = {} }: { cms?: any }) {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -125,8 +125,8 @@ export function AgenciaClient() {
         </div>
         <div className="relative container py-12 md:py-28">
           <div className="max-w-3xl">
-            <Badge className="mb-6 bg-[#FF9100] text-white border-0 px-4 py-1.5 text-sm"><Sparkles className="w-4 h-4 mr-2" />Assinantes têm condições especiais</Badge>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">Sua agência de viagens <span className="text-[#FF9100]">completa</span></h1>
+            <Badge className="mb-6 bg-[#FF9100] text-white border-0 px-4 py-1.5 text-sm"><Sparkles className="w-4 h-4 mr-2" />{cms.heroBadge ?? "Assinantes têm condições especiais"}</Badge>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">{cms.heroTitulo ?? "Sua agência de viagens"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "completa"}</span></h1>
             <p className="text-base md:text-xl text-[#C7E5F3] mb-6 md:mb-8 max-w-2xl leading-relaxed">A agência RDC cuida de <strong>cada detalhe da sua viagem</strong>, do planejamento à volta para casa. Atendemos todos os viajantes — e quem é assinante aproveita <strong>tarifas ainda melhores</strong>.</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-[#FF9100] hover:bg-[#E68200] text-white px-8" onClick={scrollToForm}>Solicitar cotação<ArrowRight className="w-5 h-5 ml-2" /></Button>

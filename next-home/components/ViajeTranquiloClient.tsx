@@ -24,7 +24,7 @@ const faqs = [
   { question: "O suporte 24h funciona em viagens internacionais?", answer: "Sim! O suporte emergencial 24 horas funciona tanto para viagens nacionais quanto internacionais, com atendimento humano em português." },
 ];
 
-export function ViajeTranquiloClient() {
+export function ViajeTranquiloClient({ cms = {} }: { cms?: any }) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formSent, setFormSent] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
@@ -46,8 +46,8 @@ export function ViajeTranquiloClient() {
         </div>
         <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">Exclusivo para Assinantes</Badge>
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">Atendimento personalizado <span className="text-[#FF9100]">do início ao fim</span> da sua viagem</h1>
+            <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E68200] text-white border-0">{cms.heroBadge ?? "Exclusivo para Assinantes"}</Badge>
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">{cms.heroTitulo ?? "Atendimento personalizado"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "do início ao fim"}</span> {cms.heroFinal ?? "da sua viagem"}</h1>
             <p className="text-base md:text-xl text-[#C7E5F3] mb-4 md:mb-6">Com o <strong className="text-white">Viaje Tranquilo</strong>, você conta com <strong className="text-white">suporte 24 horas</strong>, prioridade no atendimento e benefícios exclusivos para curtir cada momento sem preocupação.</p>
             <p className="text-sm md:text-lg text-[#FFB040] italic mb-6 md:mb-8">A partir de apenas R$ 29,90 por reserva.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

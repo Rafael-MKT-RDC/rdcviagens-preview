@@ -44,7 +44,7 @@ const faqs = [
 const cargoOptions = ["CHRO / VP de RH", "Diretor(a) de RH", "Gerente de RH", "Coordenador(a) de RH", "Analista de RH", "Business Partner", "Gestor(a) de Benefícios", "CEO / Diretor Geral", "Outro"];
 const objetivoOptions = ["Benefício para colaboradores", "Campanha de incentivo / premiação", "Retenção de talentos", "Employer branding", "Premiação por metas", "Reconhecimento de tempo de casa", "Outro"];
 
-export function EmpresasPremiacaoClient() {
+export function EmpresasPremiacaoClient({ cms = {} }: { cms?: any }) {
   const scrollForm = () => document.getElementById("formulario-premiacao")?.scrollIntoView({ behavior: "smooth" });
   return (
     <>
@@ -60,8 +60,8 @@ export function EmpresasPremiacaoClient() {
           <div className="max-w-3xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logos/b2b/logo-premiacao-cor.svg" alt="RDC Premiação" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
-            <Badge className="mb-4 bg-[#FF9100] text-[#2D2D2D] border-0"><Plane className="w-4 h-4 mr-2" />Incentivo Corporativo</Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Viagens que transformam <span className="text-[#FF9100]">resultados</span></h1>
+            <Badge className="mb-4 bg-[#FF9100] text-[#2D2D2D] border-0"><Plane className="w-4 h-4 mr-2" />{cms.heroBadge ?? "Incentivo Corporativo"}</Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Viagens que transformam"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "resultados"}</span></h1>
             <p className="text-xl text-[#F6F6F6] mb-4">Uma solução estratégica para áreas como <strong className="text-white">RH, Marketing e Comercial</strong> que buscam engajar públicos e impulsionar resultados com colaboradores, clientes e parceiros.</p>
             <p className="text-lg text-[#F6F6F6] mb-8">Viagens como <strong>ferramenta de incentivo</strong> — engaje, gere valor e crie experiências memoráveis.</p>
             <div className="flex flex-wrap gap-4"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E07F00] text-[#2D2D2D] px-8 rounded-full" onClick={scrollForm}>Solicitar proposta<ArrowRight className="ml-2 h-4 w-4" /></Button></div>

@@ -29,7 +29,7 @@ const steps = [
 const initial = { nome: "", email: "", telefone: "", nomeHotel: "", cidade: "", categoria: "", quartos: "", mensagem: "" };
 const inputCls = "w-full px-4 py-3 rounded-2xl border border-[#D6D6D6] focus:border-[#0028D0] focus:ring-2 focus:ring-blue-200 transition-all text-sm";
 
-export function SejaParceiroClient() {
+export function SejaParceiroClient({ cms = {} }: { cms?: any }) {
   const [formData, setFormData] = useState(initial);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
@@ -53,7 +53,7 @@ export function SejaParceiroClient() {
           <div className="flex items-center gap-2 text-[#8ECAE6] text-sm mb-6"><Link href="/" className="hover:text-white transition-colors">Início</Link><ChevronRight className="w-4 h-4" /><span className="text-white">Seja Parceiro Hoteleiro</span></div>
           <div className="max-w-3xl">
             <span className="inline-block bg-orange-500/20 text-[#FFB040] text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-orange-500/30 backdrop-blur-sm">Para hotéis e pousadas</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Leve mais hóspedes para o seu hotel o <span className="text-[#FF9100]">ano todo</span></h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">{cms.heroTitulo ?? "Leve mais hóspedes para o seu hotel o"} <span className="text-[#FF9100]">{cms.heroDestaque ?? "ano todo"}</span></h1>
             <p className="text-[#C7E5F3] text-lg md:text-xl leading-relaxed max-w-2xl">A RDC conecta mais de <strong>100 mil assinantes</strong> a experiências de viagem por todo o Brasil. Faça parte da nossa rede e receba <strong>hóspedes qualificados</strong> que viajam com frequência e valorizam qualidade.</p>
           </div>
         </div>
