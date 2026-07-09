@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import HomeClient from "@/components/HomeClient";
-import { getHomePage, getRedesHoteleiras } from "@/lib/cms";
+import { getHomePage, getRedesHoteleiras, getSiteSettings } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Assinatura de Viagens com até 60% de Economia",
@@ -33,11 +33,11 @@ const websiteJsonLd = {
 };
 
 export default async function Page() {
-  const [cms, redes] = await Promise.all([getHomePage(), getRedesHoteleiras()]); // SSR
+  const [cms, redes, settings] = await Promise.all([getHomePage(), getRedesHoteleiras(), getSiteSettings()]); // SSR
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
-      <HomeClient cms={cms} redesCms={redes} />
+      <HomeClient cms={cms} redesCms={redes} newsletterFormId={settings.formNewsletterRdId} />
     </>
   );
 }
