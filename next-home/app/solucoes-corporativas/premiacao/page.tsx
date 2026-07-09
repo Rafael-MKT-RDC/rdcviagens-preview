@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { EmpresasPremiacaoClient } from "@/components/EmpresasPremiacaoClient";
+import { getPageDoc } from "@/lib/cms";
+
+export const revalidate = 30;
 
 export const metadata: Metadata = {
   title: "Premiação | Incentivo com Viagens",
@@ -8,6 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/solucoes-corporativas/premiacao" },
 };
 const schema = { "@context": "https://schema.org", "@type": "Service", name: "RDC Premiação", provider: { "@type": "Organization", name: "RDC Viagens" }, description: "Viagens como ferramenta de incentivo corporativo para engajar públicos e impulsionar resultados.", serviceType: "Premiação e Incentivo Corporativo" };
-export default function PremiacaoPage() {
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><EmpresasPremiacaoClient /></>);
+export default async function PremiacaoPage() {
+  const cms = await getPageDoc<any>("paginaPremiacao");
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><EmpresasPremiacaoClient cms={cms} /></>);
 }
