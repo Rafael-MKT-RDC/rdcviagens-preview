@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AssinaturasClient } from "@/components/AssinaturasClient";
+import { getDepoimentos } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Assinatura de Viagens | 7 Diárias por Ano",
@@ -19,11 +20,14 @@ const productSchema = {
   offers: { "@type": "Offer", price: "319.90", priceCurrency: "BRL", priceValidUntil: "2026-12-31", availability: "https://schema.org/InStock" },
 };
 
-export default function AssinaturasPage() {
+export const revalidate = 30;
+
+export default async function AssinaturasPage() {
+  const depoimentos = await getDepoimentos();
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
-      <AssinaturasClient />
+      <AssinaturasClient depoimentos={depoimentos} />
     </>
   );
 }
