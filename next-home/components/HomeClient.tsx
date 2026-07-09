@@ -33,7 +33,7 @@ const initialState: NewsletterState = { ok: false, message: "" };
 
 type Rede = { nome: string; descricao?: string; logo?: string };
 
-export default function HomeClient({ cms, redesCms = [] }: { cms: HomeContent; redesCms?: Rede[] }) {
+export default function HomeClient({ cms, redesCms = [] , newsletterFormId }: { cms: HomeContent; redesCms?: Rede[] ; newsletterFormId?: string }) {
   const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [state, formAction, pending] = useActionState(subscribeNewsletter, initialState);
@@ -323,7 +323,7 @@ export default function HomeClient({ cms, redesCms = [] }: { cms: HomeContent; r
               <p className="text-sm md:text-lg text-[#FFF0D6]">Inscreva-se na nossa newsletter e receba <strong>dicas de destinos e novidades</strong> da RDC Viagens direto no seu e-mail.</p>
             </div>
             <div>
-              <RDStationForm formId={RD_FORMS.newsletter} />
+              <RDStationForm formId={newsletterFormId || RD_FORMS.newsletter} />
               {state.message && <p className={`mt-3 text-sm font-medium ${state.ok ? "text-white" : "text-[#7A1F00]"}`}>{state.message}</p>}
               <p className="text-xs text-[#FFCC80] mt-3">Ao se inscrever, você concorda com nossa <Link href="/termos" className="underline hover:text-white">Política de Privacidade</Link>. Cancele quando quiser.</p>
             </div>

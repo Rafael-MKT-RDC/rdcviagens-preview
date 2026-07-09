@@ -8,14 +8,15 @@ import { ChevronDown, ChevronUp, Search, MessageCircle } from "lucide-react";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { faqCategories } from "@/lib/faq";
 
-export function DuvidasClient() {
+export function DuvidasClient({ categorias }: { categorias?: typeof faqCategories }) {
+  const cats = categorias && categorias.length ? categorias : faqCategories;
   const [openFaq, setOpenFaq] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const toggleFaq = (id: string) => setOpenFaq(openFaq === id ? null : id);
 
-  const filteredCategories = faqCategories
+  const filteredCategories = cats
     .filter((cat) => !activeCategory || cat.name === activeCategory)
     .map((cat) => ({
       ...cat,
@@ -27,7 +28,7 @@ export function DuvidasClient() {
     }))
     .filter((cat) => cat.faqs.length > 0);
 
-  const totalQuestions = faqCategories.reduce((acc, cat) => acc + cat.faqs.length, 0);
+  const totalQuestions = cats.reduce((acc, cat) => acc + cat.faqs.length, 0);
 
   return (
     <>
@@ -57,7 +58,7 @@ export function DuvidasClient() {
             <button onClick={() => setActiveCategory(null)} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${!activeCategory ? "bg-[#001A9E] text-white" : "bg-white text-[#555555] hover:bg-[#F0F0F0] border border-[#D6D6D6]"}`}>
               Todos os assuntos
             </button>
-            {faqCategories.map((cat) => (
+            {cats.map((cat) => (
               <button key={cat.name} onClick={() => setActiveCategory(activeCategory === cat.name ? null : cat.name)} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === cat.name ? "bg-[#001A9E] text-white" : "bg-white text-[#555555] hover:bg-[#F0F0F0] border border-[#D6D6D6]"}`}>
                 {cat.name} ({cat.faqs.length})
               </button>
