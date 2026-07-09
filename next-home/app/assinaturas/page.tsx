@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { AssinaturasClient } from "@/components/AssinaturasClient";
-import { getDepoimentos } from "@/lib/cms";
+import { getDepoimentos, getPageDoc } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Assinatura de Viagens | 7 Diárias por Ano",
@@ -24,10 +24,11 @@ export const revalidate = 30;
 
 export default async function AssinaturasPage() {
   const depoimentos = await getDepoimentos();
+  const cms = await getPageDoc<any>("paginaAssinaturas");
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
-      <AssinaturasClient depoimentos={depoimentos} />
+      <AssinaturasClient depoimentos={depoimentos} cms={cms} />
     </>
   );
 }
