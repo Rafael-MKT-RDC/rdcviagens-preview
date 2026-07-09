@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DestinosClient } from "@/components/DestinosClient";
+import { getRedesHoteleiras } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Destinos | +200 Mil Hotéis e Resorts",
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/destinos" },
 };
 
-export default function DestinosPage() {
-  return <DestinosClient />;
+export const revalidate = 30;
+
+export default async function DestinosPage() {
+  const redes = await getRedesHoteleiras();
+  return <DestinosClient redes={redes} />;
 }
