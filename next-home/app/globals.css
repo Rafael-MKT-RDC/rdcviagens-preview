@@ -39,6 +39,7 @@ body {
 .aos.aos-zoom.aos-in { transform: none; }
 
 /* ── Formulários RD Station (embed) — identidade RDC (rebrand B2B) ──── */
+/* rev. julho/2026: botão laranja no elemento real (.rd-button), wrapper neutralizado. */
 /* Oculta o título/subtítulo padrão do RD ("Título do formulário / Subtítulo do
    formulário") — usamos o título da própria seção do site. */
 div[role="main"] h1,
