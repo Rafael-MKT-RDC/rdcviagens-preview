@@ -3,6 +3,7 @@ import { useState, useRef, useEffect, type ComponentType } from "react";
 import Link from "next/link";
 import type { LucideProps } from "lucide-react";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import type { ParceiroClube } from "@/lib/cms";
 import { ShoppingBag, Heart, GraduationCap, PawPrint, Package, UtensilsCrossed, Star, Lock, Gift, ArrowRight, Search, Filter, Sparkles, BadgePercent, ChevronDown, HelpCircle, UserCheck, Smartphone, CreditCard, RefreshCw } from "lucide-react";
 
 const categories = [
@@ -23,7 +24,7 @@ const brandColors: Record<string, { bg: string; text: string }> = {
   Nike: { bg: "#111", text: "#fff" }, Centauro: { bg: "#00843D", text: "#fff" }, Renner: { bg: "#E31837", text: "#fff" }, Hering: { bg: "#1a1a1a", text: "#fff" }, Netshoes: { bg: "#6C2D8E", text: "#fff" }, Fila: { bg: "#C8102E", text: "#fff" }, "The North Face": { bg: "#000", text: "#fff" }, Dafiti: { bg: "#FF6900", text: "#fff" }, Zattini: { bg: "#E91E63", text: "#fff" }, "Le Postiche": { bg: "#8B4513", text: "#fff" }, Puket: { bg: "#FF69B4", text: "#fff" }, Umbro: { bg: "#1a1a1a", text: "#fff" }, Olympikus: { bg: "#003DA5", text: "#fff" }, Riachuelo: { bg: "#000", text: "#fff" }, "O Boticário": { bg: "#00573F", text: "#fff" }, Sephora: { bg: "#000", text: "#fff" }, "Océane": { bg: "#E8A0BF", text: "#333" }, Ikesaki: { bg: "#E31837", text: "#fff" }, Jequiti: { bg: "#7B2D8E", text: "#fff" }, SalonLine: { bg: "#FF1493", text: "#fff" }, "Dr Shape": { bg: "#FF4500", text: "#fff" }, "Probiótica": { bg: "#1E90FF", text: "#fff" }, "Drogarias Pacheco": { bg: "#00529B", text: "#fff" }, "Drogarias São Paulo": { bg: "#E31837", text: "#fff" }, "Extra Farma": { bg: "#0066CC", text: "#fff" }, "Pague Menos": { bg: "#00A651", text: "#fff" }, "Odonto Special": { bg: "#00BCD4", text: "#fff" }, Samsung: { bg: "#1428A0", text: "#fff" }, LG: { bg: "#A50034", text: "#fff" }, Canon: { bg: "#BC0024", text: "#fff" }, "Tok&Stok": { bg: "#FFD700", text: "#333" }, Imaginarium: { bg: "#E91E63", text: "#fff" }, Stanley: { bg: "#00573F", text: "#fff" }, Kaspersky: { bg: "#006D5C", text: "#fff" }, "Sem Parar": { bg: "#FFD100", text: "#333" }, "Sam's Club": { bg: "#0060A9", text: "#fff" }, "Compra Certa": { bg: "#FF6600", text: "#fff" }, "Go Case": { bg: "#000", text: "#fff" }, "Giuliana Flores": { bg: "#D4145A", text: "#fff" }, Schultz: { bg: "#1a3a6b", text: "#fff" }, "Open English": { bg: "#FF6B00", text: "#fff" }, "English Fluency": { bg: "#2196F3", text: "#fff" }, "Hablas Online": { bg: "#FF9800", text: "#fff" }, "Impacta Educacional": { bg: "#1a1a1a", text: "#fff" }, "Escola Ana Hickmann": { bg: "#C9A96E", text: "#fff" }, Petz: { bg: "#00A651", text: "#fff" }, "Pet Love": { bg: "#FF4081", text: "#fff" }, "Dog Hero": { bg: "#FF7043", text: "#fff" }, "Clube04 Pet Store": { bg: "#8BC34A", text: "#fff" }, Carrefour: { bg: "#004E9A", text: "#fff" }, "Domino's Pizza": { bg: "#006491", text: "#fff" }, Luckau: { bg: "#4A2C2A", text: "#fff" },
 };
 
-const partners = [
+const FALLBACK_PARTNERS = [
   { name: "Nike", category: "VESTUARIO", discount: 25 }, { name: "Centauro", category: "VESTUARIO", discount: 20 }, { name: "Renner", category: "VESTUARIO", discount: 15 }, { name: "Hering", category: "VESTUARIO", discount: 20 }, { name: "Netshoes", category: "VESTUARIO", discount: 30 }, { name: "Fila", category: "VESTUARIO", discount: 20 }, { name: "The North Face", category: "VESTUARIO", discount: 15 }, { name: "Dafiti", category: "VESTUARIO", discount: 25 }, { name: "Zattini", category: "VESTUARIO", discount: 25 }, { name: "Le Postiche", category: "VESTUARIO", discount: 15 }, { name: "Puket", category: "VESTUARIO", discount: 20 }, { name: "Umbro", category: "VESTUARIO", discount: 20 }, { name: "Olympikus", category: "VESTUARIO", discount: 25 }, { name: "Riachuelo", category: "VESTUARIO", discount: 15 },
   { name: "O Boticário", category: "BELEZA / SAUDE", discount: 20 }, { name: "Sephora", category: "BELEZA / SAUDE", discount: 15 }, { name: "Océane", category: "BELEZA / SAUDE", discount: 25 }, { name: "Ikesaki", category: "BELEZA / SAUDE", discount: 20 }, { name: "Jequiti", category: "BELEZA / SAUDE", discount: 30 }, { name: "SalonLine", category: "BELEZA / SAUDE", discount: 20 }, { name: "Dr Shape", category: "BELEZA / SAUDE", discount: 15 }, { name: "Probiótica", category: "BELEZA / SAUDE", discount: 15 }, { name: "Drogarias Pacheco", category: "BELEZA / SAUDE", discount: 10 }, { name: "Drogarias São Paulo", category: "BELEZA / SAUDE", discount: 10 }, { name: "Extra Farma", category: "BELEZA / SAUDE", discount: 10 }, { name: "Pague Menos", category: "BELEZA / SAUDE", discount: 15 }, { name: "Odonto Special", category: "BELEZA / SAUDE", discount: 30 },
   { name: "Samsung", category: "PRODUTOS / SERVIÇOS", discount: 20 }, { name: "LG", category: "PRODUTOS / SERVIÇOS", discount: 20 }, { name: "Canon", category: "PRODUTOS / SERVIÇOS", discount: 15 }, { name: "Tok&Stok", category: "PRODUTOS / SERVIÇOS", discount: 15 }, { name: "Imaginarium", category: "PRODUTOS / SERVIÇOS", discount: 20 }, { name: "Stanley", category: "PRODUTOS / SERVIÇOS", discount: 10 }, { name: "Kaspersky", category: "PRODUTOS / SERVIÇOS", discount: 30 }, { name: "Sem Parar", category: "PRODUTOS / SERVIÇOS", discount: 15 }, { name: "Sam's Club", category: "PRODUTOS / SERVIÇOS", discount: 50 }, { name: "Compra Certa", category: "PRODUTOS / SERVIÇOS", discount: 25 }, { name: "Go Case", category: "PRODUTOS / SERVIÇOS", discount: 20 }, { name: "Giuliana Flores", category: "PRODUTOS / SERVIÇOS", discount: 15 }, { name: "Schultz", category: "PRODUTOS / SERVIÇOS", discount: 10 },
@@ -44,12 +45,12 @@ function faviconOf(name: string) {
   return domain ? `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=128` : null;
 }
 
-function PartnerLogo({ name, size = "md" }: { name: string; size?: "sm" | "md" | "lg" }) {
+function PartnerLogo({ name, size = "md", logoUrl }: { name: string; size?: "sm" | "md" | "lg"; logoUrl?: string }) {
   const [imgError, setImgError] = useState(false);
   const colors = brandColors[name] || { bg: "#1a3a6b", text: "#fff" };
   const sizeClasses = { sm: "w-10 h-10 text-xs", md: "w-14 h-14 text-sm", lg: "w-16 h-16 text-base" };
   const imgSizes = { sm: "w-7 h-7", md: "w-9 h-9", lg: "w-11 h-11" };
-  const faviconUrl = faviconOf(name);
+  const faviconUrl = logoUrl || faviconOf(name);
   if (!faviconUrl || imgError) {
     return <div className={`${sizeClasses[size]} rounded-2xl flex items-center justify-center font-bold shadow-sm`} style={{ backgroundColor: colors.bg, color: colors.text }}>{getInitials(name)}</div>;
   }
@@ -63,8 +64,8 @@ function PartnerLogo({ name, size = "md" }: { name: string; size?: "sm" | "md" |
 
 function BrandMarquee({ direction = "left" }: { direction?: "left" | "right" }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const half = Math.ceil(partners.length / 2);
-  const items = direction === "left" ? partners.slice(0, half) : partners.slice(half);
+  const half = Math.ceil(FALLBACK_PARTNERS.length / 2);
+  const items = direction === "left" ? FALLBACK_PARTNERS.slice(0, half) : FALLBACK_PARTNERS.slice(half);
   const doubled = [...items, ...items];
   useEffect(() => {
     const el = scrollRef.current;
@@ -131,7 +132,15 @@ const clubeFaqs = [
   { icon: ShoppingBag, question: "Posso usar os descontos quantas vezes quiser?", answer: "Na maioria dos parceiros, sim! Você pode utilizar os descontos quantas vezes desejar durante a vigência da sua assinatura. Alguns parceiros podem ter limitações específicas, que serão informadas na página da oferta." },
 ];
 
-export function ClubeVantagensClient() {
+export function ClubeVantagensClient({ cmsPartners }: { cmsPartners?: ParceiroClube[] }) {
+  const catByLabel: Record<string, string> = Object.fromEntries(categories.map((c) => [c.label, c.id]));
+  const logoByName: Record<string, string | undefined> = {};
+  const partners = cmsPartners && cmsPartners.length >= 5
+    ? cmsPartners.map((p) => {
+        if (p.logo) logoByName[p.nome] = p.logo;
+        return { name: p.nome, category: catByLabel[p.categoria] || "PRODUTOS / SERVIÇOS", discount: parseInt(String(p.desconto).replace(/\D/g, "")) || 0 };
+      })
+    : FALLBACK_PARTNERS;
   const [activeCategory, setActiveCategory] = useState("TODOS");
   const [searchTerm, setSearchTerm] = useState("");
   const filteredPartners = partners.filter((p) => (activeCategory === "TODOS" || p.category === activeCategory) && p.name.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -212,7 +221,7 @@ export function ClubeVantagensClient() {
               {filteredPartners.map((partner) => (
                 <div key={partner.name} className="group relative overflow-visible bg-white rounded-2xl border border-[#E8E8E8] p-5 flex flex-col items-center text-center hover:shadow-xl hover:border-[#FFCC80] hover:-translate-y-1 transition-all duration-300">
                   <div className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#FF9100] to-rose-500 text-white text-xs font-bold shadow-lg z-10">até {partner.discount}%</div>
-                  <div className="mb-3 group-hover:scale-110 transition-transform duration-300"><PartnerLogo name={partner.name} size="lg" /></div>
+                  <div className="mb-3 group-hover:scale-110 transition-transform duration-300"><PartnerLogo name={partner.name} size="lg" logoUrl={logoByName[partner.name]} /></div>
                   <h3 className="text-sm font-semibold text-[#2D2D2D] mb-1">{partner.name}</h3>
                   <span className="text-xs text-[#777777]">{getCategoryLabel(partner.category)}</span>
                 </div>

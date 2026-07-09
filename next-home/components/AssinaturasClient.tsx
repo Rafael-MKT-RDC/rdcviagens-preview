@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { SwipeCarousel } from "@/components/SwipeCarousel";
+import type { Depoimento } from "@/lib/cms";
 import SubscriptionModal from "@/components/SubscriptionModal";
 import {
   Check, X, Star, Headphones, ChevronDown, ChevronUp, Quote, ShoppingCart, Users,
@@ -15,7 +16,7 @@ import {
 
 const plans = [{ id: "7-diarias", days: 7, price: 319.9, popular: true, recommended: true }];
 
-const testimonials = [
+const FALLBACK_TESTIMONIALS = [
   { id: 1, name: "Maria Silva", location: "São Paulo, SP", plan: "7 Diárias", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face", text: "Já viajei para 5 destinos com a assinatura RDC. A economia é real e o atendimento é excepcional. Minha família nunca viajou tanto!", rating: 5 },
   { id: 2, name: "Carlos Mendes", location: "Rio de Janeiro, RJ", plan: "5 Diárias", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face", text: "Sempre sonhei em conhecer a Serra Gaúcha e com a assinatura RDC consegui realizar esse sonho investindo muito menos do que imaginava.", rating: 5 },
   { id: 3, name: "Ana Beatriz Costa", location: "Belo Horizonte, MG", plan: "7 Diárias", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face", text: "A assinatura de 7 diárias transformou a forma como minha família viaja. Agora temos viagens programadas o ano todo com qualidade e economia.", rating: 5 },
@@ -65,7 +66,10 @@ const beneficios = [
   { icon: Handshake, title: "Programa de Indicação", desc: <>Indique amigos e <strong className="text-[#2D2D2D]">acumule pontos</strong> para trocar por descontos em hospedagem, voos, carros e experiências.</> },
 ];
 
-export function AssinaturasClient() {
+export function AssinaturasClient({ depoimentos }: { depoimentos?: Depoimento[] }) {
+  const testimonials = depoimentos && depoimentos.length
+    ? depoimentos.map((d) => ({ id: d.id, name: d.nome, location: d.cargo ?? "", plan: "", image: d.foto ?? "", text: d.texto, rating: d.estrelas }))
+    : FALLBACK_TESTIMONIALS;
   const [showFloatingButton, setShowFloatingButton] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [modalOpen, setModalOpen] = useState(false);

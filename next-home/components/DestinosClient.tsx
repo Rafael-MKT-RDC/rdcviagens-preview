@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { MapPin, Hotel, Globe, Search, Star, ChevronRight, Building2, Palmtree, Mountain, Waves, Plane, Shield, ArrowRight } from "lucide-react";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import type { RedeHoteleiraCMS } from "@/lib/cms";
 
 const regioesBrasil = [
   { id: "nordeste", nome: "Nordeste", icon: Palmtree, cor: "from-[#FF9100] to-[#E68200]", corBg: "bg-[#FFF8EB]", corText: "text-[#E68200]", corBorder: "border-[#FFCC80]", destinos: ["Porto de Galinhas", "Maceió", "Salvador", "Natal", "Fortaleza", "Recife", "João Pessoa", "São Luís", "Jericoacoara", "Praia do Forte", "Fernando de Noronha", "Porto Seguro", "Lençóis Maranhenses"], totalHoteis: "+8.500 opções", descricao: "Praias paradisíacas, cultura vibrante e gastronomia única", imagem: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=600&h=400&fit=crop" },
@@ -21,7 +22,7 @@ const destinosInternacionais = [
   { id: "africa", nome: "África", cor: "from-[#CC9900] to-[#996600]", destinos: ["Cidade do Cabo", "Marrakech", "Cairo", "Zanzibar", "Nairóbi", "Seychelles", "Maurício"], totalHoteis: "+12.000 opções", imagem: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=400&h=300&fit=crop" },
 ];
 
-const redesHoteleiras = [
+const FALLBACK_REDES = [
   { nome: "Accor", descricao: "Ibis, Novotel, Mercure, Pullman, Sofitel", logo: "https://www.google.com/s2/favicons?domain=accor.com&sz=64" },
   { nome: "Atlântica", descricao: "Comfort, Quality, Radisson, Four Points", logo: "https://www.google.com/s2/favicons?domain=atlanticahotels.com.br&sz=64" },
   { nome: "Best Western", descricao: "Best Western, Best Western Plus, Premier", logo: "https://www.google.com/s2/favicons?domain=bestwestern.com&sz=64" },
@@ -42,7 +43,8 @@ const redesHoteleiras = [
   { nome: "Wyndham", descricao: "Ramada, Tryp, Howard Johnson, Days Inn", logo: "https://www.google.com/s2/favicons?domain=wyndhamhotels.com&sz=64" },
 ];
 
-export function DestinosClient() {
+export function DestinosClient({ redes }: { redes?: RedeHoteleiraCMS[] }) {
+  const redesHoteleiras = redes && redes.length ? redes : FALLBACK_REDES;
   const [busca, setBusca] = useState("");
   const [regiaoAtiva, setRegiaoAtiva] = useState<string | null>(null);
   const [abaAtiva, setAbaAtiva] = useState<"brasil" | "internacional">("brasil");
