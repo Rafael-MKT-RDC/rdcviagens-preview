@@ -68,11 +68,12 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={heroImg} alt="RDC Travel Cloud" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#082B41]/95 via-[#082B41]/85 to-[#082B41]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#082B41]/95 via-[#082B41]/85 to-[#082B41]/80" />
         </div>
         <div className="container relative z-10">
           <Link href="/solucoes-corporativas"><Button variant="ghost" className="text-white hover:bg-white/10 mb-6"><ArrowLeft className="mr-2 h-4 w-4" />Voltar para Soluções Corporativas</Button></Link>
-          <div className="max-w-3xl">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div className="max-w-2xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logos/b2b/logo-travelcloud-cor.svg" alt="RDC Travel Cloud" className="h-14 md:h-18 w-auto mb-6 drop-shadow-lg" />
             <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Cloud className="w-4 h-4 mr-2" />{cms.heroBadge ?? "Nova Solução Corporativa"}</Badge>
@@ -80,6 +81,11 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
             <p className="text-xl text-[#DCE6EF] mb-4">A <strong className="text-white">RDC Travel Cloud</strong> é uma plataforma <strong className="text-white">white label</strong> que permite que parceiros ofereçam viagens dentro de seus próprios ambientes digitais, com <strong className="text-white">operação turística especializada</strong> da RDC.</p>
             <p className="text-lg text-[#C7D3E0] mb-8">Lance uma <strong>vertical de viagens</strong> sem construir turismo do zero. O parceiro distribui; a RDC opera.</p>
             <div className="flex flex-wrap gap-4"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] px-8 rounded-full" onClick={scrollForm}>Agendar uma conversa<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
+            </div>
+            <div className="hidden lg:flex justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/travelcloud-phone-right-tilt-djSCuMu5Cgmgc3Krv2XNK3.webp" alt="App de benefícios com a categoria Viagem em destaque" className="max-h-[520px] w-auto drop-shadow-2xl" />
+            </div>
           </div>
         </div>
       </section>
