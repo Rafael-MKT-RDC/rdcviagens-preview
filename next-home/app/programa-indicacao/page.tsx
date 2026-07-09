@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { ProgramaIndicacaoClient } from "@/components/ProgramaIndicacaoClient";
+import { getPageDoc } from "@/lib/cms";
+
+export const revalidate = 30;
 
 export const metadata: Metadata = {
   title: "Programa Indique e Ganhe | Recompensas",
@@ -9,6 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/programa-indicacao" },
 };
 
-export default function ProgramaIndicacaoPage() {
-  return <ProgramaIndicacaoClient />;
+export default async function ProgramaIndicacaoPage() {
+  const cms = await getPageDoc<any>("paginaIndicacao");
+  return <ProgramaIndicacaoClient cms={cms} />;
 }
