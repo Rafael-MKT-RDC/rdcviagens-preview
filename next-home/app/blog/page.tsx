@@ -3,6 +3,7 @@ import { Calendar, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { getBlogPosts } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Blog de Viagens | Dicas, Destinos e Roteiros",
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
-const posts = [
+export const revalidate = 30;
+
+const FALLBACK_POSTS = [
   { id: 1, title: "10 destinos para explorar no Nordeste brasileiro", excerpt: "Descubra as praias mais bonitas e os melhores roteiros para suas férias no Nordeste.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ZRWneGwCmJVBYcRx.jpg", category: "Destinos", date: "15 Jan 2026" },
   { id: 2, title: "Serra Gaúcha: vinícolas e experiências únicas", excerpt: "Um guia completo para aproveitar o melhor da região serrana do Rio Grande do Sul.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/ImYicCgyeERQbRNm.jpg", category: "Roteiros", date: "10 Jan 2026" },
   { id: 3, title: "Como economizar até 60% em hospedagem", excerpt: "Dicas práticas para viajar mais gastando menos com a assinatura RDC.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/dtVwkyALqxKTftZh.jpg", category: "Dicas", date: "05 Jan 2026" },
@@ -21,7 +24,9 @@ const posts = [
   { id: 6, title: "Viagem em família: como planejar férias perfeitas", excerpt: "Guia completo para organizar viagens inesquecíveis com crianças.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663280013040/dtVwkyALqxKTftZh.jpg", category: "Família", date: "20 Dez 2025" },
 ];
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const cmsPosts = await getBlogPosts();
+  const posts = cmsPosts.length ? cmsPosts : FALLBACK_POSTS;
   return (
     <>
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[#00148A] to-[#001070]">
