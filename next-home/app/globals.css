@@ -50,4 +50,20 @@ div[role="main"] form input[type="submit"] {
   background-color: var(--brand-laranja) !important;
   border-color: var(--brand-laranja) !important;
   color: #ffffff !important;
+  border-radius: 9999px !important;
+  transition: background-color .2s ease, border-color .2s ease !important;
+}
+div[role="main"] .bricks-form__submit:hover,
+div[role="main"] form button[type="submit"]:hover,
+div[role="main"] form input[type="submit"]:hover {
+  background-color: #E07F00 !important;
+  border-color: #E07F00 !important;
+}
+/* Foco dos campos no navy B2B (padrão corporativo) */
+div[role="main"] input:focus,
+div[role="main"] select:focus,
+div[role="main"] textarea:focus {
+  border-color: var(--brand-navy) !important;
+  outline-color: var(--brand-navy) !important;
+  box-shadow: 0 0 0 2px rgba(8, 43, 65, .15) !important;
 }
