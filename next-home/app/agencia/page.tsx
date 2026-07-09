@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { AgenciaClient } from "@/components/AgenciaClient";
+import { getPageDoc } from "@/lib/cms";
+
+export const revalidate = 30;
 
 export const metadata: Metadata = {
   title: "Agência de Viagens | Pacotes Exclusivos",
@@ -10,6 +13,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/agencia" },
 };
 
-export default function AgenciaPage() {
-  return <AgenciaClient />;
+export default async function AgenciaPage() {
+  const cms = await getPageDoc<any>("paginaAgencia");
+  return <AgenciaClient cms={cms} />;
 }
