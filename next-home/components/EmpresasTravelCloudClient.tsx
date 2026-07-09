@@ -87,9 +87,9 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
             <div>
               <Badge className="mb-4 bg-[#00B4D8] hover:bg-[#0096B4] text-white border-0"><Cloud className="w-4 h-4 mr-2" />{cms.heroBadge ?? "RDC Travel Cloud"}</Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{cms.heroTitulo ?? "Crie mais conveniência."} <span className="text-[#00B4D8]">{cms.heroDestaque ?? "Adicione a categoria de viagem no seu app."}</span></h1>
-              <p className="text-xl text-[#C7E5F3] mb-4">Seu usuário reserva viagens <strong className="text-white">sem sair do app que já usa</strong>. Sem cadastro novo, sem outro fornecedor. A RDC opera toda a complexidade turística nos bastidores.</p>
-              <p className="text-lg text-[#8ECAE6] mb-8">Um único fornecedor. Mais tempo de tela. <strong>Nova fonte de receita para o seu negócio.</strong></p>
-              <div className="flex flex-wrap gap-4"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E08200] text-white px-8 rounded-full" onClick={scrollForm}>Criar minha vertical de viagens<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
+              <p className="text-xl text-[#C7E5F3] mb-4">{cms.heroSub1 ?? (<>Seu usuário reserva viagens <strong className="text-white">sem sair do app que já usa</strong>. Sem cadastro novo, sem outro fornecedor. A RDC opera toda a complexidade turística nos bastidores.</>)}</p>
+              <p className="text-lg text-[#8ECAE6] mb-8">{cms.heroSub2 ?? (<>Um único fornecedor. Mais tempo de tela. <strong>Nova fonte de receita para o seu negócio.</strong></>)}</p>
+              <div className="flex flex-wrap gap-4"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E08200] text-white px-8 rounded-full" onClick={scrollForm}>{cms.heroCta ?? "Criar minha vertical de viagens"}<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
             </div>
             <div className="hidden lg:flex justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -122,11 +122,11 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Cloud className="w-4 h-4 mr-2" />O que é</Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-6">O que é a RDC Travel Cloud?</h2>
-              <p className="text-lg text-[#555555] leading-relaxed mb-6">A RDC Travel Cloud é a <strong>infraestrutura de viagens</strong> que permite que parceiros (fintechs, plataformas de benefícios, apps corporativos, marketplaces) ofereçam viagens com conveniência dentro de seus próprios ecossistemas digitais.</p>
-              <p className="text-lg text-[#555555] leading-relaxed mb-6">O parceiro <strong>distribui</strong>. A RDC <strong>opera</strong>. O usuário reserva sem sair do app. Toda a complexidade turística (inventário, tarifas, reservas, atendimento, pós-venda) fica invisível.</p>
-              <p className="text-lg text-[#555555] leading-relaxed">Com mais de <strong>35 anos de operação turística</strong> e acesso a <strong>+200 mil hotéis e resorts</strong>, a RDC entrega a camada turística pronta para o parceiro começar a distribuir viagens sem investir em tecnologia ou equipe especializada.</p>
+              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Cloud className="w-4 h-4 mr-2" />{cms.oQueBadge ?? "O que é"}</Badge>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-6">{cms.oQueTitulo ?? "O que é a RDC Travel Cloud?"}</h2>
+              <p className="text-lg text-[#555555] leading-relaxed mb-6">{cms.oQueP1 ?? (<>A RDC Travel Cloud é a <strong>infraestrutura de viagens</strong> que permite que parceiros (fintechs, plataformas de benefícios, apps corporativos, marketplaces) ofereçam viagens com conveniência dentro de seus próprios ecossistemas digitais.</>)}</p>
+              <p className="text-lg text-[#555555] leading-relaxed mb-6">{cms.oQueP2 ?? (<>O parceiro <strong>distribui</strong>. A RDC <strong>opera</strong>. O usuário reserva sem sair do app. Toda a complexidade turística (inventário, tarifas, reservas, atendimento, pós-venda) fica invisível.</>)}</p>
+              <p className="text-lg text-[#555555] leading-relaxed">{cms.oQueP3 ?? (<>Com mais de <strong>35 anos de operação turística</strong> e acesso a <strong>+200 mil hotéis e resorts</strong>, a RDC entrega a camada turística pronta para o parceiro começar a distribuir viagens sem investir em tecnologia ou equipe especializada.</>)}</p>
             </div>
           </div>
         </AnimateOnScroll>
@@ -138,12 +138,12 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
           <div className="container">
             <div className="max-w-4xl mx-auto text-center text-white">
               <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6"><TrendingUp className="w-8 h-8 text-white" /></div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Nova fonte de receita para o seu negócio</h2>
-              <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">Além de gerar conveniência para o usuário, a Travel Cloud abre uma <strong>nova vertical de monetização</strong> para o parceiro. Comissões sobre reservas, adesão ao RDC Prime e aumento de engajamento com outros produtos e serviços do seu ecossistema.</p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">{cms.receitaTitulo ?? "Nova fonte de receita para o seu negócio"}</h2>
+              <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">{cms.receitaTexto ?? (<>Além de gerar conveniência para o usuário, a Travel Cloud abre uma <strong>nova vertical de monetização</strong> para o parceiro. Comissões sobre reservas, adesão ao RDC Prime e aumento de engajamento com outros produtos e serviços do seu ecossistema.</>)}</p>
               <div className="grid md:grid-cols-3 gap-6 mt-8">
-                <div className="bg-white/15 backdrop-blur-sm rounded-xl p-5"><p className="text-2xl font-bold mb-2">Comissão</p><p className="text-white/80 text-sm">Receita sobre cada reserva realizada pelo usuário no seu ecossistema</p></div>
-                <div className="bg-white/15 backdrop-blur-sm rounded-xl p-5"><p className="text-2xl font-bold mb-2">Engajamento</p><p className="text-white/80 text-sm">Usuário passa mais tempo no app e consome outros produtos e serviços</p></div>
-                <div className="bg-white/15 backdrop-blur-sm rounded-xl p-5"><p className="text-2xl font-bold mb-2">Retenção</p><p className="text-white/80 text-sm">Viagem como benefício aumenta a percepção de valor e reduz churn</p></div>
+                <div className="bg-white/15 backdrop-blur-sm rounded-xl p-5"><p className="text-2xl font-bold mb-2">{cms.receitaC1T ?? "Comissão"}</p><p className="text-white/80 text-sm">{cms.receitaC1D ?? "Receita sobre cada reserva realizada pelo usuário no seu ecossistema"}</p></div>
+                <div className="bg-white/15 backdrop-blur-sm rounded-xl p-5"><p className="text-2xl font-bold mb-2">{cms.receitaC2T ?? "Engajamento"}</p><p className="text-white/80 text-sm">{cms.receitaC2D ?? "Usuário passa mais tempo no app e consome outros produtos e serviços"}</p></div>
+                <div className="bg-white/15 backdrop-blur-sm rounded-xl p-5"><p className="text-2xl font-bold mb-2">{cms.receitaC3T ?? "Retenção"}</p><p className="text-white/80 text-sm">{cms.receitaC3D ?? "Viagem como benefício aumenta a percepção de valor e reduz churn"}</p></div>
               </div>
             </div>
           </div>
@@ -155,9 +155,9 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Smartphone className="w-4 h-4 mr-2" />Frentes de aplicação</Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Para quem é a RDC Travel Cloud?</h2>
-              <p className="text-lg text-[#555555] max-w-2xl mx-auto">Uma infraestrutura de viagens para diferentes <strong>modelos de negócio B2B e B2B2C</strong> que buscam criar a categoria de viagem no seu ecossistema com conveniência.</p>
+              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Smartphone className="w-4 h-4 mr-2" />{cms.frentesBadge ?? "Frentes de aplicação"}</Badge>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.frentesTitulo ?? "Para quem é a RDC Travel Cloud?"}</h2>
+              <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.frentesSubtitulo ?? (<>Uma infraestrutura de viagens para diferentes <strong>modelos de negócio B2B e B2B2C</strong> que buscam criar a categoria de viagem no seu ecossistema com conveniência.</>)}</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {useCases.map((useCase, index) => (
@@ -180,9 +180,9 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Settings className="w-4 h-4 mr-2" />Modelo operacional</Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Como a Travel Cloud funciona</h2>
-              <p className="text-lg text-[#555555] max-w-2xl mx-auto">Três movimentos simples: <strong>habilitação, distribuição e operação</strong>. O parceiro oferece conveniência ao usuário. A RDC cuida de toda a complexidade turística.</p>
+              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Settings className="w-4 h-4 mr-2" />{cms.modeloBadge ?? "Modelo operacional"}</Badge>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.modeloTitulo ?? "Como a Travel Cloud funciona"}</h2>
+              <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.modeloSubtitulo ?? (<>Três movimentos simples: <strong>habilitação, distribuição e operação</strong>. O parceiro oferece conveniência ao usuário. A RDC cuida de toda a complexidade turística.</>)}</p>
             </div>
             <div className="grid lg:grid-cols-3 gap-8">
               {howItWorks.map((step, index) => (
@@ -206,9 +206,9 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Zap className="w-4 h-4 mr-2" />Diferenciais</Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Por que a RDC Travel Cloud?</h2>
-              <p className="text-lg text-[#555555] max-w-2xl mx-auto">Conveniência para o usuário, simplicidade para o parceiro. <strong>Operação turística completa, modelo adaptável e go-to-market acelerado.</strong></p>
+              <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Zap className="w-4 h-4 mr-2" />{cms.difBadge ?? "Diferenciais"}</Badge>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.difTitulo ?? "Por que a RDC Travel Cloud?"}</h2>
+              <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.difSubtitulo ?? (<>Conveniência para o usuário, simplicidade para o parceiro. <strong>Operação turística completa, modelo adaptável e go-to-market acelerado.</strong></>)}</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {differentials.map((diff, index) => (
@@ -231,18 +231,18 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E08200] text-white border-0"><Award className="w-4 h-4 mr-2" />Produto complementar</Badge>
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">RDC Prime: benefício de viagem pessoal para o colaborador</h2>
-                <p className="text-lg text-[#8ECAE6] max-w-2xl mx-auto">O <strong className="text-white">RDC Prime</strong> é um produto separado da Travel Cloud. É um <strong className="text-white">benefício de viagem de lazer</strong> voltado ao colaborador e sua família, no mesmo modelo de assinatura que já funciona em outros segmentos de bem-estar.</p>
+                <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E08200] text-white border-0"><Award className="w-4 h-4 mr-2" />{cms.primeBadge ?? "Produto complementar"}</Badge>
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">{cms.primeTitulo ?? "RDC Prime: benefício de viagem pessoal para o colaborador"}</h2>
+                <p className="text-lg text-[#8ECAE6] max-w-2xl mx-auto">{cms.primeSubtitulo ?? (<>O <strong className="text-white">RDC Prime</strong> é um produto separado da Travel Cloud. É um <strong className="text-white">benefício de viagem de lazer</strong> voltado ao colaborador e sua família, no mesmo modelo de assinatura que já funciona em outros segmentos de bem-estar.</>)}</p>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-                  <h3 className="font-bold text-lg mb-4 text-[#00B4D8]">Como funciona</h3>
+                  <h3 className="font-bold text-lg mb-4 text-[#00B4D8]">{cms.primeComoTitulo ?? "Como funciona"}</h3>
                   <p className="text-[#C7E5F3] leading-relaxed mb-4">A empresa habilita o acesso e o colaborador interessado adere para utilizar as vantagens em <strong className="text-white">férias, feriados, fins de semana e viagens em família</strong>. O mesmo modelo de assinatura que já funciona para academias e bem-estar, agora aplicado a viagens.</p>
                   <p className="text-[#8ECAE6] text-sm">Benefício de <strong>alto desejo</strong>, para a família toda, que ajuda na <strong>retenção, engajamento e marca empregadora</strong>. Sem trabalho operacional para a empresa.</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-                  <h3 className="font-bold text-lg mb-4 text-[#00B4D8]">O que o colaborador recebe</h3>
+                  <h3 className="font-bold text-lg mb-4 text-[#00B4D8]">{cms.primeRecebeTitulo ?? "O que o colaborador recebe"}</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" /><span className="text-[#C7E5F3]"><strong className="text-white">Tarifas exclusivas</strong> em +200 mil hotéis e resorts</span></li>
                     <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00B4D8] flex-shrink-0 mt-0.5" /><span className="text-[#C7E5F3]"><strong className="text-white">Atendimento dedicado</strong> com suporte humano e prioridade</span></li>
@@ -253,7 +253,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
                 </div>
               </div>
               <div className="mt-8 bg-white/5 border border-white/10 rounded-xl p-5 text-center">
-                <p className="text-[#C7E5F3] text-sm"><strong className="text-[#FF9100]">Importante:</strong> O RDC Prime é ofertado <strong className="text-white">apenas na jornada de lazer/benefícios</strong>. Na viagem corporativa, o foco é gestão de despesas e governança, sem assinatura de benefício pessoal.</p>
+                <p className="text-[#C7E5F3] text-sm">{cms.primeNota ?? (<><strong className="text-[#FF9100]">Importante:</strong> O RDC Prime é ofertado <strong className="text-white">apenas na jornada de lazer/benefícios</strong>. Na viagem corporativa, o foco é gestão de despesas e governança, sem assinatura de benefício pessoal.</>)}</p>
               </div>
             </div>
           </div>
@@ -266,11 +266,11 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Mail className="w-4 h-4 mr-2" />Vamos conversar</Badge>
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Vamos desenhar sua vertical de viagens</h2>
-                <p className="text-lg text-[#555555] max-w-2xl mx-auto">Preencha o formulário e nossa equipe entrará em contato para entender seu modelo de negócio e apresentar a <strong>solução mais adequada</strong>.</p>
+                <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0"><Mail className="w-4 h-4 mr-2" />{cms.formBadge ?? "Vamos conversar"}</Badge>
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.formTitulo ?? "Vamos desenhar sua vertical de viagens"}</h2>
+                <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.formSubtitulo ?? (<>Preencha o formulário e nossa equipe entrará em contato para entender seu modelo de negócio e apresentar a <strong>solução mais adequada</strong>.</>)}</p>
               </div>
-              <Card className="border border-[#E8E8E8] shadow-lg"><CardContent className="p-8"><RDStationForm formId={RD_FORMS.travelCloud} /></CardContent></Card>
+              <Card className="border border-[#E8E8E8] shadow-lg"><CardContent className="p-8"><RDStationForm formId={cms.formRdId ?? RD_FORMS.travelCloud} /></CardContent></Card>
             </div>
           </div>
         </AnimateOnScroll>
@@ -282,8 +282,8 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0">Dúvidas frequentes</Badge>
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">Perguntas sobre a RDC Travel Cloud</h2>
+                <Badge className="mb-4 bg-[#E0F7FA] text-[#006064] border-0">{cms.faqBadge ?? "Dúvidas frequentes"}</Badge>
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.faqTitulo ?? "Perguntas sobre a RDC Travel Cloud"}</h2>
               </div>
               <div className="space-y-3">{faqs.map((faq, index) => (<FaqItem key={index} question={faq.question} answer={faq.answer} />))}</div>
               <div className="text-center mt-8">
@@ -300,9 +300,9 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         <AnimateOnScroll variant="fade">
           <div className="container">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-xl md:text-2xl font-bold text-[#2D2D2D] mb-4">Crie a categoria de viagem no seu ecossistema</h2>
-              <p className="text-lg text-[#555555] mb-8">Um único fornecedor. Mais tempo de tela. Mais receita. Seu usuário reserva viagens sem sair do app e você não precisa operar nada.</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E08200] text-white px-8 rounded-full" onClick={scrollForm}>Criar minha vertical de viagens<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
+              <h2 className="text-xl md:text-2xl font-bold text-[#2D2D2D] mb-4">{cms.ctaTitulo ?? "Crie a categoria de viagem no seu ecossistema"}</h2>
+              <p className="text-lg text-[#555555] mb-8">{cms.ctaTexto ?? "Um único fornecedor. Mais tempo de tela. Mais receita. Seu usuário reserva viagens sem sair do app e você não precisa operar nada."}</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E08200] text-white px-8 rounded-full" onClick={scrollForm}>{cms.ctaBotao ?? "Criar minha vertical de viagens"}<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
             </div>
           </div>
         </AnimateOnScroll>
