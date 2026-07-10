@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SiteChrome from "@/components/SiteChrome";
 import { getSiteSettings } from "@/lib/cms";
 
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", display: "swap" });
@@ -48,9 +49,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="pt-BR" className={montserrat.variable}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-        <Header settings={settings} />
-        <main className="min-h-screen flex flex-col bg-white">{children}</main>
-        <Footer settings={settings} />
+        <SiteChrome
+          header={<Header settings={settings} />}
+          footer={<Footer settings={settings} />}
+        >
+          {children}
+        </SiteChrome>
       </body>
     </html>
   );
