@@ -16,7 +16,11 @@
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.6.0",
     "class-variance-authority": "^0.7.1",
-    "@sanity/client": "^6.24.1"
+    "@sanity/client": "^6.24.1",
+    "sanity": "^3.70.0",
+    "next-sanity": "^9.8.0",
+    "@sanity/vision": "^3.70.0",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "typescript": "^5.7.3",
