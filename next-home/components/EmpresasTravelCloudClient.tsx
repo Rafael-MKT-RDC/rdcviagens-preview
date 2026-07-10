@@ -59,12 +59,12 @@ const faqs: { question: string; answer: React.ReactNode }[] = [
 function FaqItem({ question, answer }: { question: string; answer: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border border-[#E0E0E0] rounded-xl overflow-hidden">
-      <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-between p-5 text-left hover:bg-[#F8F8F8] transition-colors">
-        <span className="font-semibold text-[#2D2D2D] pr-4">{question}</span>
+    <div className="bg-[#F6F6F6] border border-[#E0E0E0] rounded-xl overflow-hidden">
+      <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-between p-5 text-left hover:bg-[#ECECEC] transition-colors">
+        <span className="font-semibold text-[#082B41] pr-4">{question}</span>
         <ChevronDown className={`w-5 h-5 text-[#FF9100] flex-shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
-      {isOpen && <div className="px-5 pb-5 text-[#555555] leading-relaxed border-t border-[#F0F0F0]"><div className="pt-4">{answer}</div></div>}
+      {isOpen && <div className="px-5 pb-5 text-[#2D2D2D] leading-relaxed border-t border-[#E0E0E0]"><div className="pt-4">{answer}</div></div>}
     </div>
   );
 }
