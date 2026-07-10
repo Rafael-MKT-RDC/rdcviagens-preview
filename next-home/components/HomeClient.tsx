@@ -48,7 +48,7 @@ export default function HomeClient({ cms, redesCms = [] , newsletterFormId }: { 
       }))
     : heroSlides;
   const stats = cms.stats?.length ? cms.stats : fallbackStats;
-  const corpData = corporateSolutions.map((s, i) => ({ ...s, ...(cms.corpSolucoes?.[i] ?? {}) }));
+  const corpData = corporateSolutions.map((s) => { const o = (cms.corpSolucoes ?? []).find((x) => x?.title === s.title); return o ? { ...s, ...o } : s; });
   const bullets = cms.assinaturasBullets?.length ? cms.assinaturasBullets : ["Planejamento facilitado", "Economia real", "Agência dedicada", "Não compromete o limite do cartão"];
   const redes: Rede[] = redesCms.length ? redesCms : redesHoteleiras;
 
