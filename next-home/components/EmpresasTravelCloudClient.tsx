@@ -156,13 +156,13 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       </section>
 
       {/* Frentes de aplicação (use cases) */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41]">
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0"><Smartphone className="w-4 h-4 mr-2" />{cms.frentesBadge ?? "Frentes de aplicação"}</Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.frentesTitulo ?? "Para quem é a RDC Travel Cloud?"}</h2>
-              <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.frentesSubtitulo ?? (<>Uma infraestrutura de viagens para diferentes <strong>modelos de negócio B2B e B2B2C</strong> que buscam criar a categoria de viagem no seu ecossistema com conveniência.</>)}</p>
+              <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0"><Smartphone className="w-4 h-4 mr-2" />{cms.frentesBadge ?? "Frentes de aplicação"}</Badge>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">{cms.frentesTitulo ?? "Para quem é a RDC Travel Cloud?"}</h2>
+              <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">{cms.frentesSubtitulo ?? (<>Uma infraestrutura de viagens para diferentes <strong className="text-white">modelos de negócio B2B e B2B2C</strong> que buscam criar a categoria de viagem no seu ecossistema com conveniência.</>)}</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {useCases.map((useCase, index) => (
@@ -207,13 +207,13 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       </section>
 
       {/* Diferenciais */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41]">
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0"><Zap className="w-4 h-4 mr-2" />{cms.difBadge ?? "Diferenciais"}</Badge>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.difTitulo ?? "Por que a RDC Travel Cloud?"}</h2>
-              <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.difSubtitulo ?? (<>Conveniência para o usuário, simplicidade para o parceiro. <strong>Operação turística completa, modelo adaptável e go-to-market acelerado.</strong></>)}</p>
+              <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0"><Zap className="w-4 h-4 mr-2" />{cms.difBadge ?? "Diferenciais"}</Badge>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">{cms.difTitulo ?? "Por que a RDC Travel Cloud?"}</h2>
+              <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">{cms.difSubtitulo ?? (<>Conveniência para o usuário, simplicidade para o parceiro. <strong className="text-white">Operação turística completa, modelo adaptável e go-to-market acelerado.</strong></>)}</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {differentials.map((diff, index) => (
