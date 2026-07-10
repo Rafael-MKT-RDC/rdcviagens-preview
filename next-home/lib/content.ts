@@ -75,10 +75,10 @@ export const stats = [
 ];
 
 export const corporateSolutions = [
-  { title: "RDC Travel Cloud", description: "Viagens dentro do seu ecossistema. Plataforma white label para parceiros oferecerem viagens.", href: "/solucoes-corporativas#travelcloud", cta: "Vamos construir juntos?", logo: "/logos/b2b/travel_cloude_logo.svg", ctaBg: "bg-[#FF9100] hover:bg-[#E68200] text-white" },
-  { title: "RDC Premiação", description: "Benefício corporativo que transforma vidas. Ofereça viagens como reconhecimento para seus colaboradores.", href: "/solucoes-corporativas#premiacao", cta: "Descubra como premiar", logo: "/logos/b2b/premiacao_logo.svg", ctaBg: "bg-[#FF9100] hover:bg-[#E68200] text-white" },
-  { title: "RDC Gestão de Viagens", description: "Gestão completa de viagens corporativas com eficiência, controle e economia.", href: "/solucoes-corporativas#gestao", cta: "Conheça a gestão inteligente", logo: "/logos/b2b/gestao_de_viagens_logo.svg", ctaBg: "bg-[#FF9100] hover:bg-[#E68200] text-white" },
-  { title: "RDC Parcerias", description: "Alianças estratégicas para criar novos canais de aquisição e valor agregado.", href: "/solucoes-corporativas#parcerias", cta: "Vamos construir juntos?", logo: "/logos/b2b/parcerias_logo.svg", ctaBg: "bg-[#FF9100] hover:bg-[#E68200] text-white" },
+  { title: "RDC Travel Cloud", description: "Viagens dentro do seu ecossistema. Plataforma white label para parceiros oferecerem viagens.", href: "/solucoes-corporativas/travel-cloud", cta: "Vamos construir juntos?", logo: "/logos/b2b/travel_cloude_logo.svg", ctaBg: "bg-[#FF9100] hover:bg-[#E68200] text-white" },
+  { title: "RDC Premiação", description: "Benefício corporativo que transforma vidas. Ofereça viagens como reconhecimento para seus colaboradores.", href: "/solucoes-corporativas/premiacao", cta: "Descubra como premiar", logo: "/logos/b2b/premiacao_logo.svg", ctaBg: "bg-[#FF9100] hover:bg-[#E68200] text-white" },
+  { title: "RDC Gestão de Viagens", description: "Gestão completa de viagens corporativas com eficiência, controle e economia.", href: "/solucoes-corporativas/gestao", cta: "Conheça a gestão inteligente", logo: "/logos/b2b/gestao_de_viagens_logo.svg", ctaBg: "bg-[#FF9100] hover:bg-[#E68200] text-white" },
+  { title: "RDC Parcerias", description: "Alianças estratégicas para criar novos canais de aquisição e valor agregado.", href: "/solucoes-corporativas/parcerias", cta: "Vamos construir juntos?", logo: "/logos/b2b/parcerias_logo.svg", ctaBg: "bg-[#FF9100] hover:bg-[#E68200] text-white" },
 ];
 
 export type Rede = { nome: string; descricao?: string; logo?: string };
