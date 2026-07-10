@@ -21,10 +21,10 @@ const navItems = [
   ]},
   { label: "Soluções Corporativas", href: "/solucoes-corporativas", children: [
     { label: "Conheça nossas soluções", href: "/solucoes-corporativas" },
+    { label: "RDC Travel Cloud", href: "/solucoes-corporativas/travel-cloud" },
     { label: "RDC Premiação", href: "/solucoes-corporativas/premiacao" },
     { label: "RDC Gestão de Viagens", href: "/solucoes-corporativas/gestao" },
     { label: "RDC Parcerias", href: "/solucoes-corporativas/parcerias" },
-    { label: "RDC Travel Cloud", href: "/solucoes-corporativas/travel-cloud" },
   ]},
   { label: "Blog", href: "/blog" },
   { label: "Dúvidas", href: "/duvidas" },
