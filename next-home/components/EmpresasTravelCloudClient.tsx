@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 const PHONE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/travelcloud-phone-right-tilt-djSCuMu5Cgmgc3Krv2XNK3.webp";
-const SKY_IMG = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80";
+const SKY_IMG = "https://images.unsplash.com/photo-1601297183305-6df142704ea2?w=1920&q=80";
 
 const useCases = [
   { icon: CreditCard, title: "Fintechs e Cartões", description: <>Crie a <strong>categoria de viagem</strong> dentro do seu app. Nova fonte de <strong>relacionamento, ativação e monetização</strong> para sua base, com ou sem experiência white label.</>, audience: "Fintechs, bancos, cartões corporativos" },
@@ -230,39 +230,40 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
         </AnimateOnScroll>
       </section>
 
-      {/* RDC Prime */}
-      <section id="beneficio-lazer" className="relative py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41] text-white overflow-hidden">
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-[#FF9100] opacity-10 blur-3xl" />
-        <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-[#0E4D6E] opacity-20 blur-3xl" />
+      {/* RDC Prime — universo B2C (base clara, laranja protagonista, Azul RDC de confiança) */}
+      <section id="beneficio-lazer" className="relative py-20 md:py-28 bg-gradient-to-b from-[#EAF6FB] via-white to-[#EAF6FB] text-[#2D2D2D] overflow-hidden">
+        <div className="absolute -top-10 right-0 w-96 h-96 rounded-full bg-[#8ECAE6] opacity-30 blur-3xl" />
+        <div className="absolute bottom-0 -left-10 w-96 h-96 rounded-full bg-[#FF9100] opacity-10 blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 w-80 h-80 rounded-full bg-[#00B4D8] opacity-10 blur-3xl" />
         <AnimateOnScroll variant="fade-up">
           <div className="container relative z-10">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-14">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logos/b2c/RDC_prime.png" alt="RDC Prime" className="h-12 md:h-16 w-auto mx-auto mb-6" />
-                <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Award className="w-4 h-4 mr-2" />{cms.primeBadge ?? "Produto complementar"}</Badge>
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">{cms.primeTitulo ?? "RDC Prime: benefício de viagem pessoal para o colaborador"}</h2>
-                <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">{cms.primeSubtitulo ?? (<>O <strong className="text-white">RDC Prime</strong> é um produto separado da Travel Cloud. É um <strong className="text-white">benefício de viagem de lazer</strong> voltado ao colaborador e sua família, no mesmo modelo de assinatura que já funciona em outros segmentos de bem-estar.</>)}</p>
+                <img src="/logos/b2c/RDC_prime.png" alt="RDC Prime" className="h-14 md:h-20 w-auto mx-auto mb-6" />
+                <Badge className="mb-5 bg-[#FF9100] hover:bg-[#E07F00] text-white border-0 shadow-md shadow-[#FF9100]/30"><Award className="w-4 h-4 mr-2" />{cms.primeBadge ?? "Produto complementar"}</Badge>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00148A] mb-5">{cms.primeTitulo ?? "RDC Prime: benefício de viagem pessoal para o colaborador"}</h2>
+                <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.primeSubtitulo ?? (<>O <strong className="text-[#FF9100]">RDC Prime</strong> é um produto separado da Travel Cloud. É um <strong className="text-[#2D2D2D]">benefício de viagem de lazer</strong> voltado ao colaborador e sua família, no mesmo modelo de assinatura que já funciona em outros segmentos de bem-estar.</>)}</p>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-                  <h3 className="font-bold text-lg mb-4 text-[#FF9100]">{cms.primeComoTitulo ?? "Como funciona"}</h3>
-                  <p className="text-[#C7D3E0] leading-relaxed mb-4">A empresa habilita o acesso e o colaborador interessado adere para utilizar as vantagens em <strong className="text-white">férias, feriados, fins de semana e viagens em família</strong>. O mesmo modelo de assinatura que já funciona para academias e bem-estar, agora aplicado a viagens.</p>
-                  <p className="text-[#C7D3E0] text-sm">Benefício de <strong>alto desejo</strong>, para a família toda, que ajuda na <strong>retenção, engajamento e marca empregadora</strong>. Sem trabalho operacional para a empresa.</p>
+                <div className="bg-white border border-[#E8E8E8] rounded-3xl p-8 shadow-xl shadow-[#00148A]/5">
+                  <h3 className="font-bold text-xl mb-4 text-[#FF9100]">{cms.primeComoTitulo ?? "Como funciona"}</h3>
+                  <p className="text-[#555555] leading-relaxed mb-4">A empresa habilita o acesso e o colaborador interessado adere para utilizar as vantagens em <strong className="text-[#2D2D2D]">férias, feriados, fins de semana e viagens em família</strong>. O mesmo modelo de assinatura que já funciona para academias e bem-estar, agora aplicado a viagens.</p>
+                  <p className="text-[#555555] text-sm">Benefício de <strong className="text-[#2D2D2D]">alto desejo</strong>, para a família toda, que ajuda na <strong className="text-[#2D2D2D]">retenção, engajamento e marca empregadora</strong>. Sem trabalho operacional para a empresa.</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-                  <h3 className="font-bold text-lg mb-4 text-[#FF9100]">{cms.primeRecebeTitulo ?? "O que o colaborador recebe"}</h3>
+                <div className="bg-white border border-[#E8E8E8] rounded-3xl p-8 shadow-xl shadow-[#00148A]/5">
+                  <h3 className="font-bold text-xl mb-4 text-[#FF9100]">{cms.primeRecebeTitulo ?? "O que o colaborador recebe"}</h3>
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]"><strong className="text-white">Tarifas exclusivas</strong> em +200 mil hotéis e resorts</span></li>
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]"><strong className="text-white">Atendimento dedicado</strong> com suporte humano e prioridade</span></li>
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]">Mais <strong className="text-white">flexibilidade</strong> para alterações e remarcações</span></li>
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]">Auxílio em <strong className="text-white">early check-in e late check-out</strong></span></li>
-                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#FF9100] flex-shrink-0 mt-0.5" /><span className="text-[#C7D3E0]">Disponível <strong className="text-white">o ano todo</strong> — não depende de promoção ou data especial</span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00148A] flex-shrink-0 mt-0.5" /><span className="text-[#555555]"><strong className="text-[#2D2D2D]">Tarifas exclusivas</strong> em +200 mil hotéis e resorts</span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00148A] flex-shrink-0 mt-0.5" /><span className="text-[#555555]"><strong className="text-[#2D2D2D]">Atendimento dedicado</strong> com suporte humano e prioridade</span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00148A] flex-shrink-0 mt-0.5" /><span className="text-[#555555]">Mais <strong className="text-[#2D2D2D]">flexibilidade</strong> para alterações e remarcações</span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00148A] flex-shrink-0 mt-0.5" /><span className="text-[#555555]">Auxílio em <strong className="text-[#2D2D2D]">early check-in e late check-out</strong></span></li>
+                    <li className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00148A] flex-shrink-0 mt-0.5" /><span className="text-[#555555]">Disponível <strong className="text-[#2D2D2D]">o ano todo</strong> — não depende de promoção ou data especial</span></li>
                   </ul>
                 </div>
               </div>
-              <div className="mt-8 bg-white/5 border border-white/10 rounded-xl p-5 text-center">
-                <p className="text-[#C7D3E0] text-sm">{cms.primeNota ?? (<><strong className="text-[#FF9100]">Importante:</strong> O RDC Prime é ofertado <strong className="text-white">apenas na jornada de lazer/benefícios</strong>. Na viagem corporativa, o foco é gestão de despesas e governança, sem assinatura de benefício pessoal.</>)}</p>
+              <div className="mt-8 bg-[#00148A] rounded-2xl p-6 text-center">
+                <p className="text-[#DCE6EF] text-sm">{cms.primeNota ?? (<><strong className="text-[#FF9100]">Importante:</strong> O RDC Prime é ofertado <strong className="text-white">apenas na jornada de lazer/benefícios</strong>. Na viagem corporativa, o foco é gestão de despesas e governança, sem assinatura de benefício pessoal.</>)}</p>
               </div>
             </div>
           </div>
