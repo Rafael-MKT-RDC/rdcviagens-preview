@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 const PHONE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663280013040/b2DbK5LckLkoJ8WoeWdfV2/travelcloud-phone-right-tilt-djSCuMu5Cgmgc3Krv2XNK3.webp";
+const SKY_IMG = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80";
 
 const useCases = [
   { icon: CreditCard, title: "Fintechs e Cartões", description: <>Crie a <strong>categoria de viagem</strong> dentro do seu app. Nova fonte de <strong>relacionamento, ativação e monetização</strong> para sua base, com ou sem experiência white label.</>, audience: "Fintechs, bancos, cartões corporativos" },
@@ -75,11 +76,11 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       {/* Hero */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41]" />
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-[#FF9100] blur-3xl" />
-            <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full bg-[#0E4D6E] blur-3xl" />
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={SKY_IMG} alt="" aria-hidden="true" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#082B41]/95 via-[#082B41]/85 to-[#082B41]/55" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#082B41]/90 via-transparent to-[#082B41]/30" />
+          <div className="absolute top-24 right-24 w-96 h-96 rounded-full bg-[#FF9100] opacity-10 blur-3xl" />
         </div>
         <div className="container relative z-10">
           <Link href="/solucoes-corporativas"><Button variant="ghost" className="text-white hover:bg-white/10 mb-6"><ArrowLeft className="mr-2 h-4 w-4" />Voltar para Soluções Corporativas</Button></Link>
@@ -95,7 +96,7 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
             </div>
             <div className="hidden lg:flex justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={PHONE_IMG} alt="App de benefícios com a categoria Viagem em destaque" className="max-h-[500px] w-auto drop-shadow-2xl" />
+              <img src={PHONE_IMG} alt="App de benefícios com a categoria Viagem em destaque" className="max-h-[520px] w-auto drop-shadow-2xl" />
             </div>
           </div>
         </div>
@@ -135,17 +136,19 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       </section>
 
       {/* Nova fonte de receita */}
-      <section className="py-12 md:py-16 bg-gradient-to-r from-[#FF9100] to-[#E07F00]">
+      <section className="relative py-14 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41] overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-80 h-80 rounded-full bg-[#FF9100] opacity-10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-72 h-72 rounded-full bg-[#0E4D6E] opacity-20 blur-3xl" />
         <AnimateOnScroll variant="fade">
-          <div className="container">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6"><TrendingUp className="w-8 h-8 text-white" /></div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">{cms.receitaTitulo ?? "Nova fonte de receita para o seu negócio"}</h2>
-              <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">{cms.receitaTexto ?? (<>Além de gerar conveniência para o usuário, a Travel Cloud abre uma <strong>nova vertical de monetização</strong> para o parceiro. Comissões sobre reservas, adesão ao RDC Prime e aumento de engajamento com outros produtos e serviços do seu ecossistema.</>)}</p>
+          <div className="container relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="w-16 h-16 rounded-full bg-[#FF9100] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#FF9100]/30"><TrendingUp className="w-8 h-8 text-white" /></div>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{cms.receitaTitulo ?? "Nova fonte de receita para o seu negócio"}</h2>
+              <p className="text-lg text-[#C7D3E0] mb-8 max-w-2xl mx-auto">{cms.receitaTexto ?? (<>Além de gerar conveniência para o usuário, a Travel Cloud abre uma <strong className="text-white">nova vertical de monetização</strong> para o parceiro. Comissões sobre reservas, adesão ao RDC Prime e aumento de engajamento com outros produtos e serviços do seu ecossistema.</>)}</p>
               <div className="grid md:grid-cols-3 gap-6 mt-8">
-                <div className="bg-white/15 backdrop-blur-sm rounded-xl p-5"><p className="text-2xl font-bold mb-2">{cms.receitaC1T ?? "Comissão"}</p><p className="text-white/80 text-sm">{cms.receitaC1D ?? "Receita sobre cada reserva realizada pelo usuário no seu ecossistema"}</p></div>
-                <div className="bg-white/15 backdrop-blur-sm rounded-xl p-5"><p className="text-2xl font-bold mb-2">{cms.receitaC2T ?? "Engajamento"}</p><p className="text-white/80 text-sm">{cms.receitaC2D ?? "Usuário passa mais tempo no app e consome outros produtos e serviços"}</p></div>
-                <div className="bg-white/15 backdrop-blur-sm rounded-xl p-5"><p className="text-2xl font-bold mb-2">{cms.receitaC3T ?? "Retenção"}</p><p className="text-white/80 text-sm">{cms.receitaC3D ?? "Viagem como benefício aumenta a percepção de valor e reduz churn"}</p></div>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#FF9100]/50 transition-colors"><p className="text-xl font-bold mb-2 text-[#FF9100]">{cms.receitaC1T ?? "Comissão"}</p><p className="text-[#C7D3E0] text-sm leading-relaxed">{cms.receitaC1D ?? "Receita sobre cada reserva realizada pelo usuário no seu ecossistema"}</p></div>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#FF9100]/50 transition-colors"><p className="text-xl font-bold mb-2 text-[#FF9100]">{cms.receitaC2T ?? "Engajamento"}</p><p className="text-[#C7D3E0] text-sm leading-relaxed">{cms.receitaC2D ?? "Usuário passa mais tempo no app e consome outros produtos e serviços"}</p></div>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#FF9100]/50 transition-colors"><p className="text-xl font-bold mb-2 text-[#FF9100]">{cms.receitaC3T ?? "Retenção"}</p><p className="text-[#C7D3E0] text-sm leading-relaxed">{cms.receitaC3D ?? "Viagem como benefício aumenta a percepção de valor e reduz churn"}</p></div>
               </div>
             </div>
           </div>
@@ -228,11 +231,15 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       </section>
 
       {/* RDC Prime */}
-      <section id="beneficio-lazer" className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41] text-white">
+      <section id="beneficio-lazer" className="relative py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41] text-white overflow-hidden">
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-[#FF9100] opacity-10 blur-3xl" />
+        <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-[#0E4D6E] opacity-20 blur-3xl" />
         <AnimateOnScroll variant="fade-up">
-          <div className="container">
+          <div className="container relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logos/b2c/RDC_prime.png" alt="RDC Prime" className="h-12 md:h-16 w-auto mx-auto mb-6" />
                 <Badge className="mb-4 bg-[#FF9100] hover:bg-[#E07F00] text-[#082B41] border-0"><Award className="w-4 h-4 mr-2" />{cms.primeBadge ?? "Produto complementar"}</Badge>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">{cms.primeTitulo ?? "RDC Prime: benefício de viagem pessoal para o colaborador"}</h2>
                 <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">{cms.primeSubtitulo ?? (<>O <strong className="text-white">RDC Prime</strong> é um produto separado da Travel Cloud. É um <strong className="text-white">benefício de viagem de lazer</strong> voltado ao colaborador e sua família, no mesmo modelo de assinatura que já funciona em outros segmentos de bem-estar.</>)}</p>
