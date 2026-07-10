@@ -268,34 +268,34 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       </section>
 
       {/* Formulário (RD Station) */}
-      <section id="formulario" className="py-16 md:py-20 bg-white">
+      <section id="formulario" className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41]">
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0"><Mail className="w-4 h-4 mr-2" />{cms.formBadge ?? "Vamos conversar"}</Badge>
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.formTitulo ?? "Vamos desenhar sua vertical de viagens"}</h2>
-                <p className="text-lg text-[#555555] max-w-2xl mx-auto">{cms.formSubtitulo ?? (<>Preencha o formulário e nossa equipe entrará em contato para entender seu modelo de negócio e apresentar a <strong>solução mais adequada</strong>.</>)}</p>
+                <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0"><Mail className="w-4 h-4 mr-2" />{cms.formBadge ?? "Vamos conversar"}</Badge>
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">{cms.formTitulo ?? "Vamos desenhar sua vertical de viagens"}</h2>
+                <p className="text-lg text-[#C7D3E0] max-w-2xl mx-auto">{cms.formSubtitulo ?? (<>Preencha o formulário e nossa equipe entrará em contato para entender seu modelo de negócio e apresentar a <strong className="text-white">solução mais adequada</strong>.</>)}</p>
               </div>
-              <Card className="border border-[#E8E8E8] shadow-lg"><CardContent className="p-8"><RDStationForm formId={cms.formRdId ?? RD_FORMS.travelCloud} /></CardContent></Card>
+              <Card className="border border-[#E8E8E8] shadow-xl bg-white"><CardContent className="p-8"><RDStationForm formId={cms.formRdId ?? RD_FORMS.travelCloud} /></CardContent></Card>
             </div>
           </div>
         </AnimateOnScroll>
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-20 bg-[#F6F6F6]">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41]">
         <AnimateOnScroll variant="fade-up">
           <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <Badge className="mb-4 bg-[#F6F6F6] text-[#E07F00] border-0">{cms.faqBadge ?? "Dúvidas frequentes"}</Badge>
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2D2D2D] mb-4">{cms.faqTitulo ?? "Perguntas sobre a RDC Travel Cloud"}</h2>
+                <Badge className="mb-4 bg-white/10 text-[#FF9100] border-0">{cms.faqBadge ?? "Dúvidas frequentes"}</Badge>
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4">{cms.faqTitulo ?? "Perguntas sobre a RDC Travel Cloud"}</h2>
               </div>
               <div className="space-y-3">{faqs.map((faq, index) => (<FaqItem key={index} question={faq.question} answer={faq.answer} />))}</div>
               <div className="text-center mt-8">
-                <p className="text-[#555555] mb-4">Não encontrou sua dúvida?</p>
-                <Link href="/contato"><Button variant="outline" className="border-[#FF9100] text-[#FF9100] hover:bg-[#FFF0DB] rounded-full">Falar com nossa equipe</Button></Link>
+                <p className="text-[#C7D3E0] mb-4">Não encontrou sua dúvida?</p>
+                <Link href="/contato"><Button variant="outline" className="border-[#FF9100] text-[#FF9100] hover:bg-[#FF9100] hover:text-white rounded-full">Falar com nossa equipe</Button></Link>
               </div>
             </div>
           </div>
@@ -303,12 +303,12 @@ export function EmpresasTravelCloudClient({ cms = {} }: { cms?: any }) {
       </section>
 
       {/* CTA final */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-[#082B41] via-[#04161F] to-[#082B41]">
         <AnimateOnScroll variant="fade">
           <div className="container">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-xl md:text-2xl font-bold text-[#2D2D2D] mb-4">{cms.ctaTitulo ?? "Crie a categoria de viagem no seu ecossistema"}</h2>
-              <p className="text-lg text-[#555555] mb-8">{cms.ctaTexto ?? "Um único fornecedor. Mais tempo de tela. Mais receita. Seu usuário reserva viagens sem sair do app e você não precisa operar nada."}</p>
+              <h2 className="text-xl md:text-2xl font-bold text-white mb-4">{cms.ctaTitulo ?? "Crie a categoria de viagem no seu ecossistema"}</h2>
+              <p className="text-lg text-[#C7D3E0] mb-8">{cms.ctaTexto ?? "Um único fornecedor. Mais tempo de tela. Mais receita. Seu usuário reserva viagens sem sair do app e você não precisa operar nada."}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center"><Button size="lg" className="bg-[#FF9100] hover:bg-[#E07F00] text-white px-8 rounded-full" onClick={scrollForm}>{cms.ctaBotao ?? "Criar minha vertical de viagens"}<ArrowRight className="ml-2 h-4 w-4" /></Button></div>
             </div>
           </div>
